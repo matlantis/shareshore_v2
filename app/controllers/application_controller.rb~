@@ -1,0 +1,36 @@
+# coding: utf-8
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :null_session
+  before_action :prepare_current_session
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :showemail, :showphone) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone) }
+  end
+
+  def prepare_current_session
+    unless session.key? :city # seems to be a new user
+      session[:country] = "Germany"
+      session[:city] = "München"
+      print location
+      addr = Geocoder.address(request.remote_ip)
+      if addr
+        parts = addr.split(',')
+        if parts.size == 3
+          session[:city] = parts[0]
+          session[:country] = parts[2]
+        end
+      end
+      session[:current_location] = location
+    end
+
+    unless session.key? :radius
+      session[:radius] = 5
+    end
+    
+  end
+end

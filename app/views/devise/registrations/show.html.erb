@@ -1,0 +1,34 @@
+<h2>Profile of user <%= @user.nickname %></h2>
+
+
+<table>
+  <tr>
+    <td>Name: </td>
+    <td><%= @user.fullname %></td>
+  </tr>
+  <% if @user.showemail? %>
+    <% if current_user %>
+      <% subject = "Shareshore request from user " + current_user.nickname %>
+    <% else %>
+      <% subject = "Shareshore user request" %>
+    <% end %>
+    <tr>
+      <td>email:</td>
+      <td><%= mail_to @user.email, @user.email, subject: subject %></td>
+    </tr>
+  <% end %>
+  <% if @user.showphone %>
+    <tr>  
+      <td>phone:</td>
+      <td><%= @user.phoneno %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'List of Articles for this user', articles_user_path(@user) %><br>
+
+<% @user.locations.each do |location| %>
+<% if location.articles.count > 0 %>
+<%= link_to 'List of Articles at ' + location.shortaddress, articles_location_path(location) %><br>
+<% end %>
+<% end %>
