@@ -3,6 +3,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
+
+  # the search
+  def search
+  end
   
   # GET /articles
   # GET /articles.json
@@ -32,13 +36,13 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all
 
-    # apply location criteria
-    location = Location.new(street_and_no: session[:address])
-    if location.geocode
-      @articles = @articles.joins(:location).near(location, session[:radius])     
-    else
-      flash[:alert] = 'Your location is unknown'
-    end
+      # apply location criteria
+      location = Location.new(street_and_no: session[:address])
+      if location.geocode
+        @articles = @articles.joins(:location).near(location, session[:radius])     
+      else
+        flash[:alert] = 'Your location is unknown'
+      end
     end
 
     # apply pattern criteria
