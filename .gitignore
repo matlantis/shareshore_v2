@@ -17,3 +17,6 @@ public/uploads
 
 # db if present
 db/*.sqlite3
+
+# tmp files
+*~
