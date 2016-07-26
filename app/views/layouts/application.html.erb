@@ -2,61 +2,25 @@
 <html>
 <head>
   <title>ShareshoreV2</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Shareshore</a>
-      </div>
+  <%= render 'layouts/navigation' %>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-          <li>
-            <%= link_to 'New Article', new_article_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-          </li>
-          <li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-          </li>
-          <li>
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-          </li>
-          <% end %>
-        </ul>
-
-        <ul class="nav navbar-text navbar-right">
-          <% if user_signed_in? %>
-          <li>
-            Logged in as <strong><%= current_user.nickname %></strong>.
-          </li>
-          <% end %>
-        </ul> 
-
+  
+  <div class="container">
+    <div class="row">
+      <%= render 'layouts/messages' %>
+    </div>
+        
+    <div class="row">
+      <div class"col-xs-12">
+        <%= yield %>
       </div>
     </div>
-  </nav>          
-
-
-
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <%= yield %>
     
   </div>
 

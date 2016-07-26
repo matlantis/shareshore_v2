@@ -52,3 +52,11 @@ gem 'geocoder'
 gem 'carrierwave' # for picture upload
 
 gem 'mini_magick', '3.8.0' # for creating thumbs
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+gem 'bootstrap_form'
+
+## Gemfile for Rails 3+, Sinatra, or Merb
+gem 'will_paginate', '~> 3.0.5'

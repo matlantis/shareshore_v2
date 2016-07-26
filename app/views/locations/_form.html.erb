@@ -1,33 +1,10 @@
-<%= form_for(@location) do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<%= bootstrap_form_for(@location, layout: :horizontal) do |f| %>
+  <%= f.alert_message "Please fix the errors below." %>
 
-      <ul>
-      <% @location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.text_field :street_and_no %>
+  <%= f.text_field :postcode %>
+  <%= f.text_field :city %>
+  <%= f.text_field :country %>
+  <%= f.submit %>
 
-  <div class="field">
-    <%= f.label :street_and_no %><br>
-    <%= f.text_field :street_and_no %>
-  </div>
-  <div class="field">
-    <%= f.label :postcode %><br>
-    <%= f.text_field :postcode %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

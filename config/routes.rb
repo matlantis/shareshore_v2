@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   
-  get '/search' => 'articles#search'
+  get '/search' => 'articles#search', as: 'search_articles'
   root 'articles#search'
 
   resources :articles

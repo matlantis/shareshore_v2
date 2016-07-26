@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Shareshore</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <%= link_to 'Search Articles', search_articles_path, class: 'navbar-link' %>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <div class="navbar-text">Logged in as <strong><%= current_user.nickname %></strong>.</div>
+        </li>
+        <% end %>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to 'New Article', new_article_path(current_user), :class => 'navbar-link' %>
+        </li>
+        <li>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+        </li>
+        <li>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+        </li>
+        <li>
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        </li>
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+      </ul> 
+
+    </div>
+  </div>
+</nav>          

@@ -39,7 +39,7 @@
 
 <h1>Listing Articles<%= spec_string %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -57,7 +57,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td><%= link_to article.title, article %></td>
         <td><%= article.details %></td>
         <td><%= article.price_eur %></td>
         <td><%= article.rate %></td>
@@ -74,5 +74,6 @@
   </tbody>
 </table>
 
-<br>
+<%= will_paginate @articles %>
+
 
