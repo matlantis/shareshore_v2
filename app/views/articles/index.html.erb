@@ -1,43 +1,60 @@
+<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>  
+
+<% if not @user and not @location %>
+<%= form_tag(articles_path, url: articles_path, method: "get", id: "search-form", class: "form") do %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="form-group">
+      <!-- <span class="input-group-addon">Search for</span> -->
+      <label class="control-label col-xs-2" for="pattern">Search for</label>
+      <div class="col-xs-10">
+        <%= text_field_tag :pattern, session[:pattern], placeholder: "Search Articles", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-xs-2" for="radius">within</label>
+      <div class="col-xs-10">
+        <div class="input-group">
+          <%= text_field_tag :radius, session[:radius], placeholder: "Search Radius", class: "form-control" %>
+          <span class="input-group-addon">km</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <!-- <span class="input-group-addon">km around</span> -->
+      <label class="control-label col-xs-2" for="address">around</label>
+      <div class="col-xs-10">
+        <%= text_field_tag :address, session[:address], placeholder: "address", class: "form-control" %>
+      </div>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-default btn-sm" %>
+  </div>
+</div>
+<% end %>
+
+<% end %>
+
 <% if @user %>
   <% spec_string = " for " + @user.nickname %>
 <% elsif @location %>
   <% spec_string = " at " + @location.shortaddress + " for " + @location.user.nickname %>
 <% else %>
-  <% spec_string = " near you" %>
-<% end %>
-  
-
-<% if not @user and not @location %>
-<%= form_tag(articles_path, url: articles_path, method: "get", id: "search-form", class: "form") do %>
-<div class="form-group">
-  <!-- <span class="input-group-addon">Search for</span> -->
-  <label class="control-label col-xs-2" for="pattern">Search for</label>
-  <div class="col-xs-10">
-    <%= text_field_tag :pattern, session[:pattern], placeholder: "Search Articles", class: "form-control" %>
-  </div>
-</div>
-<div class="form-group">
-  <label class="control-label col-xs-2" for="radius">within</label>
-  <div class="col-xs-10">
-    <div class="input-group">
-      <%= text_field_tag :radius, session[:radius], placeholder: "Search Radius", class: "form-control" %>
-      <span class="input-group-addon">km</span>
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <!-- <span class="input-group-addon">km around</span> -->
-  <label class="control-label col-xs-2" for="address">around</label>
-  <div class="col-xs-10">
-    <%= text_field_tag :address, session[:address], placeholder: "address", class: "form-control" %>
-  </div>
-</div>
-<%= submit_tag "Search", class: "btn btn-default btn-sm" %>
+  <% spec_string = " nearby" %>
 <% end %>
 
-<% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Articles<%= spec_string %></h1>
+  </div>
+</div>
 
-<h1>Listing Articles<%= spec_string %></h1>
+<% if @current_location %>
+<div class="row">
+  <div class="col-xs-12">
+      <div id="mapid" style="width: -1; height: 400px;"></div>
+  </div>
+</div>
+<% end %>
 
 <table class="table table-striped">
   <thead>
@@ -49,6 +66,9 @@
       <th>Gratis</th>
       <th>Deposit eur</th>
       <th>Location</th>
+      <% if @current_location %>
+        <th>Distance</th>
+      <% end %>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -64,6 +84,9 @@
         <td><%= article.gratis %></td>
         <td><%= article.deposit_eur %></td>
         <td><%= article.location.shortaddress %></td>
+        <% if @current_location %>
+          <td><%= "%.1f km" % article.location.distance_from( @current_location ) %></td>
+        <% end %>
         <td><%= link_to article.user.nickname, user_path(article.user) %></td>
         <td><%= image_tag(article.picture_url(:thumb)) if article.picture.present? %></td>
         <td><%= link_to 'Show', article %></td>
@@ -77,3 +100,52 @@
 <%= will_paginate @articles %>
 
 
+<% if @current_location %>
+    <script type="text/javascript">
+     var map = new OpenLayers.Map("mapid");
+
+     var wms = new OpenLayers.Layer.WMS(
+
+         "OpenLayers WMS",
+
+         "http://labs.metacarta.com/wms/vmap0",
+         
+         {layers: 'basic'}
+         
+     );
+
+     var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+     var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+     var zoom;
+     var position;
+     var center_position;
+
+     map.addLayer(new OpenLayers.Layer.OSM());
+     
+     var bounds = new OpenLayers.Bounds();
+
+     bounds.extend(new OpenLayers.LonLat( <%= @bound_n[1] %>, <%= @bound_n[0] %>).transform( fromProjection, toProjection));
+     bounds.extend(new OpenLayers.LonLat( <%= @bound_s[1] %>, <%= @bound_s[0] %>).transform( fromProjection, toProjection));
+     bounds.extend(new OpenLayers.LonLat( <%= @bound_e[1] %>, <%= @bound_e[0] %>).transform( fromProjection, toProjection));
+     bounds.extend(new OpenLayers.LonLat( <%= @bound_w[1] %>, <%= @bound_w[0] %>).transform( fromProjection, toProjection));
+
+     center_position = new OpenLayers.LonLat( <%= @current_location.longitude %>, <%= @current_location.latitude %>).transform( fromProjection, toProjection);
+     /* bounds.extend(center_position);*/
+
+
+     var markers = new OpenLayers.Layer.Markers( "Markers" );
+     map.addLayer(markers);
+     markers.addMarker(new OpenLayers.Marker(center_position));
+     var iconsize = new OpenLayers.Size(21,25);
+     var icon = new OpenLayers.Icon('http://www.openlayers.org/api/img/marker-blue.png', iconsize);
+     <% @articles.each do |article| %>
+     position = new OpenLayers.LonLat( <%= article.location.longitude %>, <%= article.location.latitude %>).transform( fromProjection, toProjection);
+     markers.addMarker(new OpenLayers.Marker(position, icon.clone()));
+     /* bounds.extend(position);*/
+     <% end %>        
+
+     zoom = map.getZoomForExtent(bounds);
+     console.log("zoom: " + zoom);
+     map.setCenter(center_position, zoom );
+    </script>
+<% end %>

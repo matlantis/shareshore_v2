@@ -42,13 +42,18 @@ class ArticlesController < ApplicationController
       end
         
       # apply location criteria
-      location = Location.new(street_and_no: session[:address])
-      if location.geocode
-        @articles = @articles.joins(:location).near(location, session[:radius])     
+      @current_location = Location.new(street_and_no: session[:address])
+      if @current_location.geocode
+        @articles = @articles.joins(:location).near(@current_location, session[:radius])     
       else
         flash[:alert] = 'Your location is unknown'
       end
 
+      # provide bounding box for the map (would be better if done on client side)
+      @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
+      @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
+      @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
+      @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
     end
 
     # apply pattern criteria
