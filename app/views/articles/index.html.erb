@@ -97,7 +97,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @articles %>
+<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
 
 
 <% if @current_location %>
@@ -138,6 +138,7 @@
      markers.addMarker(new OpenLayers.Marker(center_position));
      var iconsize = new OpenLayers.Size(21,25);
      var icon = new OpenLayers.Icon('http://www.openlayers.org/api/img/marker-blue.png', iconsize);
+
      <% @articles.each do |article| %>
      position = new OpenLayers.LonLat( <%= article.location.longitude %>, <%= article.location.latitude %>).transform( fromProjection, toProjection);
      markers.addMarker(new OpenLayers.Marker(position, icon.clone()));

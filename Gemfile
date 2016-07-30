@@ -60,3 +60,4 @@ gem 'bootstrap_form'
 
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'

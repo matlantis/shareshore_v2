@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  has_many :articles, inverse_of: :location
+  has_many :articles, inverse_of: :location, dependent: :delete_all
   belongs_to :user
 
   geocoded_by :fulladdress   # can also be an IP address

@@ -3,15 +3,17 @@
   
   <%= f.text_field :title %>
   <%= f.text_area :details %>
-  <%= f.number_field :price_eur, label: "Price in EUR", append: "€" %>
+  <%= f.number_field :price_eur, label: "Price in EUR", value: 10, append: "€" %>
   <%= f.text_field :rate %>
   
-  <%= f.form_group :gratis do %>
-  <%= f.check_box :gratis %>
+  <%= f.form_group do %>
+    <%= f.check_box :gratis %>
   <% end %>
     
-  <%= f.number_field :deposit_eur, label: "Deposit", append: "€" %>
+  <%= f.number_field :deposit_eur, label: "Deposit", value: 0, append: "€" %>
   <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
   <%= f.file_field :picture %>
-  <%= f.submit %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
 <% end %>

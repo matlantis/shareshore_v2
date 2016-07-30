@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :locations, inverse_of: :user
-  has_many :articles, inverse_of: :user
+  has_many :locations, inverse_of: :user, dependent: :delete_all
+  has_many :articles, inverse_of: :user, dependent: :delete_all
   
   #validates :role, inclusion: { in: %w(admin user) }
   validates :nickname, uniqueness: true,
