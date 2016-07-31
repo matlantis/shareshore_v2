@@ -13,9 +13,10 @@ class User < ActiveRecord::Base
   validates :phoneno, format: { with: /[a-zA-Z0-9\- ]*/ }
   
   def fullname
+    name = ""
     if firstname
-      name = firstname + " "
+      name += String(firstname) + " "
     end
-    name += lastname
+    name += String(lastname)
   end
 end
