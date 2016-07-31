@@ -16,6 +16,7 @@
    - [ ] user edit/show has list of articles inline
    - [ ] links as buttons
    - [ ] check error msg in devise bootstrap forms
+** TODO article: price_eur durch value_eur ersetzen und dokumentieren (keep data in table)
 ** DONE [[git hub check in]]
 ** DONE highlight alerts and notices
    use the ruby girls layout example - not so good idea, begin with bootstrap from scratch see layout below
