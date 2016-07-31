@@ -1,0 +1,45 @@
+#+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
+
+* Shareshore V2 Todos
+** TODO karte aufhübschen [2/5]
+   - [X]  suchradius verwenden
+   - [X]  marker in verschiedenen farben
+   - [ ] tooltips mit artikeln, bzw. mit links
+   - [ ] java script an irgendne separierte stelle schreiben
+   - [ ] hover article hightlights marker
+** TODO statische pages [0/2]
+   - [ ] entwurf
+     - welcome page with description what to do
+   - [ ] realisierung
+** TODO layout II
+   - [ ] there are still tables and form that needs bootstrap markup (especially the devise stuff)
+   - [ ] user edit/show has list of articles inline
+   - [ ] links as buttons
+   - [ ] check error msg in devise bootstrap forms
+** DONE [[git hub check in]]
+** DONE highlight alerts and notices
+   use the ruby girls layout example - not so good idea, begin with bootstrap from scratch see layout below
+   - devise and flash messages:
+     https://github.com/plataformatec/devise/wiki/How-To:-Integrate-I18n-Flash-Messages-with-Devise-and-Bootstrap
+     http://stackoverflow.com/questions/20234504/rails-devise-i18n-flash-messages-with-twitter-bootstrap
+** DONE layout mit bootstrap
+   http://getbootstrap.com/components/
+   http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+   https://launchschool.com/blog/integrating-rails-and-bootstrap-part-1
+   https://github.com/bootstrap-ruby/rails-bootstrap-forms
+** DONE link auf search seite in nav bar
+** DONE Listen seitenweise!
+   https://github.com/mislav/will_paginate/wiki
+       
+** DONE eigene artikel aus der suche herausnehmen
+** DONE die karte wieder einbauen und distanzen berechnen
+   - [X] karte
+   - [X] distanzen anzeigen
+** DONE geocoder
+   - [X] geocoder einheiten
+   - [X] geocoder caching
+** DONE setup devise mailer
+   https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+   done for development environment
+   set up a new mailbox on campusspeicher
+   to configure it on another system, edit Procfile.template and .env.template and remove .template ending
