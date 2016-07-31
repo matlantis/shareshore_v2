@@ -1,6 +1,8 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** TODO Devise with email confirmation
+** TODO Internationalisierung
 ** TODO karte aufhübschen [2/5]
    - [X]  suchradius verwenden
    - [X]  marker in verschiedenen farben
@@ -11,12 +13,14 @@
    - [ ] entwurf
      - welcome page with description what to do
    - [ ] realisierung
-** TODO layout II
-   - [ ] there are still tables and form that needs bootstrap markup (especially the devise stuff)
-   - [ ] user edit/show has list of articles inline
-   - [ ] links as buttons
-   - [ ] check error msg in devise bootstrap forms
-** TODO article: price_eur durch value_eur ersetzen und dokumentieren (keep data in table)
+** TODO user edit/show has list of articles inline (pagewise - uhm, not easy)
+** DONE layout II
+   CLOSED: [2016-07-31 So 20:19]
+   - [X] there are still tables and form that needs bootstrap markup (especially the devise stuff)
+   - [X] links as buttons
+   - [X] check error msg in devise bootstrap forms - works perfectly!
+** DONE article: price_eur durch value_eur ersetzen und dokumentieren (keep data in table)
+   CLOSED: [2016-07-31 So 19:38]
 ** DONE [[git hub check in]]
 ** DONE highlight alerts and notices
    use the ruby girls layout example - not so good idea, begin with bootstrap from scratch see layout below

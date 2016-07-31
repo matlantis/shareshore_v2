@@ -89,9 +89,9 @@
         <% end %>
         <td><%= link_to article.user.nickname, user_path(article.user) %></td>
         <td><%= image_tag(article.picture_url(:thumb)) if article.picture.present? %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to('Edit', edit_article_path(article)) if current_user and current_user.id == article.user.id %></td>
-        <td><%= link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } ) if current_user and current_user.id == article.user.id %></td>
+        <td><%= link_to 'Show', article, class: "btn btn-default" %></td>
+        <td><%= link_to('Edit', edit_article_path(article), class: "btn btn-default") if current_user and current_user.id == article.user.id %></td>
+        <td><%= link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" ) if current_user and current_user.id == article.user.id %></td>
       </tr>
     <% end %>
   </tbody>

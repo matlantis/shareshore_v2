@@ -1,11 +1,23 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= link_to "View public profile", user_path(@user) %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to "View public profile", user_path(@user), class: "btn btn-default" %>
+    <%= link_to 'My Articles', articles_user_path(@user), class: "btn btn-default" %>
+    <%= link_to 'New Article', new_article_path, class: "btn btn-default" %>
+  </div>
+</div>
 
-<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
-    <li><a data-toggle="tab" href="#locations">Locations</a></li>
-</ul>
+<br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
+      <li><a data-toggle="tab" href="#locations">Locations</a></li>
+    </ul>
+  </div>
+</div>
 
 <div class="tab-content">
   <div id="basic" class="tab-pane fade in active">
@@ -43,10 +55,6 @@
         <%= f.submit "Update" %>
       <% end %>
     <% end %>
-
-    <%= link_to 'My Articles', articles_user_path(@user) %>
-
-    <%= link_to 'New Article', new_article_path %>
 
     <h3>Cancel my account</h3>
 
