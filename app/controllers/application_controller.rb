@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   before_action :prepare_current_session
-
+  before_action :set_locale
+  
   def prepare_current_session
     unless session.key? :address # seems to be a new user
       addr = Geocoder.address(request.remote_ip)
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
       session[:radius] = 5
     end
     
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

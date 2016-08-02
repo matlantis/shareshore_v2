@@ -2,9 +2,9 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <%= link_to "View public profile", user_path(@user), class: "btn btn-default" %>
-    <%= link_to 'My Articles', articles_user_path(@user), class: "btn btn-default" %>
-    <%= link_to 'New Article', new_article_path, class: "btn btn-default" %>
+    <%= link_to t("View public profile"), user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('My Articles'), articles_user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('New Article'), new_article_path, class: "btn btn-default" %>
   </div>
 </div>
 
@@ -14,14 +14,14 @@
   <div class="col-xs-12">
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
-      <li><a data-toggle="tab" href="#locations">Locations</a></li>
+      <li><a data-toggle="tab" href="#locations"><%= t("Locations") %></a></li>
     </ul>
   </div>
 </div>
 
 <div class="tab-content">
   <div id="basic" class="tab-pane fade in active">
-    <h3>Basic Info</h3>
+    <h3><%= t("Basic Info") %></h3>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal) do |f| %>
       <%= devise_error_messages! %>
 
@@ -32,11 +32,11 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <%= f.password_field :password, help: "leave blank if you don't want to change it", autocomplete: "off" %>
+      <%= f.password_field :password, help: t("leave blank if you don't want to change it"), autocomplete: "off" %>
 
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-      <%= f.password_field :current_password, help: "we need your current password to confirm your changes", autocomplete: "off" %>
+      <%= f.password_field :current_password, help: t("we need your current password to confirm your changes"), autocomplete: "off" %>
 
       <%= f.text_field :nickname %>
 
@@ -44,25 +44,25 @@
 
       <%= f.text_field :lastname %>
 
-      <%= f.text_field :phoneno, label: "Phone number" %>
+      <%= f.text_field :phoneno, label: t("Phone number") %>
 
       <%= f.form_group do %>
-        <%= f.check_box :showemail, label: "Show email address in contact details to the public" %>
-        <%= f.check_box :showphone, label: "Show phone number in contact details to the public" %>
+        <%= f.check_box :showemail, label: t("Show email address in contact details to the public") %>
+        <%= f.check_box :showphone, label: t("Show phone number in contact details to the public") %>
       <% end %>
 
       <%= f.form_group do %>
-        <%= f.submit "Update" %>
+        <%= f.submit t("Update") %>
       <% end %>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <h3><%= t("Cancel my account") %></h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-default" %></p>
+    <p>Unhappy? <%= button_to t("Cancel my account"), registration_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %></p>
 
   </div>
   <div id="locations" class="tab-pane fade">
-    <h3>Locations</h3>
+    <h3><%= t("Locations") %></h3>
 
     <table class="table table-striped">
       <% @user.locations.each do |location| %>
@@ -71,18 +71,18 @@
           <td><%= location.postcode %></td>
           <td><%= location.city %></td>
           <td><%= location.country %></td>
-          <td><%= link_to "Edit", edit_location_path(location) %></td>
-          <td><%= link_to "Delete", location_path(location), method: :delete, data: { confirm: "Really delete location? All #{location.articles.count} Articles will also be deleted!" } %></td>
-          <td><%= link_to "Articles at this location", articles_location_path(location) %></td>
+          <td><%= link_to t("Edit"), edit_location_path(location) %></td>
+          <td><%= link_to t("Delete"), location_path(location), method: :delete, data: { confirm: t("really_delete_location_question", count: location.articles.count) } %></td>
+          <td><%= link_to t("Articles at this location"), articles_location_path(location) %></td>
         </tr>
       <% end %>
       <%= form_for :location, url:locations_path do |f| %>
         <tr>
-          <td><%= f.text_field :street_and_no, placeholder: "street and number" %></td>
-          <td><%= f.text_field :postcode, placeholder: "postcode" %></td>
-          <td><%= f.text_field :city, placeholder: "city" %></td>
-          <td><%= f.text_field :country, placeholder: "country" %></td>
-          <td><%= f.submit "Add"%></td>
+          <td><%= f.text_field :street_and_no, placeholder: t("Street and no") %></td>
+          <td><%= f.text_field :postcode, placeholder: t("Postcode") %></td>
+          <td><%= f.text_field :city, placeholder: t("City") %></td>
+          <td><%= f.text_field :country, placeholder: t("Country") %></td>
+          <td><%= f.submit t("Add") %></td>
         </tr>
       <% end %>
     </table>

@@ -1,18 +1,18 @@
 <%= bootstrap_form_for(@article, layout: :horizontal) do |f| %>
-  <%= f.alert_message "Please fix the errors below." %>
+  <%= f.alert_message t("Please fix the errors below") %>
   
-  <%= f.text_field :title %>
-  <%= f.text_area :details %>
-  <%= f.number_field :value_eur, label: "Value in EUR", value: 10, append: "€" %>
-  <%= f.text_field :rate %>
+  <%= f.text_field :title, label: t("Title") %>
+  <%= f.text_area :details, label: t("Details") %>
+  <%= f.number_field :value_eur, label: t("Value eur"), value: 10, append: "€" %>
+  <%= f.text_field :rate, label: t("Rate") %>
   
   <%= f.form_group do %>
-    <%= f.check_box :gratis %>
+    <%= f.check_box :gratis, label: t("Gratis") %>
   <% end %>
     
-  <%= f.number_field :deposit_eur, label: "Deposit", value: 0, append: "€" %>
-  <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
-  <%= f.file_field :picture %>
+  <%= f.number_field :deposit_eur, label: t("Deposit eur"), value: 0, append: "€" %>
+  <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: t("Location") %>
+  <%= f.file_field :picture, label: t("Picture") %>
   <%= f.form_group do %>
     <%= f.submit %>
   <% end %>

@@ -3,6 +3,16 @@
 * Shareshore V2 Todos
 ** TODO Devise with email confirmation
 ** TODO Internationalisierung
+   - [X] basic
+     use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
+     default is de
+   - [-] translate pages
+     - [X] articles
+     - [X] location
+     - [-] devise
+   - [ ] devise errors
+   - [ ] validation errors
+   - [ ] _form submit button label (auto generated)
 ** TODO karte aufhübschen [2/5]
    - [X]  suchradius verwenden
    - [X]  marker in verschiedenen farben

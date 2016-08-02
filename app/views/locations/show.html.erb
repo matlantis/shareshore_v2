@@ -1,26 +1,26 @@
 <p>
-  <strong>Street and no:</strong>
+  <strong><%= t("Street and no") %>:</strong>
   <%= @location.street_and_no %>
 </p>
 
 <p>
-  <strong>Postcode:</strong>
+  <strong><%= t("Postcode") %>:</strong>
   <%= @location.postcode %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= t("City") %>:</strong>
   <%= @location.city %>
 </p>
 
 <p>
-  <strong>Country:</strong>
+  <strong><%= t("Country") %>:</strong>
   <%= @location.country %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t("User") %>:</strong>
   <%= @location.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_location_path(@location) %>
+<%= link_to t("Edit"), edit_location_path(@location) %>

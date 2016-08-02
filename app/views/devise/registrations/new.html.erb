@@ -5,14 +5,14 @@
 
   <%= f.email_field :email, autofocus: true %>
  
-    <%= f.password_field :password, autocomplete: "off", help: "#{@minimum_password_length} characters minimum" if @minimum_password_length %>
+  <%= f.password_field :password, autocomplete: "off", help: t("password_minimum_characters", chars: @minimum_password_length) if @minimum_password_length %>
 
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
     <%= f.text_field :nickname %>
 
     <%= f.form_group do %>
-      <%= f.submit "Sign up" %>
+      <%= f.submit t("Sign up") %>
     <% end %>
 <% end %>
 

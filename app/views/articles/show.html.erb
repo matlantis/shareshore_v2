@@ -1,47 +1,47 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t("Title") %>:</strong>
   <%= @article.title %>
 </p>
 
 <p>
-  <strong>Details:</strong>
+  <strong><%= t("Details") %>:</strong>
   <%= @article.details %>
 </p>
 
 <p>
-  <strong>Value eur:</strong>
-  <%= @article.value_eur %>
+  <strong><%= t("Value eur") %>:</strong>
+  <%= @article.value_eur %> €
 </p>
 
 <p>
-  <strong>Rate:</strong>
+  <strong><%= t("Rate") %>:</strong>
   <%= @article.rate %>
 </p>
 
 <p>
-  <strong>Gratis:</strong>
+  <strong><%= t("Gratis") %>:</strong>
   <%= @article.gratis %>
 </p>
 
 <p>
-  <strong>Deposit eur:</strong>
-  <%= @article.deposit_eur %>
+  <strong><%= t("Deposit eur") %>:</strong>
+  <%= @article.deposit_eur %> €
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong><%= t("Location") %>:</strong>
   <%= @article.location.fulladdress %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t("User") %>:</strong>
   <%= link_to @article.user.nickname, user_path(@article.user) %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong><%= t("Picture") %>:</strong>
   <%= image_tag(@article.picture_url, :width => 600) if @article.picture.present? %>
 </p>
 
-<%= link_to('Edit', edit_article_path(@article)) if current_user.id == @article.user.id %>
-<%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } ) if current_user.id == @article.user.id %>
+<%= link_to('Edit', edit_article_path(@article)) if current_user and current_user.id == @article.user.id %>
+<%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } ) if current_user and current_user.id == @article.user.id %>

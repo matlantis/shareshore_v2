@@ -25,9 +25,9 @@
   <% end %>
 </table>
 
-<%= link_to 'List of Articles for this user', articles_user_path(@user), class: "btn btn-default" %><br>
+<%= link_to 'Articles of this user', articles_user_path(@user), class: "btn btn-default" %><br>
 <% @user.locations.each do |location| %>
   <% if location.articles.count > 0 %>
-    <%= link_to 'List of Articles at ' + location.shortaddress, articles_location_path(location), class: "btn btn-default" %><br>
+    <%= link_to 'Articles at ' + location.shortaddress, articles_location_path(location), class: "btn btn-default" %><br>
   <% end %>
 <% end %>
