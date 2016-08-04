@@ -81,6 +81,8 @@ en:
   Tutorial: "Tutorial"
   Contact: "Contact"
   FAQ: "FAQ"
+  Gratis: "Gratis"
+  Info: "Info"
 
   mail:
     user_request_username: "Shareshore request from user %{user}"

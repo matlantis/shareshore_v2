@@ -13,12 +13,11 @@
 
 <tr>
   <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
-  <td><%= @article.rate %></td>
-</tr>
-
-<tr>
-  <td><strong><%= Article.human_attribute_name("gratis") %></strong></td>
-  <td><%= @article.gratis %></td>
+  <% if @article.gratis %>
+    <td><strong><%= t("Gratis")%></strong></td>
+  <% else %>
+    <td><%= @article.rate %></td>
+  <% end %>
 </tr>
 
 <tr>

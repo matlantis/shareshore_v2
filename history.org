@@ -1,8 +1,10 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
-** TODO gratis artikel hervorheben
-   btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
+** TODO gratis artikel hervorheben [1/2]
+   - [X] sowohl in der liste als auch in der ansicht
+   - [ ] btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
+     und dabei via javascript das text feld ausgrauen, wenn man gratis anklickt - gute übung
 ** TODO umsortieren der listen
    der eigenen Artikel/Locations (default location für neue Artikel)
    die Suchergebnisse sortieren nach Distanz/Relevanz

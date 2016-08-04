@@ -33,7 +33,6 @@
       <th><%= Article.human_attribute_name("details") %></th>
       <th><%= Article.human_attribute_name("value_eur") %></th>
       <th><%= Article.human_attribute_name("rate") %></th>
-      <th><%= Article.human_attribute_name("gratis") %></th>
       <th><%= Article.human_attribute_name("deposit_eur") %></th>
       <th><%= Article.human_attribute_name("location") %></th>
       <% if @current_location %>
@@ -46,12 +45,19 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
+      <% if article.gratis %>
+        <tr class="success">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= link_to article.title, article %></td>
         <td><%= article.details %></td>
         <td><%= article.value_eur %></td>
-        <td><%= article.rate %></td>
-        <td><%= article.gratis %></td>
+        <% if article.gratis %>
+          <td><strong><%= t("Gratis")%></strong></td>
+        <% else %>
+          <td><%= article.rate %></td>
+        <% end %>
         <td><%= article.deposit_eur %></td>
         <td><%= article.location.shortaddress %></td>
         <% if @current_location %>

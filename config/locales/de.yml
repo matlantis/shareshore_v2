@@ -101,7 +101,9 @@ de:
   Tutorial: "Tutorial"
   Contact: "Kontakt"
   FAQ: "FAQ"
-  
+  Gratis: "Gratis"
+  Info: "Info"
+
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
     user_request_anonymous: "Shareshore Nutzeranfrage"
