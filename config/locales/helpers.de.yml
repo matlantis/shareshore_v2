@@ -1,0 +1,9 @@
+en:
+  helpers:
+    submit:
+      # you can put a model here like
+      # model:
+      #   create: ...
+      create: "Erstelle %{model}"
+      submit: "Submit %{model}"
+      update: "Speichere %{model}"

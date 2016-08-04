@@ -65,6 +65,10 @@ class LocationsController < ApplicationController
         format.html { redirect_to edit_user_registration_path }
         format.json { render :show, status: :created, location: @location }
       else
+        if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
+          @location.errors.clear
+          @location.errors.add(:base, t("address_unknown"))
+        end
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end

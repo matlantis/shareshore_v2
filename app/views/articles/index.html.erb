@@ -29,17 +29,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= t("Title") %></th>
-      <th><%= t("Details") %></th>
-      <th><%= t("Value eur") %></th>
-      <th><%= t("Rate") %></th>
-      <th><%= t("Gratis") %></th>
-      <th><%= t("Deposit eur") %></th>
-      <th><%= t("Location") %></th>
+      <th><%= Article.human_attribute_name("title") %></th>
+      <th><%= Article.human_attribute_name("details") %></th>
+      <th><%= Article.human_attribute_name("value_eur") %></th>
+      <th><%= Article.human_attribute_name("rate") %></th>
+      <th><%= Article.human_attribute_name("gratis") %></th>
+      <th><%= Article.human_attribute_name("deposit_eur") %></th>
+      <th><%= Article.human_attribute_name("location") %></th>
       <% if @current_location %>
         <th><%= t("Distance") %></th>
       <% end %>
-      <th><%= t("User") %></th>
+      <th><%= Article.human_attribute_name("user") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   
   #validates :role, inclusion: { in: %w(admin user) }
   validates :nickname, uniqueness: true,
-            format: { with: /[a-zA-Z0-9\.\-_]+/ }
-  validates :phoneno, format: { with: /[a-zA-Z0-9\- ]*/ }
+            format: { with: /\A[a-zA-Z0-9\.\-_]+\z/ }
+  validates :phoneno, format: { with: /\A[a-zA-Z0-9\- ]*\z/ }
   
   def fullname
     name = ""

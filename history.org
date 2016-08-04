@@ -1,6 +1,11 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** TODO gratis artikel hervorheben
+   btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
+** TODO umsortieren der listen
+   der eigenen Artikel/Locations (default location für neue Artikel)
+   die Suchergebnisse sortieren nach Distanz/Relevanz
 ** TODO Devise with email confirmation
 ** TODO Internationalisierung
    - [X] basic
@@ -10,9 +15,18 @@
      - [X] articles
      - [X] location
      - [-] devise
-   - [ ] devise errors
-   - [ ] validation errors
-   - [ ] _form submit button label (auto generated)
+       - [X] the rest
+       - [ ] mailer
+       - [ ] passwords
+   - [X] devise errors
+     eine vorgefertigte datei runtergeladen
+   - [X] validation errors
+   - [X] _form submit button label (auto generated)
+** TODO article pictures
+   - [ ] care for picture size
+   - [ ] file field layout
+   - [ ] mehrere Bilder pro Artikel
+
 ** TODO karte aufhübschen [2/5]
    - [X]  suchradius verwenden
    - [X]  marker in verschiedenen farben
@@ -21,7 +35,12 @@
    - [ ] hover article hightlights marker
 ** TODO statische pages [0/2]
    - [ ] entwurf
-     - welcome page with description what to do
+     - welcome page with description what to do (tutorial)
+     - agb
+     - disclaimer
+     - kontakt bei problemen
+     - faq
+     
    - [ ] realisierung
 ** TODO user edit/show has list of articles inline (pagewise - uhm, not easy)
 ** DONE layout II

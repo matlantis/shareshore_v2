@@ -13,7 +13,7 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#basic">Basic</a></li>
+      <li class="active"><a data-toggle="tab" href="#basic"><%= t("Basic Info") %></a></li>
       <li><a data-toggle="tab" href="#locations"><%= t("Locations") %></a></li>
     </ul>
   </div>
@@ -27,16 +27,13 @@
 
       <%= f.email_field :email, autofocus: true %>
 
-
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div><%= t("Currently waiting confirmation for") %>: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <%= f.password_field :password, help: t("leave blank if you don't want to change it"), autocomplete: "off" %>
+      <%= f.password_field :password, help: t("leave blank if you dont want to change it"), autocomplete: "off" %>
 
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
-      <%= f.password_field :current_password, help: t("we need your current password to confirm your changes"), autocomplete: "off" %>
 
       <%= f.text_field :nickname %>
 
@@ -51,6 +48,8 @@
         <%= f.check_box :showphone, label: t("Show phone number in contact details to the public") %>
       <% end %>
 
+      <%= f.password_field :current_password, help: t("we need your current password to confirm your changes"), autocomplete: "off" %>
+
       <%= f.form_group do %>
         <%= f.submit t("Update") %>
       <% end %>
@@ -58,7 +57,7 @@
 
     <h3><%= t("Cancel my account") %></h3>
 
-    <p>Unhappy? <%= button_to t("Cancel my account"), registration_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %></p>
+    <p><%= t("Unhappy") %>? <%= button_to t("Cancel my account"), registration_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %></p>
 
   </div>
   <div id="locations" class="tab-pane fade">
@@ -76,12 +75,12 @@
           <td><%= link_to t("Articles at this location"), articles_location_path(location) %></td>
         </tr>
       <% end %>
-      <%= form_for :location, url:locations_path do |f| %>
+      <%= form_for :location, url: locations_path do |f| %>
         <tr>
-          <td><%= f.text_field :street_and_no, placeholder: t("Street and no") %></td>
-          <td><%= f.text_field :postcode, placeholder: t("Postcode") %></td>
-          <td><%= f.text_field :city, placeholder: t("City") %></td>
-          <td><%= f.text_field :country, placeholder: t("Country") %></td>
+          <td><%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no") %></td>
+          <td><%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode") %></td>
+          <td><%= f.text_field :city, placeholder: Location.human_attribute_name("city") %></td>
+          <td><%= f.text_field :country, placeholder: Location.human_attribute_name("country") %></td>
           <td><%= f.submit t("Add") %></td>
         </tr>
       <% end %>

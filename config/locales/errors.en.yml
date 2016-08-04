@@ -1,0 +1,32 @@
+de:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              invalid: "allows only numbers, letters, as well as '.' and '-'"
+            phoneno:
+              invalid: "allows only numbers, as well as '-' and ' '"
+            current_password:
+              blank: "is needed"
+              invalid: "does not match"
+            email:
+
+        article:
+          attributes:
+            value_eur:
+              greater_than_or_equal_to: "may not be negative"
+            deposit_eur:
+              greater_than_or_equal_to: "may not be negative"
+            gratis:
+              inclusion: "must have a boolean value"
+
+
+  errors:
+    messages:
+      taken: "is already taken"
+      blank: "may not be empty"
+      not_a_number: "is not a number"
+      too_short: "is too short"
+      too_long: "is too long"

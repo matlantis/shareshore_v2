@@ -11,6 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+.byebug_history
 
 # rails girls suggestions
 public/uploads
@@ -21,5 +22,6 @@ db/*.sqlite3
 # tmp files
 *~
 
+# sensitive data
 .env
 Procfile

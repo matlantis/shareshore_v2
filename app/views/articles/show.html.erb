@@ -1,47 +1,46 @@
-<p>
-  <strong><%= t("Title") %>:</strong>
-  <%= @article.title %>
-</p>
+<h2><%= @article.title %></h2>
 
-<p>
-  <strong><%= t("Details") %>:</strong>
-  <%= @article.details %>
-</p>
+<table class="table table-striped">
+<tr>
+  <td><strong><%= Article.human_attribute_name("details") %></strong></td>
+  <td><%= @article.details %></td>
+</tr>
 
-<p>
-  <strong><%= t("Value eur") %>:</strong>
-  <%= @article.value_eur %> €
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("value_eur") %></strong></td>
+  <td><%= @article.value_eur %> €</td>
+</tr>
 
-<p>
-  <strong><%= t("Rate") %>:</strong>
-  <%= @article.rate %>
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
+  <td><%= @article.rate %></td>
+</tr>
 
-<p>
-  <strong><%= t("Gratis") %>:</strong>
-  <%= @article.gratis %>
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("gratis") %></strong></td>
+  <td><%= @article.gratis %></td>
+</tr>
 
-<p>
-  <strong><%= t("Deposit eur") %>:</strong>
-  <%= @article.deposit_eur %> €
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("deposit_eur") %></strong></td>
+  <td><%= @article.deposit_eur %> €</td>
+</tr>
 
-<p>
-  <strong><%= t("Location") %>:</strong>
-  <%= @article.location.fulladdress %>
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("location") %></strong></td>
+  <td><%= @article.location.fulladdress %></td>
+</tr>
 
-<p>
-  <strong><%= t("User") %>:</strong>
-  <%= link_to @article.user.nickname, user_path(@article.user) %>
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("user") %></strong></td>
+  <td><%= link_to @article.user.nickname, user_path(@article.user) %></td>
+</tr>
 
-<p>
-  <strong><%= t("Picture") %>:</strong>
-  <%= image_tag(@article.picture_url, :width => 600) if @article.picture.present? %>
-</p>
+<tr>
+  <td><strong><%= Article.human_attribute_name("picture") %></strong></td>
+  <td><%= image_tag(@article.picture_url, :width => 600) if @article.picture.present? %></td>
+</tr>
+</table>
 
 <%= link_to('Edit', edit_article_path(@article)) if current_user and current_user.id == @article.user.id %>
 <%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } ) if current_user and current_user.id == @article.user.id %>

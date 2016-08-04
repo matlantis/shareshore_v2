@@ -1,33 +1,33 @@
-<h2>Profile of user <%= @user.nickname %></h2>
+<h2><%= t("Profile of user") + " " + @user.nickname %></h2>
 
 
 <table class="table table-striped">
   <tr>
-    <td>Name: </td>
+    <td><%= t"Name" %>:</td>
     <td><%= @user.fullname %></td>
   </tr>
   <% if @user.showemail? %>
     <% if current_user %>
-      <% subject = "Shareshore request from user " + current_user.nickname %>
+      <% subject = t("mail.user_request_username", user: current_user.nickname) %>
     <% else %>
-      <% subject = "Shareshore user request" %>
+      <% subject = t("mail.user_request_anonymous") %>
     <% end %>
     <tr>
-      <td>email:</td>
+      <td><%= User.human_attribute_name("email") %>:</td>
       <td><%= mail_to @user.email, @user.email, subject: subject %></td>
     </tr>
   <% end %>
   <% if @user.showphone %>
     <tr>  
-      <td>phone:</td>
+      <td><%= User.human_attribute_name("phoneno") %>:</td>
       <td><%= @user.phoneno %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'Articles of this user', articles_user_path(@user), class: "btn btn-default" %><br>
+<%= link_to t('Articles of this user', nickname: @user.nickname), articles_user_path(@user), class: "btn btn-default" %>
 <% @user.locations.each do |location| %>
   <% if location.articles.count > 0 %>
-    <%= link_to 'Articles at ' + location.shortaddress, articles_location_path(location), class: "btn btn-default" %><br>
+    <%= link_to t('Articles at', location: location.shortaddress), articles_location_path(location), class: "btn btn-default" %><br>
   <% end %>
 <% end %>
