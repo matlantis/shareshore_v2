@@ -74,7 +74,14 @@ en:
   Name: "Name"
   Articles of this user: "Articles of %{nickname}"
   Articles at: "Articles at %{location}"
-  
+  First_time_here: "First time here?"
+  How_does_shareshore_work: "How does Shareshore work?"
+  Shareshore_is_a: "Shareshore is a sharing network"
+  Terms_of_use: "Terms of Use"
+  Tutorial: "Tutorial"
+  Contact: "Contact"
+  FAQ: "FAQ"
+
   mail:
     user_request_username: "Shareshore request from user %{user}"
     user_request_anonymous: "Shareshore user request"

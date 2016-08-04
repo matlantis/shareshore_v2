@@ -27,22 +27,36 @@
    - [ ] file field layout
    - [ ] mehrere Bilder pro Artikel
 
-** TODO karte aufhübschen [2/5]
+** WAITING karte aufhübschen [2/5]
    - [X]  suchradius verwenden
    - [X]  marker in verschiedenen farben
    - [ ] tooltips mit artikeln, bzw. mit links
    - [ ] java script an irgendne separierte stelle schreiben
    - [ ] hover article hightlights marker
-** TODO statische pages [0/2]
-   - [ ] entwurf
-     - welcome page with description what to do (tutorial)
-     - agb
-     - disclaimer
+** TODO in die artikel ansicht gehören die kontakt informationen
+** TODO statische pages [2/3]
+   - [X] entwurf
+     - tutorial: wie funktioniert shareshore?
+     - agb and disclaimer
      - kontakt bei problemen
      - faq
-     
-   - [ ] realisierung
-** TODO user edit/show has list of articles inline (pagewise - uhm, not easy)
+       - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
+       - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
+       - was tue ich, wenn mir der geliehen Artikel kaputt geht
+     - statistiken
+     - blog
+   - [X] Grundgerüst
+     http://blog.teamtreehouse.com/static-pages-ruby-rails
+   - [ ] Pages
+     - [ ] agbs schreiben
+     - [ ] contact schreiben
+     - [ ] tutorial schreiben
+     - [ ] faq schreiben
+** TODO der footer muss gemacht gewerden
+   link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
+   good karma
+   etwas besser layouten
+** SOMEDAYS user edit/show has list of articles inline (pagewise - uhm, not easy) (javascript)
 ** DONE layout II
    CLOSED: [2016-07-31 So 20:19]
    - [X] there are still tables and form that needs bootstrap markup (especially the devise stuff)

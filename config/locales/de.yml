@@ -94,6 +94,13 @@ de:
   Name: "Name"
   Articles of this user: "Artikel von %{nickname}"
   Articles at: "Artikel bei %{location}"
+  First_time_here: "Neu hier?"
+  How_does_shareshore_work: "Wie funktioniert Shareshore?"
+  Shareshore_is_a: "Shareshore ist Dinge-Verleih-Netzwerk. Verleihe die Dinge, die bei dir zuhause ungenutzt herumstehen, an deine Nachbarn! Leihe dir Dinge, die du nur einmal brauchst, von deinen Nachbarn aus, anstatt sie zu kaufen!"
+  Terms_of_use: "AGB"
+  Tutorial: "Tutorial"
+  Contact: "Kontakt"
+  FAQ: "FAQ"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
