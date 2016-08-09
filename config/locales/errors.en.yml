@@ -19,8 +19,11 @@ de:
               greater_than_or_equal_to: "may not be negative"
             deposit_eur:
               greater_than_or_equal_to: "may not be negative"
-            gratis:
-              inclusion: "must have a boolean value"
+            rate_eur:
+              greater_than_or_equal_to: "may not be negative"
+            rate_intervall:
+              inclusion: " must be one of [hour, day, week, month, year]"
+
 
 
   errors:

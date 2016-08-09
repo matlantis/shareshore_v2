@@ -76,6 +76,10 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @article.value_eur = 10
+    @article.rate_eur = 1
+    @article.deposit_eur = 0
+    @article.rate_interval = 'day'
   end
 
   # GET /articles/1/edit
@@ -153,7 +157,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :details, :value_eur, :rate, :gratis, :deposit_eur, :location_id, :picture)
+      params.require(:article).permit(:title, :details, :value_eur, :rate_eur, :rate_interval, :deposit_eur, :location_id, :picture)
     end
 
     # use to verify the article really belongs to the current user

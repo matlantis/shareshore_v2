@@ -26,6 +26,8 @@ de:
         details: "Details"
         value_eur: "Wert (€)"
         rate: "Leihgebühr"
+        rate_eur: "Leihgebühr (€)"
+        rate_interval: "Zeitraum"
         gratis: "Gratis"
         deposit_eur: "Kaution (€)"
         user: "Benutzer"
@@ -103,7 +105,13 @@ de:
   FAQ: "FAQ"
   Gratis: "Gratis"
   Info: "Info"
-
+  hour: "Stunde"
+  day: "Tag"
+  week: "Woche"
+  month: "Monat"
+  year: "Jahr"
+  per: "pro"
+  
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
     user_request_anonymous: "Shareshore Nutzeranfrage"

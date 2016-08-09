@@ -3,14 +3,13 @@
   
   <%= f.text_field :title %>
   <%= f.text_area :details %>
-  <%= f.number_field :value_eur, value: 10, append: "€" %>
-  <%= f.text_field :rate %>
-  
-  <%= f.form_group do %>
-    <%= f.check_box :gratis %>
+  <%= f.number_field :value_eur, append: "€" %>
+  <%= f.form_group "rate" do %>
+    <%= f.number_field :rate_eur, append: "€" %>
+    <%= f.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']] %>
   <% end %>
-    
-  <%= f.number_field :deposit_eur, value: 0, append: "€" %>
+      
+  <%= f.number_field :deposit_eur, append: "€" %>
   <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
   <%= f.file_field :picture %>
   <%= f.form_group do %>

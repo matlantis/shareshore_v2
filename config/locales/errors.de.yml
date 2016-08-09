@@ -19,8 +19,10 @@ de:
               greater_than_or_equal_to: "darf nicht negativ sein"
             deposit_eur:
               greater_than_or_equal_to: "darf nicht negativ sein"
-            gratis:
-              inclusion: "muss einen Wahrheitswert haben"
+            rate_eur:
+              greater_than_or_equal_to: "darf nicht negativ sein"
+            rate_intervall:
+              inclusion: " muss in [hour, day, week, month, year] enthalten sein"
 
 
   errors:

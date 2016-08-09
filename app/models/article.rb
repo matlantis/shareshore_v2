@@ -12,8 +12,8 @@ class Article < ActiveRecord::Base
   validates :deposit_eur, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :location, presence: true
   validates :user, presence: true
-  validates :gratis, inclusion: { in: [true, false, nil] }
-  validates :rate, presence: true, unless: 'gratis'
+  validates :rate_eur, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :rate_interval, inclusion: { in: %w(hour day week month year) }
 
   def self.search(search)
     where("title LIKE ?", "%#{search}%") 

@@ -1,9 +1,56 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
-** TODO gratis artikel hervorheben [1/2]
+** TODO user experience entwerfen
+*** First Contact als Provider
+    - Startseite: 
+      - wo bin ich und welche Artikel gibt es hier?
+      - was ist Shareshore? (verdien dir ein paar kröten!)
+    - Anmeldung
+      - via facebook oder wenige essentials
+      - fertsch
+    - erster login, bzw email bestätigung
+      - location erstellen
+      - möglichst viele artikel einstellen (unkompliziert en masse)
+*** First Contact als Client
+    - Startseite:
+      - wo bin ich und welche Artikel gibt es hier
+      - Suchmaske
+    - Der Nutzer muss einen schnellen Überblick bekommen!
+      - Welche Anbieter gibt es in meiner Nähe
+      - Welche Artikel gibt es in meiner Nähe
+*** Startseite
+    - eingabe feld Stadt, Suchbutton -> Suchseite
+    - was ist Shareshore, mach mit und verdien dir ein paar kröten
+    - mehr nicht!!!
+*** Suchseite
+    - komplette suchmaske
+    - karte
+    - artikelliste
+    - anbieterliste
+** DONE rate field umorganisieren
+   CLOSED: [2016-08-09 Di 15:43]
+   - rate_value und rate_intervall (stunde/tag/woche/monat)
+   - gibt es mehrere raten pro artikel? 
+     - wenn ja, wie organisieren?
+     - erst mal: Nein!!
+     - vorschlag: entweder rate_value und rate_intervall oder rate_extra string field
+       wenn rate_extra nicht leer, wird das genommen
+       wenn rate_value 0 ist und rate_extra leer, ist es gratis
+   - vorgehen [9/9]
+     - [X] rate -> rate_extra
+     - [X] gratis löschen
+     - [X] rate_value und rate_intervall hinzu
+     - [X] rate_intervall braucht nen validator, der sicherstellt, dass der wert in (hour/day/week/month) ist
+     - [X] für migrierte artikel muss rate_intervall initialisiert werden
+     - [X] rate_value validator nicht negativ
+     - [X] eingabe felder anpassen, und anzeige felder
+     - [X] i18n für validation fehler
+     - [X] populate article numerical fields and interval field
+** DONE gratis artikel hervorheben [2/2]
+   CLOSED: [2016-08-09 Di 15:43]
    - [X] sowohl in der liste als auch in der ansicht
-   - [ ] btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
+   - [X] btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
      und dabei via javascript das text feld ausgrauen, wenn man gratis anklickt - gute übung
 ** TODO umsortieren der listen
    der eigenen Artikel/Locations (default location für neue Artikel)

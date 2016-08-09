@@ -13,10 +13,10 @@
 
 <tr>
   <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
-  <% if @article.gratis %>
+  <% if @article.rate_eur == 0 %>
     <td><strong><%= t("Gratis")%></strong></td>
   <% else %>
-    <td><%= @article.rate %></td>
+    <td><%= @article.rate_eur %> € <%= t('per') %> <%= t(@article.rate_interval) %></td>
   <% end %>
 </tr>
 
@@ -41,5 +41,5 @@
 </tr>
 </table>
 
-<%= link_to('Edit', edit_article_path(@article)) if current_user and current_user.id == @article.user.id %>
-<%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } ) if current_user and current_user.id == @article.user.id %>
+<%= link_to('Edit', edit_article_path(@article), class: "btn btn-default") if current_user and current_user.id == @article.user.id %>
+<%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" ) if current_user and current_user.id == @article.user.id %>
