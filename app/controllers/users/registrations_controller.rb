@@ -3,6 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
   before_filter :configure_permitted_parameters
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def show
     @user = User.find_by(id: params[:id])
     unless @user
@@ -11,14 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
-  protected
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :showemail, :showphone) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone) }
-  end
     
   # GET /resource/sign_up
   # def new
@@ -36,9 +32,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :rate_interval, :location_id, :id ])
+    if p.empty?
+      # super updates the basic informations
+      super
+    else
+      # this updates only the articles not the basic informations
+      respond_to do |format|
+        if current_user.update(p)
+          flash[:success] = t('Articles were successfully updated')
+          format.html { render :edit }
+        else
+          format.html { render :edit }
+        end
+      end
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -75,6 +85,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :showemail, :showphone) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone) }
+  end
 
   # The default url to be used after updating a resource. You need to overwrite
   def after_update_path_for(resource)

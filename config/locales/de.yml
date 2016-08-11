@@ -111,6 +111,11 @@ de:
   month: "Monat"
   year: "Jahr"
   per: "pro"
+  Location was successfully created.: "Location was successfully created."
+  Location was successfully updated.: "Location was successfully updated."
+  Location was successfully destroyed.: "Location was successfully destroyed."
+  You are not owner of this location: "You are not owner of this location"
+  Articles were successfully updated: "Artikel wurden erfolgreich aktualisiert"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

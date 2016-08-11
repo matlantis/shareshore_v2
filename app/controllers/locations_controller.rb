@@ -61,7 +61,7 @@ class LocationsController < ApplicationController
     @location = current_user.locations.create(location_params)
     respond_to do |format|
       if @location.save
-        flash[:success] = 'Location was successfully created.'
+        flash[:success] = t('Location was successfully created.')
         format.html { redirect_to edit_user_registration_path }
         format.json { render :show, status: :created, location: @location }
       else
@@ -80,7 +80,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        flash[:success] = 'Location was successfully updated.'
+        flash[:success] = t('Location was successfully updated.')
         format.html { redirect_to edit_user_registration_path }
         format.json { render :show, status: :ok, location: @location }
       else
@@ -95,7 +95,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      flash[:success] = 'Location was successfully destroyed.'
+      flash[:success] = t('Location was successfully destroyed.')
       format.html { redirect_to edit_user_registration_path }
       format.json { head :no_content }
     end
@@ -118,7 +118,7 @@ class LocationsController < ApplicationController
       # user is already authenticated
       if current_user.id != @location.user.id
         respond_to do |format|
-          flash[:danger] = 'You are not owner of this location'
+          flash[:danger] = t('You are not owner of this location')
           format.html { redirect_to edit_user_registration_path }
           format.json { head :no_content }
         end

@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
 
     # apply pattern criteria
     if session[:pattern]
-      @articles = @articles.search(session[:pattern]).order("created_at DESC")
+      @articles = @articles.search(session[:pattern])
     else
       @articles = @articles.order('created_at DESC')
     end

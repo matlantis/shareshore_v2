@@ -10,15 +10,13 @@ class ApplicationController < ActionController::Base
     unless session.key? :address # seems to be a new user
       addr = Geocoder.address(request.remote_ip)
       if addr == "Reserved" # got that for remote_ip localhost
-        addr = "Usedom, Germany"
+        addr = "Dresden, Germany"
       end
       if addr
         session[:address] = addr
       end
     end
 
-    print "Adress: " + session[:address] + "!!"
-    
     unless session.key? :radius
       session[:radius] = 5
     end

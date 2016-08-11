@@ -2,6 +2,19 @@
 
 <%= render 'search' %>
 
+<div>
+  <h2>Du willst eigene Artikel einstellen?</h2>
+  <p>
+    Verdien dir ein paar Kröten dazu und stelle eigene Artikel zum Verleih!
+  </p>
+  <% if user_signed_in? %>
+    <%= link_to t("New Article"), new_article_path(current_user), class: 'btn btn-default' %>
+  <% else %>
+    <%= link_to t("Signup"), new_user_registration_path, class: "btn btn-default" %> oder 
+    <%= link_to t("Login"), new_user_session_path, class: 'btn btn-default'  %>
+  <% end %>
+</div>
+
 <div class="jumbotron">
   <h2><%= t("First_time_here") %></h2>
   <p><%= t("Shareshore_is_a") %></p>

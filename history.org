@@ -21,7 +21,7 @@
       - Welche Artikel gibt es in meiner Nähe
 *** Startseite
     - eingabe feld Stadt, Suchbutton -> Suchseite
-    - was ist Shareshore, mach mit und verdien dir ein paar kröten
+    - was ist Shareshore, mach mit und verdien dir ein paar kröten, eigenes angebot einstellen
     - mehr nicht!!!
 *** Suchseite
     - komplette suchmaske
