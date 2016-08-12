@@ -1,9 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-  before_filter :configure_permitted_parameters
+  #before_filter :configure_permitted_parameters
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  prepend_before_action :authenticate_scope!, only: [:edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -13,8 +15,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  def edit_locations
+    render :edit_locations
+  end
 
-
+  def edit_articles
+    render :edit_articles
+  end
     
   # GET /resource/sign_up
   # def new
@@ -32,21 +39,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
+  def update_articles
     p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :rate_interval, :location_id, :id ])
-    if p.empty?
-      # super updates the basic informations
-      super
-    else
-      # this updates only the articles not the basic informations
-      respond_to do |format|
-        if current_user.update(p)
-          flash[:success] = t('Articles were successfully updated')
-          format.html { render :edit }
-        else
-          format.html { render :edit }
-        end
+
+    # this updates only the articles not the basic informations
+    respond_to do |format|
+      if current_user.update(p)
+        flash[:success] = t('Articles were successfully updated')
       end
+      format.html { render :edit_articles }
+    end
+  end
+
+  def update_locations
+    p = params.require(:user).permit(locations_attributes: [:street_and_no, :postcode, :city, :country, :id ])
+
+    # this updates only the locations not the basic informations
+    respond_to do |format|
+      if current_user.update(p)
+        flash[:success] = t('Locations were successfully updated')
+      end
+      format.html { render :edit_locations }
     end
   end
 

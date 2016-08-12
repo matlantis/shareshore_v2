@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t('Edit Profile') %></h2>
 
 <div class="row">
   <div class="col-xs-12">
@@ -13,110 +13,46 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#basic"><%= t("Basic Info") %></a></li>
-      <li><a data-toggle="tab" href="#locations"><%= t("Locations") %></a></li>
-      <li><a data-toggle="tab" href="#articles"><%= t("Articles") %></a></li>
+      <li class="active"><%= link_to t("Basic Info"), edit_user_registration_path, :class => 'navbar-link' %></li>
+      <li><%= link_to t('Locations'), edit_user_locations_path, class: "tab" %></li>
+      <li><%= link_to t('Articles'), edit_user_articles_path, class: "tab" %></li>
     </ul>
   </div>
 </div>
 
-<div class="tab-content">
-  <div id="basic" class="tab-pane fade in active">
-    <h3><%= t("Basic Info") %></h3>
-    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal) do |f| %>
-      <%= devise_error_messages! %>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal) do |f| %>
+<%= devise_error_messages! %>
 
-      <%= f.email_field :email, autofocus: true %>
+<%= f.email_field :email, autofocus: true %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div><%= t("Currently waiting confirmation for") %>: <%= resource.unconfirmed_email %></div>
-      <% end %>
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div><%= t("Currently waiting confirmation for") %>: <%= resource.unconfirmed_email %></div>
+<% end %>
 
-      <%= f.password_field :password, help: t("leave blank if you dont want to change it"), autocomplete: "off" %>
+<%= f.password_field :password, help: t("leave blank if you dont want to change it"), autocomplete: "off" %>
 
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+<%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-      <%= f.text_field :nickname %>
+<%= f.text_field :nickname %>
 
-      <%= f.text_field :firstname %>
+<%= f.text_field :firstname %>
 
-      <%= f.text_field :lastname %>
+<%= f.text_field :lastname %>
 
-      <%= f.text_field :phoneno, label: t("Phone number") %>
+<%= f.text_field :phoneno, label: t("Phone number") %>
 
-      <%= f.form_group do %>
-        <%= f.check_box :showemail, label: t("Show email address in contact details to the public") %>
-        <%= f.check_box :showphone, label: t("Show phone number in contact details to the public") %>
-      <% end %>
+<%= f.form_group do %>
+<%= f.check_box :showemail, label: t("Show email address in contact details to the public") %>
+<%= f.check_box :showphone, label: t("Show phone number in contact details to the public") %>
+<% end %>
 
-      <%= f.password_field :current_password, help: t("we need your current password to confirm your changes"), autocomplete: "off" %>
+<%= f.password_field :current_password, help: t("we need your current password to confirm your changes"), autocomplete: "off" %>
 
-      <%= f.form_group do %>
-        <%= f.submit t("Update") %>
-      <% end %>
-    <% end %>
+<%= f.form_group do %>
+<%= f.submit t("Update") %>
+<% end %>
+<% end %>
 
-    <h3><%= t("Cancel my account") %></h3>
+<h3><%= t("Cancel my account") %></h3>
 
-    <p><%= t("Unhappy") %>? <%= button_to t("Cancel my account"), registration_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %></p>
-
-  </div>
-  
-  <div id="locations" class="tab-pane fade">
-    <h3><%= t("Locations") %></h3>
-
-    <table class="table table-striped">
-      <% @user.locations.each do |location| %>
-        <tr>
-          <td><%= location.street_and_no %></td>
-          <td><%= location.postcode %></td>
-          <td><%= location.city %></td>
-          <td><%= location.country %></td>
-          <td><%= link_to t("Edit"), edit_location_path(location) %></td>
-          <td><%= link_to t("Delete"), location_path(location), method: :delete, data: { confirm: t("really_delete_location_question", count: location.articles.count) } %></td>
-          <td><%= link_to t("Articles at this location"), articles_location_path(location) %></td>
-        </tr>
-      <% end %>
-      <%= form_for :location, url: locations_path do |f| %>
-        <tr>
-          <td><%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no") %></td>
-          <td><%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode") %></td>
-          <td><%= f.text_field :city, placeholder: Location.human_attribute_name("city") %></td>
-          <td><%= f.text_field :country, placeholder: Location.human_attribute_name("country") %></td>
-          <td><%= f.submit t("Add") %></td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
-
-  <div id="articles" class="tab-pane fade">
-    <h3><%= t("Articles") %></h3>
-    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :inline) do |f| %>
-      <%= devise_error_messages! %>
-      <table class="table">
-        <thead>
-          <tr>
-            <th><%= Article.human_attribute_name("title") %></th>
-            <th><%= Article.human_attribute_name("rate_eur") %></th>
-            <th><%= Article.human_attribute_name("rate_interval") %></th>
-            <th><%= Article.human_attribute_name("location") %></th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <%= f.fields_for :articles, include_id: false do |articles_form| %>
-            <tr>
-              <td><%= articles_form.text_field :title, hide_label: true %></td>
-              <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
-              <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
-              <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
-              <td><%= link_to t("Edit"), edit_article_path(resource.articles[articles_form.index]), class: "btn btn-default" %></td>
-              <%= articles_form.hidden_field :id %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= f.submit t("Update") %>
-    <% end %>
-</div>
+<p><%= t("Unhappy") %>? <%= button_to t("Cancel my account"), registration_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %></p>

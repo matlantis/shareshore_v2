@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :locations, inverse_of: :user, dependent: :delete_all
   has_many :articles, inverse_of: :user, dependent: :delete_all
-  accepts_nested_attributes_for :articles
+
+  accepts_nested_attributes_for :articles, reject_if: :all_blank
+  accepts_nested_attributes_for :locations, reject_if: :all_blank
   
   #validates :role, inclusion: { in: %w(admin user) }
   validates :nickname, uniqueness: true,

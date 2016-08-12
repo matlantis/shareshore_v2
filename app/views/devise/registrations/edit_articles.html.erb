@@ -1,0 +1,55 @@
+<h2><%= t('Edit Profile') %></h2>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to t("View public profile"), user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('My Articles'), articles_user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('New Article'), new_article_path, class: "btn btn-default" %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li><%= link_to t("Basic Info"), edit_user_registration_path, :class => 'navbar-link' %></li>
+      <li><%= link_to t('Locations'), edit_user_locations_path, class: "tab" %></li>
+      <li class="active"><%= link_to t('Articles'), edit_user_articles_path, class: "tab" %></li>
+    </ul>
+  </div>
+</div>
+
+<%= bootstrap_form_for(resource, as: resource_name, url: user_articles_path, html: { method: :put }, layout: :inline) do |f| %>
+<%= devise_error_messages! %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Article.human_attribute_name("title") %></th>
+      <th><%= Article.human_attribute_name("rate_eur") %></th>
+      <th><%= Article.human_attribute_name("rate_interval") %></th>
+      <th><%= Article.human_attribute_name("location") %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% articles = f.object.articles %>
+    <% articles = articles.sort_by {|o| o.created_at.to_s } %>
+    <%= f.fields_for :articles, articles, include_id: false do |articles_form| %>
+      <% article = articles[articles_form.index] %>
+      <tr>
+        <td><%= articles_form.text_field :title, hide_label: true %></td>
+        <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
+        <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
+        <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
+        <td><%= link_to t("Edit"), edit_article_path(article), class: "btn btn-default" %></td>
+        <td><%= link_to t("Delete"), article_path(article), method: :delete, data: { confirm: t("really_delete_article_question") }, class: "btn btn-default" %></td>
+        <%= articles_form.hidden_field :id %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= f.submit t("Update") %>
+<% end %>

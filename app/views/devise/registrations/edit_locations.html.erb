@@ -1,0 +1,51 @@
+<h2><%= t('Edit Profile') %></h2>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to t("View public profile"), user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('My Articles'), articles_user_path(@user), class: "btn btn-default" %>
+    <%= link_to t('New Article'), new_article_path, class: "btn btn-default" %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li><%= link_to t("Basic Info"), edit_user_registration_path, class: 'tab' %></li>
+      <li class="active"><%= link_to t('Locations'), edit_user_locations_path, class: "tab" %></li>
+      <li><%= link_to t('Articles'), edit_user_articles_path, class: "tab" %></li>
+    </ul>
+  </div>
+</div>
+<%= "SHIT!" if defined? shit %>
+<% shit=3 %>
+<%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
+  <table class="table">
+    <thead>
+      <th><%= Location.human_attribute_name("street_and_no") %></th>
+      <th><%= Location.human_attribute_name("postcode") %></th>
+      <th><%= Location.human_attribute_name("city") %></th>
+      <th><%= Location.human_attribute_name("country") %></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% locations = f.object.locations %>
+      <% locations.build %>
+      <% locations = locations.sort_by {|o| o.created_at.to_s } %>
+      <%= f.fields_for :locations, locations, include_id: false do |locations_form| %>
+        <% location = locations[locations_form.index] %>
+        <tr>
+          <td><%= locations_form.text_field :street_and_no, hide_label: true, placeholder: t("new address") %></td>
+          <td><%= locations_form.text_field :postcode, hide_label: true %></td>
+          <td><%= locations_form.text_field :city, hide_label: true %></td>
+          <td><%= locations_form.text_field :country, hide_label: true %></td>
+          <td><%= link_to(t("Delete"), location_path(location), method: :delete, data: { confirm: t("really_delete_location_question", count: location.articles.count) }, class: "btn btn-default") if location.id %></td>
+          <%= locations_form.hidden_field :id %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit t("Update") %>
+<% end %>

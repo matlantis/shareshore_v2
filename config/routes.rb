@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   get '/locations/:location_id/articles', action: :index, controller: 'articles', as: 'articles_location'
   
   devise_scope :user do
-    get "users/:id", action: :show, controller: 'users/registrations', as: 'user'
+    get "users/locations", action: :edit_locations, controller: 'users/registrations', as: 'edit_user_locations'
+    get "users/articles", action: :edit_articles, controller: 'users/registrations', as: 'edit_user_articles'
+    put "users/articles", action: :update_articles, controller: 'users/registrations', as: 'user_articles'
+    put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
+    
+    get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 
   get "/pages/:page" => "pages#show"
