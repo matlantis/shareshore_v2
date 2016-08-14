@@ -29,7 +29,7 @@
         <% end %>
         <% if user_signed_in? %>
         <li>
-          <%= link_to t("New Article"), new_article_path(current_user), :class => 'navbar-link' %>
+          <%= link_to t("Create new Articles"), new_user_articles_path, :class => 'navbar-link' %>
         </li>
         <li>
           <%= link_to t("Edit Profile"), edit_user_registration_path, :class => 'navbar-link' %>

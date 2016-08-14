@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [:edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -16,13 +16,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def edit_locations
+    @locations = current_user.locations
+
+    #@locations.build
+    #@locations = @locations.sort_by {|o| o.created_at.to_s }
+
+    @locations = @locations.order("created_at ASC")
+    @locations = @locations.paginate(:page => params[:page], per_page: 5)
+    
     render :edit_locations
   end
 
   def edit_articles
+    @articles = current_user.articles
+
+    #@articles.build
+    #@articles = @articles.sort_by {|o| o.created_at.to_s }
+
+    @articles = @articles.order("created_at ASC")
+    @articles = @articles.paginate(:page => params[:page], per_page: 10)
+
     render :edit_articles
   end
-    
+
+  def new_articles
+    @articles = []
+    a = Article.new({ rate_eur: 1, rate_interval: 'day'})
+    10.times { @articles.push(a) }
+
+    render :new_articles
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -40,17 +63,41 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update_articles
-    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :rate_interval, :location_id, :id ])
+    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
 
     # this updates only the articles not the basic informations
     respond_to do |format|
       if current_user.update(p)
         flash[:success] = t('Articles were successfully updated')
       end
-      format.html { render :edit_articles }
+      format.html { redirect_to edit_user_articles_path }
     end
   end
 
+  def create_articles
+    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+
+    success = true
+    p['articles_attributes'].each do |a|
+      success = success and current_user.articles.create(a[1])
+    end
+
+    if not success
+      # rollback # TODO: 
+    end
+    
+    # this updates only the articles not the basic informations
+    respond_to do |format|
+      if success
+        flash[:success] = t('Articles were successfully updated')
+        format.html { redirect_to new_user_articles_path }
+      else
+        format.html { render :new_user_articles }
+      end
+      
+    end
+  end
+  
   def update_locations
     p = params.require(:user).permit(locations_attributes: [:street_and_no, :postcode, :city, :country, :id ])
 

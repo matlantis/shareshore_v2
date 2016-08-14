@@ -1,26 +1,5 @@
-<h2><%= t('Edit Profile') %></h2>
+<%= render 'edit_common', context: :edit_locations %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <%= link_to t("View public profile"), user_path(@user), class: "btn btn-default" %>
-    <%= link_to t('My Articles'), articles_user_path(@user), class: "btn btn-default" %>
-    <%= link_to t('New Article'), new_article_path, class: "btn btn-default" %>
-  </div>
-</div>
-
-<br>
-
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="nav nav-tabs">
-      <li><%= link_to t("Basic Info"), edit_user_registration_path, class: 'tab' %></li>
-      <li class="active"><%= link_to t('Locations'), edit_user_locations_path, class: "tab" %></li>
-      <li><%= link_to t('Articles'), edit_user_articles_path, class: "tab" %></li>
-    </ul>
-  </div>
-</div>
-<%= "SHIT!" if defined? shit %>
-<% shit=3 %>
 <%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
   <table class="table">
     <thead>
@@ -31,11 +10,8 @@
       <th></th>
     </thead>
     <tbody>
-      <% locations = f.object.locations %>
-      <% locations.build %>
-      <% locations = locations.sort_by {|o| o.created_at.to_s } %>
-      <%= f.fields_for :locations, locations, include_id: false do |locations_form| %>
-        <% location = locations[locations_form.index] %>
+      <%= f.fields_for :locations, @locations, include_id: false do |locations_form| %>
+        <% location = @locations[locations_form.index] %>
         <tr>
           <td><%= locations_form.text_field :street_and_no, hide_label: true, placeholder: t("new address") %></td>
           <td><%= locations_form.text_field :postcode, hide_label: true %></td>
@@ -48,4 +24,20 @@
     </tbody>
   </table>
   <%= f.submit t("Update") %>
+<% end %>
+
+<%= will_paginate @locations, renderer: BootstrapPagination::Rails %>
+
+<%= bootstrap_form_for :location, url: locations_path, layout: :inline do |f| %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no"), hide_label: true %></td>
+        <td><%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode"), hide_label: true %></td>
+        <td><%= f.text_field :city, placeholder: Location.human_attribute_name("city"), hide_label: true %></td>
+        <td><%= f.text_field :country, placeholder: Location.human_attribute_name("country"), hide_label: true %></td>
+        <td><%= f.submit t("Add") %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

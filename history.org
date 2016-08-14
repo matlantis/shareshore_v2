@@ -1,6 +1,8 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** TODO gem cocoon
+   
 ** TODO user experience entwerfen
 *** First Contact als Provider
     - Startseite: 

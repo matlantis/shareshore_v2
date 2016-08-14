@@ -119,6 +119,9 @@ de:
   Articles were successfully updated: "Artikel wurden erfolgreich aktualisiert"
   new address: "neue Adresse"
   Locations were successfully updated: "Standorte wurden erfolgreich aktualisiert"
+  Details: "Details"
+  Create: "Erstellen"
+  Create new Articles: "Neue Artikel einstellen"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

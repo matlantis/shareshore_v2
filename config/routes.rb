@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
     
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
+    get "users/new_articles", action: :new_articles, controller: 'users/registrations', as: 'new_user_articles'
+    put "users/new_articles", action: :create_articles, controller: 'users/registrations', as: 'create_user_articles'
   end
 
   get "/pages/:page" => "pages#show"

@@ -76,9 +76,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @article.value_eur = 10
     @article.rate_eur = 1
-    @article.deposit_eur = 0
     @article.rate_interval = 'day'
   end
 

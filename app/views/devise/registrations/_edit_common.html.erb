@@ -1,0 +1,17 @@
+<h2><%= t('Edit Profile') %></h2>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <%= content_tag(:li, link_to(t('Basic Info'), edit_user_registration_path, class: "tab"),
+                      class: context == :edit ? ['active'] : [] )%>
+      <%= content_tag(:li, link_to(t('Locations'), edit_user_locations_path, class: "tab"),
+                      class: context == :edit_locations ? ['active'] : [] )%>
+      <%= content_tag(:li, link_to(t('Articles'), edit_user_articles_path, class: "tab"),
+                      class: context == :edit_articles ? ['active'] : [] )%>
+      <%= content_tag(:li, link_to(t('Create new Articles'), new_user_articles_path, class: "tab"),
+                      class: context == :new_articles ? ['active'] : [] )%>
+
+    </ul>
+  </div>
+</div>
