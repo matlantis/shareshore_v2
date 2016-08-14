@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   
+  root "pages#index"
+
   get '/search' => 'articles#search', as: 'search_articles'
-  root 'articles#search'
 
   resources :articles
-  resources :locations, except: [:index, :show, :new]
+  resources :locations, except: [ :show, :new]
 
   get '/users/:user_id/articles', action: :index, controller: 'articles', as: 'articles_user'
   get '/locations/:location_id/articles', action: :index, controller: 'articles', as: 'articles_location'

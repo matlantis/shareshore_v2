@@ -6,18 +6,52 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    # apply owner
-    if params.key? :user_id
-      # @articles = Article.where("articles.user_id = ?", params[:owner])
+    # save the search parameters to the session
+    session[:pattern] = params[:pattern] if params.key? :pattern
+    session[:radius] = params[:radius] if params.key? :radius
+    session[:address] = params[:address] if params.key? :address
+
+    if params.key? :user_id # apply owner
+        # @locations = Location.where("locations.user_id = ?", params[:owner])
       @user = User.find_by(id: params[:user_id])
       if @user
         @locations = @user.locations
       else
+        flash[:alert] = 'the user is unknown'        
         @locations = Location.all
       end
     else
       @locations = Location.all
+
+      # remove own locations
+      if current_user
+        @locations = @locations.where.not(user: current_user)
+      end
+        
+      # apply location criteria
+      @current_location = Location.new(street_and_no: session[:address])
+      if @current_location.geocode
+        @locations = @locations.near(@current_location, session[:radius])     
+      else
+        flash[:alert] = 'Your location is unknown'
+      end
+
+      # provide bounding box for the map (would be better if done on client side)
+      @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
+      @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
+      @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
+      @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
     end
+
+    # # apply pattern criteria
+    # if session[:pattern]
+    #   @locations = @locations.search(session[:pattern])
+    # else
+    #   @locations = @locations.order('created_at DESC')
+    # end
+
+    # paginate
+    @locations = @locations.paginate(page: params[:page], per_page: 5)
     
   end
 

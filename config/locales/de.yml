@@ -122,6 +122,12 @@ de:
   Details: "Details"
   Create: "Erstellen"
   Create new Articles: "Neue Artikel einstellen"
+  enter_your_address_the_exacter_the_better: "Gib deine Adresse an (je genauer desto besser)"
+  Where are you: "Wo bist du?"
+  borrow something: "Leih was aus!"
+  lend something: "Verleih etwas!"
+  or: "oder"
+  earn yourself some coins: "Verdien dir ein paar Kröten dazu und stelle eigene Artikel zum Verleih!"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

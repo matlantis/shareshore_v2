@@ -1,8 +1,20 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
-** TODO gem cocoon
-   
+** TODO user ergebnisseite ist via /locations anzusteuern (statt /users)
+   das macht zwar im prinzip sinn, ist aber trotzdem komisch
+   drüber nachdenken, was man da machne kann
+** TODO demo user und artikel anlegen
+** TODO artikel vorschläge
+   staubsauger
+   statische artikel (Werkzeug Basis)
+** TODO gem cocoon  
+   solve articles and locations update error problem
+   create better nested forms
+** TODO user experience umsetzen [2/3]
+   - [X] startseite (struktur)
+   - [X] such ergebnis seite mit anbietern (prinzip)
+   - [ ] rest
 ** TODO user experience entwerfen
 *** First Contact als Provider
     - Startseite: 
@@ -54,6 +66,9 @@
    - [X] sowohl in der liste als auch in der ansicht
    - [X] btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
      und dabei via javascript das text feld ausgrauen, wenn man gratis anklickt - gute übung
+** TODO error on reload in basic profile settings after submit error
+   edit basic settings: error -> users (should be users/edit), f5 -> crash
+   produce submit error with blank email
 ** TODO umsortieren der listen
    der eigenen Artikel/Locations (default location für neue Artikel)
    die Suchergebnisse sortieren nach Distanz/Relevanz
@@ -107,7 +122,8 @@
    link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
    good karma
    etwas besser layouten
-** SOMEDAYS user edit/show has list of articles inline (pagewise - uhm, not easy) (javascript)
+** DONE user edit/show has list of articles inline (pagewise - uhm, not easy) (javascript)
+   CLOSED: [2016-08-14 So 14:33]
 ** DONE layout II
    CLOSED: [2016-07-31 So 20:19]
    - [X] there are still tables and form that needs bootstrap markup (especially the devise stuff)
