@@ -23,46 +23,46 @@
   </div>
 </div>
 
-<% if @current_location %>
 <div class="row">
-  <div class="col-xs-12">
+  <% if @current_location %>
+    <div class="col-xs-12 col-md-4">
       <div id="mapid" style="width: -1; height: 400px;"></div>
+    </div>
+  <% end %>
+
+  <div class="col-xs-12 col-md-8">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= User.human_attribute_name("nickname") %></th>
+        <th><%= User.human_attribute_name("name") %></th>
+        <th><%= t("articles_count") %></th>
+        <th><%= Article.human_attribute_name("location") %></th>
+        <% if @current_location %>
+          <th><%= t("Distance") %></th>
+        <% end %>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <td><%= link_to location.user.nickname, location.user %></td>
+          <td><%= location.user.fullname %></td>
+          <td><%= location.articles.count %></td>
+          <td><%= location.shortaddress %></td>
+          <% if @current_location %>
+            <td><%= "%.1f km" % location.distance_from( @current_location ) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate @locations, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
-<% end %>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= User.human_attribute_name("nickname") %></th>
-      <th><%= User.human_attribute_name("firstname") %></th>
-      <th><%= User.human_attribute_name("lastname") %></th>
-      <th><%= User.human_attribute_name("articles_count") %></th>
-      <th><%= User.human_attribute_name("location") %></th>
-      <% if @current_location %>
-        <th><%= t("Distance") %></th>
-      <% end %>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= link_to location.user.nickname, location.user %></td>
-        <td><%= location.user.firstname %></td>
-        <td><%= location.user.lastname %></td>
-        <td><%= location.user.articles.count %></td>
-        <td><%= location.shortaddress %></td>
-        <% if @current_location %>
-          <td><%= "%.1f km" % location.distance_from( @current_location ) %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= will_paginate @locations, renderer: BootstrapPagination::Rails %>
 
 
 <% if @current_location %>

@@ -1,6 +1,8 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** TODO finde bessere bezeichnungen
+   für Nutzer, Artikel, Standort
 ** TODO user ergebnisseite ist via /locations anzusteuern (statt /users)
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann

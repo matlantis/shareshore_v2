@@ -128,6 +128,8 @@ de:
   lend something: "Verleih etwas!"
   or: "oder"
   earn yourself some coins: "Verdien dir ein paar Kröten dazu und stelle eigene Artikel zum Verleih!"
+  Users: "Leute"
+  articles_count: "Artikel"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

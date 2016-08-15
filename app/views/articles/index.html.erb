@@ -23,47 +23,41 @@
   </div>
 </div>
 
-<% if @current_location %>
 <div class="row">
-  <div class="col-xs-12">
+  <% if @current_location %>
+    <div class="col-xs-12 col-md-4">
       <div id="mapid" style="width: -1; height: 400px;"></div>
-  </div>
-</div>
-<% end %>
+    </div>
+  <% end %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= Article.human_attribute_name("title") %></th>
-      <th><%= Article.human_attribute_name("details") %></th>
-      <th><%= Article.human_attribute_name("value_eur") %></th>
-      <th><%= Article.human_attribute_name("rate") %></th>
-      <th><%= Article.human_attribute_name("deposit_eur") %></th>
-      <th><%= Article.human_attribute_name("location") %></th>
-      <% if @current_location %>
-        <th><%= t("Distance") %></th>
-      <% end %>
-      <th><%= Article.human_attribute_name("user") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="col-xs-12 col-md-8">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= Article.human_attribute_name("title") %></th>
+        <th><%= Article.human_attribute_name("rate") %></th>
+        <th><%= Article.human_attribute_name("location") %></th>
+        <% if @current_location %>
+          <th><%= t("Distance") %></th>
+        <% end %>
+        <th><%= Article.human_attribute_name("user") %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <% if article.rate_eur == 0 %>
-        <tr class="success">
-      <% else %>
-        <tr>
-      <% end %>
+    <tbody>
+      <% @articles.each do |article| %>
+        <% if article.rate_eur == 0 %>
+          <tr class="success">
+        <% else %>
+            <tr>
+        <% end %>
         <td><%= link_to article.title, article %></td>
-        <td><%= article.details %></td>
-        <td><%= article.value_eur %></td>
         <% if article.rate_eur == 0 %>
           <td><strong><%= t("Gratis")%></strong></td>
         <% else %>
           <td><%= article.rate_eur %> € <%= t('per') %> <%= t(article.rate_interval) %></td>
         <% end %>
-        <td><%= article.deposit_eur %></td>
         <td><%= article.location.shortaddress %></td>
         <% if @current_location %>
           <td><%= "%.1f km" % article.location.distance_from( @current_location ) %></td>
@@ -73,12 +67,13 @@
         <td><%= link_to t("Show"), article, class: "btn btn-default" %></td>
         <td><%= link_to(t("Edit"), edit_article_path(article), class: "btn btn-default") if current_user and current_user.id == article.user.id %></td>
         <td><%= link_to(t("Delete"), article, method: :delete, data: { confirm: t("Are you sure?") }, class: "btn btn-default" ) if current_user and current_user.id == article.user.id %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+</div>
 
 
 <% if @current_location %>
