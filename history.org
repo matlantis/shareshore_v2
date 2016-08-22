@@ -1,8 +1,18 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** TODO menuleiste und infoleiste realisieren
+** TODO correct redirecting after sign in
+   https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in
+
+** TODO artikel, nutzer und standorte im text hervorheben
+   mit symbol und verzierung (zB kartusche)
+** TODO search is still case sensitive
 ** TODO finde bessere bezeichnungen
-   für Nutzer, Artikel, Standort
+   für 
+   - Nutzer: Leute
+   - Artikel: 
+   - Standort
 ** TODO user ergebnisseite ist via /locations anzusteuern (statt /users)
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann
@@ -16,8 +26,9 @@
 ** TODO user experience umsetzen [2/3]
    - [X] startseite (struktur)
    - [X] such ergebnis seite mit anbietern (prinzip)
-   - [ ] rest
-** TODO user experience entwerfen
+   - [ ] erster login -> location und artikel assistent
+** DONE user experience entwerfen
+   CLOSED: [2016-08-15 Mo 12:50]
 *** First Contact als Provider
     - Startseite: 
       - wo bin ich und welche Artikel gibt es hier?
@@ -68,7 +79,8 @@
    - [X] sowohl in der liste als auch in der ansicht
    - [X] btw gratis checkbox virtuell machen und den wert durch leeres rate field symbolisieren
      und dabei via javascript das text feld ausgrauen, wenn man gratis anklickt - gute übung
-** TODO error on reload in basic profile settings after submit error
+** DONE error on reload in basic profile settings after submit error
+   CLOSED: [2016-08-15 Mo 12:51]
    edit basic settings: error -> users (should be users/edit), f5 -> crash
    produce submit error with blank email
 ** TODO umsortieren der listen

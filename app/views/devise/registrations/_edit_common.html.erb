@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="nav nav-tabs">
-      <%= content_tag(:li, link_to(t('Basic Info'), edit_user_registration_path, class: "tab"),
+      <%= content_tag(:li, link_to(t('Basic Info'), edit_user_basic_path, class: "tab"),
                       class: context == :edit ? ['active'] : [] )%>
       <%= content_tag(:li, link_to(t('Locations'), edit_user_locations_path, class: "tab"),
                       class: context == :edit_locations ? ['active'] : [] )%>

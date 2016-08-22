@@ -2,7 +2,7 @@
 
 <% if current_user.lastname.blank? %>
   <div>
-    <h3>Dein Profil!</h3>
+    <h3> Dein Profil!</h3>
     <%= bootstrap_form_for resource, as: resource_name, url: 'pages/firststeps' do |f| %>
       <%= f.text_field :firstname %>
       <%= f.text_field :lastname %>

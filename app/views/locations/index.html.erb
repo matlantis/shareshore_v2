@@ -50,7 +50,7 @@
         <tr>
           <td><%= link_to location.user.nickname, location.user %></td>
           <td><%= location.user.fullname %></td>
-          <td><%= location.articles.count %></td>
+          <td><%= link_to location.articles.count, articles_location_path(location) %></td>
           <td><%= location.shortaddress %></td>
           <% if @current_location %>
             <td><%= "%.1f km" % location.distance_from( @current_location ) %></td>

@@ -5,23 +5,21 @@
 <% end %>
 
 <% if @user %>
-  <% spec_string = " " + t("for") +" " + @user.nickname %>
+  <%= content_tag :h2, t("Articles for") + " " + @user.nickname %>
 <% elsif @location %>
-  <% spec_string = " " + t("at") + " " + @location.shortaddress + " " + t("for") + " " + @location.user.nickname %>
+  <%= content_tag :h2, t("Articles at", location: @location.shortaddress) + " " + t("for") + " " + @location.user.nickname %>
 <% else %>
-  <% spec_string = " " + t("nearby") %>
-<% end %>
-
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="nav nav-tabs">
-      <%= content_tag(:li, link_to(t('Articles') + spec_string, articles_path, class: "tab"),
-                      class: ['active'] )%>
-      <%= content_tag(:li, link_to(t('Users') + spec_string, locations_path, class: "tab"),
-                      class: [] )%>
-    </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs">
+        <%= content_tag(:li, link_to(t('Articles nearby'), articles_path, class: "tab"),
+                        class: ['active'] )%>
+        <%= content_tag(:li, link_to(t('Users nearby'), locations_path, class: "tab"),
+                        class: [] )%>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="row">
   <% if @current_location %>

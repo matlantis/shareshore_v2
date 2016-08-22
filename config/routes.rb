@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/locations/:location_id/articles', action: :index, controller: 'articles', as: 'articles_location'
   
   devise_scope :user do
+    get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
+    put "users/basic", action: :update, controller: 'users/registrations'
+    
     get "users/locations", action: :edit_locations, controller: 'users/registrations', as: 'edit_user_locations'
     get "users/articles", action: :edit_articles, controller: 'users/registrations', as: 'edit_user_articles'
     put "users/articles", action: :update_articles, controller: 'users/registrations', as: 'user_articles'

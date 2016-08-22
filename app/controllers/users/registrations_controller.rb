@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [:edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -60,7 +60,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def edit
   #   super
   # end
-
+  def edit_basic
+  end
+  
   # PUT /resource
   def update_articles
     p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])

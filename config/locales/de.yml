@@ -52,7 +52,10 @@ de:
   Search: "Suche"
   for: "für"
   at: "bei"
+  Articles nearby: "Artikel in der Nähe"
+  Users nearby: "Leute in der Nähe"
   nearby: "in der Nähe"
+  Articles for: "Artikel für"
   Articles: "Artikel"
   Logged in as: "Angemeldet als"
   New Article: "Neuer Artikel"
@@ -130,6 +133,12 @@ de:
   earn yourself some coins: "Verdien dir ein paar Kröten dazu und stelle eigene Artikel zum Verleih!"
   Users: "Leute"
   articles_count: "Artikel"
+  Guidepost: "Wegweiser"
+  Edit your Profile: "Profil bearbeiten"
+  Edit your Locations: "Standorte bearbeiten"
+  Manage your Articles: "Artikel verwalten"
+  Create new Articles: "Artikel erstellen"
+  What now: "Was jetzt?"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
