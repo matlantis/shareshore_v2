@@ -1,6 +1,6 @@
-<%= render 'edit_common', context: :edit %>
+<%= render 'edit_common', context: :edit_basic %>
 
-<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: edit_user_basic_path, html: { method: :put }, layout: :horizontal) do |f| %>
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true %>

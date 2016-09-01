@@ -1,6 +1,14 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
+** DONE guidepost
+   CLOSED: [2016-09-01 Do 22:01]
+   den guide post in drei seiten unterteilen mit drei update methoden usw, damit das alles clean wird
+  
+** TODO must be translated
+   Location was successfully created
+   Location was successfully destroyed 
+   Bisheriges Passwort is needed
 ** TODO menuleiste und infoleiste realisieren
 ** TODO correct redirecting after sign in
    https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in
@@ -23,10 +31,11 @@
 ** TODO gem cocoon  
    solve articles and locations update error problem
    create better nested forms
-** TODO user experience umsetzen [2/3]
+** DONE user experience umsetzen [3/3]
+   CLOSED: [2016-09-01 Do 22:02]
    - [X] startseite (struktur)
    - [X] such ergebnis seite mit anbietern (prinzip)
-   - [ ] erster login -> location und artikel assistent
+   - [X] erster login -> wegweiser
 ** DONE user experience entwerfen
    CLOSED: [2016-08-15 Mo 12:50]
 *** First Contact als Provider

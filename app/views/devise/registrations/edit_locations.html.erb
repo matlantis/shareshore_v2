@@ -1,6 +1,7 @@
 <%= render 'edit_common', context: :edit_locations %>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
+  <%= devise_error_messages! %>
   <table class="table">
     <thead>
       <th><%= Location.human_attribute_name("street_and_no") %></th>

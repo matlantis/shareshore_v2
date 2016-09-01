@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [:edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:edit_guidepost, :update_guidepost, :edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -62,6 +62,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   def edit_basic
   end
+
+  def edit_guidepost
+    @location = Location.new
+  end
   
   # PUT /resource
   def update_articles
@@ -102,16 +106,75 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def update_locations
     p = params.require(:user).permit(locations_attributes: [:street_and_no, :postcode, :city, :country, :id ])
+    success = current_user.update(p)
+
+    @locations = current_user.locations
+    @locations = @locations.order("created_at ASC")
+    @locations = @locations.paginate(:page => params[:page], per_page: 5)
 
     # this updates only the locations not the basic informations
     respond_to do |format|
-      if current_user.update(p)
+      if success
         flash[:success] = t('Locations were successfully updated')
       end
       format.html { render :edit_locations }
+      #format.html { redirect_to edit_user_locations_path }
     end
   end
 
+  # PUT /resource
+  # We need to use a copy of the resource because we don't want to change
+  # the current user in place.
+  def update_basic
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      if is_flashing_format?
+        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+          :update_needs_confirmation : :updated
+        set_flash_message :notice, flash_key
+      end
+      sign_in resource_name, resource, bypass: true
+      respond_with resource, location: edit_user_basic_path
+    else
+      clean_up_passwords resource
+      render :edit_basic
+      #respond_with resource, location: edit_user_basic_path
+    end
+  end
+
+  def update_guidepost
+    if params.has_key? :user
+      p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :phoneno)
+      success = current_user.update(p)
+      # this updates only the locations not the basic informations
+      respond_to do |format|
+        if success
+          flash[:success] = t('Successfully updated contact info')
+        end
+        format.html { render :edit_guidepost }
+        #format.html { redirect_to edit_user_locations_path }
+      end
+    elsif params.has_key? :location            
+      p = params.require(:location).permit(:street_and_no, :postcode, :city, :country)
+      @location = current_user.locations.create(p)
+      respond_to do |format|
+        if @location.save
+          flash[:success] = t('Location was successfully created')
+        else
+          if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
+            @location.errors.clear
+            @location.errors.add(:base, t("address_unknown"))
+          end
+        end
+        format.html { render :edit_guidepost }
+      end
+    end
+      
+  end
   # DELETE /resource
   # def destroy
   #   super

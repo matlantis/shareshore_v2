@@ -96,7 +96,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.save
         flash[:success] = t('Location was successfully created')
-        format.html { redirect_to edit_user_registration_path }
+        format.html { redirect_to edit_user_locations_path }
         format.json { render :show, status: :created, location: @location }
       else
         if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
