@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
   validates :rate_interval, inclusion: { in: %w(hour day week month year) }
 
   def self.search(search)
-    where("title LIKE ?", "%#{search}%") 
+    where("lower(title) LIKE ?", "%#{search.downcase}%") 
   end
 
 end

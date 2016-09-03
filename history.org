@@ -1,26 +1,17 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
 
 * Shareshore V2 Todos
-** DONE guidepost
-   CLOSED: [2016-09-01 Do 22:01]
-   den guide post in drei seiten unterteilen mit drei update methoden usw, damit das alles clean wird
-  
-** TODO must be translated
-   Location was successfully created
-   Location was successfully destroyed 
-   Bisheriges Passwort is needed
-** TODO menuleiste und infoleiste realisieren
-** TODO correct redirecting after sign in
-   https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in
 
-** TODO artikel, nutzer und standorte im text hervorheben
-   mit symbol und verzierung (zB kartusche)
-** TODO search is still case sensitive
+** TODO in die artikel ansicht gehören die kontakt informationen
 ** TODO finde bessere bezeichnungen
    für 
    - Nutzer: Leute
    - Artikel: 
    - Standort
+** TODO menuleiste und infoleiste realisieren
+   nochmal drüber nachdenken was da eigentlich reinsoll
+** TODO artikel, nutzer und standorte im text hervorheben
+   mit symbol und verzierung (zB kartusche)
 ** TODO user ergebnisseite ist via /locations anzusteuern (statt /users)
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann
@@ -31,6 +22,71 @@
 ** TODO gem cocoon  
    solve articles and locations update error problem
    create better nested forms
+** TODO umsortieren der listen
+   der eigenen Artikel/Locations (default location für neue Artikel)
+   die Suchergebnisse sortieren nach Distanz/Relevanz
+** TODO Devise with email confirmation
+** TODO Internationalisierung
+   - [X] basic
+     use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
+     default is de
+   - [-] translate pages
+     - [X] articles
+     - [X] location
+     - [-] devise
+       - [X] the rest
+       - [ ] mailer
+       - [ ] passwords
+   - [X] devise errors
+     eine vorgefertigte datei runtergeladen
+   - [X] validation errors
+   - [X] _form submit button label (auto generated)
+*** must be translated
+    Location was successfully created
+    Location was successfully destroyed 
+    Bisheriges Passwort is needed
+** TODO article pictures
+   - [ ] care for picture size
+   - [ ] file field layout
+   - [ ] +mehrere Bilder pro Artikel+ cancelled
+
+** WAITING karte aufhübschen [2/5]
+   - [X]  suchradius verwenden
+   - [X]  marker in verschiedenen farben
+   - [ ] tooltips mit artikeln, bzw. mit links
+   - [ ] java script an irgendne separierte stelle schreiben
+   - [ ] hover article hightlights marker
+** TODO statische pages [2/3]
+   - [X] entwurf
+     - tutorial: wie funktioniert shareshore?
+     - agb and disclaimer
+     - kontakt bei problemen
+     - faq
+       - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
+       - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
+       - was tue ich, wenn mir der geliehen Artikel kaputt geht
+     - statistiken
+     - blog
+   - [X] Grundgerüst
+     http://blog.teamtreehouse.com/static-pages-ruby-rails
+   - [ ] Pages
+     - [ ] agbs schreiben
+     - [ ] contact schreiben
+     - [ ] tutorial schreiben
+     - [ ] faq schreiben
+** TODO der footer muss gemacht gewerden
+   link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
+   good karma
+   etwas besser layouten
+** CANCELED correct redirecting after sign in
+   CLOSED: [2016-09-03 Sa 16:12]
+   https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in
+   seems to work
+** DONE search is still case sensitive
+   CLOSED: [2016-09-03 Sa 16:25]
+** DONE guidepost
+   CLOSED: [2016-09-01 Do 22:01]
+   den guide post in drei seiten unterteilen mit drei update methoden usw, damit das alles clean wird
 ** DONE user experience umsetzen [3/3]
    CLOSED: [2016-09-01 Do 22:02]
    - [X] startseite (struktur)
@@ -92,59 +148,6 @@
    CLOSED: [2016-08-15 Mo 12:51]
    edit basic settings: error -> users (should be users/edit), f5 -> crash
    produce submit error with blank email
-** TODO umsortieren der listen
-   der eigenen Artikel/Locations (default location für neue Artikel)
-   die Suchergebnisse sortieren nach Distanz/Relevanz
-** TODO Devise with email confirmation
-** TODO Internationalisierung
-   - [X] basic
-     use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
-     default is de
-   - [-] translate pages
-     - [X] articles
-     - [X] location
-     - [-] devise
-       - [X] the rest
-       - [ ] mailer
-       - [ ] passwords
-   - [X] devise errors
-     eine vorgefertigte datei runtergeladen
-   - [X] validation errors
-   - [X] _form submit button label (auto generated)
-** TODO article pictures
-   - [ ] care for picture size
-   - [ ] file field layout
-   - [ ] mehrere Bilder pro Artikel
-
-** WAITING karte aufhübschen [2/5]
-   - [X]  suchradius verwenden
-   - [X]  marker in verschiedenen farben
-   - [ ] tooltips mit artikeln, bzw. mit links
-   - [ ] java script an irgendne separierte stelle schreiben
-   - [ ] hover article hightlights marker
-** TODO in die artikel ansicht gehören die kontakt informationen
-** TODO statische pages [2/3]
-   - [X] entwurf
-     - tutorial: wie funktioniert shareshore?
-     - agb and disclaimer
-     - kontakt bei problemen
-     - faq
-       - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
-       - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
-       - was tue ich, wenn mir der geliehen Artikel kaputt geht
-     - statistiken
-     - blog
-   - [X] Grundgerüst
-     http://blog.teamtreehouse.com/static-pages-ruby-rails
-   - [ ] Pages
-     - [ ] agbs schreiben
-     - [ ] contact schreiben
-     - [ ] tutorial schreiben
-     - [ ] faq schreiben
-** TODO der footer muss gemacht gewerden
-   link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
-   good karma
-   etwas besser layouten
 ** DONE user edit/show has list of articles inline (pagewise - uhm, not easy) (javascript)
    CLOSED: [2016-08-14 So 14:33]
 ** DONE layout II
