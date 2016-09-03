@@ -148,6 +148,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_guidepost
     if params.has_key? :user
+      @location = Location.new # create a location for the form (maybe needed)
+      
       p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :phoneno)
       success = current_user.update(p)
       # this updates only the locations not the basic informations
@@ -202,9 +204,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    edit_user_guidepost_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
