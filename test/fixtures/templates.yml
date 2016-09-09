@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  details_hint: MyText
+  rate_eur: 1
+  rate_interval: MyString
+  picture: MyString
+
+two:
+  title: MyString
+  details_hint: MyText
+  rate_eur: 1
+  rate_interval: MyString
+  picture: MyString

@@ -1,0 +1,33 @@
+<%= render 'edit_common', context: :new_articles_templates %>
+
+<%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_templates_path, html: { method: :put }, layout: :inline) do |f| %>
+<%= devise_error_messages! %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Article.human_attribute_name("title") %></th>
+      <th><%= Article.human_attribute_name("rate_eur") %></th>
+      <th><%= Article.human_attribute_name("rate_interval") %></th>
+      <th><%= Article.human_attribute_name("location") %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= f.fields_for :articles, @articles, include_id: false do |articles_form| %>
+      <% article = @articles[articles_form.index] %>
+      <tr>
+        <td><%= articles_form.check_box :to_be_created, value: false, label: t("Create"), hide_label: true %></td>
+        <td><%= articles_form.text_field :title, hide_label: true %></td>
+        <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
+        <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
+        <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
+        <%= articles_form.hidden_field :id %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= f.submit t("Update") %>
+<% end %>
+

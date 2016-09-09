@@ -2,6 +2,13 @@
 
 * Shareshore V2 Todos
 
+** TODO template seite ausarbeiten
+   anzeigen welche templates schon realisiert sind
+** SOMEDAYS admin area
+   notwendige funktionen definieren
+   das ist was für später
+** TODO Article Manager
+   Entwurf usw. 
 ** TODO in die artikel ansicht gehören die kontakt informationen
 ** TODO finde bessere bezeichnungen
    für 
@@ -16,7 +23,8 @@
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann
 ** TODO demo user und artikel anlegen
-** TODO artikel vorschläge
+** DONE artikel vorschläge
+   CLOSED: [2016-09-09 Fr 15:20]
    staubsauger
    statische artikel (Werkzeug Basis)
 ** TODO gem cocoon  

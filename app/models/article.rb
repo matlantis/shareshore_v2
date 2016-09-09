@@ -1,8 +1,10 @@
 class Article < ActiveRecord::Base
+  attr_accessor :to_be_created
   mount_uploader :picture, PictureUploader
 
   belongs_to :location
   belongs_to :user
+  has_one :template
 
   # hack see https://github.com/alexreisner/geocoder/issues/26
   reverse_geocoded_by "locations.latitude", "locations.longitude"

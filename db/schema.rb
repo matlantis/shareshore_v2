@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809101902) do
+ActiveRecord::Schema.define(version: 20160909114217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20160809101902) do
     t.string   "picture"
     t.integer  "rate_eur"
     t.string   "rate_interval"
+    t.integer  "template_id"
   end
 
   add_index "articles", ["location_id"], name: "index_articles_on_location_id", using: :btree
+  add_index "articles", ["template_id"], name: "index_articles_on_template_id", using: :btree
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
@@ -46,6 +48,16 @@ ActiveRecord::Schema.define(version: 20160809101902) do
   end
 
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
+
+  create_table "templates", force: :cascade do |t|
+    t.string   "title"
+    t.text     "details_hint"
+    t.integer  "rate_eur"
+    t.string   "rate_interval"
+    t.string   "picture"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -74,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160809101902) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "articles", "locations"
+  add_foreign_key "articles", "templates"
   add_foreign_key "articles", "users"
   add_foreign_key "locations", "users"
 end

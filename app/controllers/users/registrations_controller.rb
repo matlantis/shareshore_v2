@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [:edit_guidepost, :update_guidepost, :edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:create_articles, :create_articles_templates, :edit_guidepost, :update_guidepost, :edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :new_articles_templates, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -46,7 +46,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     render :new_articles
   end
-  # GET /resource/sign_up
+
+  def new_articles_templates
+    @articles = []
+    Template.all.each do |t|
+      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture)
+      @articles.push(a)
+    end
+
+    render :new_articles_templates
+  end
+# GET /resource/sign_up
   # def new
   #   super
   # end
@@ -103,7 +113,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
       
     end
   end
-  
+
+  def create_articles_templates
+    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+
+    success = true
+    p['articles_attributes'].each do |a|
+      if a[1][:to_be_created] != "0"
+        success = success and current_user.articles.create(a[1])
+      end
+    end
+
+    if not success
+      # rollback # TODO: 
+    end
+    
+    # this updates only the articles not the basic informations
+    respond_to do |format|
+      if success
+        flash[:success] = t('Articles were successfully updated')
+        format.html { redirect_to new_user_articles_templates_path }
+      else
+        format.html { render :new_user_articles_templates }
+      end
+      
+    end
+  end
+
   def update_locations
     p = params.require(:user).permit(locations_attributes: [:street_and_no, :postcode, :city, :country, :id ])
     success = current_user.update(p)
