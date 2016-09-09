@@ -2,8 +2,14 @@
 
 * Shareshore V2 Todos
 
+** TODO wie-bin-ich-abgesichert-seite
+** TODO article kriegen ne qualität
+   im template feld realisieren, jedoch nicht ins template model einbauen
+** TODO get rid of unnecessary article attributes
+   like value, deposit
 ** TODO template seite ausarbeiten
    anzeigen welche templates schon realisiert sind
+   details field anzeigen
 ** SOMEDAYS admin area
    notwendige funktionen definieren
    das ist was für später
@@ -12,9 +18,10 @@
 ** TODO in die artikel ansicht gehören die kontakt informationen
 ** TODO finde bessere bezeichnungen
    für 
-   - Nutzer: Leute
-   - Artikel: 
-   - Standort
+   - Nutzer: Leute, Chico
+   - Artikel: Dingi, Sache, Cosa
+   - Standort: Ort, Platz, Punto, Puesto
+   - Template: Schablone, Vorlage, Muster, Estampa
 ** TODO menuleiste und infoleiste realisieren
    nochmal drüber nachdenken was da eigentlich reinsoll
 ** TODO artikel, nutzer und standorte im text hervorheben
@@ -23,14 +30,10 @@
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann
 ** TODO demo user und artikel anlegen
-** DONE artikel vorschläge
-   CLOSED: [2016-09-09 Fr 15:20]
-   staubsauger
-   statische artikel (Werkzeug Basis)
 ** TODO gem cocoon  
    solve articles and locations update error problem
    create better nested forms
-** TODO umsortieren der listen
+** SOMEDAYS umsortieren der listen
    der eigenen Artikel/Locations (default location für neue Artikel)
    die Suchergebnisse sortieren nach Distanz/Relevanz
 ** TODO Devise with email confirmation
@@ -86,6 +89,10 @@
    link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
    good karma
    etwas besser layouten
+** DONE artikel vorschläge
+   CLOSED: [2016-09-09 Fr 15:20]
+   staubsauger
+   statische artikel (Werkzeug Basis)
 ** CANCELED correct redirecting after sign in
    CLOSED: [2016-09-03 Sa 16:12]
    https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in

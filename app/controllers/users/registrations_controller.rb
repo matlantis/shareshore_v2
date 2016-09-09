@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_articles_templates
     @articles = []
     Template.all.each do |t|
-      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture)
+      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id)
       @articles.push(a)
     end
 
@@ -115,7 +115,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_articles_templates
-    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :rate_eur, :value_eur, :rate_interval, :location_id, :id, :template_id ])
 
     success = true
     p['articles_attributes'].each do |a|

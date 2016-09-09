@@ -5,7 +5,9 @@
 <table class="table">
   <thead>
     <tr>
+      <th><%= Article.human_attribute_name("create") %></th>
       <th><%= Article.human_attribute_name("title") %></th>
+      <th><%= Article.human_attribute_name("details") %></th>
       <th><%= Article.human_attribute_name("rate_eur") %></th>
       <th><%= Article.human_attribute_name("rate_interval") %></th>
       <th><%= Article.human_attribute_name("location") %></th>
@@ -18,12 +20,20 @@
     <%= f.fields_for :articles, @articles, include_id: false do |articles_form| %>
       <% article = @articles[articles_form.index] %>
       <tr>
-        <td><%= articles_form.check_box :to_be_created, value: false, label: t("Create"), hide_label: true %></td>
+        <td>
+          <% # wieviele artikel hat der nutzer schon mit diesem template erstellt  %>
+          <% # anders gefragt: wieviele artikel des nutzers gibt es, deren template die gleiche idee hat, wie die id dieses templates %>
+          <% ntemplates = current_user.articles.where("template_id = ?", article.template_id).count %>
+          <%= articles_form.check_box :to_be_created, value: false, hide_label: true %>
+          <%= "(#{ntemplates})" if ntemplates > 0 %>
+        </td>
         <td><%= articles_form.text_field :title, hide_label: true %></td>
+        <td><%= articles_form.text_field :details, hide_label: true %></td>
         <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
         <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
         <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
         <%= articles_form.hidden_field :id %>
+        <%= articles_form.hidden_field :template_id %>
       </tr>
     <% end %>
   </tbody>
