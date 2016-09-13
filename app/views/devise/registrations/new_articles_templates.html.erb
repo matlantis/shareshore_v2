@@ -8,7 +8,7 @@
       <th><%= Article.human_attribute_name("create") %></th>
       <th><%= Article.human_attribute_name("title") %></th>
       <th><%= Article.human_attribute_name("details") %></th>
-      <th><%= Article.human_attribute_name("rate_eur") %></th>
+      <th><%= Article.human_attribute_name("rate_ct") %></th>
       <th><%= Article.human_attribute_name("rate_interval") %></th>
       <th><%= Article.human_attribute_name("location") %></th>
       <th></th>
@@ -29,8 +29,8 @@
         </td>
         <td><%= articles_form.text_field :title, hide_label: true %></td>
         <td><%= articles_form.text_field :details, hide_label: true %></td>
-        <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
-        <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
+        <td><%= articles_form.number_field :rate_ct, append: "€", hide_label: true %></td>
+        <td><%= articles_form.text_field :rate_interval, hide_label: true %></td>
         <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
         <%= articles_form.hidden_field :id %>
         <%= articles_form.hidden_field :template_id %>

@@ -2,14 +2,27 @@
 
 * Shareshore V2 Todos
 
+** TODO rate in EUR umrechnen in den views
+** TODO template validations
+** TODO templates erstellen
+** DONE edit_articles: details anzeigen
+   CLOSED: [2016-09-13 Di 12:16]
+** DONE rate in ct statt in eur
+   CLOSED: [2016-09-13 Di 12:53]
+   column rename rate_eur -> rate_ct
+   angabe immer umrechnen (später)
+** DONE rate_interval beliebiger string (drucker: 20ct / seite)
+   CLOSED: [2016-09-13 Di 12:22]
+   validation löschen
+   dropdown felder durch textfelder ersetzen: 
+   - edit_articles
+   - new_articles
+   - new_articles_templates
 ** TODO wie-bin-ich-abgesichert-seite
-** TODO article kriegen ne qualität
+** TODO article kriegen ne qualität (zustand)
    im template feld realisieren, jedoch nicht ins template model einbauen
 ** TODO get rid of unnecessary article attributes
    like value, deposit
-** TODO template seite ausarbeiten
-   anzeigen welche templates schon realisiert sind
-   details field anzeigen
 ** SOMEDAYS admin area
    notwendige funktionen definieren
    das ist was für später
@@ -89,6 +102,10 @@
    link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
    good karma
    etwas besser layouten
+** DONE template seite ausarbeiten
+   CLOSED: [2016-09-13 Di 12:12]
+   anzeigen welche templates schon realisiert sind
+   details field anzeigen
 ** DONE artikel vorschläge
    CLOSED: [2016-09-09 Fr 15:20]
    staubsauger

@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new_articles
     @articles = []
-    a = Article.new({ rate_eur: 1, rate_interval: 'day'})
+    a = Article.new({ rate_ct: 1, rate_interval: 'day'})
     10.times { @articles.push(a) }
 
     render :new_articles
@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_articles_templates
     @articles = []
     Template.all.each do |t|
-      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id)
+      a = Article.new(title: t.title, details: t.details_hint, rate_ct: t.rate_ct, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id)
       @articles.push(a)
     end
 
@@ -79,7 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   # PUT /resource
   def update_articles
-    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+    p = params.require(:user).permit(articles_attributes: [:title, :rate_ct, :value_eur, :rate_interval, :location_id, :id ])
 
     # this updates only the articles not the basic informations
     respond_to do |format|
@@ -91,7 +91,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_articles
-    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+    p = params.require(:user).permit(articles_attributes: [:title, :rate_ct, :value_eur, :rate_interval, :location_id, :id ])
 
     success = true
     p['articles_attributes'].each do |a|
@@ -115,7 +115,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_articles_templates
-    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :rate_eur, :value_eur, :rate_interval, :location_id, :id, :template_id ])
+    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :rate_ct, :value_eur, :rate_interval, :location_id, :id, :template_id ])
 
     success = true
     p['articles_attributes'].each do |a|

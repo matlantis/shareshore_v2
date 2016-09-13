@@ -12,8 +12,8 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 1, maximum: 50 }
   validates :location, presence: true
   validates :user, presence: true
-  validates :rate_eur, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :rate_interval, inclusion: { in: %w(hour day week month year) }
+  validates :rate_ct, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :rate_interval, presence: true, length: { minimum: 1, maximum: 50 }
 
   def self.search(search)
     where("lower(title) LIKE ?", "%#{search.downcase}%") 

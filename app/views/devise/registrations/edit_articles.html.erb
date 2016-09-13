@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th><%= Article.human_attribute_name("title") %></th>
-      <th><%= Article.human_attribute_name("rate_eur") %></th>
+      <th><%= Article.human_attribute_name("details") %></th>
+      <th><%= Article.human_attribute_name("rate_ct") %></th>
       <th><%= Article.human_attribute_name("rate_interval") %></th>
       <th><%= Article.human_attribute_name("location") %></th>
       <th></th>
@@ -19,8 +20,9 @@
       <% article = @articles[articles_form.index] %>
       <tr>
         <td><%= articles_form.text_field :title, hide_label: true %></td>
-        <td><%= articles_form.number_field :rate_eur, append: "€", hide_label: true %></td>
-        <td><%= articles_form.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']], hide_label: true %></td>
+        <td><%= articles_form.text_field :details, hide_label: true %></td>
+        <td><%= articles_form.number_field :rate_ct, append: "€", hide_label: true %></td>
+        <td><%= articles_form.text_field :rate_interval, hide_label: true %></td>
         <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
         <td><%= link_to t("Details"), edit_article_path(article), class: "btn btn-default" %></td>
         <td><%= link_to t("Delete"), article_path(article), method: :delete, data: { confirm: t("really_delete_article_question") }, class: "btn btn-default" %></td>
