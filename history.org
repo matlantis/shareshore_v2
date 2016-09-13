@@ -2,6 +2,8 @@
 
 * Shareshore V2 Todos
 
+** TODO kategorien erstellen
+   sowohl für templates als auch für artikel (falls nötig)
 ** DONE rate in EUR umrechnen in den views
    CLOSED: [2016-09-13 Di 13:16]
    rate ist jetzt ein float, das machts einfacher
@@ -22,13 +24,17 @@
    - new_articles
    - new_articles_templates
 ** TODO wie-bin-ich-abgesichert-seite
-** TODO article kriegen ne qualität (zustand)
+** DONE article kriegen ne qualität (zustand)
+   CLOSED: [2016-09-13 Di 13:40]
    im template feld realisieren, jedoch nicht ins template model einbauen
 ** TODO get rid of unnecessary article attributes
    like value, deposit
 ** SOMEDAYS admin area
    notwendige funktionen definieren
    das ist was für später
+   admin tasks sind üblicherweise Datenbank operationen, die krieg ich alle von der cmdline hin
+   braucht man nur für regelmässige tasks
+   zB: template erstellen, vllt auch einfach als seed realisieren
 ** TODO Article Manager
    Entwurf usw. 
 ** TODO in die artikel ansicht gehören die kontakt informationen
