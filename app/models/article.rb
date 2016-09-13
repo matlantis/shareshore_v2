@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 1, maximum: 50 }
   validates :location, presence: true
   validates :user, presence: true
-  validates :rate_ct, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :rate_eur, numericality: { greater_than_or_equal_to: 0 }
   validates :rate_interval, presence: true, length: { minimum: 1, maximum: 50 }
 
   def self.search(search)

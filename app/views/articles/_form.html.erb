@@ -5,7 +5,7 @@
   <%= f.text_area :details %>
   <%= f.number_field :value_eur, append: "€" %>
   <%= f.form_group "rate" do %>
-    <%= f.number_field :rate_ct, append: "€" %>
+    <%= f.number_field :rate_eur, append: "€" %>
     <%= f.select :rate_interval, [[t('hour'), 'hour'], [t('day'), 'day'], [t('week'), 'week'], [t('month'), 'month'], [t('year'), 'year']] %>
   <% end %>
       

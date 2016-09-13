@@ -13,10 +13,10 @@
 
 <tr>
   <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
-  <% if @article.rate_ct == 0 %>
+  <% if @article.rate_eur == 0 %>
     <td><strong><%= t("Gratis")%></strong></td>
   <% else %>
-    <td><%= @article.rate_ct %> € <%= t('per') %> <%= t(@article.rate_interval) %></td>
+    <td><%= @article.rate_eur %> € <%= t('per') %> <%= t(@article.rate_interval) %></td>
   <% end %>
 </tr>
 
