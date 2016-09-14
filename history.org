@@ -2,7 +2,12 @@
 
 * Shareshore V2 Todos
 
-** TODO template view fertig machen
+** TODO vorlage formular per js einblenden, wenn ein häkchen gemacht ist
+** TODO rooms einklappen per js
+** TODO vorlagen freie artikel per javascript hinzufügen
+** TODO article aktivieren/deaktivieren
+** CANCELED template view fertig machen
+   CLOSED: [2016-09-14 Mi 18:03]
    
 ** SOMEDAYS kategorien als relation
    so dass ein template mehrere kategorien (rooms) besitzen kann

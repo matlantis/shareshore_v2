@@ -10,8 +10,13 @@ class TemplatesController < ApplicationController
     else
       @templates = Template.all
     end
-  end
 
+    @articles = []
+    @templates.each do |t|
+      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id, quality: 3)
+      @articles.push(a)
+    end
+  end
   # GET /templates/1
   # GET /templates/1.json
   def show

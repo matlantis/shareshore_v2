@@ -30,6 +30,7 @@
     <% room = "Alle Vorlagen" %>
   <% end %>
   <%= content_tag :h2, room %>
+  <%= bootstrap_form_tag url: templates_path, layout: :inline do |f| %>
   <table class="table">
     <thead>
       <tr>
@@ -47,17 +48,18 @@
       <% @templates.each do |template| %>
         <tr>
           <% article = Article.new.fill_from_template(template) %>
-          <%= bootstrap_form_for article, url: articles_path, layout: :inline do |f| %>
-            <td><%= f.text_field :title, hide_label: true %></td>
-            <td><%= f.text_field :details, hide_label: true %></td>
-            <td><%= f.number_field :quality, min: 0, max: 5, hide_label: true %></td>
-            <td><%= f.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %></td>
-            <td><%= f.text_field :rate_interval, hide_label: true %></td>
-            <td><%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
-            <td><%= f.submit "Übernehmen" %></td>
+          <%= f.fields_for article do |af| %>
+            <td><%= af.text_field :title, hide_label: true %></td>
+            <td><%= af.text_field :details, hide_label: true %></td>
+            <td><%= af.number_field :quality, min: 0, max: 5, hide_label: true %></td>
+            <td><%= af.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %></td>
+            <td><%= af.text_field :rate_interval, hide_label: true %></td>
+            <td><%= af.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= f.submit "Übernehmen" %>
+  <% end %>
 </div>

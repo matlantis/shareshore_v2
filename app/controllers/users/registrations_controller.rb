@@ -48,12 +48,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def new_articles_templates
-    @articles = []
-    Template.all.each do |t|
-      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id, quality: 3)
-      @articles.push(a)
+    @rooms = Template.all.collect {|t| t.room }.uniq
+    @articles = {}
+    if params.has_key? 'room'
+      @articles[params['room']] = []
+      templates = Template.where("room = ?", params['room'])
+      templates.each do |t|
+        @articles[params['room']].push Article.new.fill_from_template t
+      end
+    else   
+      @rooms.each do |room|
+        @articles[room] = []
+        templates = Template.where("room = ?", room)
+        templates.each do |t|
+          @articles[room].push Article.new.fill_from_template t
+        end
+      end
     end
-
+    
     render :new_articles_templates
   end
 # GET /resource/sign_up
