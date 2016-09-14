@@ -20,4 +20,14 @@ class Article < ActiveRecord::Base
     where("lower(title) LIKE ?", "%#{search.downcase}%") 
   end
 
+  def fill_from_template(template)
+    self.title = template.title
+    self.details = template.details_hint
+    self.rate_eur = template.rate_eur
+    self.rate_interval = template.rate_interval
+    self.picture = template.picture
+    self.template_id = template.id
+    self.quality = 3
+    self
+  end
 end

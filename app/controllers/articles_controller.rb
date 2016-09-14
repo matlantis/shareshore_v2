@@ -155,7 +155,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :details, :value_eur, :rate_eur, :rate_interval, :deposit_eur, :location_id, :picture)
+      params.require(:article).permit(:title, :details, :quality, :value_eur, :rate_eur, :rate_interval, :deposit_eur, :location_id, :picture)
     end
 
     # use to verify the article really belongs to the current user

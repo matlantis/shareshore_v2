@@ -1,35 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Templates</h1>
+<div class="col-xs-12">
+  <%= content_tag :h2, "Ohne Vorlage erstellen" %>
+  <% article = Article.new %>
+  <%= bootstrap_form_for article, url: articles_path, layout: :inline do |f| %>
+    <%= f.text_field :title, hide_label: true, placeholder: "Title" %>
+    <%= f.text_field :details, hide_label: true %>
+    <%= f.number_field :quality, min: 0, max: 5, hide_label: true %>
+    <%= f.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %>
+    <%= f.text_field :rate_interval, hide_label: true %>
+    <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %>
+    <%= f.submit "Übernehmen" %>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Details hint</th>
-      <th>Rate eur</th>
-      <th>Rate interval</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-    <% @templates.each do |template| %>
+<div class="col-xs-2">
+  <%= content_tag :h2, "Rooms" %>
+  <%= link_to "Alle", "/templates", class: "btn btn-default" %><br>
+  <% @rooms.each do |room| %>
+    <%= link_to room, "/templates/rooms/#{room}", class: "btn btn-default" %><br>
+  <% end %>
+</div>
+
+<div class="col-xs-10">
+  <% if params.has_key? 'room' %>
+    <% room = params['room'] %>
+  <% else %>
+    <% room = "Alle Vorlagen" %>
+  <% end %>
+  <%= content_tag :h2, room %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= template.title %></td>
-        <td><%= template.details_hint %></td>
-        <td><%= template.rate_eur %></td>
-        <td><%= template.rate_interval %></td>
-        <td><%= template.picture %></td>
-        <td><%= link_to 'Show', template %></td>
-        <td><%= link_to 'Edit', edit_template_path(template) %></td>
-        <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= Article.human_attribute_name("title") %></th>
+        <th><%= Article.human_attribute_name("details") %></th>
+        <th><%= Article.human_attribute_name("quality") %></th>
+        <th><%= Article.human_attribute_name("rate_eur") %></th>
+        <th><%= Article.human_attribute_name("rate_interval") %></th>
+        <th><%= Article.human_attribute_name("location") %></th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Template', new_template_path %>
+    <tbody>
+      <% @templates.each do |template| %>
+        <tr>
+          <% article = Article.new.fill_from_template(template) %>
+          <%= bootstrap_form_for article, url: articles_path, layout: :inline do |f| %>
+            <td><%= f.text_field :title, hide_label: true %></td>
+            <td><%= f.text_field :details, hide_label: true %></td>
+            <td><%= f.number_field :quality, min: 0, max: 5, hide_label: true %></td>
+            <td><%= f.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %></td>
+            <td><%= f.text_field :rate_interval, hide_label: true %></td>
+            <td><%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
+            <td><%= f.submit "Übernehmen" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

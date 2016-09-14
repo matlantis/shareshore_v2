@@ -4,7 +4,12 @@ class TemplatesController < ApplicationController
   # GET /templates
   # GET /templates.json
   def index
-    @templates = Template.all
+    @rooms = Template.all.collect {|t| t.room }.uniq
+    if params.has_key? 'room'
+      @templates = Template.where("room = ?", params['room'])
+    else
+      @templates = Template.all
+    end
   end
 
   # GET /templates/1

@@ -2,11 +2,22 @@
 
 * Shareshore V2 Todos
 
+** TODO template view fertig machen
+   
+** SOMEDAYS kategorien als relation
+   so dass ein template mehrere kategorien (rooms) besitzen kann
 ** DONE article tabellen felder größe
    CLOSED: [2016-09-13 Di 14:08]
    man kann da nem text_field ne size: mitgeben, wobei der wert prozentual zu verstehen ist
-** TODO kategorien erstellen
+** DONE kategorien erstellen
+   CLOSED: [2016-09-14 Mi 10:56]
    sowohl für templates als auch für artikel (falls nötig)
+   vorläufig nur für templates
+   als extra string feld realisieren 
+   als room bezeichnet
+   ein template sollte in mehrerer rooms platziert werden können!!!!
+   - als liste von strings, bzw komma separierter string (nicht durchsuchbar)
+   - als eigene relation (besser)
 ** DONE rate in EUR umrechnen in den views
    CLOSED: [2016-09-13 Di 13:16]
    rate ist jetzt ein float, das machts einfacher
