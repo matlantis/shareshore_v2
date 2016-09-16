@@ -2,9 +2,11 @@
 
 * Shareshore V2 Todos
 
-** TODO vorlage formular per js einblenden, wenn ein häkchen gemacht ist
-** TODO rooms einklappen per js
-** TODO vorlagen freie artikel per javascript hinzufügen
+** TODO js features für templates [0/0]
+*** [ ] js filter für vorlagen
+*** [ ] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
+*** [ ] rooms einklappen per js
+*** [ ] vorlagen-freie artikel per javascript hinzufügen
 ** TODO article aktivieren/deaktivieren
 ** CANCELED template view fertig machen
    CLOSED: [2016-09-14 Mi 18:03]

@@ -20,8 +20,8 @@
     <%= f.fields_for :articles, @articles, include_id: false do |articles_form| %>
       <% article = @articles[articles_form.index] %>
       <tr>
-        <td><%= articles_form.text_field :title, hide_label: true %></td>
-        <td><%= articles_form.text_field :details, hide_label: true %></td>
+        <td><%= articles_form.text_field :title, hide_label: true, placeholder: Article.human_attribute_name("title") %></td>
+        <td><%= articles_form.text_field :details, hide_label: true, placeholder: Article.human_attribute_name("details") %></td>
         <td><%= articles_form.number_field :quality, min: 0, max: 5, size: 8, hide_label: true %></td>
         <td><%= articles_form.number_field :rate_eur, min: 0, step: 0.01, append: "€", size: 10, hide_label: true %></td>
         <td><%= articles_form.text_field :rate_interval, size: 10, hide_label: true %></td>

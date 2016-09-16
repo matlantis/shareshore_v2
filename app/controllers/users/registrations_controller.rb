@@ -65,6 +65,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     end
+
+    @articles['new'] = []
+    a = Article.new({ rate_eur: 1, rate_interval: 'day', quality: 3})
+    3.times {@articles['new'].push(a)}
+    
     
     render :new_articles_templates
   end

@@ -1,21 +1,6 @@
 <%= render 'edit_common', context: :new_articles_templates %>
 
 <div class="col-xs-12">
-  <%= content_tag :h3, "Ohne Vorlage erstellen" %>
-  <% article = Article.new %>
-  <%= bootstrap_form_for article, url: articles_path, layout: :inline do |f| %>
-    <%= f.text_field :title, hide_label: true, placeholder: "Title" %>
-    <%= f.text_field :details, hide_label: true %>
-    <%= f.number_field :quality, min: 0, max: 5, hide_label: true %>
-    <%= f.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %>
-    <%= f.text_field :rate_interval, hide_label: true %>
-    <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %>
-    <%= f.submit t("Create") %>
-  <% end %>
-
-</div>
-
-<div class="col-xs-12">
   <%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_templates_path, html: { method: :put }, layout: :inline) do |f| %>
     <%= devise_error_messages! %>
     <table class="table">
@@ -34,6 +19,22 @@
       </thead>
 
       <tbody>
+        <tr><td><%= content_tag :h3, 'Eigene' %></td></tr>
+        <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
+          <% article = articles_form.object %>
+          <tr>
+            <td><%= articles_form.check_box :to_be_created, value: false, hide_label: true, label: "" %></td>
+            <td><%= articles_form.text_field :title, hide_label: true, placeholder: Article.human_attribute_name("title") %></td>
+            <td><%= articles_form.text_field :details, hide_label: true, placeholder: Article.human_attribute_name("details") %></td>
+            <td><%= articles_form.number_field :quality, min: 0, max: 5, size: 8, hide_label: true %></td>
+            <td><%= articles_form.number_field :rate_eur, min: 0, step: 0.01, append: "€", size: 10, hide_label: true %></td>
+            <td><%= articles_form.text_field :rate_interval, size: 10, hide_label: true %></td>
+            <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
+            <%= articles_form.hidden_field :id %>
+            <%= articles_form.hidden_field :template_id %>
+          </tr>
+        <% end %>
+
         <% @rooms.each do |room| %>
           <tr><td><%= content_tag :h3, room %></td></tr>
           <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
@@ -44,14 +45,14 @@
                 <% # wieviele artikel hat der nutzer schon mit diesem template erstellt  %>
                 <% # anders gefragt: wieviele artikel des nutzers gibt es, deren template die gleiche idee hat, wie die id dieses templates %>
                 <% ntemplates = current_user.articles.where("template_id = ?", article.template_id).count %>
-                <%= articles_form.check_box :to_be_created, value: false, hide_label: true %>
+                <%= articles_form.check_box :to_be_created, value: false, hide_label: true, label: "" %>
                 <%= "(#{ntemplates})" if ntemplates > 0 %>
               </td>
-              <td><%= articles_form.text_field :title, hide_label: true %></td>
-              <td><%= articles_form.text_field :details, hide_label: true %></td>
-              <td><%= articles_form.number_field :quality, min: 0, max: 5, hide_label: true %></td>
-              <td><%= articles_form.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %></td>
-              <td><%= articles_form.text_field :rate_interval, hide_label: true %></td>
+              <td><%= articles_form.text_field :title, hide_label: true, placeholder: Article.human_attribute_name("title") %></td>
+              <td><%= articles_form.text_field :details, hide_label: true, placeholder: Article.human_attribute_name("details") %></td>
+              <td><%= articles_form.number_field :quality, min: 0, max: 5, size: 8, hide_label: true %></td>
+              <td><%= articles_form.number_field :rate_eur, min: 0, step: 0.01, append: "€", size: 10, hide_label: true %></td>
+              <td><%= articles_form.text_field :rate_interval, size: 10, hide_label: true %></td>
               <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
               <%= articles_form.hidden_field :id %>
               <%= articles_form.hidden_field :template_id %>

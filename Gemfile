@@ -67,3 +67,5 @@ gem 'will_paginate-bootstrap'
 group :development, :test do
   gem 'foreman'
 end
+
+gem 'cocoon'
