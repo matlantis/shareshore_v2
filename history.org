@@ -2,6 +2,16 @@
 
 * Shareshore V2 Todos
 
+** TODO funktionalität templates [2/6]
+   - [ ] new_articles seite löschen
+   - [ ] new_articles_templates auf funktionalität überprüfen
+   - [X] new_articles_templates layout ordentlich machen
+   - [X] was soll denn dieses remove feld?
+     einfach mal gelöscht
+   - [ ] add button sollte kontent in anderem element erzeugen
+     quellcode anschauen um das zu realisieren
+   - [ ] neue einträge werden nicht vorgefüllt
+
 ** TODO js features für templates [0/4]
    - [ ] js filter für vorlagen
    - [ ] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
