@@ -11,8 +11,6 @@
                       class: context == :edit_articles ? ['active'] : [] )%>
       <%= content_tag(:li, link_to(t('Create new Articles'), new_user_articles_path, class: "tab"),
                       class: context == :new_articles ? ['active'] : [] )%>
-      <%= content_tag(:li, link_to(t('Article Templates'), new_user_articles_templates_path, class: "tab"),
-                      class: context == :new_articles_templates ? ['active'] : [] )%>
 
     </ul>
   </div>

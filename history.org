@@ -4,18 +4,22 @@
 
 ** TODO Eigene Artikel ohne Titel werder kommentarlos nicht erstellt
    Fehlermeldung wäre hilfreich
-** TODO funktionalität templates [4/7]
-   - [ ] new_articles seite löschen
+
+** TODO new_articles add button [0/2]
+   - [ ] add button sollte kontent in anderem element erzeugen
+     quellcode anschauen um das zu realisieren
+   - [ ] anstatt add article button:
+     click auf create checkbox erzeugt neuen eintrag
+
+** DONE funktionalität templates [5/5]
+   CLOSED: [2016-10-04 Di 17:01]
+   - [X] new_articles seite löschen
    - [X] new_articles_templates auf funktionalität überprüfen
    - [X] new_articles_templates layout ordentlich machen
    - [X] was soll denn dieses remove feld?
      einfach mal gelöscht
-   - [ ] add button sollte kontent in anderem element erzeugen
-     quellcode anschauen um das zu realisieren
    - [X] neue einträge werden nicht vorgefüllt
      done via initialize of article model (ugly?)
-   - [ ] anstatt add article button:
-     click auf create checkbox erzeugt neuen eintrag
 
 ** TODO js features für templates [0/4]
    - [ ] js filter für vorlagen

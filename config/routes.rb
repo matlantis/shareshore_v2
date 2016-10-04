@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
     get "users/new_articles", action: :new_articles, controller: 'users/registrations', as: 'new_user_articles'
     put "users/new_articles", action: :create_articles, controller: 'users/registrations', as: 'create_user_articles'
-    get "users/new_articles_templates", action: :new_articles_templates, controller: 'users/registrations', as: 'new_user_articles_templates'
-    put "users/new_articles_templates", action: :create_articles_templates, controller: 'users/registrations', as: 'create_user_articles_templates'
   end
 
   get "/pages/:page" => "pages#show"
