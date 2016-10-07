@@ -2,7 +2,10 @@
 
 * Shareshore V2 Todos
 
-** TODO Eigene Artikel ohne Titel werder kommentarlos nicht erstellt
+** TODO new_articles: text decoration and color for headings
+** DONE new_articles: räume ein-ausklappen
+   CLOSED: [2016-10-07 Fr 14:01]
+** TODO Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
    Fehlermeldung wäre hilfreich
 
 ** TODO new_articles add button [0/2]
@@ -79,8 +82,10 @@
    admin tasks sind üblicherweise Datenbank operationen, die krieg ich alle von der cmdline hin
    braucht man nur für regelmässige tasks
    zB: template erstellen, vllt auch einfach als seed realisieren
-** TODO Article Manager
+** DONE Article Manager
+   CLOSED: [2016-10-04 Di 17:05]
    Entwurf usw. 
+   ist ne kombi aus Articles und New_articles pages
 ** TODO in die artikel ansicht gehören die kontakt informationen
 ** TODO finde bessere bezeichnungen
    für 
@@ -96,9 +101,11 @@
    das macht zwar im prinzip sinn, ist aber trotzdem komisch
    drüber nachdenken, was man da machne kann
 ** TODO demo user und artikel anlegen
-** TODO gem cocoon  
+** DONE gem cocoon  
+   CLOSED: [2016-10-04 Di 17:06]
    solve articles and locations update error problem
    create better nested forms
+   eingebunden - ist jetzt nix besonderes
 ** SOMEDAYS umsortieren der listen
    der eigenen Artikel/Locations (default location für neue Artikel)
    die Suchergebnisse sortieren nach Distanz/Relevanz
