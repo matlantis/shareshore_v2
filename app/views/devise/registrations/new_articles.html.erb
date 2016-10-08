@@ -1,3 +1,21 @@
+<script>
+ function createCheckBoxClicked(article_cb_id, article_div_id) {
+   var cb_checked = document.getElementById(article_cb_id).checked
+   var article = document.getElementById(article_div_id)
+   var input_fields = article.getElementsByClassName('article_input')
+   var i;
+   var input_visibility = ( cb_checked )? "visible" : "hidden"
+   var text_visibility = (cb_checked )? "hidden" : "visible"
+   for (i = 0; i < input_fields.length; i++) {
+    input_fields[i].style.visibility = input_visibility
+   }
+   var text_fields = article.getElementsByClassName('article_text')
+   for (i = 0; i < text_fields.length; i++) {
+     text_fields[i].style.visibility = text_visibility
+   }
+ }
+</script>
+
 <%= render 'edit_common', context: :new_articles %>
 
 <div class="col-xs-12">
@@ -18,11 +36,11 @@
         
         <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
           <% article = articles_form.object %>
-          <%= render 'article_fields', f: articles_form, article: article %>
+          <%= render 'new_article_fields', f: articles_form, article: article %>
         <% end %>
 
         <div class='links'>
-          <%= link_to_add_association 'add article', f, :articles, class: "btn btn-default" %>
+          <%= link_to_add_association 'add article', f, :articles, partial: 'new_article_fields', class: "btn btn-default" %>
         </div>
       </div>
     </div>

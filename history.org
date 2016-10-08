@@ -24,15 +24,15 @@
    - [X] neue einträge werden nicht vorgefüllt
      done via initialize of article model (ugly?)
 
-** TODO js features für templates [0/4]
+** TODO js features für templates [3/5]
    - [ ] js filter für vorlagen
    - [ ] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
-   - [ ] rooms einklappen per js
-   - [ ] vorlagen-freie artikel per javascript hinzufügen
+   - [X] rooms einklappen per js
+   - [X] vorlagen-freie artikel per javascript hinzufügen
      irgendwie mit cocoon realisiert
      aber remove link durch häkchen ersetzen und bei den anderen rausnehmen
      häkchen automatisch setzen
-   - [ ] das ganze layout mit der tabellen zeile vernünftig machen (oder irgendwie anders)
+   - [X] das ganze layout mit der tabellen zeile vernünftig machen (oder irgendwie anders)
 ** TODO article aktivieren/deaktivieren
 ** CANCELED template view fertig machen
    CLOSED: [2016-09-14 Mi 18:03]
