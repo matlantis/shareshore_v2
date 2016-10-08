@@ -1,29 +1,14 @@
 <script>
  function onCreateCheckBoxClicked(article_cb_id, article_div_id) {
    var cb_checked = document.getElementById(article_cb_id).checked
-   var article = document.getElementById(article_div_id)
-   var input_fields = article.getElementsByClassName('article_input')
-   var i;
-   var input_visibility = ( cb_checked )? "visible" : "hidden"
-   var text_visibility = (cb_checked )? "hidden" : "visible"
-   for (i = 0; i < input_fields.length; i++) {
-    input_fields[i].style.visibility = input_visibility
-   }
-   var text_fields = article.getElementsByClassName('article_text')
-   for (i = 0; i < text_fields.length; i++) {
-     text_fields[i].style.visibility = text_visibility
-   }
+   var input_display = ( cb_checked )? "block" : "none"
+   document.getElementById(article_div_id).style.display = input_display
  }
 
  function onTitleFieldKeyUp(article_title_field_id, article_div_id) {
    var title_field_empty = document.getElementById(article_title_field_id).value.length == 0
-   var article = document.getElementById(article_div_id)
-   var input_fields = article.getElementsByClassName('article_input')
-   var i;
-   var input_visibility = ( title_field_empty )? "hidden" : "visible"
-   for (i = 0; i < input_fields.length; i++) {
-     input_fields[i].style.visibility = input_visibility
-   }
+   var input_display = ( title_field_empty )? "none" : "block"
+   document.getElementById(article_div_id).style.display = input_display
  }
 
 </script>
@@ -31,7 +16,7 @@
 <%= render 'edit_common', context: :new_articles %>
 
 <div class="col-xs-12">
-  <%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_path, html: { method: :put }, layout: :inline) do |f| %>
+  <%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_path, html: { method: :put }, layout: :horizontal) do |f| %>
     <%= devise_error_messages! %>
 
     <h3>
@@ -42,10 +27,8 @@
     </h3>
 
     <div id="Eigene" style="display: None;">
-      <div class="table">
+      <div class="">
 
-        <%= render 'article_heading' %>
-        
         <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
           <% article = articles_form.object %>
           <%= render 'new_article_fields', f: articles_form, article: article %>
@@ -65,17 +48,15 @@
         <% end %>
       </h3>
 
-      <%= content_tag :div, id: room, style: "display: None;" do %>
-        <div class="table">
-          <%= render 'article_heading' %>
-
+      <div class="">
+        <%= content_tag :div, id: room, style: "display: None;" do %>
           <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
             <% # article = @articles[room][articles_form.index] %>
             <% article = articles_form.object %>
             <%= render 'article_fields', f: articles_form, article: article %>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
     <%= f.submit t("Create") %>
   <% end %>

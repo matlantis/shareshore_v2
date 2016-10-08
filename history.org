@@ -2,6 +2,15 @@
 
 * Shareshore V2 Todos
 
+** TODO new article felder neu sortieren und übersichtlicher gestalten
+   - [ ] für die qualität sterne verwenden
+   - [ ] leihgebühr und zeitraum in eine zeile
+   - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
+
+** TODO rooms via bs accordeon hiden
+** TODO ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
+** TODO strg f sucht keinen text der display:none hat
+   man sollte jedoch die artikel listen auf diese weise durchsuchen können
 ** TODO new_articles: text decoration and color for headings
 ** DONE new_articles: räume ein-ausklappen
    CLOSED: [2016-10-07 Fr 14:01]
@@ -9,6 +18,7 @@
    Fehlermeldung wäre hilfreich
 
 ** TODO new_articles add button [0/2]
+   - [ ] mal testweise diese funktionalität ohne cocoon realisieren
    - [ ] add button sollte kontent in anderem element erzeugen
      quellcode anschauen um das zu realisieren
    - [ ] anstatt add article button:
@@ -24,9 +34,11 @@
    - [X] neue einträge werden nicht vorgefüllt
      done via initialize of article model (ugly?)
 
-** TODO js features für templates [3/5]
-   - [ ] js filter für vorlagen
-   - [ ] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
+** TODO js features für templates [4/5]
+   - [ ] js filter für vorlagen (besser: suche automatisch in eigene artikel integrieren)
+     per js, durchsucht die artikel titel nach dem gewúnschten begriff und zeigt die vorschläge als links an
+     der entsprechende raum muss dabei aufgeklappt werden
+   - [X] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
    - [X] rooms einklappen per js
    - [X] vorlagen-freie artikel per javascript hinzufügen
      irgendwie mit cocoon realisiert
