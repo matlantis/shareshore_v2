@@ -1,5 +1,5 @@
 <script>
- function createCheckBoxClicked(article_cb_id, article_div_id) {
+ function onCreateCheckBoxClicked(article_cb_id, article_div_id) {
    var cb_checked = document.getElementById(article_cb_id).checked
    var article = document.getElementById(article_div_id)
    var input_fields = article.getElementsByClassName('article_input')
@@ -14,6 +14,18 @@
      text_fields[i].style.visibility = text_visibility
    }
  }
+
+ function onTitleFieldKeyUp(article_title_field_id, article_div_id) {
+   var title_field_empty = document.getElementById(article_title_field_id).value.length == 0
+   var article = document.getElementById(article_div_id)
+   var input_fields = article.getElementsByClassName('article_input')
+   var i;
+   var input_visibility = ( title_field_empty )? "hidden" : "visible"
+   for (i = 0; i < input_fields.length; i++) {
+     input_fields[i].style.visibility = input_visibility
+   }
+ }
+
 </script>
 
 <%= render 'edit_common', context: :new_articles %>

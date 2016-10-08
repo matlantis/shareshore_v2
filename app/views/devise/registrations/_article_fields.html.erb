@@ -7,7 +7,7 @@
     <% article_cb_id = "article_" + String(article.template_id) + "_cb" %>
     <%= f.check_box :to_be_created, value: false, hide_label: true, label: "", id: article_cb_id %>
     <script>
-     document.getElementById('<%= article_cb_id %>').onclick = function(){ createCheckBoxClicked('<%= article_cb_id %>', '<%= article_div_id %>'); };
+     document.getElementById('<%= article_cb_id %>').onclick = function(){ onCreateCheckBoxClicked('<%= article_cb_id %>', '<%= article_div_id %>'); };
     </script>
     <%= "(#{ntemplates})" if ntemplates > 0 %>
   </div>
