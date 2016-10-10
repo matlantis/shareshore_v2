@@ -2,12 +2,7 @@
 <div class="row">
   <%= f.check_box :to_be_created, value: false, label: "", hidden: true %>
 
-  <% article_title_field_id = "own_article_" + String(f.index) + "_title_field" %>
-  <%= f.text_field :title, placeholder: Article.human_attribute_name("title"), id: article_title_field_id %>
-
-  <script>
-   document.getElementById('<%= article_title_field_id %>').onkeyup = function(){ onTitleFieldKeyUp('<%= article_title_field_id %>', '<%= article_div_id %>'); };
-  </script>
+  <%= f.text_field :title, placeholder: Article.human_attribute_name("title"), id: "own_article_0_title_field", data: f.index.to_s %>
 
   <div id="<%= article_div_id %>" class="secondary_article_inputs">
 

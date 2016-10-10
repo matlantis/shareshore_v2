@@ -1,18 +1,3 @@
-<script>
- function onCreateCheckBoxClicked(article_cb_id, article_div_id) {
-   var cb_checked = document.getElementById(article_cb_id).checked
-   var input_display = ( cb_checked )? "block" : "none"
-   document.getElementById(article_div_id).style.display = input_display
- }
-
- function onTitleFieldKeyUp(article_title_field_id, article_div_id) {
-   var title_field_empty = document.getElementById(article_title_field_id).value.length == 0
-   var input_display = ( title_field_empty )? "none" : "block"
-   document.getElementById(article_div_id).style.display = input_display
- }
-
-</script>
-
 <%= render 'edit_common', context: :new_articles %>
 
 <div class="col-xs-12">
@@ -61,3 +46,23 @@
     <%= f.submit t("Create") %>
   <% end %>
 </div>
+
+<script>
+ 
+ $(document).ready(function(){
+   $(".secondary_article_inputs").hide()
+   
+   $("#own_article_0_title_field").keyup( function() {
+     var thedivid = "#own_article_" + $(this).attr("data") + "_div";
+     ( this.value.length == 0 )? $(thedivid).hide(200) : $(thedivid).show(200);
+   });
+
+   $(".article_cb").click( function() {
+     var thedivid = "#article_" + $(this).attr("data") + "_div";
+     console.log(thedivid);
+     $(thedivid).toggle(200);
+     });
+   
+ });
+   
+</script>
