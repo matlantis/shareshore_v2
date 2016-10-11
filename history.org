@@ -8,10 +8,6 @@
     - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
 
 *** TODO rooms via bs accordeon hiden
-*** DONE ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
-    CLOSED: [2016-10-11 Di 12:49]
-*** TODO strg f sucht keinen text der display:none hat
-    man sollte jedoch die artikel listen auf diese weise durchsuchen können
 *** TODO Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
     Fehlermeldung wäre hilfreich
 
@@ -121,6 +117,8 @@
     link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
     good karma
     etwas besser layouten
+*** DONE ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
+    CLOSED: [2016-10-11 Di 12:49]
 *** DONE new_articles: räume ein-ausklappen
     CLOSED: [2016-10-07 Fr 14:01]
 
@@ -293,3 +291,6 @@
     to configure it on another system, edit Procfile.template and .env.template and remove .template ending
 ** Sekundär
 *** TODO new_articles: text decoration and color for headings
+*** TODO strg f sucht keinen text der display:none hat
+    man sollte jedoch die artikel listen auf diese weise durchsuchen können
+    da lässt sich wohl nicht viel machen ...
