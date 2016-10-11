@@ -4,46 +4,52 @@
   <%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_path, html: { method: :put }, layout: :horizontal) do |f| %>
     <%= devise_error_messages! %>
 
-    <h3>
-      <%= link_to "javascript:toggle('Eigene', 'Eigene_toggle_button')", class: "toggle_heading" do %>
-        <%= content_tag :span, class: "glyphicon glyphicon-chevron-right", id: "Eigene_toggle_button" do %><% end %>
-        Eigene
-      <% end %>
-    </h3>
+    <div class="panel-group" id="accordeon">
 
-    <div id="Eigene" style="display: None;">
-      <div class="">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-titel">
+            <a data-toggle="collapse" data-parent="accordeon" href="#Eigene">Eigene</a>
+          </h3>
+        </div>
+        <div id="Eigene" class="panel-collapse collapse">
+          <div class="panel-body">
 
-        <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
-          <% article = articles_form.object %>
-          <%= render 'new_article_fields', f: articles_form, article: article %>
-        <% end %>
+            <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
+              <% article = articles_form.object %>
+              <%= render 'new_article_fields', f: articles_form, article: article %>
+            <% end %>
 
-        <div class='links'>
-          <%= link_to_add_association 'add article', f, :articles, partial: 'new_article_fields', class: "btn btn-default" %>
+            <div class='links'>
+              <%= link_to_add_association 'add article', f, :articles, partial: 'new_article_fields', class: "btn btn-default" %>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <% @rooms.each do |room| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>
+              <a data-toggle="collapse" data-parent="accordeon" href="#<%= room %>"><%= room %></a>
+            </h3>
+          </div>
+
+          <div id="<%= room %>"  class="panel-collapse collapse">
+            <div class="panel-body">
+
+              <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
+                <% # article = @articles[room][articles_form.index] %>
+                <% article = articles_form.object %>
+                <%= render 'article_fields', f: articles_form, article: article %>
+              <% end %>
+              
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= f.submit t("Create") %>
     </div>
-
-    <% @rooms.each do |room| %>
-      <h3>
-        <%= link_to "javascript:toggle('#{room}', '#{room}_toggle_button')", class: "toggle_heading" do %>
-          <%= content_tag :span, class: "glyphicon glyphicon-chevron-right", id: room + "_toggle_button" do %><% end %>
-          <%= room %>
-        <% end %>
-      </h3>
-
-      <div class="">
-        <%= content_tag :div, id: room, style: "display: None;" do %>
-          <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
-            <% # article = @articles[room][articles_form.index] %>
-            <% article = articles_form.object %>
-            <%= render 'article_fields', f: articles_form, article: article %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    <%= f.submit t("Create") %>
   <% end %>
 </div>
 
