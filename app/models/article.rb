@@ -19,6 +19,7 @@ class Article < ActiveRecord::Base
   after_initialize :init
   
   def init
+    self.to_be_created = true
     self.rate_eur ||= 1
     self.rate_interval ||= "day"
     self.quality ||= 3
@@ -29,6 +30,7 @@ class Article < ActiveRecord::Base
   end
 
   def fill_from_template(template)
+    self.to_be_created = false
     self.title = template.title
     self.details = template.details_hint
     self.rate_eur = template.rate_eur

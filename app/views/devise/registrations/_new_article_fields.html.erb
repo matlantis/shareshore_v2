@@ -1,6 +1,6 @@
 <% article_div_id = "own_article_" + String(f.index) + "_div" %>
 <div class="row nested-fields">
-  <%= f.check_box :to_be_created, value: false, label: "", hidden: true %>
+  <%= f.check_box :to_be_created, value: true, label: "", hidden: true %>
 
   <%= f.text_field :title, placeholder: Article.human_attribute_name("title"), id: "own_article_0_title_field", data: f.index.to_s %>
 

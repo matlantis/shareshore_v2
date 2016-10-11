@@ -8,7 +8,8 @@
     - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
 
 *** TODO rooms via bs accordeon hiden
-*** TODO ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
+*** DONE ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
+    CLOSED: [2016-10-11 Di 12:49]
 *** TODO strg f sucht keinen text der display:none hat
     man sollte jedoch die artikel listen auf diese weise durchsuchen können
 *** TODO Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
