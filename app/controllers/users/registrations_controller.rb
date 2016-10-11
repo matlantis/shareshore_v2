@@ -59,8 +59,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     @articles['new'] = []
-    a = Article.new({ rate_eur: 1, rate_interval: 'day', quality: 3})
-    @articles['new'].push(a)
+    # a = Article.new({ rate_eur: 1, rate_interval: 'day', quality: 3})
+    # @articles['new'].push(a)
     
     
     render :new_articles
@@ -103,12 +103,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
     p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate_eur, :value_eur, :rate_interval, :location_id, :id, :template_id ])
 
     success = true
+
+    @articles = {}
+    @rooms = []
+    @articles['new'] = []
+
+    count = 0
     p['articles_attributes'].each do |a|
       if a[1][:to_be_created] != "0"
-        success = success and current_user.articles.create(a[1])
+        b = current_user.articles.new(a[1])
+        success_local = b.save
+        success = success && success_local
+        if not success_local
+          @articles['new'].push(b)
+        else
+          count += 1
+        end
       end
     end
 
+    
     if not success
       # rollback # TODO: 
     end
@@ -116,10 +130,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # this updates only the articles not the basic informations
     respond_to do |format|
       if success
-        flash[:success] = t('Articles were successfully updated')
+        flash[:success] = t(count.to_s + ' Articles were successfully created')
         format.html { redirect_to new_user_articles_path }
       else
-        format.html { render :new_user_articles }
+        flash[:alert] = t('Some Articles need a review')
+        format.html { render :new_articles }
       end
       
     end
