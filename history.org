@@ -2,37 +2,10 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO new article felder neu sortieren und übersichtlicher gestalten
-    - [ ] für die qualität sterne verwenden
-    - [ ] leihgebühr und zeitraum in eine zeile
-    - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
-
-*** TODO rooms via bs accordeon hiden
 *** TODO Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
     Fehlermeldung wäre hilfreich
-
-*** TODO new_articles add button [1/3]
-    - [ ] mal testweise diese funktionalität ohne cocoon realisieren
-      probiert, aber ist aufwendiger als man denkt
-    - [X] add button sollte kontent in anderem element erzeugen
-      quellcode anschauen um das zu realisieren
-      im quellcode ist das vorgesehen
-      das aktuelle layout erfordert das jedoch nicht
-    - [ ] anstatt add article button:
-      +click auf create checkbox erzeugt neuen eintrag+
-      type in title field erzeugt nen eintrag, aber bei remove darauf achten ob im näxten feld was steht!
-
-*** TODO js features für templates [4/5]
-    - [ ] js filter für vorlagen (besser: suche automatisch in eigene artikel integrieren)
-      per js, durchsucht die artikel titel nach dem gewúnschten begriff und zeigt die vorschläge als links an
-      der entsprechende raum muss dabei aufgeklappt werden
-    - [X] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
-    - [X] rooms einklappen per js
-    - [X] vorlagen-freie artikel per javascript hinzufügen
-      irgendwie mit cocoon realisiert
-      aber remove link durch häkchen ersetzen und bei den anderen rausnehmen
-      häkchen automatisch setzen
-    - [X] das ganze layout mit der tabellen zeile vernünftig machen (oder irgendwie anders)
+    das liegt noch an dieser alten validation, die besagt ignoriere alle Artikel deren Titel leer ist
+    das wird aber immer noch implizit für die eigenen artikel verwendet. rauswerfen
 *** TODO article aktivieren/deaktivieren   
 *** SOMEDAYS kategorien als relation
     so dass ein template mehrere kategorien (rooms) besitzen kann
@@ -117,6 +90,19 @@
     link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
     good karma
     etwas besser layouten
+
+*** DONE js features für templates [4/4]
+    CLOSED: [2016-10-11 Di 13:53]
+    - [X] vorlage formular per js einblenden, wenn ein häkchen gemacht ist
+    - [X] rooms einklappen per js
+    - [X] vorlagen-freie artikel per javascript hinzufügen
+      irgendwie mit cocoon realisiert
+      aber remove link durch häkchen ersetzen und bei den anderen rausnehmen
+      häkchen automatisch setzen
+    - [X] das ganze layout mit der tabellen zeile vernünftig machen (oder irgendwie anders)
+
+*** DONE rooms via bs accordeon hiden
+    CLOSED: [2016-10-11 Di 13:38]
 *** DONE ich glaub die eigenen templates gehen grad nicht, weil das häkchen nicht gesetzt wird
     CLOSED: [2016-10-11 Di 12:49]
 *** DONE new_articles: räume ein-ausklappen
@@ -294,3 +280,22 @@
 *** TODO strg f sucht keinen text der display:none hat
     man sollte jedoch die artikel listen auf diese weise durchsuchen können
     da lässt sich wohl nicht viel machen ...
+*** TODO new article felder neu sortieren und übersichtlicher gestalten
+    - [ ] für die qualität sterne verwenden
+    - [ ] leihgebühr und zeitraum in eine zeile
+    - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
+*** TODO new_articles add button [1/3]
+    - mal testweise diese funktionalität ohne cocoon realisieren
+      probiert, aber ist aufwendiger als man denkt
+    - [X] add button sollte kontent in anderem element erzeugen
+      quellcode anschauen um das zu realisieren
+      im quellcode ist das vorgesehen
+      das aktuelle layout erfordert das jedoch nicht
+    - [ ] anstatt add article button:
+      +click auf create checkbox erzeugt neuen eintrag+
+      type in title field erzeugt nen eintrag, aber bei remove darauf achten ob im näxten feld was steht!
+
+*** TODO js filter für vorlagen (besser: suche automatisch in eigene artikel integrieren)
+    per js, durchsucht die artikel titel nach dem gewúnschten begriff und zeigt die vorschläge als links an
+    der entsprechende raum muss dabei aufgeklappt werden
+    sehr aufwendig
