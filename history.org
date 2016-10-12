@@ -2,23 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
-    Fehlermeldung wäre hilfreich
-    das liegt noch an dieser alten validation, die besagt ignoriere alle Artikel deren Titel leer ist
-    das wird aber immer noch implizit für die eigenen artikel verwendet. rauswerfen
-*** TODO article aktivieren/deaktivieren   
-*** SOMEDAYS kategorien als relation
-    so dass ein template mehrere kategorien (rooms) besitzen kann
-*** TODO templates erstellen
+*** TODO kleidung * räume lassen sich nicht aufklappen (wg leerzeichen)
+*** TODO Sortiermglkeiten in Artikelsuche
+*** TODO Klick auf bild zeigt vergrößert
+*** TODO Kategorien in Artikel übersicht anzeigen (eigen Artikel)
 *** TODO wie-bin-ich-abgesichert-seite
 *** TODO get rid of unnecessary article attributes
     like value, deposit
-*** SOMEDAYS admin area
-    notwendige funktionen definieren
-    das ist was für später
-    admin tasks sind üblicherweise Datenbank operationen, die krieg ich alle von der cmdline hin
-    braucht man nur für regelmässige tasks
-    zB: template erstellen, vllt auch einfach als seed realisieren
 *** TODO in die artikel ansicht gehören die kontakt informationen
 *** TODO finde bessere bezeichnungen
     für 
@@ -26,15 +16,8 @@
     - Artikel: Dingi, Sache, Cosa
     - Standort: Ort, Platz, Punto, Puesto
     - Template: Schablone, Vorlage, Muster, Estampa
-*** TODO menuleiste und infoleiste realisieren
-    nochmal drüber nachdenken was da eigentlich reinsoll
-*** TODO artikel, nutzer und standorte im text hervorheben
-    mit symbol und verzierung (zB kartusche)
-*** TODO user ergebnisseite ist via /locations anzusteuern (statt /users)
-    das macht zwar im prinzip sinn, ist aber trotzdem komisch
-    drüber nachdenken, was man da machne kann
 *** TODO demo user und artikel anlegen
-*** SOMEDAYS umsortieren der listen
+*** TODO umsortieren der listen
     der eigenen Artikel/Locations (default location für neue Artikel)
     die Suchergebnisse sortieren nach Distanz/Relevanz
 *** TODO Devise with email confirmation
@@ -90,6 +73,27 @@
     link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
     good karma
     etwas besser layouten
+*** CANCELED menuleiste und infoleiste realisieren
+    CLOSED: [2016-10-11 Di 15:49]
+    nochmal drüber nachdenken was da eigentlich reinsoll
+    keine bestehende notwendigkeit
+*** CANCELED article aktivieren/deaktivieren
+    CLOSED: [2016-10-11 Di 15:47]
+    wie soll das aussehen?
+    in artikel übersicht, kann der nutzer wählen, ob er den artikel momentan verleiht oder nicht
+    in der suche wird er nur dann angezeigt, wenn er verleihbar ist
+    klingt ja nett, aber die frage ist doch, ob das jmd braucht - die alternative ist, wenn jmd fragt absagen, oder den artikel löschen
+    vergiß es einfach
+*** CANCELED user ergebnisseite ist via /locations anzusteuern (statt /users)
+    CLOSED: [2016-10-11 Di 14:45]
+    das macht zwar im prinzip sinn, ist aber trotzdem komisch
+    drüber nachdenken, was man da machne kann
+    stört keinen großen geist
+*** DONE Eigene Artikel ohne Titel werden kommentarlos nicht erstellt
+    CLOSED: [2016-10-11 Di 14:41]
+    Fehlermeldung wäre hilfreich
+    das liegt noch an dieser alten validation, die besagt ignoriere alle Artikel deren Titel leer ist
+    das wird aber immer noch implizit für die eigenen artikel verwendet. rauswerfen
 
 *** DONE js features für templates [4/4]
     CLOSED: [2016-10-11 Di 13:53]
@@ -276,6 +280,7 @@
     set up a new mailbox on campusspeicher
     to configure it on another system, edit Procfile.template and .env.template and remove .template ending
 ** Sekundär
+*** TODO Räumen eine Farbe zuordnen
 *** TODO new_articles: text decoration and color for headings
 *** TODO strg f sucht keinen text der display:none hat
     man sollte jedoch die artikel listen auf diese weise durchsuchen können
@@ -299,3 +304,17 @@
     per js, durchsucht die artikel titel nach dem gewúnschten begriff und zeigt die vorschläge als links an
     der entsprechende raum muss dabei aufgeklappt werden
     sehr aufwendig
+*** TODO artikel, nutzer und standorte im text hervorheben
+    mit symbol und verzierung (zB kartusche)
+*** SOMEDAYS kategorien als relation
+    so dass ein template mehrere kategorien (rooms) besitzen kann
+    kann momentan durch mehrmaliges erstellen des artikels umgangen werden
+*** SOMEDAYS admin area
+    notwendige funktionen definieren
+    das ist was für später
+    admin tasks sind üblicherweise Datenbank operationen, die krieg ich alle von der cmdline hin
+    braucht man nur für regelmässige tasks
+    zB: template erstellen, vllt auch einfach als seed realisieren
+*** TODO Mehr templates erstellen
+    
+*** TODO Einfache * templates immer als erstes im raum anzeigen
