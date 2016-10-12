@@ -31,11 +31,11 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3>
-              <a data-toggle="collapse" data-parent="accordeon" href="#<%= room %>"><%= room %></a>
+              <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><%= room %></a>
             </h3>
           </div>
 
-          <div id="<%= room %>"  class="panel-collapse collapse">
+          <div id="<%= underscore(room) %>"  class="panel-collapse collapse">
             <div class="panel-body">
 
               <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
