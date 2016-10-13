@@ -15,7 +15,7 @@
         <div id="Eigene" class="panel-collapse collapse">
           <div class="panel-body">
 
-            <%= f.fields_for :articles, @articles['new'], include_id: false do |articles_form| %>
+            <%= f.fields_for :articles, @articles['Eigene'], include_id: false do |articles_form| %>
               <% article = articles_form.object %>
               <%= render 'new_article_fields', f: articles_form, article: article %>
             <% end %>
@@ -53,8 +53,8 @@
   <% end %>
 </div>
 
-<script>
- 
+<script> 
+
  $(document).ready(function(){
    $(".secondary_article_inputs").hide()
    

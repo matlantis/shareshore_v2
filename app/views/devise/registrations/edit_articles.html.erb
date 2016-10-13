@@ -1,39 +1,46 @@
 <%= render 'edit_common', context: :edit_articles %>
 
-<%= bootstrap_form_for(resource, as: resource_name, url: user_articles_path, html: { method: :put }, layout: :inline) do |f| %>
-<%= devise_error_messages! %>
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= Article.human_attribute_name("title") %></th>
-      <th><%= Article.human_attribute_name("details") %></th>
-      <th><%= Article.human_attribute_name("quality") %></th>
-      <th><%= Article.human_attribute_name("rate_eur") %></th>
-      <th><%= Article.human_attribute_name("rate_interval") %></th>
-      <th><%= Article.human_attribute_name("location") %></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="col-xs-12">
+  <%= bootstrap_form_for(resource, as: resource_name, url: user_articles_path, html: { method: :put }, layout: :inline) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="panel-group" id="accordeon">
+      <% @rooms.each do |room| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>
+              <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><%= room %></a>
+            </h3>
+          </div>
 
-  <tbody>
-    <%= f.fields_for :articles, @articles, include_id: false do |articles_form| %>
-      <% article = @articles[articles_form.index] %>
-      <tr>
-        <td><%= articles_form.text_field :title, hide_label: true, placeholder: Article.human_attribute_name("title") %></td>
-        <td><%= articles_form.text_field :details, hide_label: true, placeholder: Article.human_attribute_name("details") %></td>
-        <td><%= articles_form.number_field :quality, min: 0, max: 5, size: 8, hide_label: true %></td>
-        <td><%= articles_form.number_field :rate_eur, min: 0, step: 0.01, append: "€", size: 10, hide_label: true %></td>
-        <td><%= articles_form.text_field :rate_interval, size: 10, hide_label: true %></td>
-        <td><%= articles_form.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
-        <td><%= link_to t("Details"), edit_article_path(article), class: "btn btn-default" %></td>
-        <td><%= link_to t("Delete"), article_path(article), method: :delete, data: { confirm: t("really_delete_article_question") }, class: "btn btn-default" %></td>
-        <%= articles_form.hidden_field :id %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= f.submit t("Update") %>
-<% end %>
+          <div id="<%= underscore(room) %>"  class="panel-collapse collapse">
+            <div class="panel-body">
 
-<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+              <table class="table table-striped">
+                <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
+                  <% article = articles_form.object %>
+                  <%= render 'edit_article_fields', f: articles_form, article: article %>
+                <% end %>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= f.submit t("Update") %>
+    </div>
+  <%= f.submit t("Update") %>
+  <% end %>
+</div>
+  
+<script> 
+ $(document).ready(function(){
+   $(".secondary_article_inputs").hide()
+   
+   $(".article_cb").click( function() {
+     var thedivid = "#article_" + $(this).attr("data") + "_div";
+     console.log(thedivid);
+     $(thedivid).toggle(200);
+   });
+ });
+ 
+</script>

@@ -28,13 +28,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit_articles
-    @articles = current_user.articles
+    @rooms = current_user.articles.collect do |a|
+      if a.template
+        a.template.room
+      else
+        'Eigene'
+      end
+    end
+    @rooms.uniq!
 
-    #@articles.build
-    #@articles = @articles.sort_by {|o| o.created_at.to_s }
+    @articles = {}
 
-    @articles = @articles.order("created_at ASC")
-    @articles = @articles.paginate(:page => params[:page], per_page: 10)
+    @rooms.each do |room|
+      @articles[room] = current_user.articles.includes(:template).where(templates: {room: room})
+    end
+    
+    @articles['Eigene'] = current_user.articles.where(template_id: nil)
 
     render :edit_articles
   end
@@ -58,10 +67,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
 
-    @articles['new'] = []
+    @articles['Eigene'] = []
     # a = Article.new({ rate_eur: 1, rate_interval: 'day', quality: 3})
-    # @articles['new'].push(a)
-    
+    # @articles['new'].push(a)    
     
     render :new_articles
   end
@@ -106,7 +114,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @articles = {}
     @rooms = []
-    @articles['new'] = []
+    @articles['Eigene'] = []
 
     count = 0
     p['articles_attributes'].each do |a|
@@ -115,7 +123,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         success_local = b.save
         success = success && success_local
         if not success_local
-          @articles['new'].push(b)
+          @articles['Eigene'].push(b)
         else
           count += 1
         end

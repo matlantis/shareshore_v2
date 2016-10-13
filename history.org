@@ -2,9 +2,16 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO seeding of templates
+    - deletes the template associations
+    - seed everything else also
+    - need a better solution
+*** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
+
 *** TODO new articles layout [0/2]
     - [ ] die room panels sind zu groß
     - [ ] der erstellen button ist nicht sichtbar genug
+
 *** TODO Artikelsuche ergebnis liste überarbeiten
     Sortiermglkeiten nach verschiedenen kriterien
     angaben an neues article modell anpassen
@@ -13,6 +20,7 @@
     - übersichtlichkeit
       vorschläge: 
       - bearbeiten button oder cb wie in new_articles, der die input felder einblendet
+      - ansicht ähnlich wie new_article seite
     Umbenennen
     Kategorien in Artikel übersicht anzeigen (eigene Artikel)
 *** TODO wie-bin-ich-abgesichert-seite
