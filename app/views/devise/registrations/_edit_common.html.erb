@@ -5,9 +5,9 @@
     <ul class="nav nav-tabs">
       <%= content_tag(:li, link_to(t('Basic Info'), edit_user_basic_path, class: "tab"),
                       class: context == :edit_basic ? ['active'] : [] )%>
-      <%= content_tag(:li, link_to(t('Locations'), edit_user_locations_path, class: "tab"),
+      <%= content_tag(:li, link_to(t('Manage Locations'), edit_user_locations_path, class: "tab"),
                       class: context == :edit_locations ? ['active'] : [] )%>
-      <%= content_tag(:li, link_to(t('Articles'), edit_user_articles_path, class: "tab"),
+      <%= content_tag(:li, link_to(t('Manage Articles'), edit_user_articles_path, class: "tab"),
                       class: context == :edit_articles ? ['active'] : [] )%>
       <%= content_tag(:li, link_to(t('Create new Articles'), new_user_articles_path, class: "tab"),
                       class: context == :new_articles ? ['active'] : [] )%>

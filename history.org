@@ -2,6 +2,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO Artikel erstellen/bearbeiten als Overlay
+    oder extra seite mit vernünftiger zurückführung (genau da wo man war)
+*** TODO Versuch mal alles ohne bootstrap zu realisieren
+*** TODO article edit submit leads to show article but should return to edit_articles
 *** TODO seeding of templates
     - deletes the template associations
     - seed everything else also
