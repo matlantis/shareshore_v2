@@ -82,6 +82,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    session[:return_to] ||= request.referer
   end
 
   # POST /articles
@@ -124,15 +125,11 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update    
-    respond_to do |format|
-      if @article.update(article_params)
-        flash[:success] = t('Article was successfully updated')
-        format.html { redirect_to @article }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update(article_params)
+      flash[:success] = t('Article was successfully updated')
+      redirect_to session.delete(:return_to)
+    else
+      render :edit
     end
   end
 
