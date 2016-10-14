@@ -7,22 +7,12 @@
 </tr>
 
 <tr>
-  <td><strong><%= Article.human_attribute_name("value_eur") %></strong></td>
-  <td><%= @article.value_eur %> €</td>
-</tr>
-
-<tr>
   <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
   <% if @article.rate_eur == 0 %>
     <td><strong><%= t("Gratis")%></strong></td>
   <% else %>
     <td><%= @article.rate_eur %> € <%= t('per') %> <%= t(@article.rate_interval) %></td>
   <% end %>
-</tr>
-
-<tr>
-  <td><strong><%= Article.human_attribute_name("deposit_eur") %></strong></td>
-  <td><%= @article.deposit_eur %> €</td>
 </tr>
 
 <tr>
@@ -33,6 +23,11 @@
 <tr>
   <td><strong><%= Article.human_attribute_name("user") %></strong></td>
   <td><%= link_to @article.user.nickname, user_path(@article.user) %></td>
+</tr>
+
+<tr>
+  <td><strong><%= Article.human_attribute_name("value_eur") %></strong></td>
+  <td><%= @article.value_eur %> €</td>
 </tr>
 
 <tr>
