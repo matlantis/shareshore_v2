@@ -1,4 +1,4 @@
-<%= render 'edit_common', context: :edit_basic %>
+<h3><%= t('Edit Profile') %></h3>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: edit_user_basic_path, html: { method: :put }, layout: :horizontal) do |f| %>
   <%= devise_error_messages! %>
@@ -34,3 +34,4 @@
   <% end %>
 <% end %>
 <%= button_to t("Cancel my account"), edit_user_basic_path(resource_name), data: { confirm: t("Are you sure?") }, method: :delete, class: "btn btn-default" %>
+

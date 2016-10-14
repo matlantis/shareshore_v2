@@ -2,16 +2,40 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO wie kann man manage articles and new articles zusammenfassen?
+    
+*** entwurf navigation
+    - info (komplett in den footer verschieben)
+      - tutorial (auf die startseite)
+      - agb
+      - contact
+      - faq
+    - user
+      - goalpost (get rid off)
+      - basic
+      - locations
+      - manage articles
+      - new articles
+
+    - startpage (logo)
+
+    - suchepage
+
+    - [registration]
+      - login
+      - logout
+      - signup
+
+
 *** TODO gratis option beim artikel erstellen
 *** TODO hilfe bereich realisieren
 *** TODO klären was dieses respond_to eigentlich tut
 *** TODO wie geht redirect to last location on that page?
     http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
-    seems to be haml syntax? nope
+    seems to be haml syntax? nope, its coffeescript
 *** TODO Artikel erstellen/bearbeiten als Overlay
     oder extra seite mit vernünftiger zurückführung (genau da wo man war)
     - als modal: behebt nicht das eigentliche problem (eigener submit button für jeden artikel)
-*** TODO Versuch mal alles ohne bootstrap zu realisieren
 *** TODO seeding of templates
     - deletes the template associations
     - seed everything else also
@@ -97,10 +121,9 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
-*** TODO der footer muss gemacht gewerden
-    link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
-    good karma
-    etwas besser layouten
+*** DONE Versuch mal alles ohne bootstrap zu realisieren
+    CLOSED: [2016-10-14 Fr 18:58]
+    mal mit spectre probiert, aber hat halt kein js
 *** DONE article_edit an neues model anpassen
     CLOSED: [2016-10-14 Fr 14:20]
 *** CANCELED article edit submit leads to show article but should return to edit_articles
@@ -359,3 +382,6 @@
 *** TODO Mehr templates erstellen
     
 *** TODO Einfache * templates immer als erstes im raum anzeigen
+*** TODO der footer muss gemacht gewerden
+    link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
+    good karma

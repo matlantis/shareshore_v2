@@ -1,4 +1,4 @@
-<%= render 'edit_common', context: :edit_articles %>
+<h3><%= t('Manage Articles') %></h3>
 
 <div class="col-xs-12">
   <%= bootstrap_form_for(resource, as: resource_name, url: user_articles_path, html: { method: :put }, layout: :inline) do |f| %>
@@ -7,9 +7,9 @@
       <% @rooms.each do |room| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>
+            <h4>
               <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><%= room %></a>
-            </h3>
+            </h4>
           </div>
 
           <div id="<%= underscore(room) %>"  class="panel-collapse collapse">

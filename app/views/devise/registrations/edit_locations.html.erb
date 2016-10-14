@@ -1,4 +1,4 @@
-<%= render 'edit_common', context: :edit_locations %>
+<h3><%= t('Manage Locations') %></h3>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
   <%= devise_error_messages! %>
