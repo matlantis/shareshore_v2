@@ -23,6 +23,7 @@ class Article < ActiveRecord::Base
     self.rate_eur ||= 1
     self.rate_interval ||= "day"
     self.quality ||= 3
+    self.gratis = false
   end
   
   def self.search(search)
@@ -38,6 +39,7 @@ class Article < ActiveRecord::Base
     self.picture = template.picture
     self.template_id = template.id
     self.quality = 3
+    self.gratis = false
     self
   end
 end

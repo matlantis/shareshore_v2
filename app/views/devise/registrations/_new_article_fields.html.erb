@@ -7,6 +7,10 @@
   <div id="<%= article_div_id %>">
 
     <%= f.text_field :details, placeholder: Article.human_attribute_name("details") %>
+
+    <%= f.form_group do %>
+      <%= f.check_box :gratis %>
+    <% end %>
     
     <%= f.number_field :quality, min: 0, max: 5, size: 8 %>
 

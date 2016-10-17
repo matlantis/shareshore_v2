@@ -70,6 +70,13 @@
      console.log(thedivid);
      $(thedivid).toggle(0);
    });
+
+   $(".article_gratis_cb").click( function() {
+     var thedivid = "#article_" + $(this).attr("data") + "_rate_div";
+     console.log(thedivid);
+     $(thedivid).toggle(0);
+   });
+   
  });
  
 </script>

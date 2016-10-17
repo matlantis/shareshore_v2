@@ -45,13 +45,13 @@
 
     <tbody>
       <% @articles.each do |article| %>
-        <% if article.rate_eur == 0 %>
+        <% if article.gratis %>
           <tr class="success">
         <% else %>
             <tr>
         <% end %>
         <td><%= link_to article.title, article %></td>
-        <% if article.rate_eur == 0 %>
+        <% if article.gratis %>
           <td><strong><%= t("Gratis")%></strong></td>
         <% else %>
           <td><%= article.rate_eur %> € <%= t('per') %> <%= t(article.rate_interval) %></td>
