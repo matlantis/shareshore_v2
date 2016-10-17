@@ -1,44 +1,58 @@
-<h3><%= t('Manage Locations') %></h3>
+<div class="col-xs-12 col-sm-3 col-sm-push-9">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Tipp</h4>
+    </div>
 
-<%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
-  <%= devise_error_messages! %>
-  <table class="table">
-    <thead>
-      <th><%= Location.human_attribute_name("street_and_no") %></th>
-      <th><%= Location.human_attribute_name("postcode") %></th>
-      <th><%= Location.human_attribute_name("city") %></th>
-      <th><%= Location.human_attribute_name("country") %></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <%= f.fields_for :locations, @locations, include_id: false do |locations_form| %>
-        <% location = @locations[locations_form.index] %>
+    <div class="panel-body">
+      Dies ist ein kurzer Hilfetext.
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-9 col-sm-pull-3">
+  <h3><%= t('Manage Locations') %></h3>
+
+  <%= bootstrap_form_for(resource, as: resource_name, url: user_locations_path, html: { method: :put }, layout: :inline) do |f| %>
+    <%= devise_error_messages! %>
+    <table class="table">
+      <thead>
+        <th><%= Location.human_attribute_name("street_and_no") %></th>
+        <th><%= Location.human_attribute_name("postcode") %></th>
+        <th><%= Location.human_attribute_name("city") %></th>
+        <th><%= Location.human_attribute_name("country") %></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :locations, @locations, include_id: false do |locations_form| %>
+          <% location = @locations[locations_form.index] %>
+          <tr>
+            <td><%= locations_form.text_field :street_and_no, hide_label: true, placeholder: t("new address") %></td>
+            <td><%= locations_form.text_field :postcode, hide_label: true %></td>
+            <td><%= locations_form.text_field :city, hide_label: true %></td>
+            <td><%= locations_form.text_field :country, hide_label: true %></td>
+            <td><%= link_to(t("Delete"), location_path(location), method: :delete, data: { confirm: t("really_delete_location_question", count: location.articles.count) }, class: "btn btn-default") if location.id %></td>
+            <%= locations_form.hidden_field :id %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= f.submit t("Update") %>
+  <% end %>
+
+  <%= will_paginate @locations, renderer: BootstrapPagination::Rails %>
+
+  <%= bootstrap_form_for :location, url: locations_path, layout: :inline do |f| %>
+    <table class="table">
+      <tbody>
         <tr>
-          <td><%= locations_form.text_field :street_and_no, hide_label: true, placeholder: t("new address") %></td>
-          <td><%= locations_form.text_field :postcode, hide_label: true %></td>
-          <td><%= locations_form.text_field :city, hide_label: true %></td>
-          <td><%= locations_form.text_field :country, hide_label: true %></td>
-          <td><%= link_to(t("Delete"), location_path(location), method: :delete, data: { confirm: t("really_delete_location_question", count: location.articles.count) }, class: "btn btn-default") if location.id %></td>
-          <%= locations_form.hidden_field :id %>
+          <td><%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no"), hide_label: true %></td>
+          <td><%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode"), hide_label: true %></td>
+          <td><%= f.text_field :city, placeholder: Location.human_attribute_name("city"), hide_label: true %></td>
+          <td><%= f.text_field :country, placeholder: Location.human_attribute_name("country"), hide_label: true %></td>
+          <td><%= f.submit t("Add") %></td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= f.submit t("Update") %>
-<% end %>
-
-<%= will_paginate @locations, renderer: BootstrapPagination::Rails %>
-
-<%= bootstrap_form_for :location, url: locations_path, layout: :inline do |f| %>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no"), hide_label: true %></td>
-        <td><%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode"), hide_label: true %></td>
-        <td><%= f.text_field :city, placeholder: Location.human_attribute_name("city"), hide_label: true %></td>
-        <td><%= f.text_field :country, placeholder: Location.human_attribute_name("country"), hide_label: true %></td>
-        <td><%= f.submit t("Add") %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

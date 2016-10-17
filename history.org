@@ -3,32 +3,13 @@
 * Shareshore V2 Todos
 ** Primär
 *** TODO wie kann man manage articles and new articles zusammenfassen?
-    
-*** entwurf navigation
-    - info (komplett in den footer verschieben)
-      - tutorial (auf die startseite)
-      - agb
-      - contact
-      - faq
-    - user
-      - goalpost (get rid off)
-      - basic
-      - locations
-      - manage articles
-      - new articles
-
-    - startpage (logo)
-
-    - suchepage
-
-    - [registration]
-      - login
-      - logout
-      - signup
 
 
 *** TODO gratis option beim artikel erstellen
-*** TODO hilfe bereich realisieren
+*** TODO hilfe bereich fertig stellen [1/3]
+    - [X] struktur
+    - [ ] texte
+    - [ ] einzel layout
 *** TODO klären was dieses respond_to eigentlich tut
 *** TODO wie geht redirect to last location on that page?
     http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
@@ -42,12 +23,6 @@
     - need a better solution
       würde vorschlagen ein eigenes rake task anzulegen, mit nem komplexeren script das sich darum kümmert
 *** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
-
-*** TODO new articles layout [1/2]
-    - [X] die room panels sind zu groß
-    - [ ] der erstellen button ist nicht sichtbar genug
-    - [ ] die eingabe felder sind zu fett
-    - [ ] die räume haben ne hässliche farbe
 *** TODO Artikelsuche ergebnis liste überarbeiten
     Sortiermglkeiten nach verschiedenen kriterien
     angaben an neues article modell anpassen
@@ -122,6 +97,38 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+    
+*** DONE entwurf navigation
+    - info (komplett in den footer verschieben)
+      - tutorial (auf die startseite)
+      - agb
+      - contact
+      - faq
+    - user
+      - goalpost (get rid off)
+      - basic
+      - locations
+      - manage articles
+      - new articles
+
+    - startpage (logo)
+
+    - suchepage
+
+    - [registration]
+      - login
+      - logout
+      - signup
+
+*** DONE new articles layout [4/4]
+    CLOSED: [2016-10-17 Mo 12:04]
+    - [X] die room panels sind zu groß
+    - [X] der erstellen button ist nicht sichtbar genug
+      jetzt gibts zwei
+    - [X] die eingabe felder sind zu fett
+      das überlassen wir mal dem späteren layout
+    - [X] die räume haben ne hässliche farbe
+      panels weggemacht
 *** DONE Versuch mal alles ohne bootstrap zu realisieren
     CLOSED: [2016-10-14 Fr 18:58]
     mal mit spectre probiert, aber hat halt kein js
