@@ -4,47 +4,35 @@
   <%= bootstrap_form_for(resource, as: resource_name, url: new_user_articles_path, html: { method: :put }, layout: :horizontal) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="panel-group" id="accordeon">
+    <div id="accordeon">
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-titel">
-            <a data-toggle="collapse" data-parent="accordeon" href="#Eigene">Eigene</a>
-          </h4>
-        </div>
-        <div id="Eigene" class="panel-collapse collapse">
-          <div class="panel-body">
+      <div>
+        <h4>
+          <a data-toggle="collapse" data-parent="accordeon" href="#Eigene"><span class="caret-right"></span> Eigene</a>
+        </h4>
+        <div id="Eigene" class="collapse article-content">
+          <%= f.fields_for :articles, @articles['Eigene'], include_id: false do |articles_form| %>
+            <% article = articles_form.object %>
+            <%= render 'new_article_fields', f: articles_form, article: article %>
+          <% end %>
 
-            <%= f.fields_for :articles, @articles['Eigene'], include_id: false do |articles_form| %>
-              <% article = articles_form.object %>
-              <%= render 'new_article_fields', f: articles_form, article: article %>
-            <% end %>
-
-            <div class='links'>
-              <%= link_to_add_association 'add article', f, :articles, partial: 'new_article_fields', class: "btn btn-default" %>
-            </div>
+          <div class='links'>
+            <%= link_to_add_association 'add article', f, :articles, partial: 'new_article_fields', class: "btn btn-default" %>
           </div>
         </div>
       </div>
       
       <% @rooms.each do |room| %>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>
-              <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><%= room %></a>
-            </h4>
-          </div>
-
-          <div id="<%= underscore(room) %>"  class="panel-collapse collapse">
-            <div class="panel-body">
-
-              <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
-                <% # article = @articles[room][articles_form.index] %>
-                <% article = articles_form.object %>
-                <%= render 'article_fields', f: articles_form, article: article %>
-              <% end %>
-              
-            </div>
+        <div>
+          <h4>
+            <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><span class="caret-right"></span> <%= room %></a>
+          </h4>
+          <div id="<%= underscore(room) %>" class="collapse article-content">
+            <%= f.fields_for :articles, @articles[room], include_id: false do |articles_form| %>
+              <% # article = @articles[room][articles_form.index] %>
+              <% article = articles_form.object %>
+              <%= render 'article_fields', f: articles_form, article: article %>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -66,8 +54,8 @@
    $(".article_cb").click( function() {
      var thedivid = "#article_" + $(this).attr("data") + "_div";
      console.log(thedivid);
-     $(thedivid).toggle(200);
+     $(thedivid).toggle(0);
    });
  });
-   
+ 
 </script>

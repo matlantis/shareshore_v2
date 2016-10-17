@@ -43,10 +43,11 @@
       würde vorschlagen ein eigenes rake task anzulegen, mit nem komplexeren script das sich darum kümmert
 *** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
 
-*** TODO new articles layout [0/2]
-    - [ ] die room panels sind zu groß
+*** TODO new articles layout [1/2]
+    - [X] die room panels sind zu groß
     - [ ] der erstellen button ist nicht sichtbar genug
-
+    - [ ] die eingabe felder sind zu fett
+    - [ ] die räume haben ne hässliche farbe
 *** TODO Artikelsuche ergebnis liste überarbeiten
     Sortiermglkeiten nach verschiedenen kriterien
     angaben an neues article modell anpassen
