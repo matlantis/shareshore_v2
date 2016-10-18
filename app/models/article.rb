@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
   
   def init
     self.to_be_created = true
-    self.rate_interval ||= "1€/Tag"
+    self.rate ||= "1€/Tag"
     self.quality ||= 3
     self.gratis = false
   end
