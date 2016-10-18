@@ -1,3 +1,4 @@
+# coding: utf-8
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
@@ -32,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if a.template
         a.template.room
       else
-        'Eigene'
+        'own'
       end
     end
     @rooms.uniq!
@@ -43,7 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @articles[room] = current_user.articles.includes(:template).where(templates: {room: room})
     end
     
-    @articles['Eigene'] = current_user.articles.where(template_id: nil)
+    @articles['own'] = current_user.articles.where(template_id: nil)
 
     render :edit_articles
   end
@@ -67,8 +68,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
 
-    @articles['Eigene'] = []
-    # a = Article.new({ rate_eur: 1, rate_interval: 'day', quality: 3})
+    @articles['own'] = []
+    # a = Article.new({ rate: '1€/tag', quality: 3})
     # @articles['new'].push(a)    
     
     render :new_articles
@@ -96,7 +97,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   # PUT /resource
   def update_articles
-    p = params.require(:user).permit(articles_attributes: [:title, :rate_eur, :value_eur, :rate_interval, :location_id, :id ])
+    p = params.require(:user).permit(articles_attributes: [:title, :rate, :value_eur, :location_id, :id ])
 
     # this updates only the articles not the basic informations
     respond_to do |format|
@@ -108,13 +109,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_articles
-    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate_eur, :value_eur, :rate_interval, :location_id, :id, :template_id ])
+    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate, :value_eur, :location_id, :id, :template_id ])
 
     success = true
 
     @articles = {}
     @rooms = []
-    @articles['Eigene'] = []
+    @articles['own'] = []
 
     count = 0
     p['articles_attributes'].each do |a|
@@ -123,7 +124,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         success_local = b.save
         success = success && success_local
         if not success_local
-          @articles['Eigene'].push(b)
+          @articles['own'].push(b)
         else
           count += 1
         end

@@ -1,3 +1,4 @@
+# coding: utf-8
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
@@ -76,8 +77,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @article.rate_eur = 1
-    @article.rate_interval = 'day'
+    @article.rate = '1€/Tag'
   end
 
   # GET /articles/1/edit
@@ -152,7 +152,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :details, :quality, :value_eur, :rate_eur, :rate_interval, :deposit_eur, :location_id, :picture, :gratis)
+      params.require(:article).permit(:title, :details, :quality, :value_eur, :rate, :deposit_eur, :location_id, :picture, :gratis)
     end
 
     # use to verify the article really belongs to the current user

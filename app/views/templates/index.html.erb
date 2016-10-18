@@ -7,8 +7,7 @@
     <%= f.text_field :title, hide_label: true, placeholder: "Title" %>
     <%= f.text_field :details, hide_label: true %>
     <%= f.number_field :quality, min: 0, max: 5, hide_label: true %>
-    <%= f.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %>
-    <%= f.text_field :rate_interval, hide_label: true %>
+    <%= f.text_field :rate, hide_label: true %>
     <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %>
     <%= f.submit "Übernehmen" %>
   <% end %>
@@ -37,8 +36,7 @@
         <th><%= Article.human_attribute_name("title") %></th>
         <th><%= Article.human_attribute_name("details") %></th>
         <th><%= Article.human_attribute_name("quality") %></th>
-        <th><%= Article.human_attribute_name("rate_eur") %></th>
-        <th><%= Article.human_attribute_name("rate_interval") %></th>
+        <th><%= Article.human_attribute_name("rate") %></th>
         <th><%= Article.human_attribute_name("location") %></th>
         <th colspan="1"></th>
       </tr>
@@ -52,8 +50,7 @@
             <td><%= af.text_field :title, hide_label: true %></td>
             <td><%= af.text_field :details, hide_label: true %></td>
             <td><%= af.number_field :quality, min: 0, max: 5, hide_label: true %></td>
-            <td><%= af.number_field :rate_eur, min: 0, step: 0.01, append: "€", hide_label: true %></td>
-            <td><%= af.text_field :rate_interval, hide_label: true %></td>
+            <td><%= af.text_field :rate, hide_label: true %></td>
             <td><%= af.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true %></td>
           <% end %>
         </tr>

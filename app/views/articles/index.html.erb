@@ -54,7 +54,7 @@
         <% if article.gratis %>
           <td><strong><%= t("Gratis")%></strong></td>
         <% else %>
-          <td><%= article.rate_eur %> € <%= t('per') %> <%= t(article.rate_interval) %></td>
+          <td><%= article.rate %></td>
         <% end %>
         <td><%= article.location.shortaddress %></td>
         <% if @current_location %>

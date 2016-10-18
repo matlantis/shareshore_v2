@@ -140,6 +140,8 @@ de:
   Create new Articles: "Artikel erstellen"
   What now: "Was jetzt?"
   Finish: "Abschließen"
+  Create this article: "Artikel erstellen"
+  
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
     user_request_anonymous: "Shareshore Nutzeranfrage"

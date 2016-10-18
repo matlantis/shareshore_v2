@@ -2,6 +2,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO Erstellen Checkbox vor den Artikelnamen (und ein schickeres Häkchen)
+*** TODO rate und rate interval als string mit geeigneten prefills
+*** TODO qualität vorläufig rausnehmen
 *** TODO Too many places for article fields:
     - _new_articles_fields
     - _articles_fields
@@ -13,14 +16,13 @@
 *** TODO diese bootstrap-rails formulare sind alle etwas fragwürdig
     zu wenig und unklare gestaltungsmglkeiten
     kann man da nicht was machen?
-
+    vllt braucht man das gar nicht, wenn man quality und rate intervall weglässt - der Gratis Button!!
+    die bleiben erstmal drin!
 *** TODO wie kann man manage articles and new articles zusammenfassen?
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
     - [ ] texte
     - [ ] einzel layout
-*** TODO klären was dieses respond_to eigentlich tut
-    klingt nach ajax oder irgend wie zu aufwendigen methoden, ersetzen durch nen simpleren aufruf
 *** TODO wie geht redirect to last location on that page?
     http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
     seems to be haml syntax? nope, its coffeescript
@@ -107,6 +109,9 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE klären was dieses respond_to eigentlich tut
+    CLOSED: [2016-10-17 Mo 17:36]
+    klingt nach ajax oder irgend wie zu aufwendigen methoden, ersetzen durch nen simpleren aufruf, wenn mans irgendwo findet
     
 *** DONE gratis option beim artikel erstellen und bearbeiten
     CLOSED: [2016-10-17 Mo 15:04]
@@ -375,6 +380,9 @@
     da lässt sich wohl nicht viel machen ...
 *** TODO new article felder neu sortieren und übersichtlicher gestalten
     - [ ] für die qualität sterne verwenden
+      https://codepen.io/jamesbarnett/pen/vlpkh
+      da gibts noch mehr, wenn man rating star css oder bootstrap oder so eingibt
+      aber vllt eher qualität als dropdown box mit vordefinierten begriffen - ist sonst nicht klar was gemeint ist
     - [ ] leihgebühr und zeitraum in eine zeile
     - [ ] details durch bemerkung ersetzen und in letzte zeile (als multiline)
 *** TODO new_articles add button [1/3]

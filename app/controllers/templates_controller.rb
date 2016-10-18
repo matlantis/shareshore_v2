@@ -13,7 +13,7 @@ class TemplatesController < ApplicationController
 
     @articles = []
     @templates.each do |t|
-      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate_interval: t.rate_interval, picture: t.picture, template_id: t.id, quality: 3)
+      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate: t.rate, picture: t.picture, template_id: t.id, quality: 3)
       @articles.push(a)
     end
   end
@@ -79,6 +79,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:title, :details_hint, :rate_eur, :rate_interval, :picture)
+      params.require(:template).permit(:title, :details_hint, :rate, :picture)
     end
 end

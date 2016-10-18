@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017123539) do
+ActiveRecord::Schema.define(version: 20161018110216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,13 @@ ActiveRecord::Schema.define(version: 20161017123539) do
     t.integer  "deposit_eur"
     t.integer  "location_id"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "picture"
-    t.float    "rate_eur"
-    t.string   "rate_interval"
     t.integer  "template_id"
     t.integer  "quality"
     t.boolean  "gratis"
+    t.string   "rate"
   end
 
   add_index "articles", ["location_id"], name: "index_articles_on_location_id", using: :btree
@@ -54,12 +53,11 @@ ActiveRecord::Schema.define(version: 20161017123539) do
   create_table "templates", force: :cascade do |t|
     t.string   "title"
     t.text     "details_hint"
-    t.float    "rate_eur"
-    t.string   "rate_interval"
     t.string   "picture"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "room"
+    t.string   "rate"
   end
 
   create_table "users", force: :cascade do |t|

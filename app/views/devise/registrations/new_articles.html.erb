@@ -22,10 +22,10 @@
 
       <div>
         <h4>
-          <a data-toggle="collapse" data-parent="accordeon" href="#Eigene"><span class="caret-right"></span> Eigene</a>
+          <a data-toggle="collapse" data-parent="accordeon" href="#own"><span class="caret-right"></span> own</a>
         </h4>
-        <div id="Eigene" class="collapse article-content">
-          <%= f.fields_for :articles, @articles['Eigene'], include_id: false do |articles_form| %>
+        <div id="own" class="collapse article-content">
+          <%= f.fields_for :articles, @articles['own'], include_id: false do |articles_form| %>
             <% article = articles_form.object %>
             <%= render 'new_article_fields', f: articles_form, article: article %>
           <% end %>
