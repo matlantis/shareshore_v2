@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <li><%= link_to t("Manage Articles"), edit_user_articles_path, class: 'navbar-link' %></li>
           <li><%= link_to t("Create Articles"), new_user_articles_path, class: 'navbar-link' %></li>
-          <li><%= link_to t("Manage Locations"), edit_user_locations_path, class: 'navbar-link' %></li>
+          <li><%= link_to t("Locations"), edit_user_locations_path, class: 'navbar-link' %></li>
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">  
               <span class="glyphicon glyphicon-user"></span> <strong><%= current_user.nickname %></strong> <b class="caret"></b>

@@ -135,12 +135,13 @@ de:
   articles_count: "Artikel"
   Guidepost: "Wegweiser"
   Edit your Profile: "Profil bearbeiten"
-  Edit your Locations: "Standorte bearbeiten"
-  Manage your Articles: "Artikel verwalten"
-  Create new Articles: "Artikel erstellen"
+  Locations: "Standorte"
+  Manage Articles: "Artikel verwalten"
+  Create Articles: "Artikel erstellen"
   What now: "Was jetzt?"
   Finish: "Abschließen"
   Create this article: "Artikel erstellen"
+  own templates: "Ohne Vorlage"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

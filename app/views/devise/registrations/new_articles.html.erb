@@ -22,7 +22,7 @@
 
       <div>
         <h4>
-          <a data-toggle="collapse" data-parent="accordeon" href="#own"><span class="caret-right"></span> own</a>
+          <a data-toggle="collapse" data-parent="accordeon" href="#own"><span class="caret-right"></span> <%= t('own templates') %></a>
         </h4>
         <div id="own" class="collapse article-content">
           <%= f.fields_for :articles, @articles['own'], include_id: false do |articles_form| %>
