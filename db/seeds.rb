@@ -16,6 +16,7 @@ Template.create({title: "Bügeleisen", details_hint: "", rate: "1€/Tag", room:
 Template.create({title: "Wäschemangel", details_hint: "", rate: "3€/Tag", room: "Abstellkammer"})
 Template.create({title: "Robotersauger", details_hint: "", rate: "5€/Tag", room: "Abstellkammer"})
 Template.create({title: "Einfache Reinigungsmittel", details_hint: "", rate: "1€/Tag", room: "Abstellkammer"})
+Template.create({title: "Leiter", details_hint: "", rate: "2€/Tag", room: "Abstellkammer"})
 #Template.create({title: "", details_hint: "", rate: "1€/Tag", room: "Abstellkammer"})
 
 Template.create({title: "Zelt", details_hint: "", rate: "20€/Woche", room: "Camping"})

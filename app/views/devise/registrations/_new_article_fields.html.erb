@@ -1,4 +1,7 @@
-<% article_div_id = "own_article_" + String(f.index) + "_div" %>
+<% article_id = f.index.to_s %>
+<% article_div_id = "article_" + article_id + "_div" %>
+<% article_rate_div_id = "article_" + article_id + "_rate_div" %>
+
 <div class="row nested-fields">
   <%= f.check_box :to_be_created, value: true, label: "", hidden: true %>
 
@@ -6,17 +9,19 @@
 
   <div id="<%= article_div_id %>">
 
-    <%= f.text_field :details, placeholder: Article.human_attribute_name("details") %>
+    <% # f.number_field :quality, min: 0, max: 5, size: 8 %>
 
     <%= f.form_group do %>
-      <%= f.check_box :gratis %>
+      <%= f.check_box :gratis, data: { article_id: article_rate_div_id }, class: "article_gratis_cb", inline: true %>
     <% end %>
-    
-    <%= f.number_field :quality, min: 0, max: 5, size: 8 %>
 
-    <%= f.text_field :rate, size: 15 %>
+    <div id="<%= article_rate_div_id %>">
+      <%= f.text_field :rate, size: 15 %>
+    </div>
 
     <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
+
+    <%= f.text_area :details, placeholder: Article.human_attribute_name("details") %>
 
     <%= f.form_group do %>
       <%= link_to_remove_association "remove", f, class: "btn btn-default" %>

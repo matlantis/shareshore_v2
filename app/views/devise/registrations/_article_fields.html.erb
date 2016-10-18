@@ -1,12 +1,12 @@
-<% article_div_id = "article_" + String(article.template_id) + "_div" %>
-<% article_rate_div_id = "article_" + String(article.template_id) + "_rate_div" %>
+<% article_div_id = "article_" + article.template_id.to_s + "_div" %>
+<% article_rate_div_id = "article_" + article.template_id.to_s + "_rate_div" %>
 <div class="row">
   <div class="col-xs-4">
     <%= article.title %>
   </div>
 
   <div class="col-xs-4">
-    <% article_cb_id = "article_" + String(article.template_id) + "_cb" %>
+    <% article_cb_id = "article_" + article.template_id.to_s + "_cb" %>
     <%= f.form_group do %>
       <%= f.check_box :to_be_created, value: false, label: t("Create this article"), data: article.template_id, class: "article_cb", inline: true %>
     <% end %>
@@ -23,13 +23,17 @@
 <div class="row">
   <div id="<%= article_div_id %>" class="secondary_article_inputs">
     <%= f.hidden_field :title %>
-    <%= f.number_field :quality, min: 0, max: 5, size: 8 %>
+
+    <% # f.number_field :quality, min: 0, max: 5, size: 8 %>
+
     <%= f.form_group do %>
-      <%= f.check_box :gratis, data: article.template_id, class: "article_gratis_cb", inline: true %>
+      <%= f.check_box :gratis, data: { article_id: article_rate_div_id }, class: "article_gratis_cb", inline: true %>
     <% end %>
+
     <div id="<%= article_rate_div_id %>">
       <%= f.text_field :rate, size: 15 %>
     </div>
+
     <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
 
     <%= f.text_area :details, placeholder: Article.human_attribute_name("details") %>

@@ -60,19 +60,14 @@
  $(document).ready(function(){
    $(".secondary_article_inputs").hide()
    
-   $("#own_article_0_title_field_disabled").keyup( function() {
-     var thedivid = "#own_article_" + $(this).attr("data") + "_div";
-     ( $(this).val().length == 0 )? $(thedivid).hide(200) : $(thedivid).show(200);
-   });
-
    $(".article_cb").click( function() {
      var thedivid = "#article_" + $(this).attr("data") + "_div";
      console.log(thedivid);
      $(thedivid).toggle(0);
    });
 
-   $(".article_gratis_cb").click( function() {
-     var thedivid = "#article_" + $(this).attr("data") + "_rate_div";
+   $('body').on('click', '.article_gratis_cb', function() {
+     var thedivid = "#" + $(this).attr("data-article-id");
      console.log(thedivid);
      $(thedivid).toggle(0);
    });

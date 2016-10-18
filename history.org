@@ -2,8 +2,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO Erstellen Checkbox vor den Artikelnamen (und ein schickeres Häkchen)
-*** TODO rate und rate interval als string mit geeigneten prefills
 *** TODO qualität vorläufig rausnehmen
 *** TODO Too many places for article fields:
     - _new_articles_fields
@@ -109,6 +107,12 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE own articles: js bound to gratis cb not working
+    CLOSED: [2016-10-18 Di 17:51]
+    because, code is not really bound, because it was created after page loading finished
+    handler 'click' on document formulieren
+*** DONE rate und rate interval als string mit geeigneten prefills
+    CLOSED: [2016-10-18 Di 14:20]
 *** DONE klären was dieses respond_to eigentlich tut
     CLOSED: [2016-10-17 Mo 17:36]
     klingt nach ajax oder irgend wie zu aufwendigen methoden, ersetzen durch nen simpleren aufruf, wenn mans irgendwo findet
@@ -417,3 +421,5 @@
 *** TODO der footer muss gemacht gewerden
     link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
     good karma
+*** TODO Erstellen Checkbox vor den Artikelnamen (und ein schickeres Häkchen)
+    nicht so einfach mit den bootstrap forms
