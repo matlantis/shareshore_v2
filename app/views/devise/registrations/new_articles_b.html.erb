@@ -1,0 +1,97 @@
+<div class="col-xs-12 col-sm-3 col-sm-push-9">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Tipp</h4>
+    </div>
+
+    <div class="panel-body">
+      Dies ist ein kurzer Hilfetext.
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-9 col-sm-pull-3">
+  <h3><%= t('Create Articles') %></h3>
+
+    <div id="accordeon">      
+      <% @rooms.each do |room| %>
+        <div>
+          <h4>
+            <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><span class="caret-right"></span> <%= room %></a>
+          </h4>
+          <div id="<%= underscore(room) %>" class="collapse article-content">
+            <% @articles[room].each do |article| %>
+
+              <% article_div_id = "article_" + article.template_id.to_s + "_div" %>
+              <% article_rate_div_id = "article_" + article.template_id.to_s + "_rate_div" %>
+              <div class="row">
+                <div class="col-xs-4">
+                  <span class="glyphicon glyphicon-ok article_cb" data="<%= article.template_id %>">
+                  </span>
+                  <%= article.title %>
+                </div>
+                
+                <div class="col-xs-4">
+                  <% # wieviele artikel hat der nutzer schon mit diesem template erstellt  %>
+                  <% # anders gefragt: wieviele artikel des nutzers gibt es, deren template die gleiche idee hat, wie die id dieses templates %>
+                  <% ntemplates = current_user.articles.where("template_id = ?", article.template_id).count %>
+                  <%= "(You have already #{ntemplates} Articles of this type in your inventory)" if ntemplates > 0 %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div id="<%= article_div_id %>" class="secondary_article_inputs">
+                  <%= bootstrap_form_for(article, url: new_user_articles_path, layout: :horizontal) do |f| %>
+                    <%= devise_error_messages! %>
+                    <%= f.hidden_field :title %>
+
+                    <% # f.number_field :quality, min: 0, max: 5, size: 8 %>
+
+                    <%= f.form_group do %>
+                      <%= f.check_box :gratis, data: { article_id: article_rate_div_id }, class: "article_gratis_cb", inline: true %>
+                    <% end %>
+
+                    <div id="<%= article_rate_div_id %>">
+                      <%= f.text_field :rate, size: 15 %>
+                    </div>
+
+                    <%= f.collection_select :location_id, current_user.locations, :id, :shortaddress %>
+
+                    <%= f.text_area :details, placeholder: Article.human_attribute_name("details") %>
+
+                    <%= f.hidden_field :id %>
+                    <%= f.hidden_field :template_id %>
+                    <%= f.form_group do %>
+                      <%= f.submit t("Create") %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<script> 
+
+ $(document).ready(function(){
+   $(".secondary_article_inputs").hide()
+   
+   $(".article_cb").click( function() {
+     var thedivid = "#article_" + $(this).attr("data") + "_div";
+     console.log(thedivid);
+     $(thedivid).toggle(0);
+   });
+
+   $('body').on('click', '.article_gratis_cb', function() {
+     var thedivid = "#" + $(this).attr("data-article-id");
+     console.log(thedivid);
+     $(thedivid).toggle(0);
+   });
+   
+ });
+ 
+</script>

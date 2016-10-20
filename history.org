@@ -2,6 +2,21 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO new articles neu-entwurf
+    - liste mit artikeln -> details auf der gleichen seite (mess verworfen)
+    - liste mit artikeln -> erstellen -> seite mit details (do this)
+    - [ ] new_articles als template listing mit ner liste von checkboxen
+      - wie kann rails dabei helfen?
+        template_selection model:
+        - new -> unser template listing
+        - create -> erstellt daraus die article
+        - formular: liste von checkboxen 
+          simple form scheint da die methode der wahl zu sein
+          f.association :templates, collection: Templates.where(...).order(...), as :check_boxes, prompt: "Jou!"          
+      - wie werden vorlagenfreie artikel erstellt?
+        add button fügt titelfeld hinzu
+    - [ ] detail seite ist sowas wie edit_articles, aber reduziert auf die gerade neu erstellten artikel
+    - [ ] add button für freie artikel
 *** TODO qualität vorläufig rausnehmen
 *** TODO Too many places for article fields:
     - _new_articles_fields

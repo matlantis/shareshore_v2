@@ -72,8 +72,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # a = Article.new({ rate: '1€/tag', quality: 3})
     # @articles['new'].push(a)    
     
-    render :new_articles
+    render :new_articles_b
   end
+
+  def create_article
+    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :template_id )
+
+    article = current_user.articles.new(p)
+    success = article.save
+
+    if success
+      flash[:success] = t(article.title + ' was successfully created')
+      redirect_to new_user_articles_path
+    else
+      flash[:alert] = t('Article needs a review')
+      render :new_articles
+    end
+          
+  end
+  
 # GET /resource/sign_up
   # def new
   #   super
