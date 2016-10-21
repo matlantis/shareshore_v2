@@ -81,7 +81,7 @@ Stockitem.create({title: "Schredder", details_hint: "", rate: "2€/Tag", room: 
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: "Büro"})
 
 Stockitem.create({title: "Anzug", details_hint: "Größe", rate: "10€/Tag", room: "Kleidung Männer"})
-Stockitem.create({title: "Frack", details_hint: "Größe", rate: "10€/Tag", room: "Kleidung Männer"})
+frack = Stockitem.create({title: "Frack", details_hint: "Größe", rate: "10€/Tag", room: "Kleidung Männer"})
 Stockitem.create({title: "Faschingskostüm", details_hint: "Größe und Typ", rate: "5€/Tag", room: "Kleidung Männer"})
 Stockitem.create({title: "Halloweenkostüm", details_hint: "Größe und Typ", rate: "5€/Tag", room: "Kleidung Männer"})
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: "Kleidung Männer"})
@@ -100,7 +100,46 @@ Stockitem.create({title: "Drehmomentschlüssel", details_hint: "", rate: "1€/T
 Stockitem.create({title: "Akkuschrauber", details_hint: "", rate: "3€/Tag", room: "Werkstatt"})
 Stockitem.create({title: "Einfache Werkzeuge", details_hint: "Schrauberzieher, Hammer, Schraubenschlüssel u.ä.", rate: "1€/Tag", room: "Werkstatt"})
 Stockitem.create({title: "Winkelschleifer", details_hint: "", rate: "5€/Tag", room: "Werkstatt"})
-Stockitem.create({title: "Dremel", details_hint: "", rate: "5€/Tag", room: "Werkstatt"})
+dremel = Stockitem.create({title: "Dremel", details_hint: "", rate: "5€/Tag", room: "Werkstatt"})
 Stockitem.create({title: "Standbohrmaschine", details_hint: "", rate: "2€/Benutzung", room: "Werkstatt"})
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: "Werkstatt"})
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: ""})
+
+# two users
+User.destroy_all
+
+user_martin = User.new
+user_martin.email = 'martinstefanputtke@posteo.de'
+user_martin.password = 'martin'
+user_martin.password_confirmation = 'martin'
+user_martin.nickname = "martin"
+user_martin.firstname = ""
+user_martin.lastname = ""
+user_martin.phoneno = ""
+user_martin.showemail = true
+user_martin.showphone = false
+user_martin.save!
+
+user_peter = User.new
+user_peter.email = 'peter@example.com'
+user_peter.password = 'peterp'
+user_peter.password_confirmation = 'peterp'
+user_peter.nickname = "peter"
+user_peter.firstname = ""
+user_peter.lastname = ""
+user_peter.phoneno = ""
+user_peter.showemail = true
+user_peter.showphone = false
+user_peter.save!
+
+# users need locations
+Location.destroy_all
+location_1 = user_martin.locations.create({street_and_no: "Hanauer Str. 47", postcode: "", city: "Alzenau", country: ""})
+location_2 = user_martin.locations.create({street_and_no: "Goethestr. 20", postcode: "", city: "Alzenau", country: ""})
+location_3 = user_peter.locations.create({street_and_no: "Haagweg. 12", postcode: "", city: "Wasserlos", country: ""})
+
+# a few articles
+Article.destroy_all
+user_martin.articles.create({title: "Dremel", details: "high tech", location_id: location_1.id, quality: 3, rate: "3€ pro Tag", gratis: false, stockitem_id: dremel.id})
+user_martin.articles.create({title: "Frack", details: "Größe XL", location_id: location_2.id, quality: 5, rate: "5€ pro Tag", gratis: false, stockitem_id: frack.id})
+user_peter.articles.create({title: "Milchkuh", details: "gescheckt", location_id: location_3.id, quality: 5, rate: "5€ pro Tag", gratis: true, stockitem_id: nil})
