@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @stockitem.title %>
+</p>
+
+<p>
+  <strong>Details hint:</strong>
+  <%= @stockitem.details_hint %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @stockitem.rate %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @stockitem.picture %>
+</p>
+
+<%= link_to 'Edit', edit_stockitem_path(@stockitem) %> |
+<%= link_to 'Back', stockitems_path %>

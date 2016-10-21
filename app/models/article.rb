@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 
   belongs_to :location
   belongs_to :user
-  belongs_to :template
+  belongs_to :stockitem
 
   # hack see https://github.com/alexreisner/geocoder/issues/26
   reverse_geocoded_by "locations.latitude", "locations.longitude"
@@ -29,13 +29,13 @@ class Article < ActiveRecord::Base
     where("lower(title) LIKE ?", "%#{search.downcase}%") 
   end
 
-  def fill_from_template(template)
+  def fill_from_stockitem(stockitem)
     self.to_be_created = false
-    self.title = template.title
-    self.details = template.details_hint
-    self.rate = template.rate
-    self.picture = template.picture
-    self.template_id = template.id
+    self.title = stockitem.title
+    self.details = stockitem.details_hint
+    self.rate = stockitem.rate
+    self.picture = stockitem.picture
+    self.stockitem_id = stockitem.id
     self.quality = 3
     self.gratis = false
     self

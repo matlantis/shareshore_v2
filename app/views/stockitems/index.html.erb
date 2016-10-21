@@ -16,9 +16,9 @@
 
 <div class="col-xs-2">
   <%= content_tag :h2, "Rooms" %>
-  <%= link_to "Alle", "/templates", class: "btn btn-default" %><br>
+  <%= link_to "Alle", "/stockitems", class: "btn btn-default" %><br>
   <% @rooms.each do |room| %>
-    <%= link_to room, "/templates/rooms/#{room}", class: "btn btn-default" %><br>
+    <%= link_to room, "/stockitems/rooms/#{room}", class: "btn btn-default" %><br>
   <% end %>
 </div>
 
@@ -29,7 +29,7 @@
     <% room = "Alle Vorlagen" %>
   <% end %>
   <%= content_tag :h2, room %>
-  <%= bootstrap_form_tag url: templates_path, layout: :inline do |f| %>
+  <%= bootstrap_form_tag url: stockitems_path, layout: :inline do |f| %>
   <table class="table">
     <thead>
       <tr>
@@ -43,9 +43,9 @@
     </thead>
 
     <tbody>
-      <% @templates.each do |template| %>
+      <% @stockitems.each do |stockitem| %>
         <tr>
-          <% article = Article.new.fill_from_template(template) %>
+          <% article = Article.new.fill_from_stockitem(stockitem) %>
           <%= f.fields_for article do |af| %>
             <td><%= af.text_field :title, hide_label: true %></td>
             <td><%= af.text_field :details, hide_label: true %></td>

@@ -30,8 +30,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def edit_articles
     @rooms = current_user.articles.collect do |a|
-      if a.template
-        a.template.room
+      if a.stockitem
+        a.stockitem.room
       else
         'own'
       end
@@ -41,29 +41,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @articles = {}
 
     @rooms.each do |room|
-      @articles[room] = current_user.articles.includes(:template).where(templates: {room: room})
+      @articles[room] = current_user.articles.includes(:stockitem).where(stockitems: {room: room})
     end
     
-    @articles['own'] = current_user.articles.where(template_id: nil)
+    @articles['own'] = current_user.articles.where(stockitem_id: nil)
 
     render :edit_articles
   end
 
   def new_articles
-    @rooms = Template.all.collect {|t| t.room }.uniq
+    @rooms = Stockitem.all.collect {|t| t.room }.uniq
     @articles = {}
     if params.has_key? 'room'
       @articles[params['room']] = []
-      templates = Template.where("room = ?", params['room'])
-      templates.each do |t|
-        @articles[params['room']].push Article.new.fill_from_template t
+      stockitems = Stockitem.where("room = ?", params['room'])
+      stockitems.each do |t|
+        @articles[params['room']].push Article.new.fill_from_stockitem t
       end
     else   
       @rooms.each do |room|
         @articles[room] = []
-        templates = Template.where("room = ?", room)
-        templates.each do |t|
-          @articles[room].push Article.new.fill_from_template t
+        stockitems = Stockitem.where("room = ?", room)
+        stockitems.each do |t|
+          @articles[room].push Article.new.fill_from_stockitem t
         end
       end
     end
@@ -76,7 +76,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_article
-    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :template_id )
+    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id )
 
     article = current_user.articles.new(p)
     success = article.save
@@ -126,7 +126,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_articles
-    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate, :value_eur, :location_id, :id, :template_id ])
+    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id ])
 
     success = true
 

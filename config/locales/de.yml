@@ -141,7 +141,7 @@ de:
   What now: "Was jetzt?"
   Finish: "Abschließen"
   Create this article: "Artikel erstellen"
-  own templates: "Ohne Vorlage"
+  own stockitems: "Ohne Vorlage"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
