@@ -76,17 +76,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_article
-    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id )
+    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id, :gratis )
 
+    # @room = Stockitem.find_by_id(p[:stockitem_id]).room # for the js
+    @stockitem_id = p[:stockitem_id]
+    
     article = current_user.articles.new(p)
     success = article.save
 
-    if success
-      flash[:success] = t(article.title + ' was successfully created')
-      redirect_to new_user_articles_path
-    else
-      flash[:alert] = t('Article needs a review')
-      render :new_articles
+    respond_to do |format|    
+      if success
+        format.html { redirect_to new_user_articles_path, success: t(article.title + ' was successfully created') }
+        format.js
+      else
+        flash[:alert] = t('Article needs a review')
+        format.html { render :new_articles }
+      end
     end
           
   end

@@ -17,7 +17,6 @@
         add button fügt titelfeld hinzu
     - [ ] detail seite ist sowas wie edit_articles, aber reduziert auf die gerade neu erstellten artikel
     - [ ] add button für freie artikel
-*** TODO qualität vorläufig rausnehmen
 *** TODO Too many places for article fields:
     - _new_articles_fields
     - _articles_fields
@@ -25,33 +24,7 @@
     - articles index
     - articles/_form
     und alle sind irgendwie anders!! what a mess!!
-
-*** TODO diese bootstrap-rails formulare sind alle etwas fragwürdig
-    zu wenig und unklare gestaltungsmglkeiten
-    kann man da nicht was machen?
-    vllt braucht man das gar nicht, wenn man quality und rate intervall weglässt - der Gratis Button!!
-    die bleiben erstmal drin!
 *** TODO wie kann man manage articles and new articles zusammenfassen?
-*** TODO hilfe bereich fertig stellen [1/3]
-    - [X] struktur
-    - [ ] texte
-    - [ ] einzel layout
-*** TODO wie geht redirect to last location on that page?
-    http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
-    seems to be haml syntax? nope, its coffeescript
-*** TODO Artikel erstellen/bearbeiten als Overlay
-    oder extra seite mit vernünftiger zurückführung (genau da wo man war)
-    - als modal: behebt nicht das eigentliche problem (eigener submit button für jeden artikel)
-*** TODO seeding of templates
-    - deletes the template associations
-    - seed everything else also
-    - need a better solution
-      würde vorschlagen ein eigenes rake task anzulegen, mit nem komplexeren script das sich darum kümmert
-*** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
-*** TODO Artikelsuche ergebnis liste überarbeiten
-    Sortiermglkeiten nach verschiedenen kriterien
-    angaben an neues article modell anpassen
-    Klick auf bild zeigt vergrößert
 *** TODO Ansicht Eigene Artikel überarbeiten
     - übersichtlichkeit
       vorschläge: 
@@ -59,6 +32,15 @@
       - ansicht ähnlich wie new_article seite
     Umbenennen
     Kategorien in Artikel übersicht anzeigen (eigene Artikel)
+*** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
+*** TODO hilfe bereich fertig stellen [1/3]
+    - [X] struktur
+    - [ ] texte
+    - [ ] einzel layout
+*** TODO Artikelsuche ergebnis liste überarbeiten
+    Sortiermglkeiten nach verschiedenen kriterien
+    angaben an neues article modell anpassen
+    Klick auf bild zeigt vergrößert
 *** TODO wie-bin-ich-abgesichert-seite
 *** TODO get rid of unnecessary article attributes
     like +value+ (we keep it), deposit
@@ -122,6 +104,32 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE wie geht redirect to last location on that page?
+    CLOSED: [2016-10-24 Mo 16:22]
+    http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
+    seems to be haml syntax? nope, its coffeescript
+    brauch ich jetzt nicht, aber vllt später
+*** DONE new_articles per ajax realisiert
+*** DONE qualität vorläufig rausnehmen
+    CLOSED: [2016-10-24 Mo 16:20]
+*** CANCELED Artikel erstellen/bearbeiten als Overlay
+    CLOSED: [2016-10-24 Mo 16:19]
+    oder extra seite mit vernünftiger zurückführung (genau da wo man war)
+    - als modal: behebt nicht das eigentliche problem (eigener submit button für jeden artikel)
+*** CANCELED seeding of templates
+    CLOSED: [2016-10-24 Mo 16:20]
+    - deletes the template associations
+    - seed everything else also
+    - need a better solution
+      würde vorschlagen ein eigenes rake task anzulegen, mit nem komplexeren script das sich darum kümmert
+    - ist jetzt glaub ich nicht schlimm, weil später die templates manuell eingefügt werden
+
+*** CANCELED diese bootstrap-rails formulare sind alle etwas fragwürdig
+    CLOSED: [2016-10-24 Mo 16:18]
+    zu wenig und unklare gestaltungsmglkeiten
+    kann man da nicht was machen?
+    vllt braucht man das gar nicht, wenn man quality und rate intervall weglässt - der Gratis Button!!
+    die bleiben erstmal drin!
 *** DONE own articles: js bound to gratis cb not working
     CLOSED: [2016-10-18 Di 17:51]
     because, code is not really bound, because it was created after page loading finished

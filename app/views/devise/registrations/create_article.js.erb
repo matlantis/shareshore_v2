@@ -1,0 +1,9 @@
+var thedivid = "#article_<%= @stockitem_id %>_div";
+console.log(thedivid);
+$(thedivid).toggle(200);
+
+thedivid = "#article_<%= @stockitem_id %>_count_div";
+console.log(thedivid);
+<% nstockitems = current_user.articles.where("stockitem_id = ?", @stockitem_id).count %>
+$(thedivid).show(200);
+$(thedivid).text ("You have already <%= nstockitems %> Articles of this type in your inventory");
