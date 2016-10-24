@@ -50,18 +50,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def new_articles
-    @rooms = Stockitem.all.collect {|t| t.room }.uniq
+    @rooms = Stockitem.all.collect {|t| t.room }.uniq.sort
     @articles = {}
     if params.has_key? 'room'
       @articles[params['room']] = []
-      stockitems = Stockitem.where("room = ?", params['room'])
+      stockitems = Stockitem.where("room = ?", params['room']).order("title: :asc")
       stockitems.each do |t|
         @articles[params['room']].push Article.new.fill_from_stockitem t
       end
     else   
       @rooms.each do |room|
         @articles[room] = []
-        stockitems = Stockitem.where("room = ?", room)
+        stockitems = Stockitem.where("room = ?", room).order(title: :asc)
         stockitems.each do |t|
           @articles[room].push Article.new.fill_from_stockitem t
         end

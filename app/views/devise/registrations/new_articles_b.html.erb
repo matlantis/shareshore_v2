@@ -17,9 +17,9 @@
       <% @rooms.each do |room| %>
         <div>
           <h4>
-            <a data-toggle="collapse" data-parent="accordeon" href="#<%= underscore(room) %>"><span class="caret-right"></span> <%= room %></a>
+            <%= room %>
           </h4>
-          <div id="<%= underscore(room) %>" class="collapse article-content">
+          <div id="<%= underscore(room) %>">
             <% @articles[room].each do |article| %>
 
               <% article_div_id = "article_" + article.stockitem_id.to_s + "_div" %>
@@ -37,7 +37,7 @@
                   <% # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems %>
                   <% nstockitems = current_user.articles.where("stockitem_id = ?", article.stockitem_id).count %>
                   <div class="article_count" id="<%= article_count_div_id%>" data="<%= nstockitems %>">
-                    You have already <%= nstockitems %> Articles of this type in your inventory
+                    <%= content_tag :span, "#{nstockitems}" %> <%= t('in your') %> <%= link_to t('inventory'), edit_user_articles_path %>
                   </div>
                 </div>
               </div>

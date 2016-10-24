@@ -142,6 +142,8 @@ de:
   Finish: "Abschließen"
   Create this article: "Artikel erstellen"
   own stockitems: "Ohne Vorlage"
+  inventory: "Inventar"
+  in your: "in deinem"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
