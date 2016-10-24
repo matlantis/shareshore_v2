@@ -400,6 +400,7 @@
 *** TODO new article felder neu sortieren und übersichtlicher gestalten
     - [ ] für die qualität sterne verwenden
       https://codepen.io/jamesbarnett/pen/vlpkh
+      https://github.com/wbotelhos/raty
       da gibts noch mehr, wenn man rating star css oder bootstrap oder so eingibt
       aber vllt eher qualität als dropdown box mit vordefinierten begriffen - ist sonst nicht klar was gemeint ist
     - [ ] leihgebühr und zeitraum in eine zeile

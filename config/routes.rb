@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :stockitems
+  resources :stockitem_selections
+
   devise_for :users, controllers: { registrations: "users/registrations" }
   
   root "pages#index"

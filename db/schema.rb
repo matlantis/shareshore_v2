@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020154758) do
+ActiveRecord::Schema.define(version: 20161021133945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20161020154758) do
 
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
 
+  create_table "stockitem_selections", force: :cascade do |t|
+  end
+
+  create_table "stockitem_selections_stockitems", id: false, force: :cascade do |t|
+    t.integer "stockitem_selection_id"
+    t.integer "stockitem_id"
+  end
+
+  add_index "stockitem_selections_stockitems", ["stockitem_id"], name: "index_stockitem_selections_stockitems_on_stockitem_id", using: :btree
+  add_index "stockitem_selections_stockitems", ["stockitem_selection_id"], name: "index_stockitem_selections_stockitems_on_stockitem_selection_id", using: :btree
+
   create_table "stockitems", force: :cascade do |t|
     t.string   "title"
     t.text     "details_hint"
@@ -59,6 +70,19 @@ ActiveRecord::Schema.define(version: 20161020154758) do
     t.string   "room"
     t.string   "rate"
   end
+
+  create_table "template_selections", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "template_selections_templates", id: false, force: :cascade do |t|
+    t.integer "template_selection_id"
+    t.integer "template_id"
+  end
+
+  add_index "template_selections_templates", ["template_id"], name: "index_template_selections_templates_on_template_id", using: :btree
+  add_index "template_selections_templates", ["template_selection_id"], name: "index_template_selections_templates_on_template_selection_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
