@@ -3,21 +3,6 @@
 * Shareshore V2 Todos
 ** Primär
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
-*** TODO new articles neu-entwurf
-    - liste mit artikeln -> details auf der gleichen seite (mess verworfen)
-    - liste mit artikeln -> erstellen -> seite mit details (do this)
-    - [ ] new_articles als template listing mit ner liste von checkboxen
-      - wie kann rails dabei helfen?
-        template_selection model:
-        - new -> unser template listing
-        - create -> erstellt daraus die article
-        - formular: liste von checkboxen 
-          simple form scheint da die methode der wahl zu sein
-          f.association :templates, collection: Templates.where(...).order(...), as :check_boxes, prompt: "Jou!"          
-      - wie werden vorlagenfreie artikel erstellt?
-        add button fügt titelfeld hinzu
-    - [ ] detail seite ist sowas wie edit_articles, aber reduziert auf die gerade neu erstellten artikel
-    - [ ] add button für freie artikel
 *** TODO Too many places for article fields:
     - _new_articles_fields
     - _articles_fields
@@ -52,6 +37,7 @@
     - Artikel: Dingi, Sache, Cosa
     - Standort: Ort, Platz, Punto, Puesto
     - Template: Schablone, Vorlage, Muster, Estampa
+    - Inventar
 *** TODO demo user und artikel anlegen
 *** TODO umsortieren der listen
     der eigenen Artikel/Locations (default location für neue Artikel)
@@ -105,6 +91,22 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** CANCELED new articles neu-entwurf
+    CLOSED: [2016-10-25 Di 21:21]
+    - liste mit artikeln -> details auf der gleichen seite (mess verworfen)
+    - liste mit artikeln -> erstellen -> seite mit details (do this)
+    - [ ] new_articles als template listing mit ner liste von checkboxen
+      - wie kann rails dabei helfen?
+        template_selection model:
+        - new -> unser template listing
+        - create -> erstellt daraus die article
+        - formular: liste von checkboxen 
+          simple form scheint da die methode der wahl zu sein
+          f.association :templates, collection: Templates.where(...).order(...), as :check_boxes, prompt: "Jou!"          
+      - wie werden vorlagenfreie artikel erstellt?
+        add button fügt titelfeld hinzu
+    - [ ] detail seite ist sowas wie edit_articles, aber reduziert auf die gerade neu erstellten artikel
+    - [ ] add button für freie artikel
 *** DONE wie geht redirect to last location on that page?
     CLOSED: [2016-10-24 Mo 16:22]
     http://zogovic.com/post/19629950359/preserving-scroll-position-across-pages
