@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
         flash[:alert] = 'the location is unknown'        
         @articles = Article.all
       end
+      @articles = @articles.order(title: :asc)
     elsif params.key? :user_id # apply owner
         # @articles = Article.where("articles.user_id = ?", params[:owner])
       @user = User.find_by(id: params[:user_id])
@@ -34,6 +35,7 @@ class ArticlesController < ApplicationController
         flash[:alert] = 'the user is unknown'        
         @articles = Article.all
       end
+      @articles = @articles.order(title: :asc)
     else
       @articles = Article.all
 
@@ -61,11 +63,11 @@ class ArticlesController < ApplicationController
     if session[:pattern]
       @articles = @articles.search(session[:pattern])
     else
-      @articles = @articles.order('created_at DESC')
+      @articles = @articles.order(title: :asc)
     end
 
     # paginate
-    @articles = @articles.paginate(page: params[:page], per_page: 5)
+    # @articles = @articles.paginate(page: params[:page], per_page: 5)
     
   end
 
@@ -124,22 +126,30 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
-  def update    
-    if @article.update(article_params)
-      flash[:success] = t('Article was successfully updated')
-      redirect_to session.delete(:return_to)
-    else
-      render :edit
+  def update
+    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
+    success = @article.update(article_params)
+    respond_to do |format|
+      if success
+        print 'hello'
+        format.html {redirect_to session.delete(:return_to), success: t('Article was successfully updated') }
+        format.js {}
+      else
+        print 'beybey'
+        render :edit
+      end
     end
   end
 
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
+
     @article.destroy
     respond_to do |format|
-      flash[:success] = t('Article was successfully destroyed')
-      format.html { redirect_to edit_user_articles_path }
+      format.html { redirect_to edit_user_articles_path, success: t('Article was successfully destroyed') }
+      format.js {}
       format.json { head :no_content }
     end
   end

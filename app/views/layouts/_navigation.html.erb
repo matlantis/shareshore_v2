@@ -19,7 +19,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to t("Manage Articles"), edit_user_articles_path, class: 'navbar-link' %></li>
+          <li><%= link_to t("Manage Articles"), articles_user_path(current_user), class: 'navbar-link' %></li>
           <li><%= link_to t("Create Articles"), new_user_articles_path, class: 'navbar-link' %></li>
           <li><%= link_to t("Locations"), edit_user_locations_path, class: 'navbar-link' %></li>
           <li class="dropdown">

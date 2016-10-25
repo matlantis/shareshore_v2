@@ -2,6 +2,7 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO new articles neu-entwurf
     - liste mit artikeln -> details auf der gleichen seite (mess verworfen)
     - liste mit artikeln -> erstellen -> seite mit details (do this)

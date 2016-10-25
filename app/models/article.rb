@@ -22,7 +22,7 @@ class Article < ActiveRecord::Base
     self.to_be_created = true
     self.rate ||= "1€/Tag"
     self.quality ||= 3
-    self.gratis = false
+    self.gratis ||= false
   end
   
   def self.search(search)

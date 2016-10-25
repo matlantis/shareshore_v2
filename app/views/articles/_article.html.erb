@@ -1,0 +1,35 @@
+<div class="col-sm-3">
+  <%= article.title %><br>
+  <%= image_tag(article.picture_url(:thumb)) if article.picture.present? %>
+</div>
+
+<div class="col-sm-9">
+  <div class="row">
+    <div class="col-sm-4">
+      <% if article.gratis %>
+      <b></span>Gratis</b> <span class="glyphicon glyphicon-ok">
+      <% else %>
+      <%= t('rate') %>: <%= article.rate %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <%= article.location.shortaddress %>
+      <% if @current_location %>
+      <%= "%.1f km" % article.location.distance_from( @current_location ) %>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+      <% if current_user and current_user.id == article.user.id %>
+      <%= link_to("", "#", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
+      <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+      <% else %>
+      <%= link_to article.user.nickname, user_path(article.user) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      Details: <%= article.details %>
+    </div>
+  </div>
+</div>

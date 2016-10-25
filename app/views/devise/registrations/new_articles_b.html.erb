@@ -13,7 +13,7 @@
 <div class="col-xs-12 col-sm-9 col-sm-pull-3">
   <h3><%= t('Create Articles') %></h3>
 
-    <div id="accordeon">      
+    <div>      
       <% @rooms.each do |room| %>
         <div>
           <h4>
@@ -22,9 +22,10 @@
           <div id="<%= underscore(room) %>">
             <% @articles[room].each do |article| %>
 
-              <% article_div_id = "article_" + article.stockitem_id.to_s + "_div" %>
+              <% article_edit_div_id = "article_" + article.stockitem_id.to_s + "_edit_div" %>
               <% article_rate_div_id = "article_" + article.stockitem_id.to_s + "_rate_div" %>
               <% article_count_div_id = "article_" + article.stockitem_id.to_s + "_count_div" %>
+              
               <div class="row">
                 <div class="col-xs-6">
                   <a href="#" class="article_cb" data="<%= article.stockitem_id %>">
@@ -43,7 +44,7 @@
               </div>
 
               <div class="row">
-                <div id="<%= article_div_id %>" class="secondary_article_inputs">
+                <div id="<%= article_edit_div_id %>" class="secondary_article_inputs">
                   <%= bootstrap_form_for(article, url: new_user_articles_path, layout: :horizontal, remote: true) do |f| %>
                     <%= devise_error_messages! %>
                     <%= f.hidden_field :title %>
@@ -84,7 +85,7 @@
    $(".secondary_article_inputs").hide();
    
    $(".article_cb").click( function() {
-     var thedivid = "#article_" + $(this).attr("data") + "_div";
+     var thedivid = "#article_" + $(this).attr("data") + "_edit_div";
      console.log(thedivid);
      $(thedivid).toggle(200);
    });
