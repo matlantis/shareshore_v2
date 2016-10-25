@@ -1,7 +1,25 @@
+<% article_img_id = "article_" + article.id.to_s + "_img" %>
+
 <div class="col-sm-3">
   <%= article.title %><br>
-  <%= image_tag(article.picture_url(:thumb)) if article.picture.present? %>
+  <% if article.picture.present? %>
+    <a href="#<%= article_img_id%>" data-toggle="modal">
+      <%= image_tag(article.picture_url(:thumb)) %>
+    </a>
+  <% end %>
 </div>
+
+<% if article.picture.present? %>
+  <div id="<%= article_img_id %>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag(article.picture_url(), class: "img-responsive") %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="col-sm-9">
   <div class="row">
