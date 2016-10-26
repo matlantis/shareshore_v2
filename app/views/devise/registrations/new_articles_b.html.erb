@@ -43,8 +43,8 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div id="<%= article_edit_div_id %>" class="secondary_article_inputs">
+              <div class="row secondary_article_inputs" id="<%= article_edit_div_id %>">
+                <div class="col-xs-12">
                   <%= bootstrap_form_for(article, url: new_user_articles_path, layout: :horizontal, remote: true) do |f| %>
                     <%= devise_error_messages! %>
                     <%= f.hidden_field :title %>
@@ -84,7 +84,8 @@
  $(document).ready(function(){
    $(".secondary_article_inputs").hide();
    
-   $(".article_cb").click( function() {
+   $(".article_cb").click( function(e) {
+     e.preventDefault();
      var thedivid = "#article_" + $(this).attr("data") + "_edit_div";
      console.log(thedivid);
      $(thedivid).toggle(200);

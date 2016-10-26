@@ -129,7 +129,8 @@
  $(document).ready(function(){
    $(".article_edit_div").hide();
 
-   $("body").on("click", ".article_cb", function() {
+   $("body").on("click", ".article_cb", function(e) {
+     e.preventDefault();
      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit_div";
      // console.log(thedivid);
      $(thedivid).toggle(200);

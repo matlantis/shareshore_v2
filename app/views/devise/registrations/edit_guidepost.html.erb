@@ -14,7 +14,7 @@
 
   <%= content_tag :h3, t("What now")%>
 
-  <% if current_user.firstname.blank? || current_user.lastname.blank? || !(current_user.showemail || ( current_user.showphone && !current_user.phoneno.blank?)) %>
+  <% if (current_user.firstname.blank? && current_user.lastname.blank?) || !(current_user.showemail || ( current_user.showphone && !current_user.phoneno.blank?)) %>
     <p>
       Deine Kontaktinformationen scheinen nicht vollständig zu sein. Aktualisiere sie jetzt!
     </p>
@@ -70,7 +70,7 @@
     </p>
     <%= link_to t("Edit your Profile"), edit_user_basic_path, class: "btn btn-default" %>
     <%= link_to t("Edit your Locations"), edit_user_locations_path, class: "btn btn-default" %>
-    <%= link_to t("Manage your Articles"), edit_user_articles_path, class: "btn btn-default" %>
+    <%= link_to t("Manage your Articles"), articles_user_path(current_user), class: "btn btn-default" %>
     <%= link_to t("Create new Articles"), new_user_articles_path, class: "btn btn-default" %>
   <% end %>
 </div>

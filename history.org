@@ -2,6 +2,12 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO neue sitemap entwerfen
+*** TODO hilfe bereich im artikel index
+    achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
+*** TODO nicht mehr benötgite edit_articles seite löschen, new_articles_b umbenennen
+*** TODO gratis noch besser hervorheben
+*** TODO standorte hübscher machen
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO Too many places for article fields:
     - _new_articles_fields
@@ -10,23 +16,21 @@
     - articles index
     - articles/_form
     und alle sind irgendwie anders!! what a mess!!
-*** TODO wie kann man manage articles and new articles zusammenfassen?
-*** TODO Ansicht Eigene Artikel überarbeiten
-    - übersichtlichkeit
-      vorschläge: 
-      - bearbeiten button oder cb wie in new_articles, der die input felder einblendet
-      - ansicht ähnlich wie new_article seite
-    Umbenennen
-    Kategorien in Artikel übersicht anzeigen (eigene Artikel)
 *** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
     - [ ] texte
     - [ ] einzel layout
-*** TODO Artikelsuche ergebnis liste überarbeiten
-    Sortiermglkeiten nach verschiedenen kriterien
-    angaben an neues article modell anpassen
-    Klick auf bild zeigt vergrößert
+*** TODO Artikelsuche ergebnis liste überarbeiten [2/3]
+    - [ ] Sortiermglkeiten nach verschiedenen kriterien
+      ich glaub man kann per js umsortieren, wenn die divs entsprechende data attribute kriegen
+      welche kriterien?
+      - entfernung (auto)
+      - user (in entfernung enthalten)
+      - titel
+      - momentan gibts da nicht mehr
+    - [X] angaben an neues article modell anpassen
+    - [X] Klick auf bild zeigt vergrößert
 *** TODO wie-bin-ich-abgesichert-seite
 *** TODO get rid of unnecessary article attributes
     like +value+ (we keep it), deposit
@@ -91,6 +95,22 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE guidepost ist mit meinen informationen nicht zufrieden, das nervt
+    CLOSED: [2016-10-26 Mi 12:07]
+    wird den nutzer auch nerven (will anscheinend vor- UND nachname, dabei reicht eins)
+*** DONE new articles, beim aufklappen scrollt das hoch
+    CLOSED: [2016-10-26 Mi 12:04]
+*** CANCELED wie kann man manage articles and new articles zusammenfassen?
+    CLOSED: [2016-10-25 Di 21:51]
+    will man nicht mher
+*** DONE Ansicht Eigene Artikel überarbeiten
+    CLOSED: [2016-10-25 Di 21:50]
+    - übersichtlichkeit
+      vorschläge: 
+      - bearbeiten button oder cb wie in new_articles, der die input felder einblendet
+      - ansicht ähnlich wie new_article seite
+    Umbenennen
+    Kategorien in Artikel übersicht anzeigen (eigene Artikel)
 *** CANCELED new articles neu-entwurf
     CLOSED: [2016-10-25 Di 21:21]
     - liste mit artikeln -> details auf der gleichen seite (mess verworfen)
