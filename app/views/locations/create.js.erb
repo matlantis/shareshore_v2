@@ -1,0 +1,8 @@
+// generate the new content
+$(".location_placeholder").before("<%= escape_javascript(render 'location', location: @location) %>");
+
+// hide the new div
+$(".location_new").hide();
+
+// hide the generated edit div
+$("#<%= @location_div_id %> .location_edit").hide();

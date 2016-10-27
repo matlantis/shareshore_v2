@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/articles', action: :index, controller: 'articles', as: 'articles_user'
   get '/locations/:location_id/articles', action: :index, controller: 'articles', as: 'articles_location'
+  get '/users/:user_id/locations', action: :index, controller: 'locations', as: 'locations_user'
 
+  get '/user/locations', action: :index_owner, controller: 'locations', as: 'user_locations'
+  get '/user/articles', action: :index_owner, controller: 'articles', as: 'user_articles'
+  
   devise_scope :user do
     get "user/guidepost", action: :edit_guidepost, controller: 'users/registrations', as: 'edit_user_guidepost'
     put "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
@@ -23,10 +27,10 @@ Rails.application.routes.draw do
     get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
     put "users/basic", action: :update_basic, controller: 'users/registrations'
     
-    get "users/locations", action: :edit_locations, controller: 'users/registrations', as: 'edit_user_locations'
-    get "users/articles", action: :edit_articles, controller: 'users/registrations', as: 'edit_user_articles'
-    put "users/articles", action: :update_articles, controller: 'users/registrations', as: 'user_articles'
-    put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
+    #get "users/locations", action: :edit_locations, controller: 'users/registrations', as: 'edit_user_locations'
+    #get "users/articles", action: :edit_articles, controller: 'users/registrations', as: 'edit_user_articles'
+    #put "users/articles", action: :update_articles, controller: 'users/registrations', as: 'user_articles'
+    #put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
     
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
     get "users/new_articles", action: :new_articles, controller: 'users/registrations', as: 'new_user_articles'

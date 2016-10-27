@@ -1,8 +1,12 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index_owner, :new, :edit, :create, :update, :destroy]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
+  def index_owner
+    @locations = current_user.locations
+  end
+  
   # GET /locations
   # GET /locations.json
   def index
@@ -51,7 +55,7 @@ class LocationsController < ApplicationController
     # end
 
     # paginate
-    @locations = @locations.paginate(page: params[:page], per_page: 5)
+    #@locations = @locations.paginate(page: params[:page], per_page: 5)
     
   end
 
@@ -93,10 +97,12 @@ class LocationsController < ApplicationController
     # end
 
     @location = current_user.locations.create(location_params)
+    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+
     respond_to do |format|
-      if @location.save
-        flash[:success] = t('Location was successfully created')
-        format.html { redirect_to edit_user_locations_path }
+      if true #@location.save
+        format.html { redirect_to edit_user_locations_path, success: t('Location was successfully created') }
+        format.js {}
         format.json { render :show, status: :created, location: @location }
       else
         if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
@@ -128,9 +134,10 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location.destroy
+    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     respond_to do |format|
-      flash[:success] = t('Location was successfully destroyed')
-      format.html { redirect_to edit_user_locations_path }
+      format.html { redirect_to edit_user_locations_path, success: t('Location was successfully destroyed') }
+      format.js {}
       format.json { head :no_content }
     end
   end
