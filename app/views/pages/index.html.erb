@@ -16,7 +16,7 @@
   <%= content_tag :h2, t("lend something") %>
   <%= content_tag :p, t("earn yourself some coins") %>
   <% if user_signed_in? %>
-    <%= link_to t("Create new Articles"), new_user_articles_path, class: 'btn btn-default' %>
+    <%= link_to t("Create new Articles"), user_new_article_from_stockitems_path, class: 'btn btn-default' %>
   <% else %>
     <%= link_to t("Signup"), new_user_registration_path, class: "btn btn-default" %> oder 
     <%= link_to t("Login"), new_user_session_path, class: 'btn btn-default'  %>

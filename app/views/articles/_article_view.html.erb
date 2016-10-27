@@ -1,0 +1,50 @@
+<div class="row">
+  <% article_img_id = "article_" + article.id.to_s + "_img" %>
+
+  <div class="col-sm-3">
+    <%= article.title %><br>
+    <% if article.picture.present? %>
+      <a href="#<%= article_img_id%>" data-toggle="modal">
+        <%= image_tag(article.picture_url(:thumb)) %>
+      </a>
+    <% end %>
+  </div>
+
+  <% if article.picture.present? %>
+    <div id="<%= article_img_id %>" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= image_tag(article.picture_url(), class: "img-responsive") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-5">
+    <% if article.gratis %>
+      <b>Gratis</b> <span class="glyphicon glyphicon-ok"></span>
+    <% else %>
+      <b><%= t('rate') %>:</b> <%= article.rate %>
+    <% end %>
+    <br>
+    <b><%= t('location') %>:</b> <%= article.location.shortaddress %>
+    <br>
+    <b><%= t('details') %>:</b> <%= article.details %>
+  </div>
+
+  <div class="col-sm-4 text-right">
+    <% if current_user and current_user.id == article.user.id %>
+      <%= link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
+      <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+    <% else %>
+      <b><%= t('user') %>:</b> <%= link_to article.user.nickname, user_path(article.user) %>
+    <% end %>
+    <br>
+
+    <% if @current_location %>
+      <b><%= t('distance') %>:</b> <%= "%.1f km" % article.location.distance_from( @current_location ) %>
+    <% end %>
+  </div>
+</div>

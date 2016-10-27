@@ -1,60 +1,8 @@
 <% article_div_id = "article_" + article.id.to_s + "_div" %>
 
 <div class="article" id="<%= article_div_id %>" >
-  <div class="row article_view">
-    <% article_img_id = "article_" + article.id.to_s + "_img" %>
-
-    <div class="col-sm-3">
-      <%= article.title %><br>
-      <% if article.picture.present? %>
-        <a href="#<%= article_img_id%>" data-toggle="modal">
-          <%= image_tag(article.picture_url(:thumb)) %>
-        </a>
-      <% end %>
-    </div>
-
-    <% if article.picture.present? %>
-      <div id="<%= article_img_id %>" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <%= image_tag(article.picture_url(), class: "img-responsive") %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="col-sm-9">
-      <div class="row">
-        <div class="col-sm-6">
-          <% if article.gratis %>
-            <b></span>Gratis</b> <span class="glyphicon glyphicon-ok">
-          <% else %>
-              <b><%= t('rate') %>:</b> <%= article.rate %>
-          <% end %>
-        </div>
-        <div class="col-sm-6 text-right">
-          <%= link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
-          <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-9">
-          <b><%= t('location') %>:</b> <%= article.location.shortaddress %>
-        </div>
-        <div class="col-sm-3">
-          <% if @current_location %>
-            <b><%= t('distance') %>:</b> <%= "%.1f km" % article.location.distance_from( @current_location ) %>
-          <% end %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <b><%= t('details') %>:</b> <%= article.details %>
-        </div>
-      </div>
-    </div>
+  <div class="article_view">
+    <%= render 'article_view', article: article %>
   </div>
   
   <div class="row article_edit">

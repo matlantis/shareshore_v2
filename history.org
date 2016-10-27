@@ -2,21 +2,16 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
+*** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
+*** TODO tooltips
+*** TODO link layout der edit und remove buttons
+*** TODO remote formular error handling
 *** TODO neue sitemap entwerfen
 *** TODO hilfe bereich im artikel index
     achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
-*** TODO nicht mehr benötgite edit_articles seite löschen, new_articles_b umbenennen
 *** TODO gratis noch besser hervorheben
-*** TODO standorte hübscher machen
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
-*** TODO Too many places for article fields:
-    - _new_articles_fields
-    - _articles_fields
-    - _edit_articles_fields
-    - articles index
-    - articles/_form
-    und alle sind irgendwie anders!! what a mess!!
-*** TODO user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
     - [ ] texte
@@ -95,6 +90,20 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE nicht mehr benötgite edit_articles seite löschen, new_articles_b umbenennen
+    CLOSED: [2016-10-27 Do 21:01]
+*** DONE standorte hübscher machen
+    CLOSED: [2016-10-27 Do 21:02]
+*** DONE Too many places for article fields:
+    CLOSED: [2016-10-27 Do 21:02]
+    - _new_articles_fields
+    - _articles_fields
+    - _edit_articles_fields
+    - articles index
+    - articles/_form
+    und alle sind irgendwie anders!! what a mess!!
+*** DONE user_articles_path und new_user_articles_path (siehe form action in new_articles and edit_articles) vermutlich zusammenführen
+    CLOSED: [2016-10-27 Do 21:03]
 *** DONE guidepost ist mit meinen informationen nicht zufrieden, das nervt
     CLOSED: [2016-10-26 Mi 12:07]
     wird den nutzer auch nerven (will anscheinend vor- UND nachname, dabei reicht eins)

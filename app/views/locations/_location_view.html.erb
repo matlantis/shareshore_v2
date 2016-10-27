@@ -1,0 +1,30 @@
+<div class="row">
+  <% if not (current_user and current_user.id == location.user.id) %>
+    <div class="col-xs-4">
+      <b><%= t('user') %>:</b> <%= link_to location.user.nickname, user_path(location.user) %>
+      <br>
+      <b><%= t('name') %>:</b> <%= location.user.fullname %>
+    </div>
+  <% end %>
+  
+  <div class="col-xs-4">
+    <%= location.street_and_no %>
+    <br>
+    <%= location.postcode %>
+    <br>
+    <%= location.city %>
+    <br>
+    <%= location.country %>
+  </div>
+  
+  <div class="col-xs-4 text-right">
+    <b><%= t('articles') %>:</b> <%= link_to location.articles.count, articles_location_path(location) %>
+  </div>
+
+  <% if current_user and current_user.id == location.user.id %>
+    <div class="col-xs-4 text-right">
+      <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button", data: { location_id: location.id } ) %>
+      <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+    </div>
+  <% end %>
+</div>
