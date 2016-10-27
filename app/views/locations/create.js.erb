@@ -1,8 +1,8 @@
 // generate the new content
-$(".location_placeholder").before("<%= escape_javascript(render 'location', location: @location) %>");
+$(".location_placeholder").before("<%= escape_javascript(render 'location_owner', location: @location) %>");
 
 // hide the new div
-$(".location_new").hide();
+$("#location_new").hide(200);
 
 // hide the generated edit div
-$("#<%= @location_div_id %> .location_edit").hide();
+$("#<%= @location_div_id %> .location_edit").hide(200);

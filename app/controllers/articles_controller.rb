@@ -8,6 +8,10 @@ class ArticlesController < ApplicationController
   # the search
   def search
   end
+
+  def index_owner
+    @articles = current_user.articles
+  end
   
   # GET /articles
   # GET /articles.json
@@ -79,7 +83,30 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @article.rate = '1€/Tag'
+  end
+
+  def new_from_stockitems
+    @rooms = Stockitem.all.collect {|t| t.room }.uniq.sort
+    @articles = {}
+    if params.has_key? 'room'
+      @articles[params['room']] = []
+      stockitems = Stockitem.where("room = ?", params['room']).order("title: :asc")
+      stockitems.each do |t|
+        @articles[params['room']].push Article.new.fill_from_stockitem t
+      end
+    else   
+      @rooms.each do |room|
+        @articles[room] = []
+        stockitems = Stockitem.where("room = ?", room).order(title: :asc)
+        stockitems.each do |t|
+          @articles[room].push Article.new.fill_from_stockitem t
+        end
+      end
+    end
+
+    @articles['own'] = []
+    # a = Article.new({ rate: '1€/tag', quality: 3})
+    # @articles['new'].push(a)    
   end
 
   # GET /articles/1/edit
@@ -111,11 +138,10 @@ class ArticlesController < ApplicationController
     # end
     
     @article = current_user.articles.new(article_params)
-
     respond_to do |format|
       if @article.save
-        flash[:success] = 'Article was successfully created.'
-        format.html { redirect_to @article }
+        format.html { redirect_to @article, success: 'Article was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -162,7 +188,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :details, :quality, :value_eur, :rate, :deposit_eur, :location_id, :picture, :gratis)
+      params.require(:article).permit(:title, :details, :quality, :value_eur, :rate, :deposit_eur, :location_id, :picture, :gratis, :stockitem_id)
     end
 
     # use to verify the article really belongs to the current user

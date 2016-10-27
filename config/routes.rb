@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get '/user/locations', action: :index_owner, controller: 'locations', as: 'user_locations'
   get '/user/articles', action: :index_owner, controller: 'articles', as: 'user_articles'
+  get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
   
   devise_scope :user do
     get "user/guidepost", action: :edit_guidepost, controller: 'users/registrations', as: 'edit_user_guidepost'
@@ -33,9 +34,6 @@ Rails.application.routes.draw do
     #put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
     
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
-    get "users/new_articles", action: :new_articles, controller: 'users/registrations', as: 'new_user_articles'
-    put "users/new_articles", action: :create_articles, controller: 'users/registrations', as: 'create_user_articles'
-    post "users/new_articles", action: :create_article, controller: 'users/registrations'
   end
 
   get "/pages/:page" => "pages#show"

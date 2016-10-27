@@ -1,0 +1,84 @@
+<div class="col-xs-12 col-sm-3 col-sm-push-9">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Tipp</h4>
+    </div>
+
+    <div class="panel-body">
+      Dies ist ein kurzer Hilfetext.
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-9 col-sm-pull-3">
+  <h2><%= t("Articles") %></h2>
+
+  
+  <% @articles.each do |article| %>
+    <%= render 'article_owner', article: article %>
+  <% end %>
+
+  <div class="article_placeholder"></div>
+
+  <div class="article"  id="article_null_div">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <%= link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button" ) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="article_new">
+          <%= render 'form', article: Article.new %>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+</div>
+
+<script> 
+ $(document).ready(function(){
+   $(".article_edit").hide();
+
+   $("body").on("click", ".article_cb", function(e) {
+     e.preventDefault();
+     var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit";
+     // console.log(thedivid);
+     $(thedivid).toggle(200);
+   });
+
+   $('body').on('click', '.article_gratis_cb', function() {
+     var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
+     console.log(thedivid);
+     $(thedivid).toggle(200);
+   });
+
+   $('.article_rate_gratis').hide()
+
+   $("#article_new").hide();
+
+   $("body").on("click", "#article_new_button", function(e) {
+     e.preventDefault();
+     var thedivid = "#article_new";
+     console.log(thedivid);
+     $(thedivid).toggle(200);
+   });
+
+ })
+
+ var onCreate = function(article_id, stockitem_id, newText, nstockitems){
+   // generate the new content
+   $(".article_placeholder").before(newText);
+
+   // hide the new div
+   $("#article_new").hide(200);
+
+   // hide the generated edit div
+   var div_id = "#article_" + article_id + "_div .article_edit"
+   console.log(div_id);
+   $(div_id).hide(200);
+
+ };
+ 
+</script>

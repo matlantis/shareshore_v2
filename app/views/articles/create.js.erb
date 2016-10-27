@@ -1,0 +1,18 @@
+console.log("call on create")
+
+<% article_id = @article.id.to_s %>
+<% if @article.stockitem_id %>
+  <% stockitem_id = @article.stockitem_id.to_s %>
+<% else %>
+  <% stockitem_id = "null" %>
+<% end %>
+
+<% newtext = escape_javascript(render 'article_owner', article: @article) %>
+<% nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count %>
+
+onCreate(<%= article_id %>,
+         <%= stockitem_id %>,
+         "<%= newtext %>",
+         "<%= nstockitems %>");
+
+

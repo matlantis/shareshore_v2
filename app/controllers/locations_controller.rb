@@ -118,10 +118,11 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     respond_to do |format|
       if @location.update(location_params)
-        flash[:success] = t('Location was successfully updated')
-        format.html { redirect_to edit_user_registration_path }
+        format.html { redirect_to edit_user_registration_path, success: t('Location was successfully updated') }
+        format.js {}
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }

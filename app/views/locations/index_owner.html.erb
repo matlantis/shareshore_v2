@@ -14,29 +14,26 @@
   <h3><%= t('Locations') %></h3>
 
   <% @locations.each do |location| %>
-    <%= render 'location', location: location %>
+    <%= render 'location_owner', location: location %>
   <% end %>
 
   <div class="location_placeholder"></div>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-right">
-        <%= link_to("", "", class: "glyphicon glyphicon-plus location_new_button" ) %>
+
+  <div class="location">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <%= link_to("", "", class: "glyphicon glyphicon-plus", id: "location_new_button" ) %>
       </div>
-      <div class="location_new">
-        <%= bootstrap_form_for Location.new, url: locations_path, layout: :horizontal, remote: true do |f| %>
-          <%= f.text_field :street_and_no, placeholder: Location.human_attribute_name("street_and_no"), hide_label: true %>
-          <%= f.text_field :postcode, placeholder: Location.human_attribute_name("postcode"), hide_label: true %>
-          <%= f.text_field :city, placeholder: Location.human_attribute_name("city"), hide_label: true %>
-          <%= f.text_field :country, placeholder: Location.human_attribute_name("country"), hide_label: true %>
-          <%= f.form_group do %>
-            <%= f.submit %>
-          <% end %>
-        <% end %>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <div id="location_new">
+          <%= render 'form', location: Location.new %>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
 <script> 
  $(document).ready(function(){
@@ -49,11 +46,11 @@
      $(thedivid).toggle(200);
    });
 
-   $(".location_new").hide();
+   $("#location_new").hide();
    
-   $("body").on("click", ".location_new_button", function(e) {
+   $("body").on("click", "#location_new_button", function(e) {
      e.preventDefault();
-     var thedivid = ".location_new";
+     var thedivid = "#location_new";
      console.log(thedivid);
      $(thedivid).toggle(200);
    });

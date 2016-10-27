@@ -144,6 +144,8 @@ de:
   own stockitems: "Ohne Vorlage"
   inventory: "Inventar"
   in your: "in deinem"
+  new article: "Neuer Artikel"
+  create without template: "Ohne Vorlage erstellen"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

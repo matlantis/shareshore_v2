@@ -58,19 +58,19 @@
     <p>
       Jetzt bist Du bereit Dein Angebot zu erstellen. Auf zum
     </p>
-    <%= link_to t("Artikel einstellen"), new_user_articles_path, class: "btn btn-default" %>
+    <%= link_to t("Artikel einstellen"), user_new_article_from_stockitems_path, class: "btn btn-default" %>
   <% elsif current_user.articles.count < 10 %>
     <p>
       Du hast bisher nur wenige Artikel eingestellt. Auf zum
     </p>
-    <%= link_to t("Artikel einstellen"), new_user_articles_path, class: "btn btn-default" %>
+    <%= link_to t("Artikel einstellen"), user_new_article_from_stockitems_path, class: "btn btn-default" %>
   <% else %>
     <p>
       Dein Profil ist gut aufgestellt! Was möchtest du tun?
     </p>
     <%= link_to t("Edit your Profile"), edit_user_basic_path, class: "btn btn-default" %>
-    <%= link_to t("Edit your Locations"), edit_user_locations_path, class: "btn btn-default" %>
-    <%= link_to t("Manage your Articles"), articles_user_path(current_user), class: "btn btn-default" %>
-    <%= link_to t("Create new Articles"), new_user_articles_path, class: "btn btn-default" %>
+    <%= link_to t("Edit your Locations"), user_locations_path, class: "btn btn-default" %>
+    <%= link_to t("Manage your Articles"), user_articles_path, class: "btn btn-default" %>
+    <%= link_to t("Create new Articles"), user_new_article_from_stockitems_path, class: "btn btn-default" %>
   <% end %>
 </div>

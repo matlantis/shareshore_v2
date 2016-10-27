@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to t("Manage Articles"), user_articles_path(current_user), class: 'navbar-link' %></li>
-          <li><%= link_to t("Create Articles"), new_user_articles_path, class: 'navbar-link' %></li>
+          <li><%= link_to t("Create Articles"), user_new_article_from_stockitems_path, class: 'navbar-link' %></li>
           <li><%= link_to t("Locations"), user_locations_path, class: 'navbar-link' %></li>
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">  

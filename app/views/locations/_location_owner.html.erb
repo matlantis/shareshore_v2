@@ -1,0 +1,25 @@
+<% location_div_id = "location_" + location.id.to_s + "_div" %>
+<div class="location" id="<%= location_div_id %>">
+  <div class="row location_view">
+    <div class="col-xs-6">
+      <%= location.street_and_no %><br>
+      <%= location.postcode %><br>
+      <%= location.city %><br>
+      <%= location.country %><br>
+    </div>
+    <div class="col-xs-4">
+      <b><%= t('articles') %>:</b> <%= link_to location.articles.count, articles_location_path(location) %>
+    </div>
+    <div class="col-xs-2 text-right">
+      <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button", data: { location_id: location.id } ) %>
+      <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+    </div>
+
+  </div>
+
+  <div class="row location_edit">
+    <div class="col-xs-12">
+      <%= render 'form', location: location %>
+    </div>
+  </div>
+</div>
