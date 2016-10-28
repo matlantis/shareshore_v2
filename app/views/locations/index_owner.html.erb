@@ -25,11 +25,9 @@
         <%= link_to("", "", class: "glyphicon glyphicon-plus", id: "location_new_button" ) %>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="location_new">
       <div class="col-xs-12 text-right">
-        <div id="location_new">
-          <%= render 'form', location: Location.new %>
-        </div>
+        <%= render 'form', location: Location.new %>
       </div>
     </div>
   </div>

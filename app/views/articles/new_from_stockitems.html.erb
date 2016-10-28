@@ -16,8 +16,10 @@
   <div id="article_null_div" class="article">
     <%= link_to t("create without template"), "", id: "article_new_button" %>
     
-    <div class="article_edit">
-      <%= render 'form', article: Article.new %>
+    <div class="row article_edit">
+      <div class="col-xs-12">
+        <%= render 'form', article: Article.new %>
+      </div>
     </div>
   </div>
 

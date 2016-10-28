@@ -26,11 +26,9 @@
         <%= link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button" ) %>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="article_new">
       <div class="col-xs-12">
-        <div id="article_new">
-          <%= render 'form', article: Article.new %>
-        </div>
+        <%= render 'form', article: Article.new %>
       </div>
     </div>
   </div>  

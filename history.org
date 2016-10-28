@@ -2,6 +2,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO clear forms on create
+*** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
 *** TODO tooltips
@@ -90,6 +92,8 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE trennabstand zwischen article/location ansicht und edit feldern
+    CLOSED: [2016-10-28 Fr 12:58]
 *** DONE nicht mehr benötgite edit_articles seite löschen, new_articles_b umbenennen
     CLOSED: [2016-10-27 Do 21:01]
 *** DONE standorte hübscher machen
@@ -479,3 +483,4 @@
     good karma
 *** TODO Erstellen Checkbox vor den Artikelnamen (und ein schickeres Häkchen)
     nicht so einfach mit den bootstrap forms
+*** TODO navigationsleiste: aktiven punkt hervorheben
