@@ -1,0 +1,19 @@
+console.log("call on create")
+
+<% article_id = "null" %>
+<% article_id = @article.id.to_s if @article.id %>
+<% stockitem_id = "null" %>
+<% stockitem_id = @article.stockitem_id.to_s if @article.stockitem_id %>
+
+<% newtext = escape_javascript(render 'article_owner', article: @article) %>
+<% nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count %>
+
+<% formtext = escape_javascript(render 'form', article: @article) %>
+
+onCreateError(<%= article_id %>,
+              <%= stockitem_id %>,
+              "<%= newtext %>",
+              "<%= formtext %>",
+              "<%= nstockitems %>");
+
+

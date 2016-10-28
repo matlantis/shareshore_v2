@@ -2,13 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** ONTURN remote formular error handling
 *** TODO sortierung der artikel
 *** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
 *** TODO tooltips
 *** TODO link layout der edit und remove buttons
-*** TODO remote formular error handling
 *** TODO neue sitemap entwerfen
 *** TODO hilfe bereich im artikel index
     achtung: verschiedene ansichten, als nutzer-liste, als owner-liste

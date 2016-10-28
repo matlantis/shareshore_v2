@@ -141,11 +141,12 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, success: 'Article was successfully created.' }
-        format.js
         format.json { render :show, status: :created, location: @article }
+        format.js { render 'create_success'}
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.js { render 'create_error'}
       end
     end
   end
