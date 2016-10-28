@@ -1,3 +1,6 @@
+// reset the form
+$("#location_new div form").trigger("reset");
+
 // generate the new content
 $(".location_placeholder").before("<%= escape_javascript(render 'location_owner', location: @location) %>");
 

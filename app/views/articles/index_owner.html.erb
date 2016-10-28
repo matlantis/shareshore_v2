@@ -20,7 +20,7 @@
 
   <div class="article_placeholder"></div>
 
-  <div class="article"  id="article_null_div">
+  <div class="article" id="article_null_div">
     <div class="row">
       <div class="col-xs-12 text-right">
         <%= link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button" ) %>
@@ -66,9 +66,21 @@
  })
 
  var onCreate = function(article_id, stockitem_id, newText, nstockitems){
+   console.log("within onCreate")
+   // reset the form
+   $("#article_new div form").trigger("reset");
+
+   // unhide the rate field of the new form (just in case)
+   var thedivid = "#article_null_div .article_rate";
+   console.log(thedivid);
+   $(thedivid).show(200);   
+   
    // generate the new content
    $(".article_placeholder").before(newText);
 
+   // hide the rate field of the article form (just in case)
+   $('.article_rate_gratis').hide()
+   
    // hide the new div
    $("#article_new").hide(200);
 

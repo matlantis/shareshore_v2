@@ -16,7 +16,7 @@
   <div id="article_null_div" class="article">
     <%= link_to t("create without template"), "", id: "article_new_button" %>
     
-    <div class="row article_edit">
+    <div class="row article_edit" id="article_new">
       <div class="col-xs-12">
         <%= render 'form', article: Article.new %>
       </div>
@@ -102,6 +102,17 @@
    var edit_div_id = "#article_" + stockitem_id + "_div .article_edit"
    $(edit_div_id).hide(200);
 
+   // if it was the from the template free form
+   // reset the form
+   {
+     $("#article_new div form").trigger("reset");
+
+     // unhide the rate field of the new form (just in case)
+     var thedivid = "#article_null_div .article_rate";
+     console.log(thedivid);
+     $(thedivid).show(200);
+   }
+   
    // show the counter
    var count_div_id = "#article_" + stockitem_id + "_div .article_count";
    $(count_div_id).show(200);

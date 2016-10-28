@@ -2,7 +2,7 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO clear forms on create
+*** TODO sortierung der artikel
 *** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
@@ -92,6 +92,8 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE reset forms on create
+    CLOSED: [2016-10-28 Fr 13:32]
 *** DONE trennabstand zwischen article/location ansicht und edit feldern
     CLOSED: [2016-10-28 Fr 12:58]
 *** DONE nicht mehr benötgite edit_articles seite löschen, new_articles_b umbenennen
