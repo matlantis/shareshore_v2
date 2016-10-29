@@ -100,10 +100,10 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
 
     respond_to do |format|
-      if true #@location.save
+      if @location.save
         format.html { redirect_to edit_user_locations_path, success: t('Location was successfully created') }
-        format.js {}
         format.json { render :show, status: :created, location: @location }
+        format.js { render 'create_success' }
       else
         if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
           @location.errors.clear
@@ -111,6 +111,7 @@ class LocationsController < ApplicationController
         end
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }
+        format.js { render 'create_error' }
       end
     end
   end
@@ -122,11 +123,16 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to edit_user_registration_path, success: t('Location was successfully updated') }
-        format.js {}
         format.json { render :show, status: :ok, location: @location }
+        format.js { render 'update_success' }
       else
+        if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
+          @location.errors.clear
+          @location.errors.add(:base, t("address_unknown"))
+        end
         format.html { render :edit }
         format.json { render json: @location.errors, status: :unprocessable_entity }
+        format.js { render 'update_error' }
       end
     end
   end

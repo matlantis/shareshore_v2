@@ -138,12 +138,11 @@ class ArticlesController < ApplicationController
     success = @article.update(article_params)
     respond_to do |format|
       if success
-        print 'hello'
         format.html {redirect_to session.delete(:return_to), success: t('Article was successfully updated') }
-        format.js {}
+        format.js { render 'update_success' }
       else
-        print 'beybey'
-        render :edit
+        format.html { render :edit }
+        format.js { render 'update_error' }
       end
     end
   end

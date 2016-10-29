@@ -1,0 +1,5 @@
+console.log('update error');
+// replace the form content (so no need to reset the form, right?)
+<% formtext = escape_javascript(render 'form', location: @location) %>
+$('#<%= @location_div_id %> form').replaceWith("<%= formtext %>")
+

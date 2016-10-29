@@ -1,0 +1,4 @@
+console.log('update error');
+$('#<%= @article_div_id %> form').replaceWith("<%= escape_javascript(render('form', article: @article)) %>");
+
+

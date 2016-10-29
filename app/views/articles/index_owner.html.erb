@@ -77,14 +77,6 @@
 
  var onCreateSuccess = function(article_id, stockitem_id, newText, formText, nstockitems){
    console.log("within onCreateSuccess")
-   // reset the form
-   $("#new_article").trigger("reset");
-
-   // unhide the rate field of the new form (just in case)
-   var thedivid = "#article_null_div .article_rate";
-   console.log(thedivid);
-   $(thedivid).show(200);   
-
    // replace the form content (so no need to reset the form, right?)
    $("#new_article").replaceWith(formText)
                 
