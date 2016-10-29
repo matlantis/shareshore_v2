@@ -1,4 +1,4 @@
-console.log("call on create")
+console.log("call onCreateError")
 
 <% article_id = "null" %>
 <% article_id = @article.id.to_s if @article.id %>
@@ -10,8 +10,8 @@ console.log("call on create")
 
 <% formtext = escape_javascript(render 'form', article: @article) %>
 
-onCreateError(<%= article_id %>,
-              <%= stockitem_id %>,
+onCreateError("<%= article_id %>",
+              "<%= stockitem_id %>",
               "<%= newtext %>",
               "<%= formtext %>",
               "<%= nstockitems %>");

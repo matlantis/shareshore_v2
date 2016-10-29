@@ -1,16 +1,17 @@
-console.log("call on create")
+console.log("call onCreateSuccess")
 
 <% article_id = @article.id.to_s %>
 <% if @article.stockitem_id %>
   <% stockitem_id = @article.stockitem_id.to_s %>
+  <% formtext = escape_javascript(render 'form', article: Article.new.fill_from_stockitem(@article.stockitem)) %>
 <% else %>
   <% stockitem_id = "null" %>
+  <% formtext = escape_javascript(render 'form', article: Article.new ) %>
 <% end %>
 
 <% newtext = escape_javascript(render 'article_owner', article: @article) %>
 <% nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count %>
 
-<% formtext = escape_javascript(render 'form', article: Article.new ) %>
 
 onCreateSuccess(<%= article_id %>,
                 <%= stockitem_id %>,

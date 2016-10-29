@@ -35,6 +35,8 @@
   
 </div>
 
+<%= render 'layouts/modal_error' %>
+
 <script> 
  $(document).ready(function(){
    $(".article_edit").hide();
@@ -63,10 +65,13 @@
      $(thedivid).toggle(200);
    });
 
-   $("#new_article").on("ajax:success", function(e, data, status, xhr) {
-     console.log("Success")
-   }).on("ajax:error", function(e, xhr, status, error) {
-     console.log("Error")
+   $('body').on("ajax:success", function(e, data, status, xhr) {
+     console.log("Success");
+   });
+
+   $('body').on("ajax:error", function(e, xhr, status, error) {
+     console.log("Error");
+     $("#modal-error").modal("show");
    });
  })
 

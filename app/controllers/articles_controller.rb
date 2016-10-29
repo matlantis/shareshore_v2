@@ -1,7 +1,7 @@
 # coding: utf-8
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :new_from_stockitems ]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
@@ -117,26 +117,6 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    # commented because always create for the current_user
-    # # can only create own articles
-    # unless params[:user_id].to_i == current_user.id
-    #   respond_to do |format|
-    #     format.html { redirect_to articles_url, alert: 'Can only create own articles' }
-    #     format.json { head :no_content }
-    #   end
-    #   return
-    # end
-    
-    # # check if user exists
-    # user = User.find_by(id: params[:user_id])
-    # unless user
-    #   respond_to do |format|
-    #     format.html { redirect_to articles_url, alert: 'could not find user' }
-    #     format.json { head :no_content }
-    #   end
-    #   return
-    # end
-    
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
