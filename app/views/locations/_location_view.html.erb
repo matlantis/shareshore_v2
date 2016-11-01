@@ -28,8 +28,8 @@
 
   <% if current_user and current_user.id == location.user.id %>
     <div class="col-xs-4 text-right">
-      <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button", data: { location_id: location.id } ) %>
-      <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+      <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id } ) %>
+      <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true) %>
     </div>
   <% end %>
 </div>

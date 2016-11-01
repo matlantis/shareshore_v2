@@ -31,8 +31,8 @@
 
   <div class="col-sm-4 text-right">
     <% if current_user and current_user.id == article.user.id %>
-      <%= link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
-      <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+      <%= link_to("", "", class: "glyphicon glyphicon-pencil article_cb edit-remove ", data: { article_id: article.id } ) %>
+      <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true) %>
     <% else %>
       <b><%= t('user') %>:</b> <%= link_to article.user.nickname, user_path(article.user) %>
     <% end %>

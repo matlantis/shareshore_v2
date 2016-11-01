@@ -7,7 +7,6 @@
 *** TODO article _show_modal karte einblenden oder link to openstreetmap
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO tooltips
-*** TODO link layout der edit und remove buttons
 *** TODO neue sitemap entwerfen
 *** TODO hilfe bereich im artikel index
     achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
@@ -72,6 +71,8 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE link layout der edit und remove buttons
+    CLOSED: [2016-11-01 Di 22:36]
 *** DONE profil ansicht überarbeiten
     CLOSED: [2016-11-01 Di 22:17]
     doofes tabellen layout muss weg
