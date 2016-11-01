@@ -5,10 +5,14 @@
 <% end %>
 
 <% if @user %>
-  <%= content_tag :h2, t("Articles for") + " " + @user.nickname %>
+  <% @title = t("Articles for") + " " + @user.nickname %>
+  <%= content_tag :h2, @title %>
 <% elsif @location %>
-  <%= content_tag :h2, t("Articles at", location: @location.shortaddress) + " " + t("for") + " " + @location.user.nickname %>
+  <% @title = t("Articles at", location: @location.shortaddress) + " " + t("for") + " " + @location.user.nickname %>
+  <%= content_tag :h2, @title %>
 <% else %>
+  <% @title = t('Articles nearby') %>
+
   <div class="row">
     <div class="col-xs-12">
       <ul class="nav nav-tabs">

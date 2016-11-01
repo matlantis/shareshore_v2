@@ -1,3 +1,4 @@
+
 <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>  
 
 <% if not @user and not @location %>
@@ -5,23 +6,22 @@
 <% end %>
 
 <% if @user %>
-  <% spec_string = " " + t("for") +" " + @user.nickname %>
-<% elsif @location %>
-  <% spec_string = " " + t("at") + " " + @location.shortaddress + " " + t("for") + " " + @location.user.nickname %>
+  <% @title = t("Locations for") + " " + @user.nickname %>
+  <%= content_tag :h2, @title %>
 <% else %>
-  <% spec_string = " " + t("nearby") %>
-<% end %>
+  <% @title = t('Users nearby') %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="nav nav-tabs">
-      <%= content_tag(:li, link_to(t('Articles') + ' ' + t('nearby'), articles_path, class: "tab"),
-                      class: [] )%>
-      <%= content_tag(:li, link_to(t('Users') + ' ' + t('nearby'), locations_path, class: "tab"),
-                      class: ['active'] )%>
-    </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs">
+        <%= content_tag(:li, link_to(t('Articles nearby'), articles_path, class: "tab"),
+                        class: [] )%>
+        <%= content_tag(:li, link_to(t('Users nearby'), locations_path, class: "tab"),
+                        class: ['active'] )%>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="row">
   <% if @current_location %>

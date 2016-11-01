@@ -1,3 +1,5 @@
+<% @title = t('What now') %>
+
 <div class="col-xs-12 col-sm-3 col-sm-push-9">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -12,7 +14,7 @@
 
 <div class="col-xs-12 col-sm-9 col-sm-pull-3">
 
-  <%= content_tag :h3, t("What now")%>
+  <%= content_tag :h3, @title %>
 
   <% if (current_user.firstname.blank? && current_user.lastname.blank?) || !(current_user.showemail || ( current_user.showphone && !current_user.phoneno.blank?)) %>
     <p>

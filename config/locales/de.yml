@@ -46,6 +46,7 @@ de:
   Search Term: "Suchbegriff"
   Search for: "Suche nach"
   Search Radius: "Suchradius"
+  Search Users: "Suche Leute"
   within: "innerhalb von"
   address: "Adresse"
   around: "um"
@@ -135,7 +136,6 @@ de:
   articles_count: "Artikel"
   Guidepost: "Wegweiser"
   Edit your Profile: "Profil bearbeiten"
-  Locations: "Standorte"
   Manage Articles: "Artikel verwalten"
   Create Articles: "Artikel erstellen"
   What now: "Was jetzt?"
@@ -146,7 +146,10 @@ de:
   in your: "in deinem"
   new article: "Neuer Artikel"
   create without template: "Ohne Vorlage erstellen"
-  
+  shareshore: "ShareShore"
+  your locations: "Deine Standorte"
+  Your Articles: "Deine Artikel"
+  Welcome: "Willkommen"
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
     user_request_anonymous: "Shareshore Nutzeranfrage"

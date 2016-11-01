@@ -1,3 +1,5 @@
-<h2><%= t("Search Articles") %></h2>
+<% @title = t('Search Articles') %>
+
+<h3><%= @title %></h3>
 
 <%= render 'layouts/search', form_path: articles_path %>
