@@ -150,6 +150,9 @@ de:
   your locations: "Deine Standorte"
   Your Articles: "Deine Artikel"
   Welcome: "Willkommen"
+  View Articles: "Artikel ansehen"
+  View All: "Alle ansehen"
+  
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"
     user_request_anonymous: "Shareshore Nutzeranfrage"

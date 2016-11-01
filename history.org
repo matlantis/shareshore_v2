@@ -2,20 +2,16 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO eventuell sollten article eine eigene seite haben (show)
+    der modal dialog ist nicht verlinkbar!
 *** TODO article _show_modal karte einblenden oder link to openstreetmap
-*** TODO Seitentitel
-*** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
-*** TODO profil ansicht überarbeiten
-    doofes tabellen layout muss weg
-    artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
 *** TODO tooltips
 *** TODO link layout der edit und remove buttons
 *** TODO neue sitemap entwerfen
 *** TODO hilfe bereich im artikel index
     achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
     oder hinweis, dass die eigenen artikel incht angezeigt werden
-*** TODO gratis noch besser hervorheben
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
@@ -76,6 +72,12 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE profil ansicht überarbeiten
+    CLOSED: [2016-11-01 Di 22:17]
+    doofes tabellen layout muss weg
+    artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
+*** DONE Seitentitel
+    CLOSED: [2016-11-01 Di 21:33]
 *** DONE Klick auf article zeigt artikel modal mit bild in groß, vollem detail text und user contact details
     CLOSED: [2016-11-01 Di 14:23]
 *** DONE demo user und artikel anlegen
@@ -527,3 +529,5 @@
     - [ ] upload field in article_edit
     - [ ] +mehrere Bilder pro Artikel+ cancelled
 
+*** TODO qualität der artikel muss wieder rein
+*** TODO gratis noch besser hervorheben

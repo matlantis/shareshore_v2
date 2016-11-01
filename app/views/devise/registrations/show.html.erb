@@ -1,33 +1,54 @@
-<h2><%= t("Profile of user") + " " + @user.nickname %></h2>
+<% @title = @user.nickname %>
+<h2><%= @user.nickname %></h2>
 
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-2 text-right">
+        <strong><%= t"Name" %>:</strong>
+      </div>
+      <div class="col-xs-10">
+        <%= @user.fullname %>
+      </div>
+    </div>
 
-<table class="table table-striped">
-  <tr>
-    <td><%= t"Name" %>:</td>
-    <td><%= @user.fullname %></td>
-  </tr>
-  <% if @user.showemail? %>
-    <% if current_user %>
-      <% subject = t("mail.user_request_username", user: current_user.nickname) %>
-    <% else %>
-      <% subject = t("mail.user_request_anonymous") %>
+    <% if @user.showemail? %>
+      <% if current_user %>
+        <% subject = t("mail.user_request_username", user: current_user.nickname) %>
+      <% else %>
+        <% subject = t("mail.user_request_anonymous") %>
+      <% end %>
+      <div class="row">
+        <div class="col-xs-2 text-right">
+          <strong><%= t("email") %>:</strong>
+        </div>
+        <div class="col-xs-10">
+          <%= mail_to @user.email, @user.email, subject: subject %>
+        </div>
+      </div>
     <% end %>
-    <tr>
-      <td><%= User.human_attribute_name("email") %>:</td>
-      <td><%= mail_to @user.email, @user.email, subject: subject %></td>
-    </tr>
-  <% end %>
-  <% if @user.showphone %>
-    <tr>  
-      <td><%= User.human_attribute_name("phoneno") %>:</td>
-      <td><%= @user.phoneno %></td>
-    </tr>
-  <% end %>
-</table>
+    <% if @user.showphone %>
+      <div class="row">
+        <div class="col-xs-2 text-right">
+          <strong><%= t("phone") %>:</strong>
+        </div>
+        <div class="col-xs-10">
+          <%= @user.phoneno %>
+        </div>
+      </div>
+    <% end %>
 
-<%= link_to t('Articles of this user', nickname: @user.nickname), articles_user_path(@user), class: "btn btn-default" %>
-<% @user.locations.each do |location| %>
-  <% if location.articles.count > 0 %>
-    <%= link_to t('Articles at', location: location.shortaddress), articles_location_path(location), class: "btn btn-default" %><br>
-  <% end %>
-<% end %>
+    <div class="row">
+      <div class="col-xs-2 text-right">
+        <strong><%= t('Locations') %>:</strong>
+      </div>
+      <div class="col-xs-10">
+        <% @user.locations.each do |location| %>
+          <% if location.articles.count > 0 %>
+            <span class="glyphicon glyphicon-map-marker"></span> <strong><%= location.shortaddress %></strong>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %><br>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
