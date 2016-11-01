@@ -19,6 +19,11 @@
   
   <div class="col-xs-4 text-right">
     <b><%= t('articles') %>:</b> <%= link_to location.articles.count, articles_location_path(location) %>
+    <% if @current_location %>
+      <br>
+      <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
+    <% end %>
+
   </div>
 
   <% if current_user and current_user.id == location.user.id %>

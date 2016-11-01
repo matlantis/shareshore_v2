@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def index_owner
-    @articles = current_user.articles
+    @articles = current_user.articles.order(location_id: :asc, title: :asc)
   end
   
   # GET /articles
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
         flash[:alert] = 'the user is unknown'        
         @articles = Article.all
       end
-      @articles = @articles.order(title: :asc)
+      @articles = @articles.order(location_id: :asc, title: :asc)
     else
       @articles = Article.all
 
@@ -56,6 +56,8 @@ class ArticlesController < ApplicationController
         flash[:alert] = 'Your location is unknown'
       end
 
+      @articles = @articles.order(title: :asc) # 2nd criterion after location
+
       # provide bounding box for the map (would be better if done on client side)
       @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
       @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
@@ -65,13 +67,11 @@ class ArticlesController < ApplicationController
 
     # apply pattern criteria
     if session[:pattern]
-      @articles = @articles.search(session[:pattern])
-    else
-      @articles = @articles.order(title: :asc)
+      @articles = @articles.search(session[:pattern]) # no sorting is done here
     end
 
     # paginate
-    # @articles = @articles.paginate(page: params[:page], per_page: 5)
+    @articles = @articles.paginate(page: params[:page], per_page: 100)
     
   end
 

@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
   def index_owner
-    @locations = current_user.locations
+    @locations = current_user.locations.order(created_at: :asc)
   end
   
   # GET /locations
@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
         flash[:alert] = 'the user is unknown'        
         @locations = Location.all
       end
+      @locations = @location.order(created_at: :asc)
     else
       @locations = Location.all
 
@@ -55,7 +56,7 @@ class LocationsController < ApplicationController
     # end
 
     # paginate
-    #@locations = @locations.paginate(page: params[:page], per_page: 5)
+    @locations = @locations.paginate(page: params[:page], per_page: 20)
     
   end
 

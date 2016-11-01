@@ -2,8 +2,11 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** ONTURN remote formular error handling
-*** TODO sortierung der artikel
+*** TODO article index: show own articles als checkbox
+    oder hinweis, dass die eigenen artikel incht angezeigt werden
+*** TODO details feld mit ... versehen
+*** TODO article liste index mit user param und index_owner: location als zwischenüberschrift
+    wie beim erstellen die räume
 *** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
@@ -40,9 +43,6 @@
     - Template: Schablone, Vorlage, Muster, Estampa
     - Inventar
 *** TODO demo user und artikel anlegen
-*** TODO umsortieren der listen
-    der eigenen Artikel/Locations (default location für neue Artikel)
-    die Suchergebnisse sortieren nach Distanz/Relevanz
 *** TODO Devise with email confirmation
 *** TODO Internationalisierung
     - [X] basic
@@ -69,6 +69,7 @@
     - [ ] +mehrere Bilder pro Artikel+ cancelled
 
 *** WAITING karte aufhübschen [2/5]
+    - [ ] nur locations einzeichnen, nicht artikel
     - [X]  suchradius verwenden
     - [X]  marker in verschiedenen farben
     - [ ] tooltips mit artikeln, bzw. mit links
@@ -92,6 +93,28 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE umsortieren der listen
+    CLOSED: [2016-11-01 Di 12:55]
+    der eigenen Artikel/Locations (default location für neue Artikel)
+    die Suchergebnisse sortieren nach Distanz/Relevanz
+    ==> statische sortierung (pro liste nur ein logisches kriterium)
+**** sortierung der locations
+     in index
+     - [X] distance
+     - [X] mit user param: created_at
+     und index_owner
+     - [X] created_at
+**** sortierung der artikel
+     in index
+     - [X] distance (owner) und alphabetisch
+     - CANCELED relevance (suchkriterium), momentan ist das suchkriterium nur ein ja-nein-filter, keine relevance
+     - [X] mit user param: nach location und alphabetisch
+     - [X] mit location param: alphabetisch
+     und index_owner
+     - [X] location und alphabetisch
+     (- created_at)
+*** DONE remote formular error handling
+    CLOSED: [2016-10-29 Sa 16:11]
 *** DONE reset forms on create
     CLOSED: [2016-10-28 Fr 13:32]
 *** DONE trennabstand zwischen article/location ansicht und edit feldern
