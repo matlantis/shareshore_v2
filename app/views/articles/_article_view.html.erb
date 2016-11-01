@@ -1,27 +1,22 @@
 <div class="row">
-  <% article_img_id = "article_" + article.id.to_s + "_img" %>
+  <% article_show_id = "article_" + article.id.to_s + "_show" %>
 
   <div class="col-sm-3">
-    <%= article.title %><br>
+    <a href="#<%= article_show_id%>" data-toggle="modal">
+      <%= article.title %>
+    </a>
+    <br>
     <% if article.picture.present? %>
-      <a href="#<%= article_img_id%>" data-toggle="modal">
+      <a href="#<%= article_show_id%>" data-toggle="modal">
         <%= image_tag(article.picture_url(:thumb)) %>
       </a>
     <% end %>
   </div>
 
-  <% if article.picture.present? %>
-    <div id="<%= article_img_id %>" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <%= image_tag(article.picture_url(), class: "img-responsive") %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
+  <div id="<%= article_show_id %>" class="modal fade">
+    <%= render 'show_modal', article: article %>
+  </div>
+  
   <div class="col-sm-5">
     <% if article.gratis %>
       <b>Gratis</b> <span class="glyphicon glyphicon-ok"></span>
@@ -31,7 +26,7 @@
     <br>
     <b><%= t('location') %>:</b> <%= article.location.shortaddress %>
     <br>
-    <b><%= t('details') %>:</b> <%= article.details %>
+    <b><%= t('details') %>:</b> <%= truncate(article.details, length: 60) %>
   </div>
 
   <div class="col-sm-4 text-right">

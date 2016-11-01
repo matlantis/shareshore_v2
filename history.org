@@ -2,39 +2,28 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO article index: show own articles als checkbox
-    oder hinweis, dass die eigenen artikel incht angezeigt werden
-*** TODO details feld mit ... versehen
-*** TODO article liste index mit user param und index_owner: location als zwischenüberschrift
-    wie beim erstellen die räume
+*** TODO article _show_modal karte einblenden oder link to openstreetmap
+*** TODO Seitentitel
 *** TODO qualität der artikel muss wieder rein
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
-*** TODO profil ansicht: artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
+*** TODO profil ansicht überarbeiten
+    doofes tabellen layout muss weg
+    artikel bei location nur anzeigen, wenn nutzer mehrere locations hat
 *** TODO tooltips
 *** TODO link layout der edit und remove buttons
 *** TODO neue sitemap entwerfen
 *** TODO hilfe bereich im artikel index
     achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
+    oder hinweis, dass die eigenen artikel incht angezeigt werden
 *** TODO gratis noch besser hervorheben
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
     - [ ] texte
     - [ ] einzel layout
-*** TODO Artikelsuche ergebnis liste überarbeiten [2/3]
-    - [ ] Sortiermglkeiten nach verschiedenen kriterien
-      ich glaub man kann per js umsortieren, wenn die divs entsprechende data attribute kriegen
-      welche kriterien?
-      - entfernung (auto)
-      - user (in entfernung enthalten)
-      - titel
-      - momentan gibts da nicht mehr
-    - [X] angaben an neues article modell anpassen
-    - [X] Klick auf bild zeigt vergrößert
 *** TODO wie-bin-ich-abgesichert-seite
 *** TODO get rid of unnecessary article attributes
     like +value+ (we keep it), deposit
-*** TODO in die artikel ansicht gehören die kontakt informationen
 *** TODO finde bessere bezeichnungen
     für 
     - Nutzer: Leute, Chico
@@ -42,7 +31,6 @@
     - Standort: Ort, Platz, Punto, Puesto
     - Template: Schablone, Vorlage, Muster, Estampa
     - Inventar
-*** TODO demo user und artikel anlegen
 *** TODO Devise with email confirmation
 *** TODO Internationalisierung
     - [X] basic
@@ -63,11 +51,6 @@
      Location was successfully created
      Location was successfully destroyed 
      Bisheriges Passwort is needed
-*** TODO article pictures
-    - [ ] care for picture size
-    - [ ] file field layout
-    - [ ] +mehrere Bilder pro Artikel+ cancelled
-
 *** WAITING karte aufhübschen [2/5]
     - [ ] nur locations einzeichnen, nicht artikel
     - [X]  suchradius verwenden
@@ -93,6 +76,28 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE Klick auf article zeigt artikel modal mit bild in groß, vollem detail text und user contact details
+    CLOSED: [2016-11-01 Di 14:23]
+*** DONE demo user und artikel anlegen
+    CLOSED: [2016-11-01 Di 14:25]
+*** DONE in die artikel ansicht gehören die kontakt informationen
+    CLOSED: [2016-11-01 Di 14:25]
+*** DONE Artikelsuche ergebnis liste überarbeiten [3/3]
+    CLOSED: [2016-11-01 Di 14:24]
+    - [X] Sortiermglkeiten nach verschiedenen kriterien
+      ich glaub man kann per js umsortieren, wenn die divs entsprechende data attribute kriegen
+      welche kriterien?
+      - entfernung (auto)
+      - user (in entfernung enthalten)
+      - titel (alphabetisch)
+      - momentan gibts da nicht mehr
+    - [X] angaben an neues article modell anpassen
+    - [X] Klick auf bild zeigt vergrößert
+*** DONE details feld mit ... versehen
+    CLOSED: [2016-11-01 Di 13:09]
+    vorkommen:
+    index_owner
+    index
 *** DONE umsortieren der listen
     CLOSED: [2016-11-01 Di 12:55]
     der eigenen Artikel/Locations (default location für neue Artikel)
@@ -509,3 +514,16 @@
 *** TODO Erstellen Checkbox vor den Artikelnamen (und ein schickeres Häkchen)
     nicht so einfach mit den bootstrap forms
 *** TODO navigationsleiste: aktiven punkt hervorheben
+*** TODO article liste index mit user param und index_owner: location als zwischenüberschrift
+    wie beim erstellen die räume
+    mit checkbox, ob location beachtet werden soll
+*** TODO article index: show own articles als checkbox
+
+*** TODO avatar pictures
+*** TODO article pictures
+    vorerst keine pictures
+    - [ ] care for picture size
+    - [ ] file field layout
+    - [ ] upload field in article_edit
+    - [ ] +mehrere Bilder pro Artikel+ cancelled
+
