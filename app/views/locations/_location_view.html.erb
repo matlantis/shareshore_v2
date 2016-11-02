@@ -4,6 +4,8 @@
       <b><%= t('user') %>:</b> <%= link_to location.user.nickname, user_path(location.user) %>
       <br>
       <b><%= t('name') %>:</b> <%= location.user.fullname %>
+      <br>
+      <%= location_marker location %>
     </div>
   <% end %>
   
@@ -23,7 +25,6 @@
       <br>
       <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
     <% end %>
-
   </div>
 
   <% if current_user and current_user.id == location.user.id %>

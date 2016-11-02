@@ -59,7 +59,7 @@
         <div class="col-xs-10">
           <% @user.locations.each do |location| %>
             <% if location.articles.count > 0 %>
-              <span class="glyphicon glyphicon-map-marker"></span> <strong><%= location.shortaddress %></strong>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %><br>
+              <%= location_marker location %>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %>
             <% end %>
           <% end %>
         </div>
