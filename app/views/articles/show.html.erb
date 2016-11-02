@@ -1,40 +1,13 @@
-<h2><%= @article.title %></h2>
-
-<table class="table table-striped">
-<tr>
-  <td><strong><%= Article.human_attribute_name("details") %></strong></td>
-  <td><%= @article.details %></td>
-</tr>
-
-<tr>
-  <td><strong><%= Article.human_attribute_name("rate") %></strong></td>
-  <% if @article.rate_eur == 0 %>
-    <td><strong><%= t("Gratis")%></strong></td>
-  <% else %>
-    <td><%= @article.rate %></td>
+<% @title = @article.title %>
+<div class="col-xs-12 col-sm-3 col-sm-push-9">
+  <%= tipp_panel title: "Hilfe" do %>
+    Ein noch kleinerer Hilfe text.
   <% end %>
-</tr>
+</div>
 
-<tr>
-  <td><strong><%= Article.human_attribute_name("location") %></strong></td>
-  <td><%= @article.location.fulladdress %></td>
-</tr>
+<div class="col-xs-12 col-sm-9 col-sm-pull-3">
+  <h3><%= @title %></h3>
 
-<tr>
-  <td><strong><%= Article.human_attribute_name("user") %></strong></td>
-  <td><%= link_to @article.user.nickname, user_path(@article.user) %></td>
-</tr>
+  <%= render 'show', article: @article %>
 
-<tr>
-  <td><strong><%= Article.human_attribute_name("value_eur") %></strong></td>
-  <td><%= @article.value_eur %> €</td>
-</tr>
-
-<tr>
-  <td><strong><%= Article.human_attribute_name("picture") %></strong></td>
-  <td><%= image_tag(@article.picture_url, :width => 600) if @article.picture.present? %></td>
-</tr>
-</table>
-
-<%= link_to('Edit', edit_article_path(@article), class: "btn btn-default") if current_user and current_user.id == @article.user.id %>
-<%= link_to('Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" ) if current_user and current_user.id == @article.user.id %>
+</div>

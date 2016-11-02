@@ -1,0 +1,46 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <% if article.picture.present? %>
+      <%= image_tag(article.picture_url, class: "img-responsive") %>
+      <br>
+    <% end %>
+    <% if article.gratis %>
+      <b>Gratis</b> <span class="glyphicon glyphicon-ok"></span>
+    <% else %>
+      <b><%= t('rate') %>:</b> <%= article.rate %>
+    <% end %>
+    <br>
+    <b><%= t('location') %>:</b> <%= article.location.shortaddress %>
+    <% if @current_location %>
+      <br>
+      <b><%= t('distance') %>:</b> <%= "%.1f km" % article.location.distance_from( @current_location ) %>
+    <% end %>
+    <br>
+    <b><%= t('details') %>:</b> <%= article.details %>
+    <br>
+    <% if current_user and current_user.id == article.user.id %>
+      <% #link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
+      <% #link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
+    <% else %>
+      <h4><%= t('contact info') %></h4>
+      <b><%= t('user') %>:</b> <%= link_to article.user.nickname, user_path(article.user) %>
+      <br>
+      <b><%= t('name') %>:</b> <%= article.location.user.fullname %>
+      <% if article.user.showemail %>
+        <% if current_user %>
+          <% subject = t("mail.article_request_username", user: current_user.nickname, article: article.title) %>
+        <% else %>
+          <% subject = t("mail.article_request_anonymous", article: article.title) %>
+        <% end %>
+        <br>
+        <b><%= t('email')%>:</b> <%= mail_to article.user.email, article.user.email, subject: subject %>
+      <% end %>
+      <% if article.user.showphone %>
+        <br>
+        <b><%= t('phone')%>:</b> <%= article.user.phoneno %>
+      <% end %>
+    <% end %>
+    <br>
+  </div>
+</div>

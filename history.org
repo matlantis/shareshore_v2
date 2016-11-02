@@ -2,9 +2,8 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO eventuell sollten article eine eigene seite haben (show)
-    der modal dialog ist nicht verlinkbar!
-*** TODO article _show_modal karte einblenden oder link to openstreetmap
+*** TODO locations mit map marker versehen und link auf irgendne karte
+*** TODO article _show_modal location karte einblenden oder link to openstreetmap
 *** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO tooltips
 *** TODO neue sitemap entwerfen
@@ -71,6 +70,9 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE eventuell sollten article eine eigene seite haben (show)
+    CLOSED: [2016-11-02 Mi 14:10]
+    der modal dialog ist nicht verlinkbar!
 *** DONE hilfe panel per yield dings realisieren
     CLOSED: [2016-11-02 Mi 13:05]
 *** DONE link layout der edit und remove buttons
