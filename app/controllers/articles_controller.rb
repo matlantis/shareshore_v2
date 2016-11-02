@@ -21,54 +21,62 @@ class ArticlesController < ApplicationController
     session[:radius] = params[:radius] if params.key? :radius
     session[:address] = params[:address] if params.key? :address
 
-    if params.key? :location_id # apply location
-      @location = Location.find_by(id: params[:location_id])
-      if @location
-        @articles = @location.articles
-      else
-        flash[:alert] = 'the location is unknown'        
-        @articles = Article.all
-      end
-      @articles = @articles.order(title: :asc)
-    elsif params.key? :user_id # apply owner
-        # @articles = Article.where("articles.user_id = ?", params[:owner])
-      @user = User.find_by(id: params[:user_id])
-      if @user
-        @articles = @user.articles
-      else
-        flash[:alert] = 'the user is unknown'        
-        @articles = Article.all
-      end
-      @articles = @articles.order(location_id: :asc, title: :asc)
-    else
-      @articles = Article.all
+    @articles = Article.all
 
-      # remove own articles
-      if current_user
-        @articles = @articles.where.not(user: current_user)
-      end
-        
-      # apply location criteria
-      @current_location = Location.new(street_and_no: session[:address])
-      if @current_location.geocode
-        @articles = @articles.joins(:location).near(@current_location, session[:radius])     
-      else
-        flash[:alert] = 'Your location is unknown'
-      end
-
-      @articles = @articles.order(title: :asc) # 2nd criterion after location
-
-      # provide bounding box for the map (would be better if done on client side)
-      @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
-      @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
-      @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
-      @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
+    # remove own articles
+    if current_user
+      @articles = @articles.where.not(user: current_user)
     end
+    
+    # apply location criteria
+    @current_location = Location.new(street_and_no: session[:address])
+    if @current_location.geocode
+      @articles = @articles.joins(:location).near(@current_location, session[:radius])     
+    else
+      flash[:alert] = 'Your location is unknown'
+    end
+
+    @articles = @articles.order(title: :asc) # 2nd criterion after location
+
+    # provide bounding box for the map (would be better if done on client side)
+    @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
+    @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
+    @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
+    @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
+
 
     # apply pattern criteria
     if session[:pattern]
       @articles = @articles.search(session[:pattern]) # no sorting is done here
     end
+
+    # paginate
+    @articles = @articles.paginate(page: params[:page], per_page: 100)
+  end
+
+  def index_location
+    @location = Location.find_by(id: params[:location_id])
+    if @location
+      @articles = @location.articles
+    else
+      flash[:alert] = 'the location is unknown'        
+      @articles = Article.all
+    end
+    @articles = @articles.order(title: :asc)
+
+    # paginate
+    @articles = @articles.paginate(page: params[:page], per_page: 100)    
+  end
+
+  def index_user # unused
+    @user = User.find_by(id: params[:user_id])
+    if @user
+      @articles = @user.articles
+    else
+      flash[:alert] = 'the user is unknown'        
+      @articles = Article.all
+    end
+    @articles = @articles.order(location_id: :asc, title: :asc)
 
     # paginate
     @articles = @articles.paginate(page: params[:page], per_page: 100)

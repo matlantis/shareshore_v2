@@ -2,14 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO site ohne flash testen
 *** TODO locations mit map marker versehen und link auf irgendne karte
 *** TODO article _show_modal location karte einblenden oder link to openstreetmap
-*** TODO artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
 *** TODO tooltips
-*** TODO neue sitemap entwerfen
-*** TODO hilfe bereich im artikel index
-    achtung: verschiedene ansichten, als nutzer-liste, als owner-liste
-    oder hinweis, dass die eigenen artikel incht angezeigt werden
+*** TODO hilfe bereich im artikel index fehlt
+    wegen platz für karte
+    hinweis, dass die eigenen artikel incht angezeigt werden
 *** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
@@ -70,6 +69,18 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** CANCELED artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
+    CLOSED: [2016-11-02 Mi 16:06]
+    obsolete mit trennung von index und index_location
+*** DONE neue sitemap entwerfen
+    CLOSED: [2016-11-02 Mi 16:03]
+*** DONE article/location index auftrennen
+    CLOSED: [2016-11-02 Mi 15:43]
+    article index
+    article index location
+    article index user (unused)
+    location index
+    location index user (unused)
 *** DONE eventuell sollten article eine eigene seite haben (show)
     CLOSED: [2016-11-02 Mi 14:10]
     der modal dialog ist nicht verlinkbar!
@@ -536,3 +547,5 @@
 
 *** TODO qualität der artikel muss wieder rein
 *** TODO gratis noch besser hervorheben
+*** TODO location index owner verweist auf article index location, besser auf article_index_owner mit location einschränkung
+    

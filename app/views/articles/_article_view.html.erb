@@ -30,7 +30,7 @@
   </div>
 
   <div class="col-sm-4 text-right">
-    <% if current_user and current_user.id == article.user.id %>
+    <% if edit && current_user && current_user.id == article.user.id %>
       <%= link_to("", "", class: "glyphicon glyphicon-pencil article_cb edit-remove ", data: { article_id: article.id } ) %>
       <%= link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true) %>
     <% else %>

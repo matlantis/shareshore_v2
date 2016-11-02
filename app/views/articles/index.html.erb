@@ -1,36 +1,24 @@
 <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>  
 
-<% if not @user and not @location %>
-  <%= render 'layouts/search', form_path: articles_path %>
-<% end %>
+<%= render 'layouts/search', form_path: articles_path %>
 
-<% if @user %>
-  <% @title = t("Articles for") + " " + @user.nickname %>
-  <%= content_tag :h2, @title %>
-<% elsif @location %>
-  <% @title = t("Articles at", location: @location.shortaddress) + " " + t("for") + " " + @location.user.nickname %>
-  <%= content_tag :h2, @title %>
-<% else %>
-  <% @title = t('Articles nearby') %>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <ul class="nav nav-tabs">
-        <%= content_tag(:li, link_to(t('Articles nearby'), articles_path, class: "tab"),
-                        class: ['active'] )%>
-        <%= content_tag(:li, link_to(t('Users nearby'), locations_path, class: "tab"),
-                        class: [] )%>
-      </ul>
-    </div>
-  </div>
-<% end %>
+<% @title = t('Articles nearby') %>
 
 <div class="row">
-  <% if @current_location %>
-    <div class="col-xs-12 col-md-4">
-      <div id="mapid" style="width: -1; height: 400px;"></div>
-    </div>
-  <% end %>
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <%= content_tag(:li, link_to(t('Articles nearby'), articles_path, class: "tab"),
+                      class: ['active'] )%>
+      <%= content_tag(:li, link_to(t('Users nearby'), locations_path, class: "tab"),
+                      class: [] )%>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    <div id="mapid" style="width: -1; height: 400px;"></div>
+  </div>
 
   <div class="col-xs-12 col-md-8">
 
@@ -39,7 +27,7 @@
 
       <div class="article" id="<%= article_div_id %>" >
         <div class="article_view">
-          <%= render 'article_view', article: article %>
+          <%= render 'article_view', article: article, edit: false %>
         </div>        
       </div>
     <% end %>
@@ -98,25 +86,3 @@
    map.setCenter(center_position, zoom );
   </script>
 <% end %>
-
-<script> 
- $(document).ready(function(){
-   $(".article_edit_div").hide();
-
-   $("body").on("click", ".article_cb", function(e) {
-     e.preventDefault();
-     var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit_div";
-     // console.log(thedivid);
-     $(thedivid).toggle(200);
-   });
-
-   $('body').on('click', '.article_gratis_cb', function() {
-     var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate_div";
-     console.log(thedivid);
-     $(thedivid).toggle(200);
-   });
-
-   $('.article_rate_div_gratis').hide()
- })
-
-</script>

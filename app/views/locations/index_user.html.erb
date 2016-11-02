@@ -1,30 +1,14 @@
 <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>  
 
-<%= render 'layouts/search', form_path: locations_path %>
-
-<% @title = t('Users nearby') %>
+<% @title = t("Locations for") + " " + @user.nickname %>
+<%= content_tag :h2, @title %>
 
 <div class="row">
-  <div class="col-xs-12">
-    <ul class="nav nav-tabs">
-      <%= content_tag(:li, link_to(t('Articles nearby'), articles_path, class: "tab"),
-                      class: [] )%>
-      <%= content_tag(:li, link_to(t('Users nearby'), locations_path, class: "tab"),
-                      class: ['active'] )%>
-    </ul>
+  <div class="col-xs-12 col-md-4">
+    <div id="mapid" style="width: -1; height: 400px;"></div>
   </div>
-</div>
-
-
-<div class="row">
-  <% if @current_location %>
-    <div class="col-xs-12 col-md-4">
-      <div id="mapid" style="width: -1; height: 400px;"></div>
-    </div>
-  <% end %>
 
   <div class="col-xs-12 col-md-8">
-
     <% @locations.each do |location| %>
       <% location_div_id = "location_" + location.id.to_s + "_div" %>
 

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :stockitems
-  resources :stockitem_selections
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   
@@ -12,9 +11,9 @@ Rails.application.routes.draw do
   resources :articles
   resources :locations, except: [ :show, :new]
 
-  get '/users/:user_id/articles', action: :index, controller: 'articles', as: 'articles_user'
-  get '/locations/:location_id/articles', action: :index, controller: 'articles', as: 'articles_location'
-  get '/users/:user_id/locations', action: :index, controller: 'locations', as: 'locations_user'
+  get '/users/:user_id/articles', action: :index_user, controller: 'articles', as: 'articles_user'
+  get '/locations/:location_id/articles', action: :index_location, controller: 'articles', as: 'articles_location'
+  get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'
 
   get '/user/locations', action: :index_owner, controller: 'locations', as: 'user_locations'
   get '/user/articles', action: :index_owner, controller: 'articles', as: 'user_articles'
