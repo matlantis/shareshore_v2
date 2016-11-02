@@ -1,15 +1,9 @@
 <% @title = t('Your Articles') %>
 
 <div class="col-xs-12 col-sm-3 col-sm-push-9">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>Tipp</h4>
-    </div>
-
-    <div class="panel-body">
-      Dies ist ein kurzer Hilfetext.
-    </div>
-  </div>
+  <%= tipp_panel title: "Hilfe" do %>
+    Ein noch kleinerer Hilfe text.
+  <% end %>
 </div>
 
 <div class="col-xs-12 col-sm-9 col-sm-pull-3">
