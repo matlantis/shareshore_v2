@@ -44,6 +44,8 @@ class ArticlesController < ApplicationController
     @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
     @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
 
+    # provide locations to be drawn by the map
+    @locations = @articles.collect { |a| a.location}.uniq
 
     # apply pattern criteria
     if session[:pattern]

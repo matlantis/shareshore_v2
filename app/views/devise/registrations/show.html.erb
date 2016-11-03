@@ -1,69 +1,59 @@
 <% @title = @user.nickname %>
 
 <div class="col-xs-12 col-sm-3 col-sm-push-9">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>Tipp</h4>
-    </div>
-
-    <div class="panel-body">
-      Dies ist ein kurzer Hilfetext.
-    </div>
-  </div>
+  <%= tipp_panel title: "Hilfe" do %>
+    Ein noch kleinerer Hilfe text.
+  <% end %>
 </div>
 
 <div class="col-xs-12 col-sm-9 col-sm-pull-3">
   <h2><%= @user.nickname %></h2>
 
   <div class="row">
-    <div class="col-xs-12">
-      <div class="row">
-        <div class="col-xs-2 text-right">
-          <strong><%= t"Name" %>:</strong>
-        </div>
-        <div class="col-xs-10">
-          <%= @user.fullname %>
-        </div>
-      </div>
+    <div class="col-xs-2 text-right">
+      <strong><%= t"Name" %>:</strong>
+    </div>
+    <div class="col-xs-10">
+      <%= @user.fullname %>
+    </div>
+  </div>
 
-      <% if @user.showemail? %>
-        <% if current_user %>
-          <% subject = t("mail.user_request_username", user: current_user.nickname) %>
-        <% else %>
-          <% subject = t("mail.user_request_anonymous") %>
+  <% if @user.showemail? %>
+    <% if current_user %>
+      <% subject = t("mail.user_request_username", user: current_user.nickname) %>
+    <% else %>
+      <% subject = t("mail.user_request_anonymous") %>
+    <% end %>
+    <div class="row">
+      <div class="col-xs-2 text-right">
+        <strong><%= t("email") %>:</strong>
+      </div>
+      <div class="col-xs-10">
+        <%= mail_to @user.email, @user.email, subject: subject %>
+      </div>
+    </div>
+  <% end %>
+  <% if @user.showphone %>
+    <div class="row">
+      <div class="col-xs-2 text-right">
+        <strong><%= t("phone") %>:</strong>
+      </div>
+      <div class="col-xs-10">
+        <%= @user.phoneno %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-2 text-right">
+      <strong><%= t('Locations') %>:</strong>
+    </div>
+    <div class="col-xs-10">
+      <% @user.locations.each do |location| %>
+        <% if location.articles.count > 0 %>
+          <%= location_marker location %>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %>
         <% end %>
-        <div class="row">
-          <div class="col-xs-2 text-right">
-            <strong><%= t("email") %>:</strong>
-          </div>
-          <div class="col-xs-10">
-            <%= mail_to @user.email, @user.email, subject: subject %>
-          </div>
-        </div>
       <% end %>
-      <% if @user.showphone %>
-        <div class="row">
-          <div class="col-xs-2 text-right">
-            <strong><%= t("phone") %>:</strong>
-          </div>
-          <div class="col-xs-10">
-            <%= @user.phoneno %>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="row">
-        <div class="col-xs-2 text-right">
-          <strong><%= t('Locations') %>:</strong>
-        </div>
-        <div class="col-xs-10">
-          <% @user.locations.each do |location| %>
-            <% if location.articles.count > 0 %>
-              <%= location_marker location %>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
 </div>

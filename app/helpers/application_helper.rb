@@ -23,7 +23,7 @@ module ApplicationHelper
     zoom = 18
     link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
     capture do
-      link_to link_ref do
+      link_to location do
         txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
         txt2 = content_tag :strong, location.shortaddress
         txt1.concat(txt2)

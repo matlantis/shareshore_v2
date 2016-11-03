@@ -1,26 +1,54 @@
-<p>
-  <strong><%= t("Street and no") %>:</strong>
-  <%= @location.street_and_no %>
-</p>
+<% @title = t('location') %>
 
-<p>
-  <strong><%= t("Postcode") %>:</strong>
-  <%= @location.postcode %>
-</p>
+<div class="col-xs-12 col-sm-3 col-sm-push-9">
+  <%= tipp_panel title: "Hilfe" do %>
+    Ein noch kleinerer Hilfe text.
+  <% end %>
+</div>
 
-<p>
-  <strong><%= t("City") %>:</strong>
-  <%= @location.city %>
-</p>
+<div class="col-xs-12 col-sm-9 col-sm-pull-3">
 
-<p>
-  <strong><%= t("Country") %>:</strong>
-  <%= @location.country %>
-</p>
+  <div class="row">
+    <div class="col-xs-3 text-right">
+      <strong><%= t("Street and no") %>:</strong>
+    </div>
+    <div class="col-xs-9">
+      <%= @location.street_and_no %>
+    </div>
+  </div>
 
-<p>
-  <strong><%= t("User") %>:</strong>
-  <%= @location.user.email %>
-</p>
+  <div class="row">
+    <div class="col-xs-3 text-right">
+      <strong><%= t("Postcode") %>:</strong>
+    </div>
+    <div class="col-xs-9">
+      <%= @location.postcode %>
+    </div>
+  </div>
 
-<%= link_to t("Edit"), edit_location_path(@location) %>
+  <div class="row">
+    <div class="col-xs-3 text-right">
+      <strong><%= t("City") %>:</strong>
+    </div>
+    <div class="col-xs-9">
+      <%= @location.city %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 text-right">
+      <strong><%= t("Country") %>:</strong>
+    </div>
+    <div class="col-xs-9">
+      <%= @location.country %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 text-right">
+      <%= link_to t('View on OpenStreetMap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank" %>
+    </div>
+  </div>
+
+</div>
+

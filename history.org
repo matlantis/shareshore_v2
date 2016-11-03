@@ -2,20 +2,18 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** DONE kartuschen realisiert
-    CLOSED: [2016-11-02 Mi 17:38]
-*** TODO statt externen link auf osm, location show mit karte
+*** TODO Karte
+    - [ ] rechtliche hinweise
+    - [ ] besseres tileset raussuchen
+    - [ ] statische OL installation
+    - [ ] karte in location show einbauen
+    - [X] nur locations einzeichnen, nicht artikel
+    - [X]  suchradius verwenden
+    - [X]  marker in verschiedenen farben
+    - [ ] tooltips mit artikeln, bzw. mit links
+    - [ ] java script an irgendne separierte stelle schreiben
+    - [ ] hover article hightlights marker
 *** TODO site ohne flash testen
-*** DONE locations mit map marker versehen und link auf irgendne karte
-    CLOSED: [2016-11-02 Mi 17:06]
-    vorkommen:
-    - X location index
-    - X article index: article_view
-    - X article index owner: article_view
-    - X article show
-    - X profile show
-    via helper
-*** TODO article _show_modal location karte einblenden oder link to openstreetmap
 *** TODO tooltips
 *** TODO hilfe bereich im artikel index fehlt
     wegen platz für karte
@@ -55,13 +53,6 @@
      Location was successfully created
      Location was successfully destroyed 
      Bisheriges Passwort is needed
-*** WAITING karte aufhübschen [2/5]
-    - [ ] nur locations einzeichnen, nicht artikel
-    - [X]  suchradius verwenden
-    - [X]  marker in verschiedenen farben
-    - [ ] tooltips mit artikeln, bzw. mit links
-    - [ ] java script an irgendne separierte stelle schreiben
-    - [ ] hover article hightlights marker
 *** TODO statische pages [2/3]
     - [X] entwurf
       - tutorial: wie funktioniert shareshore?
@@ -80,6 +71,22 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** CANCELED article _show_modal location karte einblenden oder link to openstreetmap
+    CLOSED: [2016-11-02 Mi 18:34]
+    durch location kartuschen gelöst
+*** DONE kartuschen realisiert
+    CLOSED: [2016-11-02 Mi 17:38]
+*** DONE statt externen link auf osm, location show mit karte
+    CLOSED: [2016-11-02 Mi 18:33]
+*** DONE locations mit map marker versehen und link auf irgendne karte
+    CLOSED: [2016-11-02 Mi 17:06]
+    vorkommen:
+    - X location index
+    - X article index: article_view
+    - X article index owner: article_view
+    - X article show
+    - X profile show
+    via helper
 *** CANCELED artikel und location index: wenn map nicht angezeigt wird, stimmt das grid layout nicht mehr
     CLOSED: [2016-11-02 Mi 16:06]
     obsolete mit trennung von index und index_location
