@@ -1,0 +1,28 @@
+drawmap_leaflet = function(mapid, center_coord, marker_defs, bound_n, bound_s, bound_e, bound_w, center_popup_txt) {
+  var map = L.map(mapid);
+  //map.setView(center_coord, 13);
+  map.fitBounds([bound_n, bound_s, bound_e, bound_w]);
+
+  // create the tile layer with correct attribution
+  var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+  var osm = new L.TileLayer(osmUrl, { attribution: osmAttrib} );
+  osm.addTo(map);
+
+  // add markers and popups
+  var icon_red = L.icon({iconUrl: '<%= asset_path "marker-icon-red.png" %>'})
+  var icon_blue = L.icon({iconUrl: '<%= asset_path "marker-icon-blue.png" %>'})
+
+  var center_marker = L.marker(center_coord, { icon: icon_blue }).addTo(map);
+  center_marker.bindPopup(center_popup_txt);
+  
+  var markers = [];
+  for (i=0; i<marker_defs.length; i++) {
+    var marker = L.marker(marker_defs[i].coords, { icon: icon_red }).addTo(map);
+    marker.bindPopup(marker_defs[i].html);
+    marker.index = marker_defs[i].id;
+    marker.on('click', onMapClick);
+    markers.push(marker);
+  }
+  return [map, markers];
+}

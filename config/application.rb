@@ -22,6 +22,9 @@ module ShareshoreV2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # images in vendor assets images leaflet
+    config.assets.paths << Rails.root.join("vendor", "assets", "images", "leaflet")
   end
 end
 
