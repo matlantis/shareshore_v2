@@ -2,17 +2,20 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO wie ist die identität der nutzer geschützt?
 *** TODO Karte
-    - [ ] rechtliche hinweise
-    - [ ] besseres tileset raussuchen
-    - [ ] statische OL installation
+    - [X] hover nicht beim kompleten artikel, sondern nur bei der location, und popup wieder schließen
+      ist sonst zu notorisch
+    - [X] rechtliche hinweise - leaflet mit osm ist in contributions angegeben - thats it!
+    - [X] besseres tileset raussuchen (aktuell osm, funzt bestens), 
+    - [ ] statische leaflet installation
     - [ ] karte in location show einbauen
     - [X] nur locations einzeichnen, nicht artikel
     - [X]  suchradius verwenden
     - [X]  marker in verschiedenen farben
-    - [ ] tooltips mit artikeln, bzw. mit links
-    - [ ] java script an irgendne separierte stelle schreiben
-    - [ ] hover article hightlights marker
+    - [X] tooltips mit artikeln, bzw. mit links
+    - [X] java script an irgendne separierte stelle schreiben
+    - [X] hover article hightlights marker
 *** TODO site ohne flash testen
 *** TODO tooltips
 *** TODO hilfe bereich im artikel index fehlt

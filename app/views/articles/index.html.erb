@@ -64,15 +64,30 @@
    var onArticleMouseEnter = function(e) {
      // search the marker with the correct location index
      for (i = 0; i< markers.length; i++) {
-       if ( markers[i].index == $(this).attr("data-location-id") ) {
+       //if ( markers[i].index == $(this).attr("data-location-id") ) {
+       var location_id = $(this).parentsUntil(".article").parent().attr("data-location-id")
+       if ( markers[i].index == location_id ) {       
          markers[i].openPopup();
          break;
        }
      }
    }
 
+   // article hover event handler
+   var onArticleMouseLeave = function(e) {
+     // search the marker with the correct location index
+     for (i = 0; i< markers.length; i++) {
+       var location_id = $(this).parentsUntil(".article").parent().attr("data-location-id")
+       if ( markers[i].index == location_id ) {
+         markers[i].closePopup();
+         break;
+       }
+     }
+   }
+   
    // bind the event handler
-   $(".article").on('mouseenter', onArticleMouseEnter);
+   $(".location_marker").on('mouseenter', onArticleMouseEnter);
+   $(".location_marker").on('mouseleave', onArticleMouseLeave);
 
  });
 

@@ -23,31 +23,49 @@ module ApplicationHelper
     zoom = 18
     link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
     capture do
-      link_to location do
-        txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
-        txt2 = content_tag :strong, location.shortaddress
-        txt1.concat(txt2)
+      content_tag :span, class: "location_marker" do
+        link_to location do
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
+          txt2 = content_tag :strong, location.shortaddress
+          txt1.concat(txt2)
+        end
       end
     end
   end
 
   def rate_marker(article)
     capture do
-      if article.gratis
-        txt1 = content_tag :strong, t("Gratis")
-        txt1.concat(content_tag :span, "", class: ["glyphicon","glyphicon-ok"])
-      else
-        txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
-        txt1.concat(" ").concat(article.rate)
+      content_tag :span, class: "rate_marker" do
+        if article.gratis
+          txt1 = content_tag :strong, t("Gratis")
+          txt1.concat(content_tag :span, "", class: ["glyphicon","glyphicon-ok"])
+        else
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
+          txt1.concat(" ").concat(article.rate)
+        end
       end
     end
   end
 
   def user_marker(user)
     capture do
-      link_to user_path(user) do
-        txt1 = content_tag :span, "", class: "glyphicon glyphicon-user"
-        txt1.concat(" ").concat(user.nickname)
+      content_tag :span, class: "user_marker" do
+        link_to user_path(user) do
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-user"
+          txt1.concat(" ").concat(user.nickname)
+        end
+      end
+    end
+  end
+
+  def article_marker_modal(article)
+    article_show_id = "#article_" + article.id.to_s + "_show"
+    capture do
+      content_tag :span, class: "user_marker" do
+        link_to article_show_id, data: { toggle: "modal" } do
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
+          txt1.concat(" ").concat(article.title)
+        end
       end
     end
   end

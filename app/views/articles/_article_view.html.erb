@@ -2,9 +2,7 @@
   <% article_show_id = "article_" + article.id.to_s + "_show" %>
 
   <div class="col-sm-3">
-    <a href="#<%= article_show_id%>" data-toggle="modal">
-      <%= article.title %>
-    </a>
+    <%= article_marker_modal article %>
     <br>
     <% if article.picture.present? %>
       <a href="#<%= article_show_id%>" data-toggle="modal">
