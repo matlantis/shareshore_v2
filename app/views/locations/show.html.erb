@@ -45,10 +45,72 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-3 text-right">
+      <%= link_to @location.articles.count.to_s + " " + t('Articles'), articles_location_path(@location) %>:
+    </div>
+    <div class="col-xs-9">
+      <% @location.articles.each do |article|%>
+        <%= article_marker_modal article %>
+
+        <% article_show_id = "article_" + article.id.to_s + "_show" %>
+        <div id="<%= article_show_id %>" class="modal fade">
+          <%= render 'articles/show_modal', article: article %>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+
+  <div class="row hidden">
     <div class="col-xs-12 text-right">
       <%= link_to t('View on OpenStreetMap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank" %>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="mapid" style="width: -1; height: 400px;"></div>
+    </div>
+  </div>
 </div>
 
+<script type="text/javascript">
+  onMapClick = function(e) {
+    console.log("You clicked the marker " + e.target.index);
+  };
+  
+ $(document).ready(function() {
+   // prepare the marker data
+   var marker_defs, bounds;
+   marker_defs = [];
+   bounds = [];
+
+   <% if @current_location %>
+   // add current location marker
+   marker_defs.push(
+     <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
+     <%= " html: '#{t('Your location')}', ".html_safe %>
+     <%= " id: -1, ".html_safe %>
+     <%= " color: 'blue' }".html_safe %>
+   );
+   bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
+   <% end %>
+
+   // add location marker
+   marker_defs.push(
+     <% html_text = escape_javascript(render 'articles/popup', location: @location, articles: [] ) %>
+     <%= "{ coords: [#{@location.latitude}, #{@location.longitude} ], ".html_safe %>
+     <%= " html: '#{html_text}', ".html_safe %>
+     <%= " id: -1, ".html_safe %>
+     <%= " color: 'red' }".html_safe %>
+   );
+   bounds.push(<%= "[ #{@location.latitude}, #{@location.longitude} ]" %>);
+
+  // draw the map
+  var map, markers;
+  [map, markers] = drawmap_leaflet("mapid", marker_defs, bounds);
+
+  });
+
+
+</script>

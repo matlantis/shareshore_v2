@@ -1,5 +1,3 @@
-<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>  
-
 <%= render 'layouts/search', form_path: locations_path %>
 
 <% @title = t('Users nearby') %>
@@ -28,7 +26,7 @@
     <% @locations.each do |location| %>
       <% location_div_id = "location_" + location.id.to_s + "_div" %>
 
-      <div class="location" id="<%= location_div_id %>" >
+      <div class="location" id="<%= location_div_id %>" data-location-id="<%= location.id %>">
         <div class="location_view">
           <%= render 'location_view', location: location %>
         </div>        
@@ -40,53 +38,71 @@
 </div>
 
 
-<% if @current_location %>
-    <script type="text/javascript">
-     var map = new OpenLayers.Map("mapid");
+<script type="text/javascript">
+ onMapClick = function(e) {
+   console.log("You clicked the marker " + e.target.index);
+ };
+ 
+ $(document).ready(function() {
+   // prepare the marker data
+   var marker_defs, bounds;
 
-     var wms = new OpenLayers.Layer.WMS(
+   // build up bounds vector
+   bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
 
-         "OpenLayers WMS",
-
-         "http://labs.metacarta.com/wms/vmap0",
-         
-         {layers: 'basic'}
-         
-     );
-
-     var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-     var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-     var zoom;
-     var position;
-     var center_position;
-
-     map.addLayer(new OpenLayers.Layer.OSM());
-     
-     var bounds = new OpenLayers.Bounds();
-
-     bounds.extend(new OpenLayers.LonLat( <%= @bound_n[1] %>, <%= @bound_n[0] %>).transform( fromProjection, toProjection));
-     bounds.extend(new OpenLayers.LonLat( <%= @bound_s[1] %>, <%= @bound_s[0] %>).transform( fromProjection, toProjection));
-     bounds.extend(new OpenLayers.LonLat( <%= @bound_e[1] %>, <%= @bound_e[0] %>).transform( fromProjection, toProjection));
-     bounds.extend(new OpenLayers.LonLat( <%= @bound_w[1] %>, <%= @bound_w[0] %>).transform( fromProjection, toProjection));
-
-     center_position = new OpenLayers.LonLat( <%= @current_location.longitude %>, <%= @current_location.latitude %>).transform( fromProjection, toProjection);
-     /* bounds.extend(center_position);*/
-
-
-     var markers = new OpenLayers.Layer.Markers( "Markers" );
-     map.addLayer(markers);
-     markers.addMarker(new OpenLayers.Marker(center_position));
-     var iconsize = new OpenLayers.Size(21,25);
-     var icon = new OpenLayers.Icon('http://www.openlayers.org/api/img/marker-blue.png', iconsize);
-
+   // add location markers
+   marker_defs = [
      <% @locations.each do |location| %>
-     position = new OpenLayers.LonLat( <%= location.longitude %>, <%= location.latitude %>).transform( fromProjection, toProjection);
-     markers.addMarker(new OpenLayers.Marker(position, icon.clone()));
-     /* bounds.extend(position);*/
+     <% html_text = escape_javascript(render 'articles/popup', location: location, articles: [] ) %>
+     <%= "{ coords: [#{location.latitude}, #{location.longitude} ], ".html_safe %>
+     <%= " html: '#{html_text}', ".html_safe %>
+     <%= " id: #{location.id}, ".html_safe %>
+     <%= " color: 'red' },".html_safe %>
      <% end %>        
+   ];
 
-     zoom = map.getZoomForExtent(bounds);
-     console.log("zoom: " + zoom);
-     map.setCenter(center_position, zoom );
-    </script>
-<% end %>
+   // add current location marker
+   marker_defs.push(
+     <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
+     <%= " html: '#{t('Your location')}', ".html_safe %>
+     <%= " id: -1, ".html_safe %>
+     <%= " color: 'blue' }".html_safe %>
+   );
+   
+   // draw the map
+   var map, markers;
+   [map, markers] = drawmap_leaflet("mapid", marker_defs, bounds);
+   
+   // article hover event handler
+   var onArticleMouseEnter = function(e) {
+     // search the marker with the correct location index
+     for (i = 0; i< markers.length; i++) {
+       //if ( markers[i].index == $(this).attr("data-location-id") ) {
+       var location_id = $(this).parentsUntil(".location").parent().attr("data-location-id")
+       if ( markers[i].index == location_id ) {       
+         markers[i].openPopup();
+         break;
+       }
+     }
+   }
+
+   // article hover event handler
+   var onArticleMouseLeave = function(e) {
+     // search the marker with the correct location index
+     for (i = 0; i< markers.length; i++) {
+       var location_id = $(this).parentsUntil(".location").parent().attr("data-location-id")
+       if ( markers[i].index == location_id ) {
+         markers[i].closePopup();
+         break;
+       }
+     }
+   }
+   
+   // bind the event handler
+   $(".location_marker").on('mouseenter', onArticleMouseEnter);
+   $(".location_marker").on('mouseleave', onArticleMouseLeave);
+
+ });
+
+
+</script>

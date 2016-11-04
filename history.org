@@ -2,20 +2,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO häuser
 *** TODO wie ist die identität der nutzer geschützt?
-*** TODO Karte
-    - [X] hover nicht beim kompleten artikel, sondern nur bei der location, und popup wieder schließen
-      ist sonst zu notorisch
-    - [X] rechtliche hinweise - leaflet mit osm ist in contributions angegeben - thats it!
-    - [X] besseres tileset raussuchen (aktuell osm, funzt bestens), 
-    - [ ] statische leaflet installation
-    - [ ] karte in location show einbauen
-    - [X] nur locations einzeichnen, nicht artikel
-    - [X]  suchradius verwenden
-    - [X]  marker in verschiedenen farben
-    - [X] tooltips mit artikeln, bzw. mit links
-    - [X] java script an irgendne separierte stelle schreiben
-    - [X] hover article hightlights marker
 *** TODO site ohne flash testen
 *** TODO tooltips
 *** TODO hilfe bereich im artikel index fehlt
@@ -74,6 +62,21 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE Karte
+    CLOSED: [2016-11-04 Fr 13:36]
+    - [X] in location index einbauen
+    - [X] hover nicht beim kompleten artikel, sondern nur bei der location, und popup wieder schließen
+      ist sonst zu notorisch
+    - [X] rechtliche hinweise - leaflet mit osm ist in contributions angegeben - thats it!
+    - [X] besseres tileset raussuchen (aktuell osm, funzt bestens), 
+    - [X] statische leaflet installation
+    - [X] karte in location show einbauen
+    - [X] nur locations einzeichnen, nicht artikel
+    - [X]  suchradius verwenden
+    - [X]  marker in verschiedenen farben
+    - [X] tooltips mit artikeln, bzw. mit links
+    - [X] java script an irgendne separierte stelle schreiben
+    - [X] hover article hightlights marker
 *** CANCELED article _show_modal location karte einblenden oder link to openstreetmap
     CLOSED: [2016-11-02 Mi 18:34]
     durch location kartuschen gelöst

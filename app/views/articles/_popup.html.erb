@@ -1,6 +1,8 @@
 <%= location_marker(location) %><br>
 <%= user_marker(location.user) %><br>
 <% #link_to articles.where("location_id = ?", location.id).count.to_s + " " + t('Articles'), articles_location_path(location) %>
-<% @articles.where("location_id = ?", location.id).each do |article| %>
-  <%= article_marker_modal article %>
+<% if not articles.empty? %>
+  <% articles.where("location_id = ?", location.id).each do |article| %>
+    <%= article_marker_modal article %>
+  <% end %>
 <% end %>

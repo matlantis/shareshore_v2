@@ -57,6 +57,10 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    location = Location.new(street_and_no: session[:address])
+    if location.geocode
+      @current_location = location
+    end
   end
 
   # GET /locations/new

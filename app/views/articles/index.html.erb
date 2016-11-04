@@ -41,24 +41,33 @@
  
  $(document).ready(function() {
    // prepare the marker data
-   var center_coords, marker_defs, bound_n, bound_s, bound_e, bound_w;
-   center_coords = [ <%= @current_location.latitude %>, <%= @current_location.longitude %> ];
-   bound_n = <%= "[ #{@bound_n[0]}, #{@bound_n[1]} ]" %>;
-   bound_s = <%= "[ #{@bound_s[0]}, #{@bound_s[1]} ]" %>;
-   bound_e = <%= "[ #{@bound_e[0]}, #{@bound_e[1]} ]" %>;
-   bound_w = <%= "[ #{@bound_w[0]}, #{@bound_w[1]} ]" %>;
+   var marker_defs, bounds;
+
+   // build up bounds vector
+   bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
+
+   // add location markers
    marker_defs = [
      <% @locations.each do |location| %>
      <% html_text = escape_javascript(render 'popup', location: location, articles: @articles) %>
      <%= "{ coords: [#{location.latitude}, #{location.longitude} ], ".html_safe %>
      <%= " html: '#{html_text}', ".html_safe %>
-     <%= " id: #{location.id} },".html_safe %>
+     <%= " id: #{location.id}, ".html_safe %>
+     <%= " color: 'red' },".html_safe %>
      <% end %>        
    ];
-   var center_popup_txt = "<%= t('Your location') %>";
+
+   // add current location marker
+   marker_defs.push(
+     <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
+     <%= " html: '#{t('Your location')}', ".html_safe %>
+     <%= " id: -1, ".html_safe %>
+     <%= " color: 'blue' }".html_safe %>
+   );
+   
    // draw the map
    var map, markers;
-   [map, markers] = drawmap_leaflet("mapid", center_coords, marker_defs, bound_n, bound_s, bound_e, bound_w, center_popup_txt);
+   [map, markers] = drawmap_leaflet("mapid", marker_defs, bounds);
    
    // article hover event handler
    var onArticleMouseEnter = function(e) {
