@@ -19,14 +19,17 @@ module ApplicationHelper
     end
   end
 
-  def location_marker(location)
+  def location_marker(location, text: nil)
     zoom = 18
     link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
+    if not text
+      text = location.shortaddress
+    end
     capture do
       content_tag :span, class: "location_marker" do
         link_to location do
           txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
-          txt2 = content_tag :strong, location.shortaddress
+          txt2 = content_tag :strong, text
           txt1.concat(txt2)
         end
       end

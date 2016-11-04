@@ -21,14 +21,18 @@ class LocationsController < ApplicationController
     if current_user
       @locations = @locations.where.not(user: current_user)
     end
-    
-    # apply location criteria
-    @current_location = Location.new(street_and_no: session[:address])
-    if @current_location.geocode
-      @locations = @locations.near(@current_location, session[:radius])     
+
+    # decode current location
+    location = Location.new(street_and_no: session[:address])
+    if location.geocode
+      @current_location = location
     else
       flash[:alert] = 'Your location is unknown'
+      redirect_to search_articles_path
     end
+    
+    # apply location criteria
+    @locations = @locations.near(@current_location, session[:radius])     
 
     # provide bounding box for the map (would be better if done on client side)
     @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])

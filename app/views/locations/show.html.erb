@@ -85,7 +85,8 @@
    marker_defs = [];
    bounds = [];
 
-   <% if @current_location %>
+   <% if @current_location # show if location is known %> 
+   <% unless current_user && current_user.id == @location.user.id # but not for own locations%> 
    // add current location marker
    marker_defs.push(
      <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
@@ -94,6 +95,7 @@
      <%= " color: 'blue' }".html_safe %>
    );
    bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
+   <% end %>
    <% end %>
 
    // add location marker

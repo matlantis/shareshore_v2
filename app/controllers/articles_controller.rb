@@ -27,14 +27,18 @@ class ArticlesController < ApplicationController
     if current_user
       @articles = @articles.where.not(user: current_user)
     end
-    
-    # apply location criteria
-    @current_location = Location.new(street_and_no: session[:address])
-    if @current_location.geocode
-      @articles = @articles.joins(:location).near(@current_location, session[:radius])     
+
+    # decode current location
+    location = Location.new(street_and_no: session[:address])
+    if location.geocode
+      @current_location = location
     else
       flash[:alert] = 'Your location is unknown'
+      redirect_to search_articles_path
     end
+    
+    # apply location criteria
+    @articles = @articles.joins(:location).near(@current_location, session[:radius])     
 
     @articles = @articles.order(title: :asc) # 2nd criterion after location
 
@@ -43,7 +47,7 @@ class ArticlesController < ApplicationController
     @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
     @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
     @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
-
+    
     # apply pattern criteria
     if session[:pattern]
       @articles = @articles.search(session[:pattern]) # no sorting is done here

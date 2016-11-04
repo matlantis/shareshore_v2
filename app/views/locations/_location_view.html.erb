@@ -25,9 +25,13 @@
       <br>
       <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
     <% end %>
+    <% if (current_user && current_user.id == location.user.id) %>
+      <br>
+      <%= location_marker location, text: t("view on map") %>
+    <% end %>
   </div>
 
-  <% if current_user and current_user.id == location.user.id %>
+  <% if current_user && current_user.id == location.user.id %>
     <div class="col-xs-4 text-right">
       <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id } ) %>
       <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true) %>

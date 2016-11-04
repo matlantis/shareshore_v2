@@ -2,7 +2,26 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO löse das problem falsch aufgelöster locations
+    nutzer markieren ihr haus manuell
+*** TODO session[address] bei login mit erster location füllen
 *** TODO häuser
+    - repräsentation
+      model house has_many locations, location belongs_to house
+    - kriterium
+      wichtig hausnr!
+      geolocation, kann aber abweichungen geben, je nach verwendetem dienst (wir nehmen aber nur einen)
+      straße: unterschiedliche schreibweisen, nicht so gut
+      ==> geolocation && hausnr (kein eigenes feld!), eventuell ist das nicht ausreichend, wenn in kleinen ortschaften die häuser nicht korrekt identifiziert sind (dann haben wir ohnehin ein problem)
+      ==> eventuell nur addressdaten verwenden (dann müssen die nutzer halt alle ein korrektes format verwenden)
+    - zeitpunkt der zuordnung
+      on location creation
+    - auswirkungen und views
+      index#articles und index#locations jeweils panel mit eigenem haus, bzw. artikel und nutzer speziell markieren
+      location#show link auf eigenes haus (house#show)
+      kartenmarkierungen (house popups, statt location popups)
+      
+    
 *** TODO wie ist die identität der nutzer geschützt?
     für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
 *** TODO site ohne flash testen
