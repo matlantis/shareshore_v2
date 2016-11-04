@@ -4,19 +4,17 @@
 ** Primär
 *** TODO häuser
 *** TODO wie ist die identität der nutzer geschützt?
+    für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
 *** TODO site ohne flash testen
 *** TODO tooltips
 *** TODO hilfe bereich im artikel index fehlt
     wegen platz für karte
     hinweis, dass die eigenen artikel incht angezeigt werden
-*** TODO für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
 *** TODO hilfe bereich fertig stellen [1/3]
     - [X] struktur
     - [ ] texte
     - [ ] einzel layout
 *** TODO wie-bin-ich-abgesichert-seite
-*** TODO get rid of unnecessary article attributes
-    like +value+ (we keep it), deposit
 *** TODO finde bessere bezeichnungen
     für 
     - Nutzer: Leute, Chico
@@ -62,6 +60,9 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE get rid of unnecessary article attributes
+    CLOSED: [2016-11-04 Fr 13:40]
+    like value, deposit
 *** DONE Karte
     CLOSED: [2016-11-04 Fr 13:36]
     - [X] in location index einbauen
