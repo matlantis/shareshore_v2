@@ -2,10 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO mehr map js in partial verschieben
 *** DONE artikel hervorheben, wenn Sie im eigenen haus sind
     CLOSED: [2016-11-05 Sa 17:14]
-*** TODO current_location marker überarbeiten
-*** TODO an einem Haus überdeckt der current_location marker den Haus marker
+*** DONE current_location marker überarbeiten
+    CLOSED: [2016-11-05 Sa 17:36]
+*** DONE an einem Haus überdeckt der current_location marker den Haus marker
+    CLOSED: [2016-11-05 Sa 17:36]
     irgendwie zusammenführen
 *** TODO falls ergebnis liste leer, entsprechenden text anzeigen
     vorkommen:

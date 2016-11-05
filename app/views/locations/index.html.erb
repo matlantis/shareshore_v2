@@ -65,11 +65,20 @@
    // build up bounds vector
    bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
 
+   // save text for home marker
+   <% home_html = "#{@current_location.shortaddress}" %>
+   <% home_id = -1 %>
+   
    // add house markers
    marker_defs = [
      <% @houses.each do |house| %>
      <% articles = Article.joins(:location).where("locations.house_id = ?", house.id) %>
      <% html_text = escape_javascript(render 'articles/popup', house: house, articles: articles ) %>
+     <% if house == @house_center %>
+     <% home_html = "<br>" + html_text %>
+     <% home_id = house.id %>
+     <% next %>
+     <% end %>
      <%= "{ coords: [#{house.latitude}, #{house.longitude} ], ".html_safe %>
      <%= " html: '#{html_text}', ".html_safe %>
      <%= " id: #{house.id}, ".html_safe %>
@@ -80,8 +89,8 @@
    // add current location marker
    marker_defs.push(
      <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
-     <%= " html: '#{t('Your location')}', ".html_safe %>
-     <%= " id: -1, ".html_safe %>
+     <%= " html: '<strong>#{t('Your location')}</strong><br>#{home_html}', ".html_safe %>
+     <%= " id: #{home_id}, ".html_safe %>
      <%= " color: 'blue' }".html_safe %>
    );
    
