@@ -2,7 +2,8 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO artikel hervorheben, wenn Sie im eigenen haus sind
+*** DONE artikel hervorheben, wenn Sie im eigenen haus sind
+    CLOSED: [2016-11-05 Sa 17:14]
 *** TODO current_location marker überarbeiten
 *** TODO an einem Haus überdeckt der current_location marker den Haus marker
     irgendwie zusammenführen

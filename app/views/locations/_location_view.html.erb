@@ -23,7 +23,11 @@
     <b><%= t('articles') %>:</b> <%= link_to location.articles.count, articles_location_path(location) %>
     <% if @current_location %>
       <br>
-      <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
+      <% if defined?(home) && home %>
+        <span class="glyphicon glyphicon-home" data-toggle="tooltip" title="Bei Dir im Haus"></span>
+      <% else %>
+        <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
+      <% end %>
     <% end %>
     <% if defined? owner %>
       <br>

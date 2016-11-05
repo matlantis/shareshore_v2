@@ -36,10 +36,10 @@
 
     <% @articles.each do |article| %>
       <% article_div_id = "article_" + article.id.to_s + "_div" %>
-
-      <div class="article" id="<%= article_div_id %>" data-article-id="<%= article.id.to_s %>" data-house-id="<%= article.location.house_id %>">
+      <% home = article.location.house == @house_center %>
+      <div class="article<%= " article_house" if home %>" id="<%= article_div_id %>" data-article-id="<%= article.id.to_s %>" data-house-id="<%= article.location.house_id %>">
         <div class="article_view">
-          <%= render 'article_view', article: article, edit: false %>
+          <%= render 'article_view', article: article, edit: false, home: home  %>
         </div>        
       </div>
     <% end %>
@@ -112,6 +112,10 @@
    $(".location_marker").on('mouseenter', onArticleMouseEnter);
    $(".location_marker").on('mouseleave', onArticleMouseLeave);
 
+   // trigger tooltips
+   $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();   
+   });
  });
 
 

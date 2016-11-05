@@ -39,10 +39,11 @@
 
     <% @locations.each do |location| %>
       <% location_div_id = "location_" + location.id.to_s + "_div" %>
-
+      <% home = location.house == @house_center %>
+      
       <div class="location" id="<%= location_div_id %>" data-house-id="<%= location.house_id %>">
         <div class="location_view">
-          <%= render 'location_view', location: location %>
+          <%= render 'location_view', location: location, home: home%>
         </div>        
       </div>
     <% end %>

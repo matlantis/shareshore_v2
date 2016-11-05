@@ -4,6 +4,13 @@
   <div class="col-sm-3">
     <%= article_marker_modal article %>
     <br>
+    <% if defined?(home) && home %>
+      <span class="glyphicon glyphicon-home" data-toggle="tooltip" title="Bei Dir im Haus"></span>
+    <% end %>
+    <% if article.gratis %>
+      <span class="glyphicon glyphicon-ok" data-toggle="tooltip" title="Gratis"></span>
+    <% end %>
+    <br>
     <% if article.picture.present? %>
       <a href="#<%= article_show_id%>" data-toggle="modal">
         <%= image_tag(article.picture_url(:thumb)) %>
