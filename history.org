@@ -2,29 +2,15 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO artikel hervorheben, wenn Sie im eigenen haus sind
+*** TODO current_location marker überarbeiten
+*** TODO an einem Haus überdeckt der current_location marker den Haus marker
+    irgendwie zusammenführen
 *** TODO falls ergebnis liste leer, entsprechenden text anzeigen
     vorkommen:
 *** TODO löse das problem falsch aufgelöster locations
     nutzer markieren ihr haus manuell
 *** TODO session[address] bei login mit erster location füllen
-*** TODO häuser
-    - repräsentation
-      model house has_many locations, location belongs_to house
-    - kriterium
-      wichtig hausnr!
-      geolocation, kann aber abweichungen geben, je nach verwendetem dienst (wir nehmen aber nur einen)
-      straße: unterschiedliche schreibweisen, nicht so gut
-      ==> geolocation && hausnr (kein eigenes feld!), eventuell ist das nicht ausreichend, wenn in kleinen ortschaften die häuser nicht korrekt identifiziert sind (dann haben wir ohnehin ein problem)
-      ==> eventuell nur addressdaten verwenden (dann müssen die nutzer halt alle ein korrektes format verwenden), einige standardersetzungen zulassen:
-      - str. <-> straße <-> strasse <-> strase
-    - zeitpunkt der zuordnung
-      on location creation
-    - auswirkungen und views
-      index#articles und index#locations jeweils panel mit eigenem haus, bzw. artikel und nutzer speziell markieren
-      location#show link auf eigenes haus (house#show)
-      kartenmarkierungen (house popups, statt location popups)
-      
-    
 *** TODO wie ist die identität der nutzer geschützt?
     für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
 *** TODO site ohne flash testen
@@ -82,6 +68,25 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE houses in suchergebnissen anzeigen
+    CLOSED: [2016-11-05 Sa 16:44]
+*** DONE häuser
+    CLOSED: [2016-11-05 Sa 14:42]
+    - repräsentation
+      model house has_many locations, location belongs_to house
+    - kriterium
+      wichtig hausnr!
+      geolocation, kann aber abweichungen geben, je nach verwendetem dienst (wir nehmen aber nur einen)
+      straße: unterschiedliche schreibweisen, nicht so gut
+      ==> geolocation && hausnr (kein eigenes feld!), eventuell ist das nicht ausreichend, wenn in kleinen ortschaften die häuser nicht korrekt identifiziert sind (dann haben wir ohnehin ein problem)
+      ==> eventuell nur addressdaten verwenden (dann müssen die nutzer halt alle ein korrektes format verwenden), einige standardersetzungen zulassen:
+      - str. <-> straße <-> strasse <-> strase
+    - zeitpunkt der zuordnung
+      on location creation
+    - auswirkungen und views
+      index#articles und index#locations jeweils panel mit eigenem haus, bzw. artikel und nutzer speziell markieren
+      location#show link auf eigenes haus (house#show)
+      kartenmarkierungen (house popups, statt location popups)
 *** DONE get rid of unnecessary article attributes
     CLOSED: [2016-11-04 Fr 13:40]
     like value, deposit

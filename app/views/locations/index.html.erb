@@ -1,6 +1,20 @@
+<% @title = t('Users nearby') %>
+
 <%= render 'layouts/search', form_path: locations_path %>
 
-<% @title = t('Users nearby') %>
+<% if @house_center %>
+  <div class="house">
+    <div class="row">
+      <div class="col-xs-12">
+        Im Haus <%= house_marker(@house_center) %>:
+        <% @house_center.locations.each do |location| %>
+          <%= user_marker(location.user) %>
+          (<%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %>)
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="col-xs-12">

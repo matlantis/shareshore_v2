@@ -43,6 +43,13 @@ class LocationsController < ApplicationController
     # provide houses to be drawn by the map
     @houses = @locations.collect { |l| l.house }.uniq
 
+    # determine if there is a house at given location
+    @house_center
+    houses_center = House.near(@current_location, 0.01)
+    if houses_center.length > 0
+      @house_center = houses_center.first
+    end
+
     # paginate
     @locations = @locations.paginate(page: params[:page], per_page: 20)
   end

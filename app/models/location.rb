@@ -44,7 +44,7 @@ class Location < ActiveRecord::Base
     #norm_country = normalize_country(country)
     #norm_street_and_no = normalize_street_and_no(street_and_no)
     #houses = House.where("LOWER(city) = ? AND postcode = ? AND country = ? AND street_and_no = ?", city, postcode, country, street_and_no)
-    houses = House.near(self, 0.01) # should mean 5 meters
+    houses = House.near(self, 0.01) # should mean 10 meters
     if ( houses.length > 0)
       self.house = houses.first
     else # or create a new house with a normalized address
