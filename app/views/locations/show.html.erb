@@ -61,6 +61,10 @@
     </div>
   </div>
 
+  <div class="row">
+    Es gibt <%= @location.house.locations.count %> Nutzer in diesem <%= link_to t('house'), @location.house %>.
+  </div>
+
   <div class="row hidden">
     <div class="col-xs-12 text-right">
       <%= link_to t('View on OpenStreetMap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank" %>
@@ -100,7 +104,8 @@
 
    // add location marker
    marker_defs.push(
-     <% html_text = escape_javascript(render 'articles/popup', location: @location, articles: [] ) %>
+     <% articles = Article.joins(:location).where("locations.house_id = ?", @location.house_id) %>
+     <% html_text = escape_javascript(render 'articles/popup', house: @location.house, articles: articles ) %>
      <%= "{ coords: [#{@location.latitude}, #{@location.longitude} ], ".html_safe %>
      <%= " html: '#{html_text}', ".html_safe %>
      <%= " id: -1, ".html_safe %>

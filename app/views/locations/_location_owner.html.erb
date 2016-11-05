@@ -1,7 +1,7 @@
 <% location_div_id = "location_" + location.id.to_s + "_div" %>
 <div class="location" id="<%= location_div_id %>">
   <div class="location_view">
-    <%= render 'location_view', location: location %>
+    <%= render 'location_view', location: location, owner: true %>
   </div>
 
   <div class="row location_edit">

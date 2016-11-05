@@ -1,5 +1,5 @@
 <div class="row">
-  <% if not (current_user and current_user.id == location.user.id) %>
+  <% unless defined? owner %>
     <div class="col-xs-4">
       <b><%= t('user') %>:</b> <%= link_to location.user.nickname, user_path(location.user) %>
       <br>
@@ -25,13 +25,13 @@
       <br>
       <b><%= t('distance') %>:</b> <%= "%.1f km" % location.distance_from( @current_location ) %>
     <% end %>
-    <% if (current_user && current_user.id == location.user.id) %>
+    <% if defined? owner %>
       <br>
       <%= location_marker location, text: t("view on map") %>
     <% end %>
   </div>
 
-  <% if current_user && current_user.id == location.user.id %>
+  <% if defined?(owner) && current_user && current_user.id == location.user.id %>
     <div class="col-xs-4 text-right">
       <%= link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id } ) %>
       <%= link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true) %>

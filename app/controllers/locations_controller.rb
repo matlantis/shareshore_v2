@@ -40,6 +40,9 @@ class LocationsController < ApplicationController
     @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
     @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
 
+    # provide houses to be drawn by the map
+    @houses = @locations.collect { |l| l.house }.uniq
+
     # paginate
     @locations = @locations.paginate(page: params[:page], per_page: 20)
   end

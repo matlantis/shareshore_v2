@@ -155,6 +155,8 @@ de:
   View on OpenStreetMap: 'Auf OpenStreetMap ansehen (im neuen Fenster)'
   Your location: "Dein Standort"
   view on map: "Auf Karte anzeigen"
+  house: "Haus"
+  location: "Standort"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

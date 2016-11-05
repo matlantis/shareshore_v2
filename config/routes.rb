@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :houses, only: [:show]
+
   resources :stockitems
 
   devise_for :users, controllers: { registrations: "users/registrations" }

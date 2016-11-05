@@ -26,7 +26,7 @@
     <% @locations.each do |location| %>
       <% location_div_id = "location_" + location.id.to_s + "_div" %>
 
-      <div class="location" id="<%= location_div_id %>" data-location-id="<%= location.id %>">
+      <div class="location" id="<%= location_div_id %>" data-house-id="<%= location.house_id %>">
         <div class="location_view">
           <%= render 'location_view', location: location %>
         </div>        
@@ -50,13 +50,14 @@
    // build up bounds vector
    bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
 
-   // add location markers
+   // add house markers
    marker_defs = [
-     <% @locations.each do |location| %>
-     <% html_text = escape_javascript(render 'articles/popup', location: location, articles: [] ) %>
-     <%= "{ coords: [#{location.latitude}, #{location.longitude} ], ".html_safe %>
+     <% @houses.each do |house| %>
+     <% articles = Article.joins(:location).where("locations.house_id = ?", house.id) %>
+     <% html_text = escape_javascript(render 'articles/popup', house: house, articles: articles ) %>
+     <%= "{ coords: [#{house.latitude}, #{house.longitude} ], ".html_safe %>
      <%= " html: '#{html_text}', ".html_safe %>
-     <%= " id: #{location.id}, ".html_safe %>
+     <%= " id: #{house.id}, ".html_safe %>
      <%= " color: 'red' },".html_safe %>
      <% end %>        
    ];
@@ -75,11 +76,11 @@
    
    // article hover event handler
    var onArticleMouseEnter = function(e) {
-     // search the marker with the correct location index
+     // search the marker with the correct house index
      for (i = 0; i< markers.length; i++) {
-       //if ( markers[i].index == $(this).attr("data-location-id") ) {
-       var location_id = $(this).parentsUntil(".location").parent().attr("data-location-id")
-       if ( markers[i].index == location_id ) {       
+       //if ( markers[i].index == $(this).attr("data-house-id") ) {
+       var house_id = $(this).parentsUntil(".location").parent().attr("data-house-id")
+       if ( markers[i].index == house_id ) {       
          markers[i].openPopup();
          break;
        }
@@ -88,10 +89,10 @@
 
    // article hover event handler
    var onArticleMouseLeave = function(e) {
-     // search the marker with the correct location index
+     // search the marker with the correct house index
      for (i = 0; i< markers.length; i++) {
-       var location_id = $(this).parentsUntil(".location").parent().attr("data-location-id")
-       if ( markers[i].index == location_id ) {
+       var house_id = $(this).parentsUntil(".location").parent().attr("data-house-id")
+       if ( markers[i].index == house_id ) {
          markers[i].closePopup();
          break;
        }

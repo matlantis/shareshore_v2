@@ -53,9 +53,13 @@ class ArticlesController < ApplicationController
       @articles = @articles.search(session[:pattern]) # no sorting is done here
     end
 
-    # provide locations to be drawn by the map
-    @locations = @articles.collect { |a| a.location}.uniq
+    # # provide locations to be drawn by the map
+    # @locations = @articles.collect { |a| a.location}.uniq
 
+    # provide houses to be drawn by the map
+    @houses = @articles.collect { |a| a.location.house }.uniq
+
+    
     # paginate
     @articles = @articles.paginate(page: params[:page], per_page: 100)
   end

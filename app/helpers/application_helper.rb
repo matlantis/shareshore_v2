@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def location_marker(location, text: nil)
     zoom = 18
-    link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
+    #link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
     if not text
       text = location.shortaddress
     end
@@ -36,6 +36,23 @@ module ApplicationHelper
     end
   end
 
+  def house_marker(house, text: nil)
+    zoom = 18
+    #link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
+    if not text
+      text = house.shortaddress
+    end
+    capture do
+      content_tag :span, class: "house_marker" do
+        link_to house do
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-home"
+          txt2 = content_tag :strong, text
+          txt1.concat(" ").concat(txt2)
+        end
+      end
+    end
+  end
+  
   def rate_marker(article)
     capture do
       content_tag :span, class: "rate_marker" do
