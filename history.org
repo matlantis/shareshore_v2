@@ -2,14 +2,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO mehr map js in partial verschieben
-*** DONE artikel hervorheben, wenn Sie im eigenen haus sind
-    CLOSED: [2016-11-05 Sa 17:14]
-*** DONE current_location marker überarbeiten
-    CLOSED: [2016-11-05 Sa 17:36]
-*** DONE an einem Haus überdeckt der current_location marker den Haus marker
-    CLOSED: [2016-11-05 Sa 17:36]
-    irgendwie zusammenführen
 *** TODO falls ergebnis liste leer, entsprechenden text anzeigen
     vorkommen:
 *** TODO löse das problem falsch aufgelöster locations
@@ -72,6 +64,15 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE mehr map js in partial verschieben
+    CLOSED: [2016-11-05 Sa 17:58]
+*** DONE artikel hervorheben, wenn Sie im eigenen haus sind
+    CLOSED: [2016-11-05 Sa 17:14]
+*** DONE current_location marker überarbeiten
+    CLOSED: [2016-11-05 Sa 17:36]
+*** DONE an einem Haus überdeckt der current_location marker den Haus marker
+    CLOSED: [2016-11-05 Sa 17:36]
+    irgendwie zusammenführen
 *** DONE houses in suchergebnissen anzeigen
     CLOSED: [2016-11-05 Sa 16:44]
 *** DONE häuser
