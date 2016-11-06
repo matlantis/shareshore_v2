@@ -2,19 +2,11 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO ein maßstab auf der karte wär tolle
-*** DONE article show braucht ne karte
-    CLOSED: [2016-11-06 So 14:04]
-*** TODO die map marker sind nicht korrekt zentriert
+*** DONE ein maßstab auf der karte wär tolle
+    CLOSED: [2016-11-06 So 14:11]
+*** DONE die map marker sind nicht korrekt zentriert
+    CLOSED: [2016-11-06 So 14:09]
 *** TODO cookie hinweis
-*** DONE falls ergebnis liste leer, entsprechenden text anzeigen
-    CLOSED: [2016-11-06 So 13:39]
-    vorkommen:
-    - [X] artikel index
-    - [X] location index
-    - [?] popup
-    - [X] index owner articles/locations
-    - [X] mal durchsuchen
 
 *** TODO löse das problem falsch aufgelöster locations
     nutzer markieren ihr haus manuell
@@ -76,6 +68,16 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE article show braucht ne karte
+    CLOSED: [2016-11-06 So 14:04]
+*** DONE falls ergebnis liste leer, entsprechenden text anzeigen
+    CLOSED: [2016-11-06 So 13:39]
+    vorkommen:
+    - [X] artikel index
+    - [X] location index
+    - [?] popup
+    - [X] index owner articles/locations
+    - [X] mal durchsuchen
 *** DONE mehr map js in partial verschieben
     CLOSED: [2016-11-05 Sa 17:58]
 *** DONE artikel hervorheben, wenn Sie im eigenen haus sind
