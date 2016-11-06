@@ -1,4 +1,4 @@
-<% @title = t("Articles at", location: @location.shortaddress) + " " + t("for") + " " + @location.user.nickname %>
+<% @title = t("Articles of User", user: @location.user.nickname) %>
 
 <div class="col-xs-12 col-sm-3 col-sm-push-9">
   <%= tipp_panel title: "Hilfe" do %>
@@ -8,6 +8,15 @@
 
 <div class="col-xs-12 col-sm-9 col-sm-pull-3">
   <%= content_tag :h3, @title %>
+
+  <%= user_marker(@location.user) %><br>
+  <%= location_marker(@location) %><br><br>
+  
+  <% if @articles.empty? %>
+    <div class="empty-list">
+      <%= t('No articles at this location') %>
+    </div>
+  <% end %>
 
   <% @articles.each do |article| %>
     <% article_div_id = "article_" + article.id.to_s + "_div" %>

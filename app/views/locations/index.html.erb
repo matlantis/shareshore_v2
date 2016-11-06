@@ -37,6 +37,12 @@
 
   <div class="col-xs-12 col-md-8">
 
+    <% if @locations.empty? %>
+      <div class="empty-list">
+        <%= t('No users found') %>
+      </div>
+    <% end %>
+
     <% @locations.each do |location| %>
       <% location_div_id = "location_" + location.id.to_s + "_div" %>
       <% home = location.house == @house_center %>

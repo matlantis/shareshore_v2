@@ -34,6 +34,12 @@
 
   <div class="col-xs-12 col-md-8">
 
+    <% if @articles.empty? %>
+      <div class="empty-list">
+        <%= t('No articles found') %>
+      </div>
+    <% end %>
+
     <% @articles.each do |article| %>
       <% article_div_id = "article_" + article.id.to_s + "_div" %>
       <% home = article.location.house == @house_center %>

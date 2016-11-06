@@ -157,6 +157,13 @@ de:
   view on map: "Auf Karte anzeigen"
   house: "Haus"
   location: "Standort"
+  No articles found: "Leider keine Artikel gefunden"
+  No locations found: "Leider keine Leute gefunden"
+  You do not have any articles: "Du hast keine Artikel. Erstelle einen!"
+  You do not have any locations: "Du hast keine Standorte. Erstelle einen!"
+  No articles at this location: "Keine Artikel an diesem Standort"
+  Articles of User: "Artikel von %{user}"
+  None_m: "Keine"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

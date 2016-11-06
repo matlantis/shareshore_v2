@@ -2,8 +2,18 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO falls ergebnis liste leer, entsprechenden text anzeigen
+*** TODO article show braucht ne karte
+*** TODO die map marker sind nicht korrekt zentriert
+*** TODO cookie hinweis
+*** DONE falls ergebnis liste leer, entsprechenden text anzeigen
+    CLOSED: [2016-11-06 So 13:39]
     vorkommen:
+    - [X] artikel index
+    - [X] location index
+    - [?] popup
+    - [X] index owner articles/locations
+    - [X] mal durchsuchen
+
 *** TODO löse das problem falsch aufgelöster locations
     nutzer markieren ihr haus manuell
 *** TODO session[address] bei login mit erster location füllen

@@ -49,6 +49,10 @@
       <strong><%= t('Locations') %>:</strong>
     </div>
     <div class="col-xs-10">
+      <% if @user.locations.empty? %>
+        <%= t('None_m') %>
+      <% end %>
+
       <% @user.locations.each do |location| %>
         <%= location_marker location %>, <%= link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location) %><br>
       <% end %>
