@@ -60,7 +60,7 @@
  };
  
  $(document).ready(function() {
-   <%= render 'articles/map.js.erb', articles: @articles, formats: [:js] %>
+   <%= render 'articles/map_index.js.erb', articles: @articles, formats: [:js] %>
    
    // article hover event handler
    var onArticleMouseEnter = function(e) {

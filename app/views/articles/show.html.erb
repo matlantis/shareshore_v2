@@ -10,4 +10,22 @@
 
   <%= render 'show', article: @article %>
 
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="mapid" style="width: -1; height: 400px;"></div>
+    </div>
+  </div>
+
 </div>
+
+<script type="text/javascript">
+ onMapClick = function(e) {
+   console.log("You clicked the marker " + e.target.index);
+ };
+ 
+ $(document).ready(function() {
+   <%= render 'articles/map_show.js.erb', location: @article.location, formats: [:js] %>
+ });
+
+
+</script>

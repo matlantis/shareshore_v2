@@ -1,17 +1,33 @@
 <div class="row">
 
   <div class="col-xs-12">
-    <% if article.picture.present? %>
-      <%= image_tag(article.picture_url, class: "img-responsive") %>
-      <br>
-    <% end %>
-    <%= rate_marker(article) %>
-    <br>
-    <%= location_marker article.location %>
-    <% if @current_location %>
-      <br>
-      <b><%= t('distance') %>:</b> <%= "%.1f km" % article.location.distance_from( @current_location ) %>
-    <% end %>
+    <div class="row">
+      <div class="col-xs-12">
+        <% if article.picture.present? %>
+          <%= image_tag(article.picture_url, class: "img-responsive") %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-9">
+        <%= rate_marker(article) %>
+        <br>
+        <%= location_marker article.location %>
+        <% if @current_location %>
+          <br>
+          <b><%= t('distance') %>:</b> <%= "%.1f km" % article.location.distance_from( @current_location ) %>
+        <% end %>
+      </div>
+      <div class="col-xs-3 text-right">
+        <% if defined?(home) && home %>
+          <span class="glyphicon glyphicon-home" data-toggle="tooltip" title="Bei Dir im Haus"></span>
+        <% end %>
+        <% if article.gratis %>
+          <span class="glyphicon glyphicon-ok" data-toggle="tooltip" title="Gratis"></span>
+        <% end %>
+      </div>
+    </div>
 
     <% unless article.details == "" %>
       <br>
@@ -22,23 +38,25 @@
       <% #link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } ) %>
       <% #link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true) %>
     <% else %>
-      <h4><%= t('contact info') %></h4>
-      <%= user_marker article.user %>
-      <br>
-      <b><%= t('name') %>:</b> <%= article.user.fullname %>
-      <% if article.user.showemail %>
-        <% if current_user %>
-          <% subject = t("mail.article_request_username", user: current_user.nickname, article: article.title) %>
-        <% else %>
-          <% subject = t("mail.article_request_anonymous", article: article.title) %>
+      <div class="contact_info">
+        <h4><%= t('contact info') %></h4>
+        <%= user_marker article.user %>
+        <br>
+        <b><%= t('name') %>:</b> <%= article.user.fullname %>
+        <% if article.user.showemail %>
+          <% if current_user %>
+            <% subject = t("mail.article_request_username", user: current_user.nickname, article: article.title) %>
+          <% else %>
+            <% subject = t("mail.article_request_anonymous", article: article.title) %>
+          <% end %>
+          <br>
+          <b><%= t('email')%>:</b> <%= mail_to article.user.email, article.user.email, subject: subject %>
         <% end %>
-        <br>
-        <b><%= t('email')%>:</b> <%= mail_to article.user.email, article.user.email, subject: subject %>
-      <% end %>
-      <% if article.user.showphone %>
-        <br>
-        <b><%= t('phone')%>:</b> <%= article.user.phoneno %>
-      <% end %>
+        <% if article.user.showphone %>
+          <br>
+          <b><%= t('phone')%>:</b> <%= article.user.phoneno %>
+        <% end %>
+      </div>
     <% end %>
     <br>
   </div>

@@ -57,8 +57,9 @@ module ApplicationHelper
     capture do
       content_tag :span, class: "rate_marker" do
         if article.gratis
-          txt1 = content_tag :strong, t("Gratis")
-          txt1.concat(content_tag :span, "", class: ["glyphicon","glyphicon-ok"])
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
+          txt2 = content_tag :strong, t("Gratis")
+          txt1.concat(" ").concat(txt2)
         else
           txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
           txt1.concat(" ").concat(article.rate)

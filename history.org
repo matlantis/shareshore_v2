@@ -2,7 +2,9 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO article show braucht ne karte
+*** TODO ein maßstab auf der karte wär tolle
+*** DONE article show braucht ne karte
+    CLOSED: [2016-11-06 So 14:04]
 *** TODO die map marker sind nicht korrekt zentriert
 *** TODO cookie hinweis
 *** DONE falls ergebnis liste leer, entsprechenden text anzeigen
