@@ -29,11 +29,6 @@ Rails.application.routes.draw do
     get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
     put "users/basic", action: :update_basic, controller: 'users/registrations'
     
-    #get "users/locations", action: :edit_locations, controller: 'users/registrations', as: 'edit_user_locations'
-    #get "users/articles", action: :edit_articles, controller: 'users/registrations', as: 'edit_user_articles'
-    #put "users/articles", action: :update_articles, controller: 'users/registrations', as: 'user_articles'
-    #put "users/locations", action: :update_locations, controller: 'users/registrations', as: 'user_locations'
-    
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 

@@ -6,6 +6,9 @@
 *** TODO cookie hinweis
     https://github.com/infinum/cookies_eu
 *** TODO session[address] bei login mit erster location füllen
+    this means clean up devise stuff
+    - clean the routes
+    - generate devise controllers (already edited registrations controller - review)
 *** TODO wie ist die identität der nutzer geschützt?
     für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
 *** TODO site ohne flash testen

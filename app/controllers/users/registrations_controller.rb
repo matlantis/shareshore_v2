@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [:create_articles, :edit_guidepost, :update_guidepost, :edit_basic, :edit_locations, :edit_articles, :edit, :update_locations, :update_articles, :new_articles, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [ :edit_guidepost, :update_guidepost, :edit_basic, :edit, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -14,86 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash[:alert] = "Unknown User"
       redirect_to "/"
     end
-  end
-  
-  def edit_locations
-    @locations = current_user.locations
-
-    #@locations.build
-    #@locations = @locations.sort_by {|o| o.created_at.to_s }
-
-    @locations = @locations.order("created_at ASC")
-    @locations = @locations.paginate(:page => params[:page], per_page: 5)
-    
-    render :edit_locations
-  end
-
-  def edit_articles
-    @rooms = current_user.articles.collect do |a|
-      if a.stockitem
-        a.stockitem.room
-      else
-        'own'
-      end
-    end
-    @rooms.uniq!
-
-    @articles = {}
-
-    @rooms.each do |room|
-      @articles[room] = current_user.articles.includes(:stockitem).where(stockitems: {room: room})
-    end
-    
-    @articles['own'] = current_user.articles.where(stockitem_id: nil)
-
-    render :edit_articles
-  end
-
-  def new_articles
-    @rooms = Stockitem.all.collect {|t| t.room }.uniq.sort
-    @articles = {}
-    if params.has_key? 'room'
-      @articles[params['room']] = []
-      stockitems = Stockitem.where("room = ?", params['room']).order("title: :asc")
-      stockitems.each do |t|
-        @articles[params['room']].push Article.new.fill_from_stockitem t
-      end
-    else   
-      @rooms.each do |room|
-        @articles[room] = []
-        stockitems = Stockitem.where("room = ?", room).order(title: :asc)
-        stockitems.each do |t|
-          @articles[room].push Article.new.fill_from_stockitem t
-        end
-      end
-    end
-
-    @articles['own'] = []
-    # a = Article.new({ rate: '1€/tag', quality: 3})
-    # @articles['new'].push(a)    
-    
-    render :new_articles_b
-  end
-
-  def create_article
-    p = params.require(:article).permit( :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id, :gratis )
-
-    # @room = Stockitem.find_by_id(p[:stockitem_id]).room # for the js
-    @stockitem_id = p[:stockitem_id]
-    
-    article = current_user.articles.new(p)
-    success = article.save
-
-    respond_to do |format|    
-      if success
-        format.html { redirect_to new_user_articles_path, success: t(article.title + ' was successfully created') }
-        format.js
-      else
-        flash[:alert] = t('Article needs a review')
-        format.html { render :new_articles }
-      end
-    end
-          
   end
   
 # GET /resource/sign_up
@@ -117,77 +37,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @location = Location.new
   end
   
-  # PUT /resource
-  def update_articles
-    p = params.require(:user).permit(articles_attributes: [:title, :rate, :value_eur, :location_id, :id ])
-
-    # this updates only the articles not the basic informations
-    respond_to do |format|
-      if current_user.update(p)
-        flash[:success] = t('Articles were successfully updated')
-      end
-      format.html { redirect_to edit_user_articles_path }
-    end
-  end
-
-  def create_articles
-    p = params.require(:user).permit(articles_attributes: [:to_be_created, :title, :details, :quality, :rate, :value_eur, :location_id, :id, :stockitem_id ])
-
-    success = true
-
-    @articles = {}
-    @rooms = []
-    @articles['own'] = []
-
-    count = 0
-    p['articles_attributes'].each do |a|
-      if a[1][:to_be_created] != "0"
-        b = current_user.articles.new(a[1])
-        success_local = b.save
-        success = success && success_local
-        if not success_local
-          @articles['own'].push(b)
-        else
-          count += 1
-        end
-      end
-    end
-
-    
-    if not success
-      # rollback # TODO: 
-    end
-    
-    # this updates only the articles not the basic informations
-    respond_to do |format|
-      if success
-        flash[:success] = t(count.to_s + ' Articles were successfully created')
-        format.html { redirect_to new_user_articles_path }
-      else
-        flash[:alert] = t('Some Articles need a review')
-        format.html { render :new_articles }
-      end
-      
-    end
-  end
-
-  def update_locations
-    p = params.require(:user).permit(locations_attributes: [:street_and_no, :postcode, :city, :country, :id ])
-    success = current_user.update(p)
-
-    @locations = current_user.locations
-    @locations = @locations.order("created_at ASC")
-    @locations = @locations.paginate(:page => params[:page], per_page: 5)
-
-    # this updates only the locations not the basic informations
-    respond_to do |format|
-      if success
-        flash[:success] = t('Locations were successfully updated')
-      end
-      format.html { render :edit_locations }
-      #format.html { redirect_to edit_user_locations_path }
-    end
-  end
 
   # PUT /resource
   # We need to use a copy of the resource because we don't want to change
