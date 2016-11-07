@@ -1,2 +1,8 @@
 console.log('remove div: <%= @location_div_id %>');
+// remove the desired location div
 $('#<%= @location_div_id %>').remove();
+
+// show the empty-list div, if list is empty
+<% if @list_is_empty %>
+$(".empty-list").show(200);
+<% end %>

@@ -3,13 +3,8 @@
 * Shareshore V2 Todos
 ** Primär
 *** TODO locations validation: keine leeren felder um fehler zu vermeiden
-*** TODO leere liste hinweis bei interaktiven listen ein und ausblenden
-    index_owner views: bis her nur ausblenden realisiert
 *** TODO cookie hinweis
     https://github.com/infinum/cookies_eu
-*** DONE löse das problem falsch aufgelöster locations
-    CLOSED: [2016-11-07 Mo 16:45]
-    nutzer markieren ihr haus manuell
 *** TODO session[address] bei login mit erster location füllen
 *** TODO wie ist die identität der nutzer geschützt?
     für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
@@ -68,6 +63,12 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE leere liste hinweis bei interaktiven listen ein und ausblenden
+    CLOSED: [2016-11-07 Mo 19:04]
+    index_owner views: bis her nur ausblenden realisiert
+*** DONE löse das problem falsch aufgelöster locations
+    CLOSED: [2016-11-07 Mo 16:45]
+    nutzer markieren ihr haus manuell
 *** DONE ein maßstab auf der karte wär tolle
     CLOSED: [2016-11-06 So 14:11]
 *** DONE die map marker sind nicht korrekt zentriert

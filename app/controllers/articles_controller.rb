@@ -175,9 +175,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
-
     @article.destroy
+    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
+    @list_is_empty = current_user.articles.empty?
     respond_to do |format|
       format.html { redirect_to edit_user_articles_path, success: t('Article was successfully destroyed') }
       format.js {}

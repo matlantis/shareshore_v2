@@ -155,6 +155,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+    @list_is_empty = current_user.locations.empty?
     respond_to do |format|
       format.html { redirect_to edit_user_locations_path, success: t('Location was successfully destroyed') }
       format.js {}
