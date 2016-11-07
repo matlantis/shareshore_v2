@@ -135,7 +135,7 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to edit_user_registration_path, success: t('Location was successfully updated') }
+        format.html { render :show }
         format.json { render :show, status: :ok, location: @location }
         format.js { render 'update_success' }
       else
@@ -170,7 +170,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:street_and_no, :postcode, :city, :country)
+      params.require(:location).permit(:street_and_no, :postcode, :city, :country, :latitude, :longitude)
     end
 
     # use to verify the location really belongs to the current user

@@ -165,6 +165,12 @@ de:
   Articles of User: "Artikel von %{user}"
   None_m: "Keine"
   contact info: "Kontakt"
+  location on map is incorrect: "Der Standort auf der Karte ist nicht richtig?"
+  set manually: "Manuell festlegen"
+  click the map to set the correct location: "Klick auf die Karte, um den richtigen Standort zu markieren!"
+  drag the marker to the correct location und click on finish: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"
+  cancel: "Abbrechen"
+  finish: "Fertig"
   
   mail:
     user_request_username: "Shareshore Nutzeranfrage von %{user}"

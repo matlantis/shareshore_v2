@@ -31,6 +31,7 @@ class Location < ActiveRecord::Base
     self.longitude = nil
     self.latitude = nil
     geocode
+    print "geocoded location"
   end
 
   def normalize_city

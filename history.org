@@ -2,13 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** DONE ein maßstab auf der karte wär tolle
-    CLOSED: [2016-11-06 So 14:11]
-*** DONE die map marker sind nicht korrekt zentriert
-    CLOSED: [2016-11-06 So 14:09]
+*** TODO locations validation: keine leeren felder um fehler zu vermeiden
+*** TODO leere liste hinweis bei interaktiven listen ein und ausblenden
+    index_owner views: bis her nur ausblenden realisiert
 *** TODO cookie hinweis
-
-*** TODO löse das problem falsch aufgelöster locations
+    https://github.com/infinum/cookies_eu
+*** DONE löse das problem falsch aufgelöster locations
+    CLOSED: [2016-11-07 Mo 16:45]
     nutzer markieren ihr haus manuell
 *** TODO session[address] bei login mit erster location füllen
 *** TODO wie ist die identität der nutzer geschützt?
@@ -68,6 +68,10 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE ein maßstab auf der karte wär tolle
+    CLOSED: [2016-11-06 So 14:11]
+*** DONE die map marker sind nicht korrekt zentriert
+    CLOSED: [2016-11-06 So 14:09]
 *** DONE article show braucht ne karte
     CLOSED: [2016-11-06 So 14:04]
 *** DONE falls ergebnis liste leer, entsprechenden text anzeigen

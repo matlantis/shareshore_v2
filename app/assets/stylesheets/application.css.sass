@@ -17,6 +17,12 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+.shareshore-panel
+  margin-bottom: 1rem
+  margin-top: 1rem
+  border: 1px dotted #ddd
+  padding: 0.6rem
+
 .alert-notice
   @extend .alert-success
 
@@ -25,7 +31,7 @@
 
 .empty-list
   @extend .text-center
-  margin-bottom: 1rem
-  margin-top: 1rem
-  border: 1px dotted #ddd
-  padding: 0.6rem
+  @extend .shareshore-panel
+
+.house
+  @extend .shareshore-panel

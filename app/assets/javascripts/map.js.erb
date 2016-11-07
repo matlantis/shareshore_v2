@@ -1,4 +1,6 @@
-drawmap_leaflet = function(mapid, marker_defs, bounds, zoom = 13) {
+var defaultZoom = 13;
+
+drawmap_leaflet = function(mapid, marker_defs, bounds, onMapClick = null, onMapDblClick = null, zoom = defaultZoom) {
   var map = L.map(mapid);
   if ( bounds.length == 1 )
     map.setView(bounds[0], zoom);
@@ -26,8 +28,18 @@ drawmap_leaflet = function(mapid, marker_defs, bounds, zoom = 13) {
     var marker = L.marker(marker_defs[i].coords, { icon: icon }).addTo(map);
     marker.bindPopup(marker_defs[i].html);
     marker.index = marker_defs[i].id;
-    marker.on('click', onMapClick);
     markers.push(marker);
+    //marker.on('click', onMarkerClick);
+    
+  }
+  
+  // events
+  if ( onMapClick ) {
+    map.on('click', onMapClick);
+  }
+  
+  if ( onMapDblClick ) {
+    map.on('dblclick', onMapDblClick)
   }
   return [map, markers];
 }
