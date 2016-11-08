@@ -22,11 +22,11 @@ Rails.application.routes.draw do
   get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
   
   devise_scope :user do
-    get "user/guidepost", action: :edit_guidepost, controller: 'users/registrations', as: 'edit_user_guidepost'
+    get "user/guidepost", action: :guidepost, controller: 'users/registrations', as: 'user_guidepost'
     put "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
     post "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
 
-    get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
+    #get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
     put "users/basic", action: :update_basic, controller: 'users/registrations'
     
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'

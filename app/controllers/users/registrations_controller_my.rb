@@ -1,13 +1,65 @@
+# coding: utf-8
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+  #before_filter :configure_permitted_parameters
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  prepend_before_action :authenticate_scope!, only: [ :guidepost, :update_guidepost, :edit, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [ :edit_guidepost, :update_guidepost, :edit_basic, :edit, :update, :destroy]
 
-  def guidepost
+  def show
+    @user = User.find_by(id: params[:id])
+    unless @user
+      flash[:alert] = "Unknown User"
+      redirect_to "/"
+    end
+  end
+  
+# GET /resource/sign_up
+  # def new
+  #   super
+  # end
+
+  # POST /resource
+  # def create
+  #   super
+  # end
+
+  # GET /resource/edit
+  # def edit
+  #   super
+  # end
+  def edit_basic
+  end
+
+  def edit_guidepost
     @location = Location.new
+  end
+  
+
+  # PUT /resource
+  # We need to use a copy of the resource because we don't want to change
+  # the current user in place.
+  def update_basic
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      if is_flashing_format?
+        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+          :update_needs_confirmation : :updated
+        set_flash_message :notice, flash_key
+      end
+      sign_in resource_name, resource, bypass: true
+      respond_with resource, location: edit_user_basic_path
+    else
+      clean_up_passwords resource
+      render :edit_basic
+      #respond_with resource, location: edit_user_basic_path
+    end
   end
 
   def update_guidepost
@@ -21,7 +73,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         if success
           flash[:success] = t('Successfully updated contact info')
         end
-        format.html { render :guidepost }
+        format.html { render :edit_guidepost }
         #format.html { redirect_to edit_user_locations_path }
       end
     elsif params.has_key? :location            
@@ -36,32 +88,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
             @location.errors.add(:base, t("address_unknown"))
           end
         end
-        format.html { render :guidepost }
+        format.html { render :edit_guidepost }
       end
     end
-    
+      
   end
-
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
   # DELETE /resource
   # def destroy
   #   super
@@ -89,13 +120,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-    # The path used after sign up.
   def after_sign_up_path_for(resource)
-    user_guidepost_path
+    edit_user_guidepost_path
   end
 
   # The path used after sign up for inactive accounts.

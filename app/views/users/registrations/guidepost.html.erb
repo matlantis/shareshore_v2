@@ -20,7 +20,7 @@
     <p>
       Deine Kontaktinformationen scheinen nicht vollständig zu sein. Aktualisiere sie jetzt!
     </p>
-    <%= bootstrap_form_for(resource, as: resource_name, url: edit_user_guidepost_path, html: { method: :put }, layout: :horizontal) do |f| %>
+    <%= bootstrap_form_for(resource, as: resource_name, url: user_guidepost_path, html: { method: :put }, layout: :horizontal) do |f| %>
       <%= devise_error_messages! %>
       <%= f.text_field :firstname %>
 
@@ -42,7 +42,7 @@
     <p>
       Du hast noch keinen Standort angegeben. Standorte sind Adressen, an denen du Dinge verleihst. Also deine Garage, dein Schrebergarten und natürlich dein Zuhause. Fang also am besten mit Deinem Wohnsitz an!
     </p>
-    <%= bootstrap_form_for @location, url: edit_user_guidepost_path, layout: :inline do |f| %>
+    <%= bootstrap_form_for @location, url: user_guidepost_path, layout: :inline do |f| %>
       <%= f.alert_message t("Please fix the errors below") %>
       <table class="table">
         <tbody>
