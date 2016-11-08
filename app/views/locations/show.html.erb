@@ -86,23 +86,26 @@
       <div id="mapid" style="width: -1; height: 400px;"></div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="shareshore-panel clearfix" id="set_location_remark">
-        <%= t('location on map is incorrect') %>
-        <%= link_to t("set manually"), "#", id: "set_location_link", class: "btn btn-default pull-right" %>
-      </div>
-      <div id="set_location_controls" class="shareshore-panel clearfix">
-        <div class="pull-right">
-          <%= link_to t("cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default" %>
-          <%= link_to t("finish"), "#", id: "finish_set_location_link", class: "btn btn-default" %>
+
+  <% if current_user == @location.user %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="shareshore-panel clearfix" id="set_location_remark">
+          <%= t('location on map is incorrect') %>
+          <%= link_to t("set manually"), "#", id: "set_location_link", class: "btn btn-default pull-right" %>
         </div>
-        <div>
-          <%= t('drag the marker to the correct location und click on finish') %>
+        <div id="set_location_controls" class="shareshore-panel clearfix">
+          <div class="pull-right">
+            <%= link_to t("cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default" %>
+            <%= link_to t("finish"), "#", id: "finish_set_location_link", class: "btn btn-default" %>
+          </div>
+          <div>
+            <%= t('drag the marker to the correct location und click on finish') %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <%= render 'layouts/modal_error' %>
@@ -168,6 +171,7 @@
        },
        success: function(data, status) {
          console.log("Success");
+         location.reload(false);
        }
      });
      // recenter map

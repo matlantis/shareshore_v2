@@ -71,10 +71,10 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    location = Location.new(street_and_no: session[:address])
-    if location.geocode
-      @current_location = location
-    end
+    #location = Location.new(street_and_no: session[:address])
+    #if location.geocode
+    #  @current_location = location
+    #end
   end
 
   # GET /locations/new
@@ -180,8 +180,7 @@ class LocationsController < ApplicationController
       # user is already authenticated
       if current_user.id != @location.user.id
         respond_to do |format|
-          flash[:danger] = t('You are not owner of this location')
-          format.html { redirect_to edit_user_registration_path }
+          format.html { redirect_to edit_user_registration_path, danger: t('You are not owner of this location') }
           format.json { head :no_content }
         end
       end

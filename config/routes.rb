@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
   resources :stockitems
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  # use own devise controllers
+  devise_for :users, controllers: {
+               confirmations: "users/confirmations",
+               #omniauth_callbacks: "users/omniauth_callbacks",
+               passwords: "users/passwords",
+               registrations: "users/registrations",
+               sessions: "users/sessions",
+               unlocks: "users/unlocks"
+             }
   
   root "pages#index"
 
