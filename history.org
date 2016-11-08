@@ -2,8 +2,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO location country prefill according to country
-*** TODO auto recognize postcode
 *** TODO cookie hinweis
     https://github.com/infinum/cookies_eu
 *** TODO wie ist die identität der nutzer geschützt?
@@ -63,6 +61,8 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE location country prefill
+    CLOSED: [2016-11-08 Di 15:51]
 *** DONE locations validation: keine leeren felder um fehler zu vermeiden
     CLOSED: [2016-11-08 Di 14:36]
 *** CANCELED nickname and email must be unique
@@ -635,3 +635,7 @@
 *** TODO gratis noch besser hervorheben
 *** TODO location index owner verweist auf article index location, besser auf article_index_owner mit location einschränkung
     
+*** TODO ip address lookup, better formating
+    prefill session['address']
+    prefill location.new
+*** TODO auto recognize postcode

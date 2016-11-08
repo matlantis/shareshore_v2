@@ -18,6 +18,12 @@ class Location < ActiveRecord::Base
   after_validation :joinhouse
   after_save :clean_houses
   after_destroy :clean_houses
+
+  after_initialize :init
+  
+  def init
+    self.country ||= "Deutschland"
+  end
   
   def fulladdress
     [street_and_no, postcode, city, country].reject {|e| e.blank?}.join(", ")
