@@ -6,6 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   prepend_before_action :authenticate_scope!, only: [ :guidepost, :update_guidepost, :edit, :update, :destroy]
 
+  def show
+    @user = User.find_by(id: params[:id])
+    unless @user
+      flash[:alert] = "Unknown User"
+      redirect_to "/"
+    end
+  end
+
   def guidepost
     @location = Location.new
   end

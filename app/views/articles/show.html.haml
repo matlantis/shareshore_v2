@@ -1,0 +1,18 @@
+- @title = @article.title
+.col-xs-12.col-sm-3.col-sm-push-9
+  = tipp_panel title: "Hilfe" do
+    Ein noch kleinerer Hilfe text.
+.col-xs-12.col-sm-9.col-sm-pull-3
+  %h3= @title
+  = render 'show', article: @article
+  .row
+    .col-xs-12
+      #mapid{:style => "width: -1; height: 400px;"}
+:javascript
+  onMapClick = function(e) {
+    console.log("You clicked the marker " + e.target.index);
+  };
+  
+  $(document).ready(function() {
+    #{render 'articles/map_show.js.erb', location: @article.location, formats: [:js]}
+  });

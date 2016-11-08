@@ -1,0 +1,74 @@
+- @title = t('Articles nearby')
+= render 'layouts/search', form_path: articles_path
+- if @house_center
+  .house
+    .row
+      .col-xs-12
+        Im Haus #{house_marker(@house_center)}:
+        - @house_center.locations.each do |location|
+          = user_marker(location.user)
+          (#{link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location)})
+.row
+  .col-xs-12
+    %ul.nav.nav-tabs
+      %li.active
+        = link_to(t('Articles nearby'), articles_path, class: "tab")
+      %li
+        = link_to(t('Users nearby'), locations_path, class: "tab")
+
+.row
+  .col-xs-12.col-md-4
+    #mapid{:style => "width: -1; height: 400px;"}
+  .col-xs-12.col-md-8
+    - if @articles.empty?
+      .empty-list
+        = t('No articles found')
+    - @articles.each do |article|
+      - article_div_id = "article_" + article.id.to_s + "_div"
+      - home = article.location.house == @house_center
+      %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+        .article_view
+          = render 'article_view', article: article, edit: false, home: home
+    - will_paginate @articles, renderer: BootstrapPagination::Rails
+:javascript
+  onMapClick = function(e) {
+    console.log("You clicked the marker " + e.target.index);
+  };
+  
+  $(document).ready(function() {
+    #{render 'articles/map_index.js.erb', articles: @articles, formats: [:js]}
+    
+    // article hover event handler
+    var onArticleMouseEnter = function(e) {
+      // search the marker with the correct house index
+      for (i = 0; i< markers.length; i++) {
+        //if ( markers[i].index == $(this).attr("data-house-id") ) {
+        var house_id = $(this).parentsUntil(".article").parent().attr("data-house-id")
+        if ( markers[i].index == house_id ) {       
+          markers[i].openPopup();
+          break;
+        }
+      }
+    }
+
+    // article hover event handler
+    var onArticleMouseLeave = function(e) {
+      // search the marker with the correct house index
+      for (i = 0; i< markers.length; i++) {
+        var house_id = $(this).parentsUntil(".article").parent().attr("data-house-id")
+        if ( markers[i].index == house_id ) {
+          markers[i].closePopup();
+          break;
+        }
+      }
+    }
+    
+    // bind the event handler
+    $(".location_marker").on('mouseenter', onArticleMouseEnter);
+    $(".location_marker").on('mouseleave', onArticleMouseLeave);
+
+    // trigger tooltips
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+  });

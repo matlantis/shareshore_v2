@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    - the_title = t('shareshore')
+    - if @title
+      - the_title += " - " + @title.to_s
+    %title= the_title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    - #stylesheet_link_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"
+    = stylesheet_link_tag "leaflet.css"
+    - #javascript_include_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"
+    = javascript_include_tag "leaflet.js"
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/navigation'
+    .container.main-content
+      .row
+        = render 'layouts/messages'
+      .row
+        %div
+          = yield
+    %footer.footer
+      .container
+        .pull-left
+          Martin Puttke 2016
+        .pull-right
+          %ul.list-inline
+            %li= link_to t("Terms_of_use"), '/pages/terms-of-use'
+            %li= link_to t('Contact'), '/pages/contact'
+            %li= link_to t('FAQ'), '/pages/faq'

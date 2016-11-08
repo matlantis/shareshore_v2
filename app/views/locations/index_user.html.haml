@@ -1,0 +1,60 @@
+%script{:src => "http://openlayers.org/api/OpenLayers.js", :type => "text/javascript"}
+- @title = t("Locations for") + " " + @user.nickname
+= content_tag :h2, @title
+.row
+  .col-xs-12.col-md-4
+    #mapid{:style => "width: -1; height: 400px;"}
+  .col-xs-12.col-md-8
+    - @locations.each do |location|
+      - location_div_id = "location_" + location.id.to_s + "_div"
+      .location{:id => location_div_id}
+        .location_view
+          = render 'location_view', location: location
+    - will_paginate @locations, renderer: BootstrapPagination::Rails
+- if @current_location
+  :javascript
+    var map = new OpenLayers.Map("mapid");
+    
+         var wms = new OpenLayers.Layer.WMS(
+    
+             "OpenLayers WMS",
+    
+             "http://labs.metacarta.com/wms/vmap0",
+             
+             {layers: 'basic'}
+             
+         );
+    
+         var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+         var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+         var zoom;
+         var position;
+         var center_position;
+    
+         map.addLayer(new OpenLayers.Layer.OSM());
+         
+         var bounds = new OpenLayers.Bounds();
+    
+         bounds.extend(new OpenLayers.LonLat( #{@bound_n[1]}, #{@bound_n[0]}).transform( fromProjection, toProjection));
+         bounds.extend(new OpenLayers.LonLat( #{@bound_s[1]}, #{@bound_s[0]}).transform( fromProjection, toProjection));
+         bounds.extend(new OpenLayers.LonLat( #{@bound_e[1]}, #{@bound_e[0]}).transform( fromProjection, toProjection));
+         bounds.extend(new OpenLayers.LonLat( #{@bound_w[1]}, #{@bound_w[0]}).transform( fromProjection, toProjection));
+    
+         center_position = new OpenLayers.LonLat( #{@current_location.longitude}, #{@current_location.latitude}).transform( fromProjection, toProjection);
+         /* bounds.extend(center_position);*/
+    
+    
+         var markers = new OpenLayers.Layer.Markers( "Markers" );
+         map.addLayer(markers);
+         markers.addMarker(new OpenLayers.Marker(center_position));
+         var iconsize = new OpenLayers.Size(21,25);
+         var icon = new OpenLayers.Icon('http://www.openlayers.org/api/img/marker-blue.png', iconsize);
+    
+    <haml_silent>      @locations.each do |location| 
+    </haml_silent><haml_block>     position = new OpenLayers.LonLat( #{location.longitude}, #{location.latitude}).transform( fromProjection, toProjection);
+         markers.addMarker(new OpenLayers.Marker(position, icon.clone()));
+         /* bounds.extend(position);*/
+    </haml_block>
+         zoom = map.getZoomForExtent(bounds);
+         console.log("zoom: " + zoom);
+         map.setCenter(center_position, zoom );

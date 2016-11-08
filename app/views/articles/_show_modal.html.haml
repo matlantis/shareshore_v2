@@ -1,0 +1,12 @@
+- article_img_id = "article_" + article.id.to_s + "_img"
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}
+        ×
+      %h4.modal-title
+        = article.title
+        = link_to article, class: "edit-remove" do
+          %span.glyphicon.glyphicon-new-window
+    .modal-body
+      = render 'articles/show', article: article, home: home

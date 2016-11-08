@@ -1,0 +1,34 @@
+.row
+  - article_show_id = "article_" + article.id.to_s + "_show"
+  .col-sm-3
+    = article_marker_modal article
+    %br/
+    - if defined?(home) && home
+      %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", :title => "Bei Dir im Haus"}
+    - if article.gratis
+      %span.glyphicon.glyphicon-ok{"data-toggle" => "tooltip", :title => "Gratis"}
+    %br/
+    - if article.picture.present?
+      %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
+        = image_tag(article.picture_url(:thumb))
+  .modal.fade{:id => article_show_id}
+    = render 'articles/show_modal', article: article, home: home
+  .col-sm-5
+    = rate_marker(article)
+    %br/
+    = location_marker article.location
+  .col-sm-4.text-right
+    - if edit && current_user && current_user.id == article.user.id
+      = link_to("", "", class: "glyphicon glyphicon-pencil article_cb edit-remove ", data: { article_id: article.id } )
+      = link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true)
+    - else
+      = user_marker article.user
+    %br/
+    - if @current_location
+      %strong
+        = t('distance')
+        \:
+      = "%.1f km" % article.location.distance_from( @current_location )
+.row
+  .col-xs-12
+    = truncate(article.details, length: 60)

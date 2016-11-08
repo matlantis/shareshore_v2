@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @stockitem.title
+%p
+  %strong Details hint:
+  = @stockitem.details_hint
+%p
+  %strong Rate:
+  = @stockitem.rate
+%p
+  %strong Picture:
+  = @stockitem.picture
+= link_to 'Edit', edit_stockitem_path(@stockitem)
+|
+= link_to 'Back', stockitems_path

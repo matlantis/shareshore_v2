@@ -1,0 +1,27 @@
+= form_for(@stockitem) do |f|
+  - if @stockitem.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@stockitem.errors.count, "error")
+        prohibited this stockitem from being saved:
+      %ul
+        - @stockitem.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :details_hint
+    %br/
+    = f.text_area :details_hint
+  .field
+    = f.label :rate
+    %br/
+    = f.text_field :rate
+  .field
+    = f.label :picture
+    %br/
+    = f.text_field :picture
+  .actions
+    = f.submit

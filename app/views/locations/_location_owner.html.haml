@@ -1,0 +1,7 @@
+- location_div_id = "location_" + location.id.to_s + "_div"
+.location{:id => location_div_id}
+  .location_view
+    = render 'location_view', location: location, owner: true
+  .row.location_edit
+    .col-xs-12
+      = render 'form', location: location

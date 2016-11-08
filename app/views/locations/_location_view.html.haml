@@ -1,0 +1,43 @@
+.row
+  - unless defined? owner
+    .col-xs-4
+      %b
+        = t('user')
+        \:
+      = link_to location.user.nickname, user_path(location.user)
+      %br/
+      %b
+        = t('name')
+        \:
+      = location.user.fullname
+      %br/
+      = location_marker location
+  .col-xs-4
+    = location.street_and_no
+    %br/
+    = location.postcode
+    %br/
+    = location.city
+    %br/
+    = location.country
+  .col-xs-4.text-right
+    %b
+      = t('articles')
+      \:
+    = link_to location.articles.count, articles_location_path(location)
+    - if @current_location
+      %br/
+      - if defined?(home) && home
+        %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", :title => "Bei Dir im Haus"}
+      - else
+        %b
+          = t('distance')
+          \:
+        = "%.1f km" % location.distance_from( @current_location )
+    - if defined? owner
+      %br/
+      = location_marker location, text: t("view on map")
+  - if defined?(owner) && current_user && current_user.id == location.user.id
+    .col-xs-4.text-right
+      = link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id } )
+      = link_to("", location, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove edit-remove", remote: true)

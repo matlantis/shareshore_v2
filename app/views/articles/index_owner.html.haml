@@ -1,0 +1,90 @@
+- @title = t('Your Articles')
+.col-xs-12.col-sm-3.col-sm-push-9
+  = tipp_panel title: "Hilfe" do
+    Ein noch kleinerer Hilfe text.
+.col-xs-12.col-sm-9.col-sm-pull-3
+  %h3= @title
+  %div{:class => "empty-list#{" to_hide" unless @articles.empty?}"}
+    = t('You do not have any articles')
+  - @articles.each do |article|
+    = render 'article_owner', article: article
+  .article_placeholder
+  #article_null_div.article
+    .row
+      .col-xs-12.text-right
+        = link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button" )
+    #article_new.row
+      .col-xs-12
+        = render 'form', article: Article.new
+= render 'layouts/modal_error'
+:javascript
+  $(document).ready(function(){
+    $(".article_edit").hide();
+
+    $("body").on("click", ".article_cb", function(e) {
+      e.preventDefault();
+      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit";
+      // console.log(thedivid);
+      $(thedivid).toggle(200);
+    });
+
+    $('body').on('click', '.article_gratis_cb', function() {
+      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
+      console.log(thedivid);
+      $(thedivid).toggle(200);
+    });
+
+    $('.article_rate_gratis').hide()
+
+    $("#article_new").hide();
+
+    $("body").on("click", "#article_new_button", function(e) {
+      e.preventDefault();
+      var thedivid = "#article_new";
+      console.log(thedivid);
+      $(thedivid).toggle(200);
+    });
+
+    $('body').on("ajax:success", function(e, data, status, xhr) {
+      console.log("Success");
+    });
+
+    $('body').on("ajax:error", function(e, xhr, status, error) {
+      console.log("Error");
+      $("#modal-error").modal("show");
+    });
+
+    $('.to_hide').hide();
+  })
+
+  var onCreateSuccess = function(article_id, stockitem_id, newText, formText, nstockitems) {
+    // remove the empty-list div, if existend
+    $(".empty-list").hide(200)
+    
+    console.log("within onCreateSuccess")
+    // replace the form content (so no need to reset the form, right?)
+    $("#new_article").replaceWith(formText)
+                 
+    // place the new content
+    $(".article_placeholder").before(newText);
+
+    // hide the rate field of the article form (just in case)
+    $('.article_rate_gratis').hide()
+    
+    // hide the new div
+    $("#article_new").hide(200);
+
+    // hide the generated edit div
+    var div_id = "#article_" + article_id + "_div .article_edit"
+    console.log(div_id);
+    $(div_id).hide(200);
+
+  };
+
+  var onCreateError = function(article_id, stockitem_id, newText, formText, nstockitems){
+    console.log("within onCreateError")
+
+    // replace the form content (so no need to reset the form, right?)
+    $("#new_article").replaceWith(formText)
+    
+  };

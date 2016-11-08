@@ -1,0 +1,56 @@
+.row
+  .col-xs-12
+    .row
+      .col-xs-12
+        - if article.picture.present?
+          = image_tag(article.picture_url, class: "img-responsive")
+          %br/
+    .row
+      .col-xs-9
+        = rate_marker(article)
+        %br/
+        = location_marker article.location
+        - if @current_location
+          %br/
+          %b
+            = t('distance')
+            \:
+          = "%.1f km" % article.location.distance_from( @current_location )
+      .col-xs-3.text-right
+        - if defined?(home) && home
+          %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", :title => "Bei Dir im Haus"}
+        - if article.gratis
+          %span.glyphicon.glyphicon-ok{"data-toggle" => "tooltip", :title => "Gratis"}
+    - unless article.details == ""
+      %br/
+    = article.details
+    %br/
+    - if current_user and current_user.id == article.user.id
+      - #link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } )
+      - #link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true)
+    - else
+      .contact_info
+        %h4= t('contact info')
+        = user_marker article.user
+        %br/
+        %b
+          = t('name')
+          \:
+        = article.user.fullname
+        - if article.user.showemail
+          - if current_user
+            - subject = t("mail.article_request_username", user: current_user.nickname, article: article.title)
+          - else
+            - subject = t("mail.article_request_anonymous", article: article.title)
+          %br/
+          %b
+            = t('email')
+            \:
+          = mail_to article.user.email, article.user.email, subject: subject
+        - if article.user.showphone
+          %br/
+          %b
+            = t('phone')
+            \:
+          = article.user.phoneno
+    %br/

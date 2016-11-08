@@ -1,0 +1,21 @@
+- @title = t('Welcome')
+%div{:align => "center"}
+  = content_tag :h2, t("borrow something")
+  = bootstrap_form_tag(url: articles_path, method: "get", id: "search-form") do |f|
+    = f.text_field :address, value: session[:address], placeholder: t("enter_your_address_the_exacter_the_better"), label: t("Where are you"), autofocus: true
+    = f.form_group do
+      = submit_tag t("Search"), class: "btn btn-default btn-sm"
+= content_tag :div, t("or"), align: "center"
+%div{:align => "center"}
+  = content_tag :h2, t("lend something")
+  = content_tag :p, t("earn yourself some coins")
+  - if user_signed_in?
+    = link_to t("Create new Articles"), user_new_article_from_stockitems_path, class: 'btn btn-default'
+  - else
+    = link_to t("Signup"), new_user_registration_path, class: "btn btn-default"
+    oder
+    \#{link_to t("Login"), new_user_session_path, class: 'btn btn-default'}
+.jumbotron
+  %h2= t("First_time_here")
+  %p= t("Shareshore_is_a")
+  %p= link_to t("How_does_shareshore_work"), '/pages/tutorial'

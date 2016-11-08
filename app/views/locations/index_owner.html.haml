@@ -1,0 +1,58 @@
+- @title = t('your locations')
+
+.col-xs-12.col-sm-3.col-sm-push-9
+  .panel.panel-default
+    .panel-heading
+      %h4 Tipp
+    .panel-body
+      Dies ist ein kurzer Hilfetext.
+
+.col-xs-12.col-sm-9.col-sm-pull-3
+  %h3= @title
+  %div{:class => "empty-list#{" to_hide" unless @locations.empty?}"}
+    = t('You do not have any locations')
+  - @locations.each do |location|
+    = render 'location_owner', location: location
+  .location_placeholder
+  .location
+    .row
+      .col-xs-12.text-right
+        = link_to("", "", class: "glyphicon glyphicon-plus", id: "location_new_button" )
+    #location_new.row
+      .col-xs-12
+        = render 'form', location: Location.new
+
+= render 'layouts/modal_error'
+
+:javascript
+  $(document).ready(function(){
+    $(".location_edit").hide();
+
+    $("body").on("click", ".location_edit_button", function(e) {
+      e.preventDefault();
+      var thedivid = "#location_" + $(this).attr("data-location-id") + "_div .location_edit";
+      console.log(thedivid);
+      $(thedivid).toggle(200);
+    });
+
+    $("#location_new").hide();
+    
+    $("body").on("click", "#location_new_button", function(e) {
+      e.preventDefault();
+      var thedivid = "#location_new";
+      console.log(thedivid);
+      $(thedivid).toggle(200);
+    });
+
+    $('body').on("ajax:success", function(e, data, status, xhr) {
+      console.log("Success");
+    });
+
+    $('body').on("ajax:error", function(e, xhr, status, error) {
+      console.log("Error");
+      $("#modal-error").modal("show");
+    });
+
+    $('.to_hide').hide();
+  });
+  

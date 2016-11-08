@@ -2,6 +2,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO geocoder kann addresse nicht auflösen:
+    "An der Hühnerhecke 6, Alzenau, Deutschland"
+    in suchmaske
 *** TODO cookie hinweis
     https://github.com/infinum/cookies_eu
 *** TODO wie ist die identität der nutzer geschützt?
