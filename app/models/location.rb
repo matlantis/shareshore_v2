@@ -10,6 +10,11 @@ class Location < ActiveRecord::Base
   validates :latitude, presence: { message: "The address could not be found" }
   validates :longitude, presence: { message: "The address could not be found" }
 
+  validates :street_and_no, length: { minimum: 1, maximum: 100 }
+  validates :city, length: { minimum: 1, maximum: 100 }
+  validates :country, length: { minimum: 1, maximum: 100 }
+  validates :postcode, length: { minimum: 1, maximum: 10 }
+  
   after_validation :joinhouse
   after_save :clean_houses
   after_destroy :clean_houses

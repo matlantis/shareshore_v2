@@ -139,9 +139,10 @@ class LocationsController < ApplicationController
         format.json { render :show, status: :ok, location: @location }
         format.js { render 'update_success' }
       else
-        if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
+        if not(@location.errors[:latitude].empty?) || not(@location.errors[:longitude].empty?) # could not be geocoded
           @location.errors.clear
           @location.errors.add(:base, t("address_unknown"))
+          print "error in geolocation"
         end
         format.html { render :edit }
         format.json { render json: @location.errors, status: :unprocessable_entity }

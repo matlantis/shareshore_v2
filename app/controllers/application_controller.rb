@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     end
 
     unless session.key? :radius
-      session[:radius] = 5
+      session[:radius] = 1
     end
     
   end

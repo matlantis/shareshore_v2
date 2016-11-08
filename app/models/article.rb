@@ -10,10 +10,10 @@ class Article < ActiveRecord::Base
   # hack see https://github.com/alexreisner/geocoder/issues/26
   reverse_geocoded_by "locations.latitude", "locations.longitude"
 
-  validates :title, presence: true, length: { minimum: 1, maximum: 50 }
+  validates :title, length: { minimum: 1, maximum: 50 }
   validates :location, presence: true
   validates :user, presence: true
-  validates :rate, presence: true, length: { minimum: 1, maximum: 50 }
+  validates :rate, length: { minimum: 1, maximum: 50 }
   validates :quality, numericality: { only_integer: true, minimum: 1, maximum: 5 }
 
   after_initialize :init
