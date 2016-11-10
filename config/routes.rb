@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   root "pages#index"
 
-  get '/search' => 'articles#search', as: 'search_articles'
+  get '/search' => 'pages#search', as: 'search'
 
   resources :articles
   resources :locations, except: [ :new]

@@ -19,7 +19,7 @@ bounds.push(<%= "[ #{location.latitude}, #{location.longitude} ]" %>);
 // add current location marker
 marker_defs.push(
   <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
-  <%= " html: '#{t('Your location')}', ".html_safe %>
+  <%= " html: '#{t('articles._map.marker_your_location')}', ".html_safe %>
   <%= " id: -1, ".html_safe %>
   <%= " color: 'blue' }".html_safe %>
 );

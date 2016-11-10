@@ -1,0 +1,55 @@
+de:
+  activerecord:
+    models:
+      user:
+        one: "Person"
+        other: "Leute"
+      article:
+        one: "Sache"
+        other: "Sachen"
+      location:
+        one: "Standort"
+        other: "Standorte"
+      house:
+        one: "Haus"
+        other: "Häuser"
+    attributes:
+      user:
+        remember_me: "Angemeldet bleiben"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        name: "Name"
+        phoneno: "Telefon"
+        showemail: "Email öffentlich"
+        showphone: "Telefon öffentlich"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        current_password: "Bisheriges Passwort"
+      article:
+        title: "Name"
+        details: "Bemerkung"
+        value_eur: "Wert (€)"
+        rate: "Leihgebühr"
+        rate_eur: "Leihgebühr (€)"
+        rate_interval: "Zeitraum"
+        gratis: "Gratis"
+        deposit_eur: "Kaution (€)"
+        user: "Besitzer"
+        location: "Standort"
+        picture: "Bild"
+      location:
+        street_and_no: "Straße und Hausnr."
+        postcode: "Postleitzahl"
+        city: "Stadt"
+        country: "Land"
+        latitude: "Breitengrad"
+        longitude: "Längengrad"
+        user: "Bewohner"
+        articles: "Sachen"
+      house:
+        street_and_no: "Straße und Hausnr."
+        postcode: "Postleitzahl"
+        city: "Stadt"
+        country: "Land"
+        latitude: "Breitengrad"
+        longitude: "Längengrad"

@@ -5,10 +5,6 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
-  # the search
-  def search
-  end
-
   def index_owner
     @articles = current_user.articles.order(location_id: :asc, title: :asc)
   end

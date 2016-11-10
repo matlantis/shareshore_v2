@@ -1,7 +1,9 @@
-- @title = t("Articles of User", user: @location.user.nickname)
+- @title = t("titles.articles.index_location", user: @location.user.nickname)
+
 .col-xs-12.col-sm-3.col-sm-push-9
-  = tipp_panel title: "Hilfe" do
-    Ein noch kleinerer Hilfe text.
+  = tipp_panel do
+    = t("articles.index_location.tip_panel_text")
+    
 .col-xs-12.col-sm-9.col-sm-pull-3
   = content_tag :h3, @title
   = user_marker(@location.user)
@@ -11,10 +13,10 @@
   %br/
   - if @articles.empty?
     .empty-list
-      = t('No articles at this location')
+      = t('articles.index_location.empty_list_message')
   - @articles.each do |article|
     - article_div_id = "article_" + article.id.to_s + "_div"
     .article{:id => article_div_id}
       .article_view
-        = render 'article_view', article: article, edit: false
+        = render 'article_view', article: article, edit: false, home: false
   - will_paginate @articles, renderer: BootstrapPagination::Rails

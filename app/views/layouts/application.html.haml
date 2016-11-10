@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    - the_title = t('shareshore')
+    - the_title = t('layouts.application.title_shareship')
     - if @title
       - the_title += " - " + @title.to_s
     %title= the_title
@@ -27,6 +27,6 @@
           Martin Puttke 2016
         .pull-right
           %ul.list-inline
-            %li= link_to t("Terms_of_use"), '/pages/terms-of-use'
-            %li= link_to t('Contact'), '/pages/contact'
-            %li= link_to t('FAQ'), '/pages/faq'
+            %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
+            %li= link_to t('titles.pages.contact'), '/pages/contact'
+            %li= link_to t('titles.pages.faq'), '/pages/faq'

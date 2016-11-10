@@ -1,20 +1,21 @@
-- @title = t('Articles nearby')
-= render 'layouts/search', form_path: articles_path
+- @title = t('titles.articles.index')
+
+= render 'pages/search', form_path: articles_path
 - if @house_center
   .house
     .row
       .col-xs-12
-        Im Haus #{house_marker(@house_center)}:
+        #{t('articles.index.text_at_house')} #{house_marker(@house_center)}:
         - @house_center.locations.each do |location|
           = user_marker(location.user)
-          (#{link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location)})
+          (#{link_to articles_count(location.articles), articles_location_path(location)})
 .row
   .col-xs-12
     %ul.nav.nav-tabs
       %li.active
-        = link_to(t('Articles nearby'), articles_path, class: "tab")
+        = link_to(t('titles.articles.index'), articles_path, class: "tab")
       %li
-        = link_to(t('Users nearby'), locations_path, class: "tab")
+        = link_to(t('titles.locations.index'), locations_path, class: "tab")
 
 .row
   .col-xs-12.col-md-4
@@ -22,7 +23,7 @@
   .col-xs-12.col-md-8
     - if @articles.empty?
       .empty-list
-        = t('No articles found')
+        = t('articles.index.empty_list_message')
     - @articles.each do |article|
       - article_div_id = "article_" + article.id.to_s + "_div"
       - home = article.location.house == @house_center
@@ -30,6 +31,7 @@
         .article_view
           = render 'article_view', article: article, edit: false, home: home
     - will_paginate @articles, renderer: BootstrapPagination::Rails
+
 :javascript
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);

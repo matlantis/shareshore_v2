@@ -54,20 +54,6 @@ class LocationsController < ApplicationController
     @locations = @locations.paginate(page: params[:page], per_page: 20)
   end
 
-  def index_user
-    @user = User.find_by(id: params[:user_id])
-    if @user
-      @locations = @user.locations
-    else
-      flash[:alert] = 'the user is unknown'        
-      @locations = Location.all
-    end
-    @locations = @location.order(created_at: :asc)
-  
-    # paginate
-    @locations = @locations.paginate(page: params[:page], per_page: 20)
-  end
-
   # GET /locations/1
   # GET /locations/1.json
   def show

@@ -1,7 +1,9 @@
-- @title = t("Articles for") + " " + @user.nickname
+- @title = t('titles.articles.index_user', user: @user.nickname)
+
 .col-xs-12.col-sm-3.col-sm-push-9
-  = tipp_panel title: "Hilfe" do
-    Ein noch kleinerer Hilfe text.
+  = tipp_panel do
+    = t('articles.index_user.tip_panel_text')
+    
 .col-xs-12.col-sm-9.col-sm-pull-3
   = content_tag :h2, @title
   - @articles.each do |article|

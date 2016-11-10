@@ -1,55 +1,48 @@
 de:
-  activerecord:
-    models:
-      user:
-        one: "Benutzer"
-        other: "Benutzer"
-      article:
-        one: "Artikel"
-        other: "Artikel"
-      location:
-        one: "Standort"
-        other: "Standorte"
-    attributes:
-      user:
-        remember_me: "Angemeldet bleiben"
-        firstname: "Vorname"
-        lastname: "Nachname"
-        phoneno: "Telefon"
-        showemail: "Email öffentlich"
-        showphone: "Telefon öffentlich"
-        password: "Passwort"
-        password_confirmation: "Passwort bestätigen"
-        current_password: "Bisheriges Passwort"
-      article:
-        title: "Titel"
-        details: "Details"
-        value_eur: "Wert (€)"
-        rate: "Leihgebühr"
-        rate_eur: "Leihgebühr (€)"
-        rate_interval: "Zeitraum"
-        gratis: "Gratis"
-        deposit_eur: "Kaution (€)"
-        user: "Benutzer"
-        location: "Standort"
-        picture: "Bild"
-      location:
-        street_and_no: "Straße und Hausnr."
-        postcode: "Postleitzahl"
-        city: "Stadt"
-        country: "Land"
-        latitude: "Breitengrad"
-        longitude: "Längengrad"
-        
-  hello: "Hallo Welt"
+  forms:
+    cancel: "Abbrechen"
+    finish: "Fertig"
+    
+  simple:
+    or: oder
+
+  common:
+    message_fix_errors: "Bitte korrigiere die folgenden Fehler"
+    title_tip_panel: "Tipps"
+    
+  titles:
+    articles:
+      new_from_stockitems: "Neue Sachen anbieten"
+      index_owner: "Deine Sachen"
+      index: "Sachen in der Nähe"
+      index_location: "Sachen von %{user}"
+      index_user: "Sachen von %{user}"
+      
+    locations:
+      index_owner: "Deine Standorte"
+      index: "Leute in der Nähe"
+
+    users:
+      registrations:
+        edit: "Dein Profil"
+        guidepost: "Wegweiser"
+        new: "Profil anlegen"
+
+      sessions:
+        new: "Anmelden"
+        destroy: "Abmelden"
+    
+    pages:
+      search: "Suche Sachen und Leute"
+      terms_of_use: "AGB"
+      tutorial: "Tutorial"
+      contact: "Kontakt"
+      faq: "FAQ"
+
+  shareship: "Shareship"
+    
   Search Articles: "Suche Artikel"
-  Search Term: "Suchbegriff"
-  Search for: "Suche nach"
-  Search Radius: "Suchradius"
   Search Users: "Suche Leute"
-  within: "innerhalb von"
-  address: "Adresse"
-  around: "um"
   Search: "Suche"
   for: "für"
   at: "bei"
@@ -61,14 +54,10 @@ de:
   Logged in as: "Angemeldet als"
   New Article: "Neuer Artikel"
   Edit Profile: "Profil bearbeiten"
-  Logout: "Abmelden"
-  Signup: "Profil anlegen"
-  Login: "Anmelden"
   Editing Article: "Artikel bearbeiten"
   Edit: "Bearbeiten"
   Delete: "Löschen"
   Create Article: "Artikel erstellen"
-  Please fix the errors below: "Bitte korrigiere die folgenden Fehler:"
   Editing Location: "Standort bearbeiten"
   Distance: "Entfernung"
   Are you sure?: "Bist du sicher?"
@@ -101,13 +90,7 @@ de:
   Name: "Name"
   Articles of this user: "Artikel von %{nickname}"
   Articles at: "Artikel bei %{location}"
-  First_time_here: "Neu hier?"
-  How_does_shareshore_work: "Wie funktioniert Shareshore?"
-  Shareshore_is_a: "Shareshore ist Dinge-Verleih-Netzwerk. Verleihe die Dinge, die bei dir zuhause ungenutzt herumstehen, an deine Nachbarn! Leihe dir Dinge, die du nur einmal brauchst, von deinen Nachbarn aus, anstatt sie zu kaufen!"
-  Terms_of_use: "AGB"
-  Tutorial: "Tutorial"
-  Contact: "Kontakt"
-  FAQ: "FAQ"
+
   Gratis: "Gratis"
   Info: "Info"
   hour: "Stunde"
@@ -125,16 +108,8 @@ de:
   Locations were successfully updated: "Standorte wurden erfolgreich aktualisiert"
   Details: "Details"
   Create: "Erstellen"
-  Create new Articles: "Neue Artikel einstellen"
-  enter_your_address_the_exacter_the_better: "Gib deine Adresse an (je genauer desto besser)"
-  Where are you: "Wo bist du?"
-  borrow something: "Leih was aus!"
-  lend something: "Verleih etwas!"
-  or: "oder"
-  earn yourself some coins: "Verdien dir ein paar Kröten dazu und stelle eigene Artikel zum Verleih!"
   Users: "Leute"
   articles_count: "Artikel"
-  Guidepost: "Wegweiser"
   Edit your Profile: "Profil bearbeiten"
   Manage Articles: "Artikel verwalten"
   Create Articles: "Artikel erstellen"
@@ -145,30 +120,18 @@ de:
   inventory: "Inventar"
   in your: "in deinem"
   new article: "Neuer Artikel"
-  create without template: "Ohne Vorlage erstellen"
   shareshore: "ShareShore"
   your locations: "Deine Standorte"
   Your Articles: "Deine Artikel"
-  Welcome: "Willkommen"
   View Articles: "Artikel ansehen"
   View All: "Alle ansehen"
-  View on OpenStreetMap: 'Auf OpenStreetMap ansehen (im neuen Fenster)'
   Your location: "Dein Standort"
-  view on map: "Auf Karte anzeigen"
   house: "Haus"
   location: "Standort"
-  No articles found: "Leider keine Artikel gefunden"
-  No locations found: "Leider keine Leute gefunden"
-  You do not have any articles: "Du hast keine Artikel. Erstelle einen!"
-  You do not have any locations: "Du hast keine Standorte. Erstelle einen!"
-  No articles at this location: "Keine Artikel an diesem Standort"
-  Articles of User: "Artikel von %{user}"
+
   None_m: "Keine"
-  contact info: "Kontakt"
-  location on map is incorrect: "Der Standort auf der Karte ist nicht richtig?"
-  set manually: "Manuell festlegen"
   click the map to set the correct location: "Klick auf die Karte, um den richtigen Standort zu markieren!"
-  drag the marker to the correct location und click on finish: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"
+
   cancel: "Abbrechen"
   finish: "Fertig"
   

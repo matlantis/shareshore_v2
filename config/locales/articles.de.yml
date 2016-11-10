@@ -1,0 +1,46 @@
+de:
+  articles:
+    common:
+      label_distance: "Entfernung"
+      tooltip_home: "Bei Dir im Haus"
+      tooltip_gratis: "Gratis"
+  
+    _article_owner:
+    _article_view:
+      delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
+
+    _form:
+      message_fix_errors: common.message_fix_errors
+
+    _map:
+      marker_your_location: "Dein Standort"
+
+    _popup:
+
+    _show:
+      heading_contact_info: "Kontakt"
+
+    index:
+      text_at_house: Im Haus
+      empty_list_message: "Leider keine Sachen gefunden"
+
+    index_location:
+      tip_panel_text: "kleine Hilfe zu index_location"
+      empty_list_message: "Keine Sachen an diesem Standort"
+
+    index_owner:
+      tip_panel_text: "kleine Hilfe zu index_owner"
+      empty_list_message: "Du hast keine Artikel. Erstelle einen!"
+      
+    index_user:
+      tip_panel_text: "kleine Hilfe zu index_user"
+
+    new_from_stockitems:
+      tip_panel_text: "kleine Hilfe zu new_from_stockitems"
+      link_create_without_template: "Ohne Vorlage erstellen"
+      text_you_already_have: Du hast schon
+      text_of_this: davon!
+
+    show:
+      tip_panel_text: "kleine Hilfe zu show"
+    

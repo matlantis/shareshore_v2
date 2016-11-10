@@ -3,7 +3,7 @@ module ApplicationHelper
     txt.squish.downcase.tr(" ","_")
   end
 
-  def tipp_panel(title: "Tipp", &block)
+  def tipp_panel(title: t("common.title_tip_panel"), &block)
     capture do
       content_tag :div, class: ["panel","panel-default"] do
         
@@ -89,5 +89,9 @@ module ApplicationHelper
         end
       end
     end
+  end
+
+  def articles_count(articles)
+    articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
   end
 end

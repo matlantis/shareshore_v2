@@ -1,0 +1,22 @@
+de:
+  pages:
+    index:
+      welcome: Denn wir sitzen alle im selben Ship!
+      heading_borrow_something: Leih etwas aus!
+      address_placeholder: Gib deine Adresse an (je genauer desto besser)
+      address_label: Wo bist du?
+      search_button_label: Suche
+      heading_lend_something: Verleih etwas!
+      text_earn_yourself_some_coins: Verdien dir ein paar Kröten dazu und stelle eigene Sachen zum Verleih!
+      heading_first_time_here: Neu hier?
+      text_shareshore_is_a: Shareship ist Sachen-Verleih-Netzwerk. Verleihe die Sachen, die bei dir zuhause ungenutzt herumstehen, an deine Nachbarn! Leihe dir Sachen, die du nur einmal brauchst, von deinen Nachbarn aus, anstatt sie zu kaufen!
+      link_tutorial: "Wie funktioniert Shareship?"
+
+    _search:
+      pattern_placeholder: "Suchbegriff"
+      pattern_label: "Suche nach"
+      radius_placeholder: "Suchradius"
+      radius_label: "innerhalb von"
+      address_placeholder: "Adresse"
+      address_label: "um"
+      search_button_label: "Suche"

@@ -1,14 +1,13 @@
-- @title = t('Create Articles')
+- @title = t('titles.articles.new_from_stockitems')
+
 .col-xs-12.col-sm-3.col-sm-push-9
-  .panel.panel-default
-    .panel-heading
-      %h4 Tipp
-    .panel-body
-      Dies ist ein kurzer Hilfetext.
+  = tipp_panel do
+    = t('articles.new_from_stockitems.tip_panel_text')
+
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
   #article_null_div.article
-    = link_to t("create without template"), "", id: "article_new_button"
+    = link_to t("articles.new_from_stockitems.link_create_without_template"), "", id: "article_new_button"
     #article_new.row.article_edit
       .col-xs-12
         = render 'form', article: Article.new
@@ -30,13 +29,15 @@
                   - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
                   - nstockitems = current_user.articles.where("stockitem_id = ?", article.stockitem_id).count
                   .article_count{:data => nstockitems}
+                    = t('articles.new_from_stockitems.text_you_already_have')
                     = content_tag :span, "#{nstockitems}"
-                    = t('in your')
-                    = link_to t('inventory'), user_articles_path
+                    = t('articles.new_from_stockitems.text_of_this')
               .row.article_edit
                 .col-xs-12
                   = render 'form', article: article
+                  
 = render 'layouts/modal_error'
+
 :javascript
   $(document).ready(function(){
     $(".article_edit").hide();

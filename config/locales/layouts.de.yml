@@ -1,0 +1,11 @@
+de:
+  layouts:
+    _navigation:
+      brand_shareship: "Shareship"
+      
+    _modal_error:
+      heading_error: Fehler
+      text_unexpected_error_occured: Ein Fehler ist aufgetreten. Laden Sie die Seite neu!
+
+    application:
+      title_shareship: "Shareship"

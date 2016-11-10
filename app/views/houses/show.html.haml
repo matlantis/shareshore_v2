@@ -1,38 +1,40 @@
-- @title = t('house')
+- @title = House.model_name.human
 .col-xs-12.col-sm-3.col-sm-push-9
-  = tipp_panel title: "Hilfe" do
-    Ein noch kleinerer Hilfe text.
+  = tipp_panel do
+    = t('houses.show.tip_panel_text')
+
 .col-xs-12.col-sm-9.col-sm-pull-3
-  %h3= t('house')
+  %h3= @title
   .row
     .col-xs-3.text-right
       %strong
-        = t("Street and no")
+        = House.human_attribute_name("street_and_no")
         \:
     .col-xs-9
       = @house.street_and_no
   .row
     .col-xs-3.text-right
       %strong
-        = t("Postcode")
+        = House.human_attribute_name("postcode")
         \:
     .col-xs-9
       = @house.postcode
   .row
     .col-xs-3.text-right
       %strong
-        = t("City")
+        = House.human_attribute_name("city")
         \:
     .col-xs-9
       = @house.city
   .row
     .col-xs-3.text-right
       %strong
-        = t("Country")
+        = House.human_attribute_name("country")
         \:
     .col-xs-9
       = @house.country
-  %h4= t('Users')
+      
+  %h4= User.model_name.human(count: 2)
   - @house.locations.each do |location|
     - location_div_id = "location_" + location.id.to_s + "_div"
     .location{"data-location-id" => "#{location.id}", :id => location_div_id}

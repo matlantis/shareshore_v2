@@ -1,20 +1,24 @@
-- @title = t('Users nearby')
-= render 'layouts/search', form_path: locations_path
+- @title = t('titles.locations.index')
+
+= render 'pages/search', form_path: locations_path
+
 - if @house_center
   .house
     .row
       .col-xs-12
-        Im Haus #{house_marker(@house_center)}:
+        #{t('locations.index.text_at_house')} #{house_marker(@house_center)}:
         - @house_center.locations.each do |location|
           = user_marker(location.user)
           (#{link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location)})
+
 .row
   .col-xs-12
     %ul.nav.nav-tabs
       %li
-        = link_to(t('Articles nearby'), articles_path, class: "tab")
+        = link_to(t('titles.articles.index'), articles_path, class: "tab")
       %li.active
-        = link_to(t('Users nearby'), locations_path, class: "tab")
+        = link_to(t('titles.locations.index'), locations_path, class: "tab")
+
 .row
   - if @current_location
     .col-xs-12.col-md-4
@@ -22,7 +26,7 @@
   .col-xs-12.col-md-8
     - if @locations.empty?
       .empty-list
-        = t('No users found')
+        = t('locations.index.empty_list_message')
     - @locations.each do |location|
       - location_div_id = "location_" + location.id.to_s + "_div"
       - home = location.house == @house_center
@@ -30,6 +34,7 @@
         .location_view
           = render 'location_view', location: location, home: home
     - will_paginate @locations, renderer: BootstrapPagination::Rails
+    
 :javascript
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);

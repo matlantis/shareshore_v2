@@ -1,0 +1,26 @@
+de:
+  locations:
+    common:
+      label_distance: "Entfernung"
+
+    _form:
+      message_fix_errors: common.message_fix_errors
+
+    _location_view:
+      delete_confirmation_question: "Willst du diesen Standort wirklich löschen?"
+  
+    index:
+      text_at_house: Im Haus
+      empty_list_message: "Leider keine Leute gefunden"
+
+    index_owner:
+      tip_panel_text: "kleine Hilfe zu index_owner"
+      empty_list_message: "Du hast keine Standorte. Erstelle einen!"
+
+    show:
+      tip_panel_text: "kleine Hilfe zu show"
+      text_there_are_x_users_in_this: Es gibt %{count} weitere Nutzer in diesem
+      link_openstreetmap: 'Auf OpenStreetMap ansehen (im neuen Fenster)'
+      text_location_incorrect: "Der Standort auf der Karte ist nicht richtig?"
+      link_set_manually: "Manuell festlegen"
+      text_drag_marker_to_location: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"

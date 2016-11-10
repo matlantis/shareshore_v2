@@ -1,16 +1,13 @@
-- @title = t('your locations')
+- @title = t('titles.locations.index_owner')
 
 .col-xs-12.col-sm-3.col-sm-push-9
-  .panel.panel-default
-    .panel-heading
-      %h4 Tipp
-    .panel-body
-      Dies ist ein kurzer Hilfetext.
+  = tipp_panel do
+    = t("locations.index_owner.tip_panel_text")
 
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
   %div{:class => "empty-list#{" to_hide" unless @locations.empty?}"}
-    = t('You do not have any locations')
+    = t('locations.index_owner.empty_list_message')
   - @locations.each do |location|
     = render 'location_owner', location: location
   .location_placeholder
