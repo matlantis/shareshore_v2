@@ -12,7 +12,7 @@ de:
       text_shareshore_is_a: Shareship ist Sachen-Verleih-Netzwerk. Verleihe die Sachen, die bei dir zuhause ungenutzt herumstehen, an deine Nachbarn! Leihe dir Sachen, die du nur einmal brauchst, von deinen Nachbarn aus, anstatt sie zu kaufen!
       link_tutorial: "Wie funktioniert Shareship?"
 
-    _search:
+    search_form:
       pattern_placeholder: "Suchbegriff"
       pattern_label: "Suche nach"
       radius_placeholder: "Suchradius"

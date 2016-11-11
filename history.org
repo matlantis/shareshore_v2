@@ -2,6 +2,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO nav suche bekommt ein symbol
+*** TODO article and location forms should have reset or cancel button
+*** TODO artikel verleih tracker
 *** TODO geocoder kann addresse nicht auflösen:
     "An der Hühnerhecke 6, Alzenau, Deutschland"
     in suchmaske

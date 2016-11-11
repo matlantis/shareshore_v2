@@ -1,12 +1,12 @@
 - @title = t('titles.locations.index')
 
-= render 'pages/search', form_path: locations_path
+= render 'pages/search_form', form_path: locations_path
 
 - if @house_center
   .house
     .row
       .col-xs-12
-        #{t('locations.index.text_at_house')} #{house_marker(@house_center)}:
+        #{t('.text_at_house')} #{house_marker(@house_center)}:
         - @house_center.locations.each do |location|
           = user_marker(location.user)
           (#{link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location)})
@@ -26,7 +26,7 @@
   .col-xs-12.col-md-8
     - if @locations.empty?
       .empty-list
-        = t('locations.index.empty_list_message')
+        = t('.empty_list_message')
     - @locations.each do |location|
       - location_div_id = "location_" + location.id.to_s + "_div"
       - home = location.house == @house_center

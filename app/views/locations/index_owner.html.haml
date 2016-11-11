@@ -2,12 +2,12 @@
 
 .col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
-    = t("locations.index_owner.tip_panel_text")
+    = t(".tip_panel_text")
 
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
   %div{:class => "empty-list#{" to_hide" unless @locations.empty?}"}
-    = t('locations.index_owner.empty_list_message')
+    = t('.empty_list_message')
   - @locations.each do |location|
     = render 'location_owner', location: location
   .location_placeholder

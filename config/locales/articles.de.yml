@@ -5,19 +5,19 @@ de:
       tooltip_home: "Bei Dir im Haus"
       tooltip_gratis: "Gratis"
   
-    _article_owner:
-    _article_view:
+    article_owner:
+    article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
 
-    _form:
+    form:
       message_fix_errors: common.message_fix_errors
 
-    _map:
+    map:
       marker_your_location: "Dein Standort"
 
-    _popup:
+    popup:
 
-    _show:
+    article_show:
       heading_contact_info: "Kontakt"
 
     index:

@@ -30,7 +30,7 @@
       - #link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true)
     - else
       .contact_info
-        %h4= t('articles._show.heading_contact_info')
+        %h4= t('.heading_contact_info')
         = user_marker article.user
         %br/
         %b

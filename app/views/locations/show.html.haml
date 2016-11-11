@@ -1,7 +1,7 @@
 - @title = t('location')
 .col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
-    = t('locations.show.tip_panel_text')
+    = t('.tip_panel_text')
 
 .col-xs-12.col-sm-9.col-sm-pull-3
   .row
@@ -46,13 +46,13 @@
     .row
       .col-xs-12
         .house
-          = t('locations.show.text_there_are_x_users_in_this', count: @location.house.locations.count-1)
+          = t('.text_there_are_x_users_in_this', count: @location.house.locations.count-1)
           =link_to @location.house do
             %span.glyphicon.glyphicon-home
             = t('house')
   .row.hidden
     .col-xs-12.text-right
-      = link_to t('locations.show.link_openstreetmap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank"
+      = link_to t('.link_openstreetmap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank"
   .row
     .col-xs-12
       #mapid{:style => "width: -1; height: 400px;"}
@@ -60,14 +60,14 @@
     .row
       .col-xs-12
         #set_location_remark.shareshore-panel.clearfix
-          = t('locations.show.text_location_incorrect')
-          = link_to t("locations.show.link_set_manually"), "#", id: "set_location_link", class: "btn btn-default pull-right"
+          = t('.text_location_incorrect')
+          = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default pull-right"
         #set_location_controls.shareshore-panel.clearfix
           .pull-right
             = link_to t("forms.cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default"
             = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
           %div
-            = t('locations.show.text_drag_marker_to_location')
+            = t('.text_drag_marker_to_location')
             
 = render 'layouts/modal_error'
 
@@ -125,6 +125,7 @@
              longitude: markers[0].getLatLng().lng
            }
          },
+         dataType: 'json',
          type: 'PUT',
          error: function(data, status) {
            console.log("Error");

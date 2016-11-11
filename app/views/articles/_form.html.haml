@@ -1,13 +1,13 @@
 = bootstrap_form_for(article, layout: :horizontal, remote: true) do |f|
-  = f.alert_message t('articles._form.message_fix_errors')
+  = f.alert_message t('.message_fix_errors')
   = f.text_field :title
   - # f.number_field :quality, min: 0, max: 5, size: 8
   = f.form_group do
     = f.check_box :gratis, data: { article_id: article.id }, class: "article_gratis_cb", inline: true
   %div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
     = f.text_field :rate, size: 15
-  = f.collection_select :location_id, current_user.locations, :id, :shortaddress
+  = f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: Article.human_attribute_name('location')
   = f.text_area :details, placeholder: Article.human_attribute_name("details")
   = f.hidden_field :stockitem_id
   = f.form_group do
-    = f.submit
+    = f.submit t('forms.finish')
