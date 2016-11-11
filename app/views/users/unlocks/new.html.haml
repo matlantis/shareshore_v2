@@ -1,7 +1,11 @@
-%h2 Resend unlock instructions
+- @title = t('titles.users.unlocks.new')
+
+%h2= @title
+
 = bootstrap_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }, layout: :horizontal) do |f|
   = devise_error_messages!
   = f.email_field :email, autofocus: true
   - f.form_group do
-    = f.submit t(".Resend unlock instructions")
+    = f.submit t(".submit")
+
 = render "devise/shared/links"

@@ -9,9 +9,6 @@ de:
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
 
-    form:
-      message_fix_errors: common.message_fix_errors
-
     map:
       marker_your_location: "Dein Standort"
 

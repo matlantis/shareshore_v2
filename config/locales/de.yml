@@ -25,13 +25,22 @@ de:
     users:
       registrations:
         edit: "Dein Profil"
-        guidepost: "Wegweiser"
+        guidepost: "Was jetzt?"
         new: "Profil anlegen"
 
       sessions:
         new: "Anmelden"
         destroy: "Abmelden"
-    
+
+      passwords:
+        new: "Passwort vergessen?"
+
+      confirmations:
+        new: "Account bestätigen"
+
+      unlocks:
+        new: "Account entsperren"
+        
     pages:
       search: "Suche Sachen und Leute"
       terms_of_use: "AGB"
@@ -63,23 +72,18 @@ de:
   Are you sure?: "Bist du sicher?"
   Show: "Anzeigen"
   New Location: "Neuer Standort"
-  View public profile: "Öffentliches Profile anzeigen"
   My Articles: "Meine Artikel"
   Locations: "Standorte"
   Basic Info: "Allgemeine Infos"
-  we need your current password to confirm your changes: "Wir benötigen dein bisheriges Passwort, um deine Änderungen durchzuführen"
-  leave blank if you dont want to change it: "Freilassen, wenn du es nicht ändern möchtest"
   Phone number: "Telefon"
   Show email address in contact details to the public: "Emailadresse in Kontaktinformationen anzeigen"
   Show phone number in contact details to the public: "Telefon in Kontaktinformationen anzeigen"
   Update: "Ändern"
-  Cancel my account: "Mein Profil löschen"
   Add: "Hinzu"
   Articles at this location: "Artikel an diesem Standort"
   really_delete_location_question: "Standort wirklich löschen? Alle %{count} Artikel werden dabei gelöscht!"
   really_delete_article_question: "Artikel wirklich löschen?"
   password_minimum_characters: "mindestens %{chars} Zeichen"
-  Currently waiting confirmation for: "Warte auf Bestätigung von"
   Unhappy: "Unzufrieden"
   address_unknown: "Adresse ist unbekannt"
   Forgot your password?: "Passwort vergessen?"

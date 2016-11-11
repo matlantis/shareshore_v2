@@ -1,0 +1,45 @@
+de:
+  users:
+    confirmations:
+      new:
+        Resend confirmation instructions: "Bestätigungsanleitung erneut senden"
+
+    passwords:
+      edit:
+        header_change_password: "Passwort ändern"
+        submit: "Passwort ändern"
+        help_minimum_password_length: "#mindestens {length} Buchstaben"
+      new:
+        submit: "Sende Email zum Zurücksetzen"
+
+    registrations:
+      edit:
+        tipp_panel_text: "kleine Hilfe zu edit registrations"
+        text_awaiting_confirmation: "Warte auf Bestätigung von"
+        help_password_leave_blank: "Freilassen, wenn du es nicht ändern möchtest"
+        help_password_needed: "Wir benötigen dein bisheriges Passwort, um deine Änderungen durchzuführen"
+        link_public_profile: "Öffentliches Profile anzeigen"
+        link_cancel_account: "Mein Profil löschen"
+        delete_confirmation_question: "Willst du dein Profil wirklich löschen?"
+        
+      guidepost:
+        tipp_panel_text: "kleine Hilfe zu guidepost registrations"
+        
+      new:
+        help_minimum_password_length: "#mindestens {length} Buchstaben"
+
+      show:
+        tipp_panel_text: "kleine Hilfe zu show registrations"
+        empty_locations_list_message: "Keine"
+
+    sessions:
+      new:
+        submit: "Anmelden"
+
+    shared:
+      links:
+        link_signin_omniauth: "Anmelden mit"
+
+    unlocks:
+      new:
+        submit: "Sende Email zum Entsperren"

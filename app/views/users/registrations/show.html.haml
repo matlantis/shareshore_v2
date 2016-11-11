@@ -1,13 +1,15 @@
 - @title = @user.nickname
+
 .col-xs-12.col-sm-3.col-sm-push-9
-  = tipp_panel title: "Hilfe" do
-    Ein noch kleinerer Hilfe text.
+  = tipp_panel do
+    = t('.tipp_panel_text')
+
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h2= @user.nickname
   .row
     .col-xs-2.text-right
       %strong
-        = t"Name"
+        = User.human_attribute_name("name")
         \:
     .col-xs-10
       = @user.fullname
@@ -19,7 +21,7 @@
     .row
       .col-xs-2.text-right
         %strong
-          = t("email")
+          = User.human_attribute_name("email")
           \:
       .col-xs-10
         = mail_to @user.email, @user.email, subject: subject
@@ -27,19 +29,19 @@
     .row
       .col-xs-2.text-right
         %strong
-          = t("phone")
+          = User.human_attribute_name("phoneno")
           \:
       .col-xs-10
         = @user.phoneno
   .row
     .col-xs-2.text-right
       %strong
-        = t('Locations')
+        = User.human_attribute_name('locations')
         \:
     .col-xs-10
       - if @user.locations.empty?
-        = t('None_m')
+        = t('.empty_locations_list_message')
       - @user.locations.each do |location|
         = location_marker location
-        , #{link_to location.articles.count.to_s + " " + t('Articles'), articles_location_path(location)}
+        , #{link_to articles_count(location.articles), articles_location_path(location)}
         %br/

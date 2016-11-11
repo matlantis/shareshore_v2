@@ -3,9 +3,6 @@ de:
     common:
       label_distance: "Entfernung"
 
-    form:
-      message_fix_errors: common.message_fix_errors
-
     location_view:
       delete_confirmation_question: "Willst du diesen Standort wirklich löschen?"
   

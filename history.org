@@ -2,6 +2,7 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO create article: anzahl artikel hinter vorlagen freien artikel
 *** TODO nav suche bekommt ein symbol
 *** TODO article and location forms should have reset or cancel button
 *** TODO artikel verleih tracker
@@ -34,13 +35,13 @@
     - [X] basic
       use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
       default is de
-    - [-] translate pages
+    - [X] translate pages
       - [X] articles
       - [X] location
-      - [-] devise
+      - [X] devise
         - [X] the rest
-        - [ ] mailer
-        - [ ] passwords
+        - [X] mailer
+        - [X] passwords
     - [X] devise errors
       eine vorgefertigte datei runtergeladen
     - [X] validation errors

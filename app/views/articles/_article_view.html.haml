@@ -29,7 +29,6 @@
         = t('articles.common.label_distance')
         \:
       = "%.1f km" % article.location.distance_from( @current_location )
-.rowRedshift
-Freeserf
+.row
   .col-xs-12
     = truncate(article.details, length: 60)
