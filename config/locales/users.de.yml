@@ -31,6 +31,12 @@ de:
       show:
         tipp_panel_text: "kleine Hilfe zu show registrations"
         empty_locations_list_message: "Keine"
+        warning_user_not_existent: "Nutzer nicht vorhanden"
+
+      update_guidepost:
+        update_contact_info_success: "Kontaktinformationen aktualisiert"
+        create_location_success: "Standort erstellt"
+        warning_location_not_geocoded: "Adresse ist unbekannt"
 
     sessions:
       new:

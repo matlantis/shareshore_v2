@@ -6,6 +6,8 @@ de:
       tooltip_gratis: "Gratis"
   
     article_owner:
+
+      
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
 
@@ -20,14 +22,17 @@ de:
     index:
       text_at_house: Im Haus
       empty_list_message: "Leider keine Sachen gefunden"
+      warning_location_not_geocoded: "Adresse ist unbekannt"
 
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"
       empty_list_message: "Keine Sachen an diesem Standort"
+      location_not_existent: "Standort nicht vorhanden"
 
     index_owner:
       tip_panel_text: "kleine Hilfe zu index_owner"
       empty_list_message: "Du hast keine Artikel. Erstelle einen!"
+      user_not_existent: "Nutzer nicht vorhanden"
       
     index_user:
       tip_panel_text: "kleine Hilfe zu index_user"
@@ -41,3 +46,14 @@ de:
     show:
       tip_panel_text: "kleine Hilfe zu show"
     
+    create:
+      create_success: "Sache erstellt"
+      
+    update:
+      update_success: "Sache aktualisiert"
+
+    destroy:
+      destroy_success: "Sache gelöscht"
+      
+    warning_not_owner: "Diese Sache gehört nicht Dir"
+    warning_location_not_owner: "Standort gehört nicht zum Nutzer"

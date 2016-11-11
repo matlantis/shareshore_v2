@@ -21,3 +21,17 @@ de:
       text_location_incorrect: "Der Standort auf der Karte ist nicht richtig?"
       link_set_manually: "Manuell festlegen"
       text_drag_marker_to_location: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"
+
+    create:
+      create_success: "Standort erstellt"
+      
+    update:
+      update_success: "Standort aktualisiert"
+
+    destroy:
+      destroy_success: "Standort gelöscht"
+
+    warning_location_not_geocoded: "Adresse ist unbekannt"
+    warning_not_owner: "Dieser Standort gehört nicht Dir"
+
+      

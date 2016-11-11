@@ -29,8 +29,9 @@ class ArticlesController < ApplicationController
     if location.geocode
       @current_location = location
     else
-      flash[:alert] = 'Your location is unknown'
-      redirect_to search_articles_path
+      flash[:alert] = t('.warning_location_not_geocoded')
+      redirect_to search_path
+      return
     end
     
     # apply location criteria
@@ -61,8 +62,7 @@ class ArticlesController < ApplicationController
     if houses_center.length > 0
       @house_center = houses_center.first
     end
-    
-    
+        
     # paginate
     @articles = @articles.paginate(page: params[:page], per_page: 100)
   end
@@ -72,8 +72,9 @@ class ArticlesController < ApplicationController
     if @location
       @articles = @location.articles
     else
-      flash[:alert] = 'the location is unknown'        
-      @articles = Article.all
+      flash[:alert] = t('.location_not_existent')
+      redirect_to search_path
+      return
     end
     @articles = @articles.order(title: :asc)
 
@@ -86,8 +87,9 @@ class ArticlesController < ApplicationController
     if @user
       @articles = @user.articles
     else
-      flash[:alert] = 'the user is unknown'        
-      @articles = Article.all
+      flash[:alert] = t('.user_not_existent')
+      redirect_to search_path
+      return
     end
     @articles = @articles.order(location_id: :asc, title: :asc)
 
@@ -141,7 +143,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, success: 'Article was successfully created.' }
+        format.html { redirect_to @article, success: t('.create_success') }
         format.json { render :show, status: :created, location: @article }
         format.js { render 'create_success'}
       else
@@ -159,7 +161,7 @@ class ArticlesController < ApplicationController
     success = @article.update(article_params)
     respond_to do |format|
       if success
-        format.html {redirect_to session.delete(:return_to), success: t('Article was successfully updated') }
+        format.html {redirect_to session.delete(:return_to), success: t('.update_success') }
         format.js { render 'update_success' }
       else
         format.html { render :edit }
@@ -175,7 +177,7 @@ class ArticlesController < ApplicationController
     @article_div_id = "article_" + @article.id.to_s + "_div" # for js
     @list_is_empty = current_user.articles.empty?
     respond_to do |format|
-      format.html { redirect_to edit_user_articles_path, success: t('Article was successfully destroyed') }
+      format.html { redirect_to edit_user_articles_path, success: t('.destroy_success') }
       format.js {}
       format.json { head :no_content }
     end
@@ -197,7 +199,7 @@ class ArticlesController < ApplicationController
     def verify_user_is_owner
       if current_user.id != @article.user.id
         respond_to do |format|
-          flash[:danger] = t('You are not owner of this article')
+          flash[:danger] = t('articles.warning_not_owner')
           format.html { redirect_to articles_url }
           format.json { head :no_content }
         end
@@ -210,7 +212,7 @@ class ArticlesController < ApplicationController
       # check if location belongs to the user
       unless user.locations.exists?(article_params[:location_id])
         respond_to do |format|
-          flash[:danger] = t('location does not belong to the user')
+          flash[:danger] = t('articles.warning_location_not_user')
           format.html { redirect_to articles_url }
           format.json { head :no_content }
         end

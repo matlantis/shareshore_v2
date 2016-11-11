@@ -27,8 +27,9 @@ class LocationsController < ApplicationController
     if location.geocode
       @current_location = location
     else
-      flash[:alert] = 'Your location is unknown'
-      redirect_to search_articles_path
+      flash[:alert] = t('locations.warning_location_not_geocoded')
+      redirect_to search_path
+      return
     end
     
     # apply location criteria
@@ -100,14 +101,11 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to edit_user_locations_path, success: t('Location was successfully created') }
+        format.html { render :show, success: t('.create_success') }
         format.json { render :show, status: :created, location: @location }
         format.js { render 'create_success' }
       else
-        if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
-          @location.errors.clear
-          @location.errors.add(:base, t("address_unknown"))
-        end
+        handle_geocoding_error(@location)
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }
         format.js { render 'create_error' }
@@ -121,15 +119,11 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     respond_to do |format|
       if @location.update(location_params)
-        format.html { render :show }
+        format.html { render :show, success: t('.update_success') }
         format.json { render :show, status: :ok, location: @location }
         format.js { render 'update_success' }
       else
-        if not(@location.errors[:latitude].empty?) || not(@location.errors[:longitude].empty?) # could not be geocoded
-          @location.errors.clear
-          @location.errors.add(:base, t("address_unknown"))
-          print "error in geolocation"
-        end
+        handle_geocoding_error(@location)
         format.html { render :edit }
         format.json { render json: @location.errors, status: :unprocessable_entity }
         format.js { render 'update_error' }
@@ -144,7 +138,7 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     @list_is_empty = current_user.locations.empty?
     respond_to do |format|
-      format.html { redirect_to edit_user_locations_path, success: t('Location was successfully destroyed') }
+      format.html { redirect_to :index_owner, success: t('.destroy_success') }
       format.js {}
       format.json { head :no_content }
     end
@@ -167,9 +161,16 @@ class LocationsController < ApplicationController
       # user is already authenticated
       if current_user.id != @location.user.id
         respond_to do |format|
-          format.html { redirect_to edit_user_registration_path, danger: t('You are not owner of this location') }
+          format.html { redirect_to edit_user_registration_path, danger: t('locations.warning_not_owner') }
           format.json { head :no_content }
         end
+      end
+    end
+
+    def handle_geocoding_error(location)
+      if location.errors[:latitude] or location.errors[:longitude] # could not be geocoded
+        location.errors.clear
+        location.errors.add(:base, t("locations.warning_location_not_geocoded"))
       end
     end
 end

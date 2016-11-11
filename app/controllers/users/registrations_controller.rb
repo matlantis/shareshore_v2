@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.find_by(id: params[:id])
     unless @user
-      flash[:alert] = "Unknown User"
+      flash[:alert] = t('.warning_user_not_existent')
       redirect_to "/"
     end
   end
@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # this updates only the locations not the basic informations
       respond_to do |format|
         if success
-          flash[:success] = t('Successfully updated contact info')
+          flash[:success] = t('.update_contact_info_success')
         end
         format.html { render :guidepost }
         #format.html { redirect_to edit_user_locations_path }
@@ -37,11 +37,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @location = current_user.locations.create(p)
       respond_to do |format|
         if @location.save
-          flash[:success] = t('Location was successfully created')
+          flash[:success] = t('.create_location_success')
         else
           if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
             @location.errors.clear
-            @location.errors.add(:base, t("address_unknown"))
+            @location.errors.add(:base, t('.warning_location_not_geocoded'))
           end
         end
         format.html { render :guidepost }

@@ -34,9 +34,6 @@ Rails.application.routes.draw do
     put "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
     post "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
 
-    #get "users/basic", action: :edit_basic, controller: 'users/registrations', as: 'edit_user_basic'
-    put "users/basic", action: :update_basic, controller: 'users/registrations'
-    
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 

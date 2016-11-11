@@ -31,25 +31,6 @@
     - Template: Schablone, Vorlage, Muster, Estampa
     - Inventar
 *** TODO Devise with email confirmation
-*** TODO Internationalisierung
-    - [X] basic
-      use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
-      default is de
-    - [X] translate pages
-      - [X] articles
-      - [X] location
-      - [X] devise
-        - [X] the rest
-        - [X] mailer
-        - [X] passwords
-    - [X] devise errors
-      eine vorgefertigte datei runtergeladen
-    - [X] validation errors
-    - [X] _form submit button label (auto generated)
-**** must be translated
-     Location was successfully created
-     Location was successfully destroyed 
-     Bisheriges Passwort is needed
 *** TODO statische pages [2/3]
     - [X] entwurf
       - tutorial: wie funktioniert shareshore?
@@ -68,6 +49,26 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** DONE Internationalisierung
+    CLOSED: [2016-11-11 Fr 20:21]
+    - [X] basic
+      use url option, later depend on url ending (ex: shareshore.de, shareshore.es)
+      default is de
+    - [X] translate pages
+      - [X] articles
+      - [X] location
+      - [X] devise
+        - [X] the rest
+        - [X] mailer
+        - [X] passwords
+    - [X] devise errors
+      eine vorgefertigte datei runtergeladen
+    - [X] validation errors
+    - [X] _form submit button label (auto generated)
+**** DONE must be translated
+     Location was successfully created
+     Location was successfully destroyed 
+     Bisheriges Passwort is needed
 *** DONE location country prefill
     CLOSED: [2016-11-08 Di 15:51]
 *** DONE locations validation: keine leeren felder um fehler zu vermeiden
