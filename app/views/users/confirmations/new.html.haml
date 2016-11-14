@@ -4,4 +4,4 @@
   = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
   - f.form_group do
     = f.submit t(".Resend confirmation instructions")
-= render "devise/shared/links"
+= render "users/shared/links"

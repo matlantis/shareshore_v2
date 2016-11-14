@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def show
-    render stockitem: "pages/#{params[:page]}"
+    render template: "pages/#{params[:page]}"
   end
 
   def index

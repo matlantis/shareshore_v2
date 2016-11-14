@@ -28,7 +28,7 @@ marker_defs = [
 // add current location marker
 marker_defs.push(
 <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
-<%= " html: '<strong>#{t('articles._map.marker_your_location')}</strong><br>#{home_html}', ".html_safe %>
+<%= " html: '<strong>#{t('articles.map.marker_your_location')}</strong><br>#{home_html}', ".html_safe %>
 <%= " id: #{home_id}, ".html_safe %>
 <%= " color: 'blue' }".html_safe %>
 );

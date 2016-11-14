@@ -7,9 +7,17 @@
     .row
       .col-xs-12
         #{t('.text_at_house')} #{house_marker(@house_center)}:
+        - has_a_location_here = false
         - @house_center.locations.each do |location|
-          = user_marker(location.user)
-          (#{link_to articles_count(location.articles), articles_location_path(location)})
+          - if location.user == current_user
+            - has_a_location_here = true
+          - else
+            = user_marker(location.user)
+            (#{link_to articles_count(location.articles), articles_location_path(location)})
+        - if has_a_location_here
+          = t('.and_you')
+          %span.glyphicon.glyphicon-heart
+          !
 .row
   .col-xs-12
     %ul.nav.nav-tabs
@@ -22,6 +30,9 @@
   .col-xs-12.col-md-4
     #mapid{:style => "width: -1; height: 400px;"}
   .col-xs-12.col-md-8
+    - if current_user
+      .shareshore-panel
+        = t('.warning_about_own_articles')
     - if @articles.empty?
       .empty-list
         = t('.empty_list_message')
@@ -70,8 +81,4 @@
     $(".location_marker").on('mouseenter', onArticleMouseEnter);
     $(".location_marker").on('mouseleave', onArticleMouseLeave);
 
-    // trigger tooltips
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();   
-    });
   });

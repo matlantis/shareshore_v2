@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def tipp_panel(title: t("common.title_tip_panel"), &block)
     capture do
-      content_tag :div, class: ["panel","panel-default"] do
+      content_tag :div, class: ["tip-panel", "panel","panel-default"] do
         
         txt1 = content_tag :div, class: "panel-heading" do
           content_tag(:h4, title)
@@ -56,14 +56,13 @@ module ApplicationHelper
   def rate_marker(article)
     capture do
       content_tag :span, class: "rate_marker" do
+        txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh", data_toggle: "tooltip", title: Article.human_attribute_name('rate')
         if article.gratis
-          txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
-          txt2 = content_tag :strong, t("Gratis")
-          txt1.concat(" ").concat(txt2)
+          txt2 = content_tag :strong, Article.human_attribute_name('gratis')
         else
-          txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh"
-          txt1.concat(" ").concat(article.rate)
+          txt2 = article.rate
         end
+        txt1.concat(" ").concat(txt2)
       end
     end
   end

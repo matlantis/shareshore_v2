@@ -21,9 +21,11 @@ de:
         link_public_profile: "Öffentliches Profile anzeigen"
         link_cancel_account: "Mein Profil löschen"
         delete_confirmation_question: "Willst du dein Profil wirklich löschen?"
+        new_password_label: "Passwort ändern in"
+        new_password_confirmation_label: "nochmals eingeben"
         
       guidepost:
-        tipp_panel_text: "kleine Hilfe zu guidepost registrations"
+        tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."
         
       new:
         help_minimum_password_length: "#mindestens {length} Buchstaben"

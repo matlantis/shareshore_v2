@@ -1,6 +1,6 @@
 = bootstrap_form_tag(url: form_path, method: "get", id: "search-form", layout: :horizontal) do |f|
-  = f.text_field :pattern, value: session[:pattern], placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true
+  = f.text_field :pattern, value: session[:pattern], placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_pattern_field")
   = f.text_field :radius, value: session[:radius], placeholder: t(".radius_placeholder"), label: t(".radius_label"), append: "km"
-  = f.text_field :address, value: session[:address], placeholder: t(".address_placeholder"), label: t(".address_label")
+  = f.text_field :address, value: session[:address], placeholder: t(".address_placeholder"), label: t(".address_label"), data_toggle: "tooltip", title: t(".tooltip_address_field")
   = f.form_group do
     = submit_tag t(".search_button_label"), class: "btn btn-default btn-sm"

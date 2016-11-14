@@ -2,7 +2,7 @@
 
 .col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
-    = t('.tip_panel_text')
+    = render 'index_owner_help'
     
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
@@ -14,7 +14,7 @@
   #article_null_div.article
     .row
       .col-xs-12.text-right
-        = link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button" )
+        = link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button", data_toggle: "tooltip", title: t('.tooltip_add_button') )
     #article_new.row
       .col-xs-12
         = render 'form', article: Article.new

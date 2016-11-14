@@ -3,13 +3,14 @@ de:
     common:
       label_distance: "Entfernung"
       tooltip_home: "Bei Dir im Haus"
-      tooltip_gratis: "Gratis"
   
     article_owner:
 
       
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
+      tooltip_edit_button: "Sache bearbeiten"
+      tooltip_remove_button: "Sache löschen"
 
     map:
       marker_your_location: "Dein Standort"
@@ -23,17 +24,21 @@ de:
       text_at_house: Im Haus
       empty_list_message: "Leider keine Sachen gefunden"
       warning_location_not_geocoded: "Adresse ist unbekannt"
-
+      warning_about_own_articles: "Deine eigenen Sachen werden hier nicht angezeigt!"
+      and_you: und Du
+      
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"
       empty_list_message: "Keine Sachen an diesem Standort"
       location_not_existent: "Standort nicht vorhanden"
 
     index_owner:
-      tip_panel_text: "kleine Hilfe zu index_owner"
-      empty_list_message: "Du hast keine Artikel. Erstelle einen!"
+      empty_list_message: "Du hast keine Sachen. Erstelle einen!"
       user_not_existent: "Nutzer nicht vorhanden"
-      
+      tooltip_add_button: "Neue Sache hinzufügen"
+
+    index_owner_help:
+    
     index_user:
       tip_panel_text: "kleine Hilfe zu index_user"
 

@@ -1,24 +1,25 @@
 - @title = t(".welcome")
-%div{:align => "center"}
-  = content_tag :h2, t(".heading_borrow_something")
-  = bootstrap_form_tag(url: articles_path, method: "get", id: "search-form") do |f|
-    = f.text_field :address, value: session[:address], placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true
-    = f.form_group do
-      = submit_tag t(".search_button_label"), class: "btn btn-default btn-sm"
+
+.col-xs-12.col-sm-4.col-sm-push-8
+  = tipp_panel title: t(".heading_first_time_here") do
+    = render 'index_help'
+
+.col-xs-12.col-sm-8.col-sm-pull-4
+
+  .shareshore-panel{:align => "center"}
+    %h2= t(".heading_borrow_something")
+    = bootstrap_form_tag(url: articles_path, method: "get", id: "search-form") do |f|
+      = f.text_field :address, value: session[:address], placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
+      = f.form_group do
+        = submit_tag t(".search_button_label"), class: "btn btn-default btn-sm"
       
-= content_tag :div, t("simple.or"), align: "center"
-
-%div{:align => "center"}
-  = content_tag :h2, t(".heading_lend_something")
-  = content_tag :p, t(".text_earn_yourself_some_coins")
-  - if user_signed_in?
-    = link_to t("titles.article.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'btn btn-default'
-  - else
-    = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
-    oder
-    \#{link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'}
-
-.jumbotron
-  %h2= t(".heading_first_time_here")
-  %p= t(".text_shareshore_is_a")
-  %p= link_to t(".link_tutorial"), '/pages/tutorial'
+  .shareshore-panel{:align => "center"}
+    %h2= t(".heading_lend_something")
+    %p= t(".text_earn_yourself_some_coins")
+    - if user_signed_in?
+      = link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'btn btn-default'
+    - else
+      = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
+      oder
+      \#{link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'}
+      

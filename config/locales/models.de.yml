@@ -24,7 +24,7 @@ de:
         showphone: "Telefon öffentlich anzeigen"
         password: "Passwort"
         password_confirmation: "Passwort bestätigen"
-        current_password: "Bisheriges Passwort"
+        current_password: "Aktuelles Passwort"
         locations: "Standorte"
       article:
         title: "Name"
@@ -33,7 +33,7 @@ de:
         rate: "Leihgebühr"
         rate_eur: "Leihgebühr (€)"
         rate_interval: "Zeitraum"
-        gratis: "Gratis"
+        gratis: "Für ein Lächeln"
         deposit_eur: "Kaution (€)"
         user: "Besitzer"
         location: "Standort"

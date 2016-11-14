@@ -1,9 +1,11 @@
 - @title = t('location')
-.col-xs-12.col-sm-3.col-sm-push-9
+
+-#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
     = t('.tip_panel_text')
 
-.col-xs-12.col-sm-9.col-sm-pull-3
+-#.col-xs-12.col-sm-9.col-sm-pull-3
+.col-xs-12
   .row
     .col-xs-3.text-right
       %strong
@@ -49,7 +51,7 @@
           = t('.text_there_are_x_users_in_this', count: @location.house.locations.count-1)
           =link_to @location.house do
             %span.glyphicon.glyphicon-home
-            = t('house')
+            = House.model_name.human
   .row.hidden
     .col-xs-12.text-right
       = link_to t('.link_openstreetmap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank"

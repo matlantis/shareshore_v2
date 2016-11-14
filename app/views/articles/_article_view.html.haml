@@ -6,7 +6,7 @@
     - if defined?(home) && home
       %span.glyphicon.glyphicon-home{"data-toggle": "tooltip", title: t('articles.common.tooltip_home') }
     - if article.gratis
-      %span.glyphicon.glyphicon-ok{"data-toggle": "tooltip", title: t('articles.common.tooltip_gratis')}
+      %span.glyphicon.glyphicon-heart{"data-toggle": "tooltip", title: Article.human_attribute_name('gratis')}
     %br/
     - if article.picture.present?
       %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
@@ -19,8 +19,8 @@
     = location_marker article.location
   .col-sm-4.text-right
     - if edit && current_user && current_user.id == article.user.id
-      = link_to("", "", class: "glyphicon glyphicon-pencil article_cb edit-remove ", data: { article_id: article.id } )
-      = link_to("", article, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true)
+      = link_to("", "", class: "glyphicon glyphicon-pencil article_cb edit-remove ", data: { article_id: article.id }, data_toggle: "tooltip", title: t('.tooltip_edit_button') )
+      = link_to("", article, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true, data_toggle: "tooltip", title: t('.tooltip_remove_button'))
     - else
       = user_marker article.user
     %br/

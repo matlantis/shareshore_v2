@@ -1,9 +1,11 @@
 - @title = House.model_name.human
-.col-xs-12.col-sm-3.col-sm-push-9
+
+-#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
     = t('.tip_panel_text')
 
-.col-xs-12.col-sm-9.col-sm-pull-3
+-#.col-xs-12.col-sm-9.col-sm-pull-3
+.col-xs-12
   %h3= @title
   .row
     .col-xs-3.text-right
@@ -40,3 +42,7 @@
     .location{"data-location-id" => "#{location.id}", :id => location_div_id}
       .location_view
         = render 'locations/location_view', location: location
+
+  .text-right
+    = t('.text_address_missmatch')
+    = mail_to 'mail@shareship.de', 'mail@shareship.de!', subject: t('.mail_subject_address_missmatch', house: @house.id )

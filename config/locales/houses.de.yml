@@ -2,3 +2,5 @@ de:
   houses:
     show:
       tip_panel_text: "kleine Hilfe zu show"
+      text_address_missmatch: Fehler gefunden? Verschieden Addressen im gleichen Haus?
+      mail_subject_address_missmatch: "Address Missmatch: House ID: %{house}"

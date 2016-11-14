@@ -2,35 +2,31 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO create article: anzahl artikel hinter vorlagen freien artikel
-*** TODO nav suche bekommt ein symbol
-*** TODO article and location forms should have reset or cancel button
-*** TODO artikel verleih tracker
-*** TODO geocoder kann addresse nicht auflösen:
-    "An der Hühnerhecke 6, Alzenau, Deutschland"
-    in suchmaske
-*** TODO cookie hinweis
-    https://github.com/infinum/cookies_eu
-*** TODO wie ist die identität der nutzer geschützt?
-    für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
-*** TODO site ohne flash testen
-*** TODO tooltips
+*** TODO locations owner: link to search page at this location
+*** TODO privacy: 
+    - wie verhindere ich dass robots email und telefonnr auslesen?
+    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
+*** TODO submit button führt bei error zu falscher url
+    die angezeigte seite stimmt allerdings
+*** TODO vor- und nachname sind eigentlich völlig irrelevant
+    rausschmeißen, aus öffentlichen Ansichten entfernen
+*** TODO profile option: man kann mich auch jederzeit nach anderen sachen fragen
+*** TODO stockitems: ohne vorlage erstellen muss auch beim scrollen zugänglich sein
+    eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
+*** TODO stockitems: hide title field
+*** TODO admin mode für stockitems und houses
+*** TODO mehr stockitems
+*** TODO glyphicons: alternate text (für sr)
+*** DONE tooltips
+    CLOSED: [2016-11-14 Mo 18:30]
+*** DONE hilfe bereich fertig stellen [3/3]
+    CLOSED: [2016-11-14 Mo 18:30]
+    - [X] struktur
+    - [X] texte
+    - [X] einzel layout
 *** TODO hilfe bereich im artikel index fehlt
     wegen platz für karte
     hinweis, dass die eigenen artikel incht angezeigt werden
-*** TODO hilfe bereich fertig stellen [1/3]
-    - [X] struktur
-    - [ ] texte
-    - [ ] einzel layout
-*** TODO wie-bin-ich-abgesichert-seite
-*** TODO finde bessere bezeichnungen
-    für 
-    - Nutzer: Leute, Chico
-    - Artikel: Dingi, Sache, Cosa
-    - Standort: Ort, Platz, Punto, Puesto
-    - Template: Schablone, Vorlage, Muster, Estampa
-    - Inventar
-*** TODO Devise with email confirmation
 *** TODO statische pages [2/3]
     - [X] entwurf
       - tutorial: wie funktioniert shareshore?
@@ -49,6 +45,29 @@
       - [ ] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
+*** TODO wie-bin-ich-abgesichert-seite
+    in FAQ
+*** TODO create article: anzahl artikel hinter vorlagen freien artikel
+*** TODO nav suche bekommt ein symbol
+*** TODO article and location forms should have reset or cancel button
+*** TODO artikel verleih tracker
+*** TODO geocoder kann addresse nicht auflösen:
+    "An der Hühnerhecke 6, Alzenau, Deutschland"
+    in suchmaske
+*** TODO cookie hinweis
+    https://github.com/infinum/cookies_eu
+*** TODO wie ist die identität der nutzer geschützt?
+    für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt    
+*** TODO site ohne flash testen
+*** TODO Devise with email confirmation
+*** DONE finde bessere bezeichnungen
+    CLOSED: [2016-11-11 Fr 20:25]
+    für 
+    - Nutzer: Leute, Chico
+    - Artikel: Dingi, Sache, Cosa
+    - Standort: Ort, Platz, Punto, Puesto
+    - Template: Schablone, Vorlage, Muster, Estampa
+    - Inventar
 *** DONE Internationalisierung
     CLOSED: [2016-11-11 Fr 20:21]
     - [X] basic

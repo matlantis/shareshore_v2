@@ -1,7 +1,8 @@
-- @title = t('Edit Profile')
+- @title = t('titles.users.registrations.edit')
+
 .col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
-    = t('.tip_panel_text')
+    = render 'edit_help'
     
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
@@ -12,8 +13,8 @@
       %div
         = t(".text_awaiting_confirmation")
         \: #{resource.unconfirmed_email}
-    = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off"
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", label: t('.new_password_label')
+    = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label')
     = f.text_field :nickname
     = f.text_field :firstname
     = f.text_field :lastname

@@ -39,5 +39,5 @@
       = location_marker location
   - if defined?(owner) && current_user && current_user.id == location.user.id
     .col-xs-4.text-right
-      = link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id } )
-      = link_to("", location, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true)
+      = link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id }, data_toggle: "tooltip", title: t('.tooltip_edit_button') )
+      = link_to("", location, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true, data_toggle: "tooltip", title: t('.tooltip_remove_button') )

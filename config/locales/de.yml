@@ -3,30 +3,28 @@ de:
     cancel: "Abbrechen"
     finish: "Fertig"
     
-  simple:
-    or: oder
-
   common:
     message_fix_errors: "Bitte korrigiere die folgenden Fehler"
     title_tip_panel: "Tipps"
     
   titles:
     articles:
-      new_from_stockitems: "Neue Sachen anbieten"
-      index_owner: "Deine Sachen"
+      new_from_stockitems: "Vorlagen"
+      index_owner: "Inventar"
       index: "Sachen in der Nähe"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
       
     locations:
-      index_owner: "Deine Standorte"
+      index_owner: "Standorte"
       index: "Leute in der Nähe"
 
     users:
       registrations:
-        edit: "Dein Profil"
+        edit: "Profil"
         guidepost: "Was jetzt?"
         new: "Profil anlegen"
+        show: "Kontakt"
 
       sessions:
         new: "Anmelden"
@@ -42,7 +40,7 @@ de:
         new: "Account entsperren"
         
     pages:
-      search: "Suche Sachen und Leute"
+      search: "Suche"
       terms_of_use: "AGB"
       tutorial: "Tutorial"
       contact: "Kontakt"
