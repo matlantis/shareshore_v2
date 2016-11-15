@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :houses, only: [:show]
 
   resources :stockitems
-
+  
+  get '/contacts', to: 'contacts#new'
+  resources :contacts, only: [:new, :create]
+  
   # use own devise controllers
   devise_for :users, controllers: {
                confirmations: "users/confirmations",
@@ -37,6 +40,7 @@ Rails.application.routes.draw do
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 
+  #get "/pages/contact" => "pages#contact", as: 'contact'
   get "/pages/:page" => "pages#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

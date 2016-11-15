@@ -1,0 +1,11 @@
+de:
+  contacts:
+    new:
+      submit_label: Senden
+      shareship_email: "mail@shareship.de"
+      text_write_email: "Schreib uns eine Email!"
+      text_use_form: "Oder nutze das Formular!"
+
+    create:
+      cannot_send_message: "Konnte die Nachricht nicht versenden"
+      thanks: "Vielen Dank für Deine Nachricht. Wir werden uns schon bald bei Dir melden!"

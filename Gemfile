@@ -70,6 +70,7 @@ end
 
 gem 'cocoon'
 
+gem 'mail_form'
 gem 'simple_form'
 
 gem 'haml'

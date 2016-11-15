@@ -1,2 +1,13 @@
-%h2 Kontakt
-= mail_to 'shareshore@pan-projekt.de', 'shareshore@pan-projekt.de'
+%h3= t('titles.pages.contact')
+
+.shareshore-panel
+  Schreib uns ein email!
+  = mail_to t('shareship_email'), t('shareship_email'), subject: @subject
+
+.shareshore-panel
+  Oder nutze dieses Formular
+  - bootstrap_form_tag("mail@shareship.de") do
+    text_field_tag :subject
+    text_area_tag :text
+    submit_tag
+    

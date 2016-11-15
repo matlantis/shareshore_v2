@@ -1,4 +1,12 @@
 de:            
+  mail_form:
+    errors:
+      models:
+        contact:
+          attributes:
+            email:
+              invalid: "ist keine gültige Email Adresse"
+              
   activerecord:
     errors:
       models:

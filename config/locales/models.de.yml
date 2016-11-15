@@ -1,4 +1,17 @@
 de:
+  mail_form:
+    models:
+      contact:
+        one: "Kontakt"
+        other: "Kontakte"
+    attributes:
+      contact:
+        name: "Name"
+        email: "Email"
+        subject: "Betreff"
+        message: "Nachricht"
+        nickname: "Nickname"
+
   activerecord:
     models:
       user:

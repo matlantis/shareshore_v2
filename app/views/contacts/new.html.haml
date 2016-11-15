@@ -1,0 +1,23 @@
+- @title = t('titles.contacts.new')
+
+%h3= @title
+
+%p
+  = t('.text_write_email')
+  = mail_to t('.shareship_email'), t('.shareship_email'), subject: @contact.subject
+
+%p
+  = t('.text_use_form')
+
+.shareshore-panel
+  = bootstrap_form_for @contact, layout: :horizontal do |f|
+    = f.alert_message t('common.message_fix_errors')
+    .div{class: "#{"hidden" if current_user}"}
+      = f.text_field :name
+      = f.email_field :email
+    = f.text_field :subject
+    = f.text_area :message
+    = f.hidden_field :nickname
+    = f.form_group do
+      = f.submit t('.submit_label')
+    
