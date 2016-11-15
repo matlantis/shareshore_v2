@@ -14,11 +14,13 @@ console.log("call onCreateSuccess")
 <% newtext = escape_javascript(render 'article_owner', article: @article) %>
 <% nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count %>
 
+<% narticles = Article.all.count %>
 
 onCreateSuccess(<%= article_id %>,
                 <%= stockitem_id %>,
                 "<%= newtext %>",
                 "<%= formtext %>",
-                "<%= nstockitems %>");
+                "<%= nstockitems %>",
+                "<%= narticles %>");
 
 

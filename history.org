@@ -10,7 +10,7 @@
     - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
     - vor- und nachname sind eigentlich völlig irrelevant
       rausschmeißen, aus öffentlichen Ansichten entfernen
-*** TODO submit button führt bei error zu falscher url
+*** TODO edit profile: submit button führt bei error zu falscher url
     die angezeigte seite stimmt allerdings
 *** TODO profile option: man kann mich auch jederzeit nach anderen sachen fragen
     sinn und zweck?
@@ -34,24 +34,29 @@
       - blog
     - [X] Grundgerüst
       http://blog.teamtreehouse.com/static-pages-ruby-rails
-    - [ ] Pages
+    - [-] Pages
       - [ ] agbs schreiben
-      - [ ] contact schreiben
+      - [X] contact schreiben
       - [ ] tutorial schreiben
       - [ ] faq schreiben
 *** TODO wie-bin-ich-abgesichert-seite
     in FAQ
-*** TODO create article: anzahl artikel hinter vorlagen freien artikel
-*** TODO nav suche bekommt ein symbol
-*** TODO article and location forms should have reset or cancel button
 *** TODO artikel verleih tracker
 *** TODO geocoder kann addresse nicht auflösen:
     "An der Hühnerhecke 6, Alzenau, Deutschland"
     in suchmaske
-*** TODO cookie hinweis
-    https://github.com/infinum/cookies_eu
 *** TODO site ohne flash testen
 *** TODO Devise with email confirmation
+*** DONE article and location forms should have reset or cancel button
+    CLOSED: [2016-11-15 Di 18:21]
+*** DONE cookie hinweis
+    CLOSED: [2016-11-15 Di 18:14]
+    https://github.com/infinum/cookies_eu
+    ist bereits in den datenschutzerklärungen drin
+*** DONE nav suche bekommt ein symbol
+    CLOSED: [2016-11-15 Di 18:14]
+*** DONE create article: anzahl artikel hinter vorlagen freien artikel
+    CLOSED: [2016-11-15 Di 18:09]
 *** DONE tooltips
     CLOSED: [2016-11-14 Mo 18:30]
 *** DONE hilfe bereich fertig stellen [3/3]

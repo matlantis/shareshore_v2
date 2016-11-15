@@ -2,6 +2,7 @@ de:
   forms:
     cancel: "Abbrechen"
     finish: "Fertig"
+    reset: "Zurücksetzen"
     
   common:
     message_fix_errors: "Bitte korrigiere die folgenden Fehler"
