@@ -16,7 +16,9 @@ class ArticlesController < ApplicationController
     session[:pattern] = params[:pattern] if params.key? :pattern
     session[:radius] = params[:radius] if params.key? :radius
     session[:address] = params[:address] if params.key? :address
-
+    session[:use_user_location] = params[:use_user_location] == "1" if params.key? :use_user_location
+    session[:address_location_id] = params[:address_location_id] if params.key? :address_location_id
+    
     @articles = Article.all
 
     # remove own articles
@@ -24,14 +26,23 @@ class ArticlesController < ApplicationController
       @articles = @articles.where.not(user: current_user)
     end
 
-    # decode current location
-    location = Location.new(street_and_no: session[:address])
-    if location.geocode
-      @current_location = location
+    unless session[:use_user_location]
+      # decode current location
+      location = Location.new(street_and_no: session[:address])
+      if location.geocode
+        @current_location = location
+      else
+        flash[:alert] = t('.warning_location_not_geocoded')
+        redirect_to search_path
+        return
+      end
     else
-      flash[:alert] = t('.warning_location_not_geocoded')
-      redirect_to search_path
-      return
+      @current_location = Location.find_by(id: session[:address_location_id])
+      unless @current_location
+        flash[:alert] = t('.warning_location_not_existent')
+        redirect_to search_path
+        return
+      end
     end
     
     # apply location criteria

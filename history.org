@@ -2,8 +2,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO search in eigenen controller packen
+*** TODO Über uns bzw. Wer steckt dahinter? seite
+*** TODO freundlichere begriffe für rechtliche sachen
+*** TODO sign up checkbox for privacy and termsofuse
+*** TODO beta markup
 *** TODO locations owner: link to search page at this location
-    besser sogar dropdown box mit eigenen standorten
+    besser sogar dropdown box mit eigenen standorten in search form
 *** TODO privacy: 
     - wie verhindere ich dass robots email und telefonnr auslesen?
     - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?

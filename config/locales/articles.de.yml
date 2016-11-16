@@ -26,6 +26,7 @@ de:
       warning_location_not_geocoded: "Adresse ist unbekannt"
       warning_about_own_articles: "Deine eigenen Sachen werden hier nicht angezeigt!"
       and_you: und Du
+      warning_location_not_existent: "Der Standort existiert nicht"
       
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"
