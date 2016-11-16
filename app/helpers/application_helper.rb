@@ -84,7 +84,11 @@ module ApplicationHelper
       content_tag :span, class: "user_marker" do
         link_to article_show_id, data: { toggle: "modal" } do
           txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
-          txt1.concat(" ").concat(article.title)
+          if article.stockitem_id
+            txt1.concat(" ").concat(article.stockitem.title)
+          else
+            txt1.concat(" ").concat(article.title)
+          end
         end
       end
     end

@@ -12,12 +12,8 @@
       rausschmeißen, aus öffentlichen Ansichten entfernen
 *** TODO edit profile: submit button führt bei error zu falscher url
     die angezeigte seite stimmt allerdings
-*** TODO profile option: man kann mich auch jederzeit nach anderen sachen fragen
-    sinn und zweck?
-    eher broadcast message an die nachbarschaft
 *** TODO stockitems: ohne vorlage erstellen muss auch beim scrollen zugänglich sein
     eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
-*** TODO stockitems: hide title field
 *** TODO admin mode für stockitems und houses
 *** TODO mehr stockitems
 *** TODO glyphicons: alternate text (für sr)
@@ -47,6 +43,8 @@
     in suchmaske
 *** TODO site ohne flash testen
 *** TODO Devise with email confirmation
+*** DONE stockitems: hide title field
+    CLOSED: [2016-11-16 Mi 11:15]
 *** DONE article and location forms should have reset or cancel button
     CLOSED: [2016-11-15 Di 18:21]
 *** DONE cookie hinweis
@@ -674,3 +672,6 @@
     prefill session['address']
     prefill location.new
 *** TODO auto recognize postcode
+*** TODO profile option: man kann mich auch jederzeit nach anderen sachen fragen
+    sinn und zweck?
+    eher broadcast message an die nachbarschaft
