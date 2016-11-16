@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :houses, only: [:show]
 
   resources :stockitems
-  
+
+  get '/searches', to: 'searches#new'
+  resources :searches, only: [:new, :create]
+
   get '/contacts', to: 'contacts#new'
   resources :contacts, only: [:new, :create]
   

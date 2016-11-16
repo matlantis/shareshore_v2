@@ -44,13 +44,15 @@ de:
         new: "Account entsperren"
         
     pages:
-      search: "Suche"
       tutorial: "Tutorial"
       faq: "FAQ"
       terms_of_use: "AGB"
       about: "Impressum"
       privacy: "Datenschutz"
       disclaimer: "Haftungsausschluss"
+      
+    searches:
+      new: "Suche"
       
   mail:
     user_request_username: "Shareship Nutzeranfrage von %{user}"

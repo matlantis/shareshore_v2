@@ -11,9 +11,9 @@
     #navbarCollapse.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-left
         %li
-          = link_to search_path, class: 'navbar-link' do
+          = link_to searches_path, class: 'navbar-link' do
             %span{class: "glyphicon glyphicon-search"}
-            = t("titles.pages.search")
+            = t("titles.searches.new")
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li= link_to t("titles.articles.index_owner"), user_articles_path, class: 'navbar-link'

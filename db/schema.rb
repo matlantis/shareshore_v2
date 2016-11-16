@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104151211) do
+ActiveRecord::Schema.define(version: 20161116125609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 20161104151211) do
 
   add_index "locations", ["house_id"], name: "index_locations_on_house_id", using: :btree
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "pattern"
+    t.string   "address"
+    t.float    "radius"
+    t.boolean  "use_location"
+    t.integer  "location_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "stockitem_selections", force: :cascade do |t|
   end
@@ -125,4 +137,5 @@ ActiveRecord::Schema.define(version: 20161104151211) do
   add_foreign_key "articles", "stockitems"
   add_foreign_key "articles", "users"
   add_foreign_key "locations", "users"
+  add_foreign_key "searches", "locations"
 end

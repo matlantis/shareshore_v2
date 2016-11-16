@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
   validates :location, presence: true
   validates :user, presence: true
   validates :rate, length: { minimum: 1, maximum: 50 }
-  validates :quality, numericality: { only_integer: true, minimum: 1, maximum: 5 }
+  validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
   after_initialize :init
   

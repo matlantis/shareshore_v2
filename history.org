@@ -2,7 +2,12 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO blog mit news
 *** TODO search in eigenen controller packen
+    links auf suche anpassen (startseite)
+    autofill suchformular (was vorher session war)
+    suchformular als logged in user
+    alte dateien löschen
 *** TODO Über uns bzw. Wer steckt dahinter? seite
 *** TODO freundlichere begriffe für rechtliche sachen
 *** TODO sign up checkbox for privacy and termsofuse

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pattern: MyString
+  address: MyString
+  radius: 1.5
+  use_location: false
+  location: 
+
+two:
+  pattern: MyString
+  address: MyString
+  radius: 1.5
+  use_location: false
+  location: 

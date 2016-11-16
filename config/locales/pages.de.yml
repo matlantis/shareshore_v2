@@ -11,17 +11,5 @@ de:
       heading_first_time_here: Neu hier?
       tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!
       
-    search_form:
-      pattern_placeholder: "Suchbegriff"
-      pattern_label: "Suche nach"
-      radius_placeholder: "Suchradius"
-      radius_label: "innerhalb von"
-      address_placeholder: "Adresse"
-      address_label: "um"
-      user_location_cb_label: "um eigenen Standort"
-      search_button_label: "Suche"
-      tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!
-      tooltip_pattern_field: Wonach suchst du? Einfach leer lassen, wenn du Alles willst!
-
     contact:
       shareship_email: "mail@shareship.de"

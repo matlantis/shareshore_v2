@@ -28,8 +28,7 @@
         = link_to(t('titles.locations.index'), locations_path, class: "tab")
 
 .row
-  - if @current_location
-    .col-xs-12.col-md-4
+  .col-xs-12.col-md-4
       #mapid{:style => "width: -1; height: 400px;"}
   .col-xs-12.col-md-8
     - if current_user
@@ -55,7 +54,7 @@
     #{render 'articles/map_index.js.erb', articles: Article.all, formats: [:js]}
     
     // article hover event handler
-    var onArticleMouseEnter = function(e) {
+    var onLocationMouseEnter = function(e) {
       // search the marker with the correct house index
       for (i = 0; i< markers.length; i++) {
         //if ( markers[i].index == $(this).attr("data-house-id") ) {
@@ -68,7 +67,7 @@
     }
 
     // article hover event handler
-    var onArticleMouseLeave = function(e) {
+    var onLocationMouseLeave = function(e) {
       // search the marker with the correct house index
       for (i = 0; i< markers.length; i++) {
         var house_id = $(this).parentsUntil(".location").parent().attr("data-house-id")
@@ -80,7 +79,7 @@
     }
     
     // bind the event handler
-    $(".location_marker").on('mouseenter', onArticleMouseEnter);
-    $(".location_marker").on('mouseleave', onArticleMouseLeave);
+    $(".location_marker").on('mouseenter', onLocationMouseEnter);
+    $(".location_marker").on('mouseleave', onLocationMouseLeave);
 
   });

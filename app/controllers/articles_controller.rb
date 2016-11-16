@@ -68,7 +68,6 @@ class ArticlesController < ApplicationController
     @houses = @articles.collect { |a| a.location.house }.uniq
 
     # determine if there is a house at given location
-    @house_center
     houses_center = House.near(@current_location, 0.01)
     if houses_center.length > 0
       @house_center = houses_center.first
