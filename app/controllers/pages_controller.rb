@@ -11,5 +11,15 @@ class PagesController < ApplicationController
   end
   
   def index
+    last_search = nil
+    if session.key? :search_id
+      last_search = Search.find_by(id: session[:search_id])
+    end
+    if last_search
+      @search = last_search.dup
+    else
+      @search = Search.new
+      @search.init(request)
+    end
   end
 end

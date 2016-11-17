@@ -6,18 +6,27 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # POST /resource/sign_in
-  def create
-    super
-    # load the first location into session address
-    if current_user.locations.count > 0
-      session[:address] = current_user.locations.first.shortaddress
-    end
-  end
+  # # POST /resource/sign_in
+  # def create
+  #   super
+  #   search = Search.new(session[:search])
+  #   # load the first location into session address
+  #   if current_user.locations.count > 0
+  #     search.use_location = true
+  #     search.location = current_user.locations.first
+  #   end
+  #   session[:search] = search
+  # end
 
-  # DELETE /resource/sign_out
+  # # DELETE /resource/sign_out
   # def destroy
   #   super
+  #   # search = Search.new(session[:search])
+  #   # search.use_location = false
+  #   # search.location = nil
+  #   # session[:search] = search
+  #   session.delete :search
+  #   prepare_search_session
   # end
 
   # protected

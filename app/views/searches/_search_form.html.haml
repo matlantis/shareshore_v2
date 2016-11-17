@@ -12,5 +12,18 @@
   = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), data_toggle: "tooltip", title: t(".tooltip_address_field")
 
   = f.form_group do
-    = f.submit t(".search_button_label"), class: "btn btn-default btn-sm"
+    = f.submit t(".search_button_label"), class: "btn btn-default"
 
+:javascript
+  $(document).ready(function() {
+
+    $('#search_use_location').on('click', function(e) {
+      console.log('test: '+ e.target.checked);
+      $('#search_location_id').parentsUntil('.form-group').parent().toggle(e.target.checked);
+      $('#search_address').parentsUntil('.form-group').parent().toggle(!e.target.checked);
+    });
+
+    $('#search_location_id').parentsUntil('.form-group').parent().toggle(#{search.use_location});
+    $('#search_address').parentsUntil('.form-group').parent().toggle(!#{search.use_location});
+    console.log("hier #{search.use_location}")
+  });

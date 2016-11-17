@@ -1,6 +1,15 @@
 class SearchesController < ApplicationController
   def new
-    @search = Search.new
+    last_search = nil
+    if session.key? :search_id
+      last_search = Search.find_by(id: session[:search_id])
+    end
+    if last_search
+      @search = last_search.dup
+    else
+      @search = Search.new
+      @search.init(request)
+    end
   end
 
   def create
@@ -10,6 +19,7 @@ class SearchesController < ApplicationController
       render 'new'
       return
     end
+    session[:search_id] = @search.id
 
     if @search.use_location
       @current_location = @search.location

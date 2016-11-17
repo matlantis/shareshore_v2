@@ -59,9 +59,10 @@
       $(thedivid).toggle(200);
     });
     
-    $('body').on('click', '.article_gratis_cb', function() {
+    $('body').on('click', '.article_gratis_cb', function(e) {
       var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
       console.log(thedivid);
+      //$(this).parents("form").find(".article_rate").toggle(200);
       $(thedivid).toggle(200);
     });
     

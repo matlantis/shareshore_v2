@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   
   root "pages#index"
 
-  get '/search' => 'pages#search', as: 'search'
-
   resources :articles
   resources :locations, except: [ :new]
 
@@ -43,7 +41,7 @@ Rails.application.routes.draw do
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 
-  #get "/pages/contact" => "pages#contact", as: 'contact'
+  get "/pages/index" => "pages#index"
   get "/pages/:page" => "pages#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

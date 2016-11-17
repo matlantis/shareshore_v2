@@ -3,24 +3,23 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
-  before_action :prepare_current_session
+  before_action :prepare_search_session
   before_action :set_locale
   
-  def prepare_current_session
-    unless session.key? :address # seems to be a new user
+  def prepare_search_session
+    print 'prepare'
+    unless session.key? :search # seems to be a new user
       addr = Geocoder.address(request.remote_ip)
       if addr == "Reserved" # got that for remote_ip localhost
         addr = "Dresden, Germany"
       end
       if addr
-        session[:address] = addr
+        search = Search.new
+        search.address = addr
+        search.radius = 1.5
+        session[:search] = search
       end
-    end
-
-    unless session.key? :radius
-      session[:radius] = 1
-    end
-    
+    end    
   end
 
   def set_locale
