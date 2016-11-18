@@ -6,75 +6,18 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
   def index_owner
-    @articles = current_user.articles.order(location_id: :asc, title: :asc)
-  end
-  
-  # GET /articles
-  # GET /articles.json
-  def index
-    # save the search parameters to the session
-    session[:pattern] = params[:pattern] if params.key? :pattern
-    session[:radius] = params[:radius] if params.key? :radius
-    session[:address] = params[:address] if params.key? :address
-    session[:use_user_location] = params[:use_user_location] == "1" if params.key? :use_user_location
-    session[:address_location_id] = params[:address_location_id] if params.key? :address_location_id
-    
-    @articles = Article.all
-
-    # remove own articles
-    if current_user
-      @articles = @articles.where.not(user: current_user)
+    # admins can see articles of other users
+    user = nil
+    if params.key?(:user_id) && is_admin?
+      user = User.find_by(id: params[:user_id].to_i)
     end
-
-    unless session[:use_user_location]
-      # decode current location
-      location = Location.new(street_and_no: session[:address])
-      if location.geocode
-        @current_location = location
-      else
-        flash[:alert] = t('.warning_location_not_geocoded')
-        redirect_to search_path
-        return
-      end
+    if user
+      @user = user
     else
-      @current_location = Location.find_by(id: session[:address_location_id])
-      unless @current_location
-        flash[:alert] = t('.warning_location_not_existent')
-        redirect_to search_path
-        return
-      end
+      @user = current_user
     end
     
-    # apply location criteria
-    @articles = @articles.joins(:location).near(@current_location, session[:radius])     
-
-    @articles = @articles.order(title: :asc) # 2nd criterion after location
-
-    # provide bounding box for the map (would be better if done on client side)
-    @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
-    @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
-    @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
-    @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
-    
-    # apply pattern criteria
-    if session[:pattern]
-      @articles = @articles.search(session[:pattern]) # no sorting is done here
-    end
-
-    # # provide locations to be drawn by the map
-    # @locations = @articles.collect { |a| a.location}.uniq
-
-    # provide houses to be drawn by the map
-    @houses = @articles.collect { |a| a.location.house }.uniq
-
-    # determine if there is a house at given location
-    houses_center = House.near(@current_location, 0.01)
-    if houses_center.length > 0
-      @house_center = houses_center.first
-    end
-        
-    # paginate
-    @articles = @articles.paginate(page: params[:page], per_page: 100)
+    @articles = @user.articles.order(location_id: :asc, title: :asc)
   end
 
   def index_location
@@ -207,7 +150,7 @@ class ArticlesController < ApplicationController
     # use to verify the article really belongs to the current user
     # not sure if this works, depends devise ensures that current_user is really the user that logged in
     def verify_user_is_owner
-      if current_user.id != @article.user.id
+      unless is_admin? || current_user.id == @article.user.id
         respond_to do |format|
           flash[:danger] = t('articles.warning_not_owner')
           format.html { redirect_to articles_url }
@@ -220,10 +163,9 @@ class ArticlesController < ApplicationController
       user = current_user
     
       # check if location belongs to the user
-      unless user.locations.exists?(article_params[:location_id])
+      unless is_admin? || user.locations.exists?(article_params[:location_id])
         respond_to do |format|
-          flash[:danger] = t('articles.warning_location_not_user')
-          format.html { redirect_to articles_url }
+          format.html { redirect_to articles_url, error: t('articles.warning_location_not_user')}
           format.json { head :no_content }
         end
         return

@@ -22,4 +22,8 @@ class PagesController < ApplicationController
       @search.init(request)
     end
   end
+
+  def admin
+    authenticate_admin!
+  end
 end

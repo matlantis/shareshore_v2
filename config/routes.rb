@@ -35,15 +35,17 @@ Rails.application.routes.draw do
   get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
   
   devise_scope :user do
-    get "user/guidepost", action: :guidepost, controller: 'users/registrations', as: 'user_guidepost'
-    put "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
-    post "user/guidepost", action: :update_guidepost, controller: 'users/registrations'
+    get "users/guidepost", action: :guidepost, controller: 'users/registrations', as: 'user_guidepost'
+    put "users/guidepost", action: :update_guidepost, controller: 'users/registrations'
+    post "users/guidepost", action: :update_guidepost, controller: 'users/registrations'
 
     get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
+    get "users", to: 'users/registrations#index', as: 'users'
   end
 
-  get "/pages/index" => "pages#index"
-  get "/pages/:page" => "pages#show"
+  get "/pages/index", to: "pages#index"
+  get "/pages/admin", to: "pages#admin"
+  get "/pages/:page", to: "pages#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

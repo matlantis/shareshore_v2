@@ -17,4 +17,7 @@
         .col-xs-9
           = link_to "", location, class: "glyphicon glyphicon-map-marker"
           = location.fulladdress
+
+= will_paginate @houses, renderer: BootstrapPagination::Rails
+
     

@@ -4,68 +4,20 @@ class LocationsController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
   def index_owner
-    @locations = current_user.locations.order(created_at: :asc)
+    # admins can see articles of other users
+    user = nil
+    if params.key?(:user_id) && is_admin?
+      user = User.find_by(id: params[:user_id].to_i)
+    end
+    if user
+      @user = user
+    else
+      @user = current_user
+    end
+
+    @locations = @user.locations.order(created_at: :asc)
   end
   
-  # GET /locations
-  # GET /locations.json
-  def index
-    # save the search parameters to the session
-    session[:pattern] = params[:pattern] if params.key? :pattern
-    session[:radius] = params[:radius] if params.key? :radius
-    session[:address] = params[:address] if params.key? :address
-    session[:use_user_location] = params[:use_user_location] == "1" if params.key? :use_user_location
-    session[:address_location_id] = params[:address_location_id] if params.key? :address_location_id
-
-    @locations = Location.all
-
-    # remove own locations
-    if current_user
-      @locations = @locations.where.not(user: current_user)
-    end
-
-    unless session[:use_user_location]
-      # decode current location
-      location = Location.new(street_and_no: session[:address])
-      if location.geocode
-        @current_location = location
-      else
-        flash[:alert] = t('locations.warning_location_not_geocoded')
-        redirect_to search_path
-        return
-      end
-    else
-      @current_location = Location.find_by(id: session[:address_location_id])
-      unless @current_location
-        flash[:alert] = t('.warning_location_not_existent')
-        redirect_to search_path
-        return
-      end
-    end
-
-    # apply location criteria
-    @locations = @locations.near(@current_location, session[:radius])     
-
-    # provide bounding box for the map (would be better if done on client side)
-    @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, session[:radius])
-    @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, session[:radius])
-    @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, session[:radius])
-    @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, session[:radius])
-
-    # provide houses to be drawn by the map
-    @houses = @locations.collect { |l| l.house }.uniq
-
-    # determine if there is a house at given location
-    @house_center
-    houses_center = House.near(@current_location, 0.01)
-    if houses_center.length > 0
-      @house_center = houses_center.first
-    end
-
-    # paginate
-    @locations = @locations.paginate(page: params[:page], per_page: 20)
-  end
-
   # GET /locations/1
   # GET /locations/1.json
   def show
@@ -163,14 +115,18 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:street_and_no, :postcode, :city, :country, :latitude, :longitude)
+      permitted = [ :street_and_no, :postcode, :city, :country, :latitude, :longitude ]
+      if is_admin?
+        permitted.push :house_id
+      end
+      params.require(:location).permit(permitted)
     end
 
     # use to verify the location really belongs to the current user
     # not sure if this works, depends devise ensures that current_user is really the user that logged in
     def verify_user_is_owner
       # user is already authenticated
-      if current_user.id != @location.user.id
+      unless is_admin? || current_user.id == @location.user.id
         respond_to do |format|
           format.html { redirect_to edit_user_registration_path, danger: t('locations.warning_not_owner') }
           format.json { head :no_content }

@@ -45,7 +45,7 @@
           %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
             .article_view
               = render 'articles/article_view', article: article, edit: false, home: home
-        - will_paginate @articles, renderer: BootstrapPagination::Rails
+        = will_paginate @articles, renderer: BootstrapPagination::Rails
 
       #tab-locations.tab-pane.fade
         - if current_user
@@ -60,7 +60,7 @@
           .location{"data-house-id" => "#{location.house_id}", :id => location_div_id}
             .location_view
               = render 'locations/location_view', location: location, home: home
-        - will_paginate @locations, renderer: BootstrapPagination::Rails
+        = will_paginate @locations, renderer: BootstrapPagination::Rails
     
 :javascript
   onMapClick = function(e) {

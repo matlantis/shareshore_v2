@@ -1,11 +1,9 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
-#+TAGS: bug feature enhance text layout concept
+#+TAGS: bug feature enhancement text layout concept code
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO house zugehörigkeit einer location von admin ändern        :feature:
-*** TODO nutzer profile für admin zugänglich machen                 :feature:
-    artikel und standort listen editieren
+*** TODO index_owner zu index umwandeln                                :code:
 *** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
 *** TODO daten erheben                                              :concept:
     welche daten will ich speichern?
@@ -23,6 +21,13 @@
     in FAQ
 *** TODO site ohne js testen                                            :bug:
 *** TODO Devise with email confirmation                             :feature:
+*** DONE nutzer profile für admin zugänglich machen                 :feature:
+    CLOSED: [2016-11-18 Fr 22:15]
+    artikel und standort listen editieren
+*** DONE admin user list
+    CLOSED: [2016-11-18 Fr 22:15]
+*** DONE link auf houses für admin                              :enhancement:
+    CLOSED: [2016-11-18 Fr 19:44]
 *** DONE admin houses                                               :feature:
     CLOSED: [2016-11-18 Fr 18:56]
     liste mit häusern und zugehörigen locations
@@ -708,10 +713,13 @@
     die angezeigte seite stimmt allerdings
 *** TODO blog mit news                                              :feature:
 *** TODO artikel verleih tracker                                    :feature:
-*** TODO stockitems: new article muss zugänglicher sein             :enhance:
+*** TODO stockitems: new article muss zugänglicher sein         :enhancement:
     eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
 *** TODO Tutorial schreiben                                            :text:
 *** TODO FAQ schreiben                                                 :text:
     - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
     - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
     - was tue ich, wenn mir der geliehen Artikel kaputt geht
+*** TODO house zugehörigkeit einer location von admin ändern        :feature:
+    problem: nach der änderung wird automatisch joinhouse aufgerufen, was die änderung wieder rückgängig macht.
+    besser abwarten, welche anforderungen da noch kommen

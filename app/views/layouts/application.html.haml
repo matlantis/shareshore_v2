@@ -24,7 +24,10 @@
     %footer.footer
       .container
         .pull-left
-          Martin Puttke 2016
+          - if user_signed_in? && current_user.role == "admin"
+            = link_to "Admin", '/pages/admin'
+          - else
+            Martin Puttke 2016
         .pull-right
           %ul.list-inline
             %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'

@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   belongs_to :house
 
   geocoded_by :fulladdress   # can also be an IP address
-  before_validation :re_geocode, :if => :address_changed?  # auto-fetch coordinates
+  before_validation :re_geocode, :if => :should_re_geocode?  # auto-fetch coordinates
 
   validates :user, presence: true
   validates :latitude, presence: { message: "The address could not be found" }
@@ -33,7 +33,7 @@ class Location < ActiveRecord::Base
     [street_and_no, city].reject {|e| e.blank?}.join(", ")
   end
 
-  def address_changed?
+  def should_re_geocode?
     attrs = %w(street_and_no postcode city country)
     attrs.any?{|a| send "#{a}_changed?"}
   end
@@ -42,7 +42,6 @@ class Location < ActiveRecord::Base
     self.longitude = nil
     self.latitude = nil
     geocode
-    print "geocoded location"
   end
 
   def normalize_city

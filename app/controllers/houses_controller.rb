@@ -28,11 +28,4 @@ class HousesController < ApplicationController
     def house_params
       params.require(:house).permit(:street_and_no, :postcode, :city, :country)
     end
-
-    def authenticate_admin!
-      authenticate_user!
-      if current_user.role != 'admin'
-        redirect_to("/", warning: 'forbidden', status: :forbidden)
-      end
-    end    
 end

@@ -87,11 +87,4 @@ class StockitemsController < ApplicationController
     def stockitem_params
       params.require(:stockitem).permit(:title, :details_hint, :rate, :picture, :room)
     end
-
-    def authenticate_admin!
-      authenticate_user!
-      if current_user.role != 'admin'
-        redirect_to("/", warning: 'forbidden', status: :forbidden)
-      end
-    end
 end

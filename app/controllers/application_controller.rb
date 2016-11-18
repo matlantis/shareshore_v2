@@ -25,4 +25,17 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  def authenticate_admin!
+    authenticate_user!
+    if current_user.role != 'admin'
+      redirect_to("/", warning: 'forbidden', status: :forbidden)
+    end
+  end    
+
+  def is_admin?
+    user_signed_in? && current_user.role == "admin"
+  end
+
+  helper_method :is_admin?
 end

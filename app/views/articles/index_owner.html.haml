@@ -1,5 +1,8 @@
 - @title = t('titles.articles.index_owner')
 
+- if is_admin?
+  - @title += ' of ' + @user.nickname
+
 .col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
     = render 'index_owner_help'

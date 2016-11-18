@@ -1,0 +1,11 @@
+- @title = "Users"
+
+%h3= @title
+
+- @users.each do |user|
+  .row
+    .col-xs-12
+      = user_marker(user)
+
+= will_paginate @users, renderer: BootstrapPagination::Rails
+
