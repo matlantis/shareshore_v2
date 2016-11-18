@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :houses, only: [:show]
+  resources :houses, only: [:show, :index, :edit, :update]
 
   resources :stockitems
-
+  post 'stockitems/new', to: "stockitems#new"
+  
   get '/searches', to: 'searches#new'
   resources :searches, only: [:new, :create]
 

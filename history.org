@@ -3,6 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO house zugehörigkeit einer location von admin ändern        :feature:
+*** TODO nutzer profile für admin zugänglich machen                 :feature:
+    artikel und standort listen editieren
 *** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
 *** TODO daten erheben                                              :concept:
     welche daten will ich speichern?
@@ -15,12 +18,18 @@
     - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
     - vor- und nachname sind eigentlich völlig irrelevant
       rausschmeißen, aus öffentlichen Ansichten entfernen
-*** TODO admin mode für stockitems und houses                       :feature:
 *** TODO mehr stockitems                                               :text:
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
 *** TODO Devise with email confirmation                             :feature:
+*** DONE admin houses                                               :feature:
+    CLOSED: [2016-11-18 Fr 18:56]
+    liste mit häusern und zugehörigen locations
+    funktionen:
+    - DONE adress daten des houses ändern 
+*** DONE admin mode für stockitems und houses                       :feature:
+    CLOSED: [2016-11-18 Fr 18:14]
 *** DONE kategorien für todos
     CLOSED: [2016-11-18 Fr 15:23]
     - bug

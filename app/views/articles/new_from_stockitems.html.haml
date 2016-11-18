@@ -34,6 +34,7 @@
                 .col-xs-6
                   %a.article_cb{"data-article-id" => "#{article.stockitem_id.to_s}", :href => "#"}
                     = article.title
+                        
                 .col-xs-6.text-right
                   - # wieviele artikel hat der nutzer schon mit diesem stockitem erstellt
                   - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
@@ -42,6 +43,12 @@
                     = t('.text_you_already_have')
                     = content_tag :span, "#{nstockitems}"
                     = t('.text_of_this')
+                  - if current_user.role == "admin"
+                    - narticles = Article.where("stockitem_id = ?", article.stockitem_id).count
+                    .admin-buttons
+                      = link_to "", edit_stockitem_path(article.stockitem), class: "glyphicon glyphicon-pencil btn btn-danger btn-xs"
+                      = link_to "", article.stockitem, method: :delete, data: {confirm: "delete " + article.stockitem.title + "? " + narticles.to_s + " References."} , class: "glyphicon glyphicon-remove btn btn-danger btn-xs"
+
               .row.article_edit
                 .col-xs-12
                   = render 'form', article: article

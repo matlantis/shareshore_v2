@@ -9,6 +9,10 @@ class House < ActiveRecord::Base
     [street_and_no, city].reject {|e| e.blank?}.join(", ")
   end
 
+  def fulladdress
+    [street_and_no, postcode, city, country].reject {|e| e.blank?}.join(", ")
+  end
+
   private
   def has_no_locations?
     locations.count == 0

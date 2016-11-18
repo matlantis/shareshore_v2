@@ -1,9 +1,23 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:index, :edit, :update]
 
+  def index
+    @houses = House.all
+    @houses = @houses.paginate(page: params[:page], per_page: 100)
+  end
+  
   def show
   end
 
+  def edit
+  end
+
+  def update
+    success = @house.update(house_params)
+    redirect_to houses_path
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_house
@@ -15,4 +29,10 @@ class HousesController < ApplicationController
       params.require(:house).permit(:street_and_no, :postcode, :city, :country)
     end
 
+    def authenticate_admin!
+      authenticate_user!
+      if current_user.role != 'admin'
+        redirect_to("/", warning: 'forbidden', status: :forbidden)
+      end
+    end    
 end

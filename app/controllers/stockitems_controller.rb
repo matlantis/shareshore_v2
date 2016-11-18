@@ -1,6 +1,8 @@
 class StockitemsController < ApplicationController
   before_action :set_stockitem, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
+  
   # GET /stockitems
   # GET /stockitems.json
   def index
@@ -13,7 +15,7 @@ class StockitemsController < ApplicationController
 
     @articles = []
     @stockitems.each do |t|
-      a = Article.new(title: t.title, details: t.details_hint, rate_eur: t.rate_eur, rate: t.rate, picture: t.picture, stockitem_id: t.id, quality: 3)
+      a = Article.new(title: t.title, details: t.details_hint, rate: t.rate, picture: t.picture, stockitem_id: t.id, quality: 3)
       @articles.push(a)
     end
   end
@@ -24,7 +26,11 @@ class StockitemsController < ApplicationController
 
   # GET /stockitems/new
   def new
-    @stockitem = Stockitem.new
+    if params.key? 'stockitem'
+      @stockitem = Stockitem.new(stockitem_params)
+    else
+      @stockitem = Stockitem.new
+    end
   end
 
   # GET /stockitems/1/edit
@@ -79,6 +85,13 @@ class StockitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stockitem_params
-      params.require(:stockitem).permit(:title, :details_hint, :rate, :picture)
+      params.require(:stockitem).permit(:title, :details_hint, :rate, :picture, :room)
+    end
+
+    def authenticate_admin!
+      authenticate_user!
+      if current_user.role != 'admin'
+        redirect_to("/", warning: 'forbidden', status: :forbidden)
+      end
     end
 end
