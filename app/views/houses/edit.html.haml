@@ -1,0 +1,25 @@
+%h3 Edit House
+
+.row
+  .col-xs-12
+    = bootstrap_form_for @house, layout: :horizontal do |f|
+      = f.alert_message "fix errors"
+      = f.text_field :street_and_no
+      = f.text_field :postcode
+      = f.text_field :city
+      = f.text_field :country
+      = f.form_group do
+        = f.submit
+
+.row
+  .col-xs-12
+    #mapid{:style => "width: -1; height: 400px;"}
+
+:javascript
+  var onMapClick = function(e) {
+    console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
+  };
+
+  $(document).ready(function() {
+    #{render 'articles/map_show.js.erb', location: @house.locations.first, formats: [:js]}
+  });

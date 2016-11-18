@@ -1,0 +1,6 @@
+= bootstrap_form_for stockitem, url: new_stockitem_path do |f|
+  = f.alert_message 'fix errors'
+  = f.hidden_field :title
+  = f.hidden_field :details_hint
+  = f.hidden_field :rate
+  = f.submit class: "btn btn-danger"

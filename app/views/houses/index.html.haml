@@ -1,0 +1,20 @@
+%h3 Houses
+
+- @houses.each do |house|
+  .shareshore-panel
+    .row
+      .col-xs-3
+        ID:
+        = house.id
+      .col-xs-6
+        = house.fulladdress
+      .col-xs-3.text-right
+        = link_to "", edit_house_path(house), class: "glyphicon glyphicon-pencil"
+    - house.locations.each do |location|
+      .row
+        .col-xs-3
+          = user_marker(location.user)
+        .col-xs-9
+          = link_to "", location, class: "glyphicon glyphicon-map-marker"
+          = location.fulladdress
+    
