@@ -1,40 +1,34 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
+#+TAGS: bug feature enhance text layout concept
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO Leitfaden zum Ver- und Ausleihen schreiben
-*** TODO Tutorial schreiben
-*** TODO FAQ schreiben
-    - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
-    - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
-    - was tue ich, wenn mir der geliehen Artikel kaputt geht
-*** TODO kategorien für todos
+*** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
+*** TODO daten erheben                                              :concept:
+    welche daten will ich speichern?
+*** TODO Über uns bzw. Wer steckt dahinter? seite                      :text:
+*** TODO freundlichere begriffe für rechtliche sachen                  :text:
+*** TODO beta markup                                                   :text:
+*** TODO privacy                                                    :concept:
+    - wie verhindere ich dass robots email und telefonnr auslesen?
+    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
+    - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
+    - vor- und nachname sind eigentlich völlig irrelevant
+      rausschmeißen, aus öffentlichen Ansichten entfernen
+*** TODO admin mode für stockitems und houses                       :feature:
+*** TODO mehr stockitems                                               :text:
+*** TODO wie-bin-ich-abgesichert-seite                                 :text:
+    in FAQ
+*** TODO site ohne js testen                                            :bug:
+*** TODO Devise with email confirmation                             :feature:
+*** DONE kategorien für todos
+    CLOSED: [2016-11-18 Fr 15:23]
     - bug
     - feature
     - enhancement
     - content
     - layout
     - concept
-*** TODO daten erheben
-*** TODO blog mit news
-*** TODO Über uns bzw. Wer steckt dahinter? seite
-*** TODO freundlichere begriffe für rechtliche sachen
-*** TODO beta markup
-*** TODO privacy: 
-    - wie verhindere ich dass robots email und telefonnr auslesen?
-    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
-    - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
-    - vor- und nachname sind eigentlich völlig irrelevant
-      rausschmeißen, aus öffentlichen Ansichten entfernen
-*** TODO stockitems: ohne vorlage erstellen muss auch beim scrollen zugänglich sein
-    eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
-*** TODO admin mode für stockitems und houses
-*** TODO mehr stockitems
-*** TODO wie-bin-ich-abgesichert-seite
-    in FAQ
-*** TODO artikel verleih tracker
-*** TODO site ohne js testen
-*** TODO Devise with email confirmation
 *** DONE sign up checkbox for privacy and termsofuse
     CLOSED: [2016-11-18 Fr 15:21]
 *** DONE statische pages [3/3]
@@ -703,3 +697,12 @@
 *** TODO glyphicons: alternate text (für sr)
 *** TODO edit profile: submit button führt bei error zu falscher url
     die angezeigte seite stimmt allerdings
+*** TODO blog mit news                                              :feature:
+*** TODO artikel verleih tracker                                    :feature:
+*** TODO stockitems: new article muss zugänglicher sein             :enhance:
+    eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
+*** TODO Tutorial schreiben                                            :text:
+*** TODO FAQ schreiben                                                 :text:
+    - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
+    - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
+    - was tue ich, wenn mir der geliehen Artikel kaputt geht
