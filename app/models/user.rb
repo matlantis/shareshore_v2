@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates :nickname, uniqueness: true,
             format: { with: /\A[a-zA-Z0-9\.\-_]+\z/ }
   validates :phoneno, format: { with: /\A[a-zA-Z0-9\- ]*\z/ }
+
+  validates :terms, acceptance: true
   
   def fullname
     name = ""

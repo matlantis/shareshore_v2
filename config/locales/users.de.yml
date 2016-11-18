@@ -8,7 +8,7 @@ de:
       edit:
         header_change_password: "Passwort ändern"
         submit: "Passwort ändern"
-        help_minimum_password_length: "#mindestens {length} Buchstaben"
+        help_password_minimum_length: "mindestens %{length} Buchstaben"
       new:
         submit: "Sende Email zum Zurücksetzen"
 
@@ -28,8 +28,15 @@ de:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."
         
       new:
-        help_minimum_password_length: "#mindestens {length} Buchstaben"
+        help_password_minimum_length: "mindestens %{length} Buchstaben"
+        i_do: "Ich bin mit den"
+        terms_of_use:  Allgemeinen Geschäftsbedingungen
+        and_the: und der
+        declaration_of_privacy: Datenschutzerklärung
+        agree: einverstanden
 
+        see_terms: "(siehe)"
+        
       show:
         tipp_panel_text: "kleine Hilfe zu show registrations"
         empty_locations_list_message: "Keine"

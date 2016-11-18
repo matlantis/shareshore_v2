@@ -20,6 +20,8 @@ de:
               blank: "bitte eingeben"
               invalid: "stimmt nicht überein"
             email:
+            terms:
+              accepted: "müssen akzeptiert werden"
 
         article:
           attributes:

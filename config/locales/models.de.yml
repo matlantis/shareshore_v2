@@ -39,6 +39,7 @@ de:
         password_confirmation: "Passwort bestätigen"
         current_password: "Aktuelles Passwort"
         locations: "Standorte"
+        terms: "Allgemeine Geschäftsbedingungen und Datenschutzerklärung"
       article:
         title: "Name"
         details: "Bemerkung"

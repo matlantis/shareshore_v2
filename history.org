@@ -2,7 +2,63 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO Leitfaden zum Ver- und Ausleihen schreiben
+*** TODO Tutorial schreiben
+*** TODO FAQ schreiben
+    - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
+    - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
+    - was tue ich, wenn mir der geliehen Artikel kaputt geht
+*** TODO kategorien für todos
+    - bug
+    - feature
+    - enhancement
+    - content
+    - layout
+    - concept
+*** TODO daten erheben
 *** TODO blog mit news
+*** TODO Über uns bzw. Wer steckt dahinter? seite
+*** TODO freundlichere begriffe für rechtliche sachen
+*** TODO beta markup
+*** TODO privacy: 
+    - wie verhindere ich dass robots email und telefonnr auslesen?
+    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
+    - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
+    - vor- und nachname sind eigentlich völlig irrelevant
+      rausschmeißen, aus öffentlichen Ansichten entfernen
+*** TODO stockitems: ohne vorlage erstellen muss auch beim scrollen zugänglich sein
+    eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
+*** TODO admin mode für stockitems und houses
+*** TODO mehr stockitems
+*** TODO wie-bin-ich-abgesichert-seite
+    in FAQ
+*** TODO artikel verleih tracker
+*** TODO site ohne js testen
+*** TODO Devise with email confirmation
+*** DONE sign up checkbox for privacy and termsofuse
+    CLOSED: [2016-11-18 Fr 15:21]
+*** DONE statische pages [3/3]
+    CLOSED: [2016-11-18 Fr 15:20]
+    - [X] entwurf
+      - tutorial: wie funktioniert shareshore?
+      - agb and disclaimer
+      - kontakt bei problemen
+      - faq
+      - statistiken
+      - blog
+    - [X] Grundgerüst
+      http://blog.teamtreehouse.com/static-pages-ruby-rails
+    - [X] Pages
+      - [X] agbs schreiben
+      - [X] contact schreiben
+*** CANCELED geocoder kann addresse nicht auflösen:
+    CLOSED: [2016-11-17 Do 22:08]
+    "An der Hühnerhecke 6, Alzenau, Deutschland"
+    in suchmaske
+    also jetzt klappts
+*** DONE locations owner: link to search page at this location
+    CLOSED: [2016-11-17 Do 20:58]
+    besser sogar dropdown box mit eigenen standorten in search form
 *** DONE search in eigenen controller packen
     CLOSED: [2016-11-17 Do 13:04]
     links auf suche anpassen (startseite)
@@ -12,51 +68,6 @@
     - index articles/location
     - pages/search
     - 
-*** TODO Über uns bzw. Wer steckt dahinter? seite
-*** TODO freundlichere begriffe für rechtliche sachen
-*** TODO sign up checkbox for privacy and termsofuse
-*** TODO beta markup
-*** TODO locations owner: link to search page at this location
-    besser sogar dropdown box mit eigenen standorten in search form
-*** TODO privacy: 
-    - wie verhindere ich dass robots email und telefonnr auslesen?
-    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
-    - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
-    - vor- und nachname sind eigentlich völlig irrelevant
-      rausschmeißen, aus öffentlichen Ansichten entfernen
-*** TODO edit profile: submit button führt bei error zu falscher url
-    die angezeigte seite stimmt allerdings
-*** TODO stockitems: ohne vorlage erstellen muss auch beim scrollen zugänglich sein
-    eventuell doch nach räumen trennen und tabs oder so einführen (die kürzeren ladezeiten sind kein argument!!! wenn dann über javascript machen)
-*** TODO admin mode für stockitems und houses
-*** TODO mehr stockitems
-*** TODO glyphicons: alternate text (für sr)
-*** TODO statische pages [2/3]
-    - [X] entwurf
-      - tutorial: wie funktioniert shareshore?
-      - agb and disclaimer
-      - kontakt bei problemen
-      - faq
-        - wie verhindere ich, dass mir meine Sachen nicht kaputtgemacht/geklaut werden
-        - was tue ich, wenn der verliehene Artikel defekt zu mir zurückkommt
-        - was tue ich, wenn mir der geliehen Artikel kaputt geht
-      - statistiken
-      - blog
-    - [X] Grundgerüst
-      http://blog.teamtreehouse.com/static-pages-ruby-rails
-    - [-] Pages
-      - [ ] agbs schreiben
-      - [X] contact schreiben
-      - [ ] tutorial schreiben
-      - [ ] faq schreiben
-*** TODO wie-bin-ich-abgesichert-seite
-    in FAQ
-*** TODO artikel verleih tracker
-*** TODO geocoder kann addresse nicht auflösen:
-    "An der Hühnerhecke 6, Alzenau, Deutschland"
-    in suchmaske
-*** TODO site ohne flash testen
-*** TODO Devise with email confirmation
 *** DONE stockitems: hide title field
     CLOSED: [2016-11-16 Mi 11:15]
 *** DONE article and location forms should have reset or cancel button
@@ -645,7 +656,8 @@
     per js, durchsucht die artikel titel nach dem gewúnschten begriff und zeigt die vorschläge als links an
     der entsprechende raum muss dabei aufgeklappt werden
     sehr aufwendig
-*** TODO artikel, nutzer und standorte im text hervorheben
+*** DONE artikel, nutzer und standorte im text hervorheben
+    CLOSED: [2016-11-17 Do 22:38]
     mit symbol und verzierung (zB kartusche)
 *** SOMEDAYS kategorien als relation
     so dass ein template mehrere kategorien (rooms) besitzen kann
@@ -657,7 +669,6 @@
     braucht man nur für regelmässige tasks
     zB: template erstellen, vllt auch einfach als seed realisieren
 *** TODO Mehr templates erstellen
-    
 *** TODO Einfache * templates immer als erstes im raum anzeigen
 *** TODO der footer muss gemacht gewerden
     link to terms-of-use oder so, logo, copyright infos, privacy information, twitter, facebook accounts
@@ -689,3 +700,6 @@
 *** TODO profile option: man kann mich auch jederzeit nach anderen sachen fragen
     sinn und zweck?
     eher broadcast message an die nachbarschaft
+*** TODO glyphicons: alternate text (für sr)
+*** TODO edit profile: submit button führt bei error zu falscher url
+    die angezeigte seite stimmt allerdings
