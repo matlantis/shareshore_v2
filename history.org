@@ -3,27 +3,26 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO index_owner zu index umwandeln                                :code:
-*** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
-*** TODO daten erheben                                              :concept:
-    welche daten will ich speichern?
-*** TODO Über uns bzw. Wer steckt dahinter? seite                      :text:
-*** TODO freundlichere begriffe für rechtliche sachen                  :text:
-*** TODO beta markup                                                   :text:
 *** TODO privacy                                                    :concept:
     - wie verhindere ich dass robots email und telefonnr auslesen?
     - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
     - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
     - vor- und nachname sind eigentlich völlig irrelevant
       rausschmeißen, aus öffentlichen Ansichten entfernen
+*** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
+*** TODO daten erheben                                              :concept:
+    welche daten will ich speichern?
+*** TODO Über uns bzw. Wer steckt dahinter? seite                      :text:
+*** TODO freundlichere begriffe für rechtliche sachen                  :text:
+*** TODO beta markup                                                   :text:
 *** TODO mehr stockitems                                               :text:
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
-*** TODO Devise with email confirmation                             :feature:
-*** DONE nutzer profile für admin zugänglich machen                 :feature:
-    CLOSED: [2016-11-18 Fr 22:15]
-    artikel und standort listen editieren
+*** DONE Devise with email confirmation                             :feature:
+    CLOSED: [2016-11-19 Sa 12:48]
+*** DONE index_owner zu index umwandeln                                :code:
+    CLOSED: [2016-11-19 Sa 11:14]
 *** DONE admin user list
     CLOSED: [2016-11-18 Fr 22:15]
 *** DONE link auf houses für admin                              :enhancement:
@@ -723,3 +722,7 @@
 *** TODO house zugehörigkeit einer location von admin ändern        :feature:
     problem: nach der änderung wird automatisch joinhouse aufgerufen, was die änderung wieder rückgängig macht.
     besser abwarten, welche anforderungen da noch kommen
+*** TODO nutzer profile für admin zugänglich machen                 :feature:
+    - [X] artikel und standort listen editieren
+    - [ ] Profil informationen
+

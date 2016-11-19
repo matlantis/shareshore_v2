@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
-  def index_owner
+  def index
     # admins can see articles of other users
     user = nil
     if params.key?(:user_id) && is_admin?

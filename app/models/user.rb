@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :locations, inverse_of: :user, dependent: :delete_all
@@ -23,5 +23,10 @@ class User < ActiveRecord::Base
       name += String(firstname) + " "
     end
     name += String(lastname)
+  end
+
+  protected
+  def confirmation_required?
+    true # to disable confirmation stuff set to false
   end
 end

@@ -48,5 +48,5 @@
   - if is_admin?
     .row
       .col-xs-12
-        = link_to "Articles", user_articles_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
-        = link_to "Locations", user_locations_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
+        = link_to "Articles", articles_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
+        = link_to "Locations", locations_path(user_id: @user.id), class: 'btn btn-danger btn-xs'

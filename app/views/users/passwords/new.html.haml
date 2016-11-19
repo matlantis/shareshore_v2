@@ -1,4 +1,4 @@
-- @title = t('title.user.passwords.new')
+- @title = t('titles.users.passwords.new')
 
 %h2= @title
 
@@ -7,4 +7,5 @@
   = f.email_field :email, autofocus: true
   = f.form_group do
     = f.submit t('.submit')
+    
 = render "users/shared/links"

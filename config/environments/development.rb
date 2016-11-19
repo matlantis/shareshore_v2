@@ -47,11 +47,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "mail.campusspeicher.de",
     port: 587,
-    domain: ENV["CAMPUS_DOMAIN"],
+    domain: ENV["CAMPUS_EMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["CAMPUS_USERNAME"],
-    password: ENV["CAMPUS_PASSWORD"]
+    user_name: ENV["CAMPUS_EMAIL_USERNAME"],
+    password: ENV["CAMPUS_EMAIL_PASSWORD"]
   }
 
 end

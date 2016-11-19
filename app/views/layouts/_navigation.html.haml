@@ -16,9 +16,9 @@
             = t("titles.searches.new")
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li= link_to t("titles.articles.index_owner"), user_articles_path, class: 'navbar-link'
+          %li= link_to t("titles.articles.index_owner"), articles_path, class: 'navbar-link'
           %li= link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'navbar-link'
-          %li= link_to t("titles.locations.index_owner"), user_locations_path, class: 'navbar-link'
+          %li= link_to t("titles.locations.index_owner"), locations_path, class: 'navbar-link'
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %span.glyphicon.glyphicon-user

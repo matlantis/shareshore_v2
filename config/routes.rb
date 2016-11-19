@@ -30,8 +30,6 @@ Rails.application.routes.draw do
   get '/locations/:location_id/articles', action: :index_location, controller: 'articles', as: 'articles_location'
   get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'
 
-  get '/user/locations', action: :index_owner, controller: 'locations', as: 'user_locations'
-  get '/user/articles', action: :index_owner, controller: 'articles', as: 'user_articles'
   get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
   
   devise_scope :user do

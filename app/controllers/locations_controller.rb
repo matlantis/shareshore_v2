@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!, only: [:index_owner, :new, :edit, :create, :update, :destroy]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
-  def index_owner
+  def index
     # admins can see articles of other users
     user = nil
     if params.key?(:user_id) && is_admin?
