@@ -26,11 +26,15 @@ module ApplicationHelper
       text = location.shortaddress
     end
     capture do
-      content_tag :span, class: "location_marker" do
-        link_to location do
-          txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
-          txt2 = content_tag :strong, text
-          txt1.concat(txt2)
+      unless location
+        content_tag :em, t('common.unknown_location')
+      else
+        content_tag :span, class: "location_marker" do
+          link_to location do
+            txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
+            txt2 = content_tag :strong, text
+            txt1.concat(txt2)
+          end
         end
       end
     end
@@ -69,10 +73,14 @@ module ApplicationHelper
 
   def user_marker(user)
     capture do
-      content_tag :span, class: "user_marker" do
-        link_to user_path(user) do
-          txt1 = content_tag :span, "", class: "glyphicon glyphicon-user"
-          txt1.concat(" ").concat(user.nickname)
+      unless user
+        content_tag :em, t('common.unknown_user')
+      else
+        content_tag :span, class: "user_marker" do
+          link_to user_path(user) do
+            txt1 = content_tag :span, "", class: "glyphicon glyphicon-user"
+            txt1.concat(" ").concat(user.nickname)
+          end
         end
       end
     end
@@ -81,13 +89,17 @@ module ApplicationHelper
   def article_marker_modal(article)
     article_show_id = "#article_" + article.id.to_s + "_show"
     capture do
-      content_tag :span, class: "user_marker" do
-        link_to article_show_id, data: { toggle: "modal" } do
-          txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
-          if article.stockitem_id
-            txt1.concat(" ").concat(article.stockitem.title)
-          else
-            txt1.concat(" ").concat(article.title)
+      unless article
+        content_tag :em, t('common.unknown_article')
+      else
+        content_tag :span, class: "user_marker" do
+          link_to article_show_id, data: { toggle: "modal" } do
+            txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
+            if article.stockitem_id
+              txt1.concat(" ").concat(article.stockitem.title)
+            else
+              txt1.concat(" ").concat(article.title)
+            end
           end
         end
       end

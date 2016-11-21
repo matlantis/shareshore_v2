@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
       @search = last_search.dup
     else
       @search = Search.new
-      @search.init(request)
+      @search.init(request, current_user)
     end
   end
 

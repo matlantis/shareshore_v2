@@ -61,7 +61,9 @@
             .location_view
               = render 'locations/location_view', location: location, home: home
         = will_paginate @locations, renderer: BootstrapPagination::Rails
-    
+
+= render 'layouts/modal_error'
+        
 :javascript
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);
@@ -98,5 +100,15 @@
     // bind the event handler
     $(".location_marker").on('mouseenter', onArticleMouseEnter);
     $(".location_marker").on('mouseleave', onArticleMouseLeave);
+
+    // ajax responses
+    $('body').on("ajax:success", function(e, data, status, xhr) {
+      console.log("Success");
+    });
+
+    $('body').on("ajax:error", function(e, xhr, status, error) {
+      console.log("Error");
+      $("#modal-error").modal("show");
+    });
 
   });

@@ -9,14 +9,6 @@ de:
       tooltip_remove_button: "Standort löschen"
   
     index:
-      text_at_house: Im Haus
-      empty_list_message: "Leider keine Leute gefunden"
-      warning_about_own_locations: "Deine eigenen Standorte werden hier nicht angezeigt!"
-      and_you: und Du
-      warning_location_not_geocoded: "Adresse ist unbekannt"
-      warning_location_not_existent: "Der Standort existiert nicht"
-
-    index_owner:
       empty_list_message: "Du hast keine Standorte. Erstelle einen!"
       tooltip_add_button: "Neuen Standort hinzufügen"
 

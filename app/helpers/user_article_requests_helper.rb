@@ -1,0 +1,2 @@
+module UserArticleRequestsHelper
+end

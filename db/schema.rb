@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119102314) do
+ActiveRecord::Schema.define(version: 20161121102304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,19 @@ ActiveRecord::Schema.define(version: 20161119102314) do
   add_index "template_selections_templates", ["template_id"], name: "index_template_selections_templates_on_template_id", using: :btree
   add_index "template_selections_templates", ["template_selection_id"], name: "index_template_selections_templates_on_template_selection_id", using: :btree
 
+  create_table "user_article_requests", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "article_id"
+    t.integer  "receiver_id"
+    t.integer  "sender_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_article_requests", ["article_id"], name: "index_user_article_requests_on_article_id", using: :btree
+  add_index "user_article_requests", ["receiver_id"], name: "index_user_article_requests_on_receiver_id", using: :btree
+  add_index "user_article_requests", ["sender_id"], name: "index_user_article_requests_on_sender_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -143,4 +156,5 @@ ActiveRecord::Schema.define(version: 20161119102314) do
   add_foreign_key "articles", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "searches", "locations"
+  add_foreign_key "user_article_requests", "articles"
 end

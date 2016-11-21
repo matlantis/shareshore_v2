@@ -3,6 +3,16 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO suche als get mit parametern statt als post            :enhancement:
+    besseres reload und zurück verhalten
+*** TODO reference to deleted location                                  :bug:
+    user mit einer location
+    search something on this location
+    delete the location
+    call search form -> should crash, cause location is gone
+*** TODO hinweis leute in der nähe zu werben                           :text:
+*** TODO polls                                                      :feature:
+*** TODO dem nutzer eine mail schreiben                             :feature:
 *** TODO privacy                                                    :concept:
     - wie verhindere ich dass robots email und telefonnr auslesen?
     - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?

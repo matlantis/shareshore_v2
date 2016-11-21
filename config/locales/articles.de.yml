@@ -19,21 +19,17 @@ de:
 
     article_show:
       heading_contact_info: "Kontakt"
-
-    index:
-      text_at_house: Im Haus
-      empty_list_message: "Leider keine Sachen gefunden"
-      warning_location_not_geocoded: "Adresse ist unbekannt"
-      warning_about_own_articles: "Deine eigenen Sachen werden hier nicht angezeigt!"
-      and_you: und Du
-      warning_location_not_existent: "Der Standort existiert nicht"
+      heading_request: "Anfrage"
+      placeholder_request_text: "Füge ein paar Worte hinzu!"
+      button_label_send_request: "Anfrage für diese Sache versenden"
+      text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
       
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"
       empty_list_message: "Keine Sachen an diesem Standort"
       location_not_existent: "Standort nicht vorhanden"
 
-    index_owner:
+    index:
       empty_list_message: "Du hast keine Sachen. Erstelle einen!"
       user_not_existent: "Nutzer nicht vorhanden"
       tooltip_add_button: "Neue Sache hinzufügen"

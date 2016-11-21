@@ -7,6 +7,9 @@ de:
   common:
     message_fix_errors: "Bitte korrigiere die folgenden Fehler"
     title_tip_panel: "Tipps"
+    unknown_user: "Unbekannter Benutzer"
+    unknown_article: "Unbekannte Sache"
+    unknown_location: "Unbekannter Standort"
     
   titles:
     contacts:
