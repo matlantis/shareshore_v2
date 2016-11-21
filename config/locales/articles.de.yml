@@ -20,7 +20,7 @@ de:
     article_show:
       heading_contact_info: "Kontakt"
       heading_request: "Anfrage"
-      placeholder_request_text: "Füge ein paar Worte hinzu!"
+      placeholder_request_text: "Füge ein paar Worte und deine Kontaktdaten hinzu!"
       button_label_send_request: "Anfrage für diese Sache versenden"
       text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
       

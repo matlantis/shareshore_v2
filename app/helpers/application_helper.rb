@@ -77,7 +77,7 @@ module ApplicationHelper
         content_tag :em, t('common.unknown_user')
       else
         content_tag :span, class: "user_marker" do
-          link_to user_path(user) do
+          link_to user do
             txt1 = content_tag :span, "", class: "glyphicon glyphicon-user"
             txt1.concat(" ").concat(user.nickname)
           end
@@ -106,6 +106,26 @@ module ApplicationHelper
     end
   end
 
+  def article_marker(article)
+    article_show_id = "#article_" + article.id.to_s + "_show"
+    capture do
+      unless article
+        content_tag :em, t('common.unknown_article')
+      else
+        content_tag :span, class: "user_marker" do
+          link_to article do
+            txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
+            if article.stockitem_id
+              txt1.concat(" ").concat(article.stockitem.title)
+            else
+              txt1.concat(" ").concat(article.title)
+            end
+          end
+        end
+      end
+    end
+  end
+  
   def articles_count(articles)
     articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
   end

@@ -1,0 +1,4 @@
+de:
+  user_mailer:
+    article_request_mail:
+      subject: "Shareship: Anfrage für deine(n) %{article}"

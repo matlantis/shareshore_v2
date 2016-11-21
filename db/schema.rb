@@ -110,14 +110,12 @@ ActiveRecord::Schema.define(version: 20161121102304) do
   create_table "user_article_requests", force: :cascade do |t|
     t.string   "text"
     t.integer  "article_id"
-    t.integer  "receiver_id"
     t.integer  "sender_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "user_article_requests", ["article_id"], name: "index_user_article_requests_on_article_id", using: :btree
-  add_index "user_article_requests", ["receiver_id"], name: "index_user_article_requests_on_receiver_id", using: :btree
   add_index "user_article_requests", ["sender_id"], name: "index_user_article_requests_on_sender_id", using: :btree
 
   create_table "users", force: :cascade do |t|

@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO article details in article_request rendern                     :bug:
+*** TODO map pattern kriterium                                          :bug:
+    map in search zeigt alle locations nicht nur solche mit pattern kriterium
+*** TODO user alert if no location exists on article creation           :bug:
 *** TODO suche als get mit parametern statt als post            :enhancement:
     besseres reload und zurück verhalten
 *** TODO reference to deleted location                                  :bug:

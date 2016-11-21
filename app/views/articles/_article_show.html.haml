@@ -20,7 +20,7 @@
         - if defined?(home) && home
           %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", title: t('articles.common.tooltip_home')}
         - if article.gratis
-          %span.glyphicon.glyphicon-ok{"data-toggle" => "tooltip", title: t('articles.common.tooltip_gratis')}
+          %span.glyphicon.glyphicon-heart{"data-toggle" => "tooltip", title: Article.human_attribute_name('gratis')}
         - if user_signed_in? && current_user.role == "admin"
           = render "articles/stockitem_form", stockitem: Stockitem.new.fill_from_article(article), hidden_fields: true
     .row
@@ -60,10 +60,9 @@
         .col-xs-12.col-lg-6
           .shareshore-panel.clearfix
             - if user_signed_in?
-              - request = UserArticleRequest.new({receiver: article.user, article: article})
+              - request = UserArticleRequest.new({article: article})
               = bootstrap_form_for request, remote: true, format: :json do |f|
                 = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
-                = f.hidden_field :receiver_id
                 = f.hidden_field :article_id
 
                 = f.form_group do

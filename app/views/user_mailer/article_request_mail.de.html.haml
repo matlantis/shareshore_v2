@@ -1,0 +1,16 @@
+%p
+  Hallo #{@request.article.user.nickname},
+
+%p
+  Dein Nachbar #{user_marker(@request.sender)} würde gerne eine Deiner Sachen ausleihen:
+
+%p= article_marker(@request.article)
+
+%p
+  den/die du bei #{location_marker(@request.article.location)} anbietest.
+
+%p
+  Er/Sie schreibt Dir folgende Nachricht:
+
+%p= @request.text
+

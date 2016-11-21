@@ -12,7 +12,7 @@
         = link_to t(".link_create_without_template"), "", id: "article_new_button"
       .col-xs-4.text-right
         #all_article_count
-          - narticles = Article.all.count
+          - narticles = current_user.articles.count
           = t('.text_you_already_have')
           = content_tag :span, "#{narticles}"
           = "#{Article.model_name.human(count: narticles)}!"
