@@ -2,13 +2,16 @@
   Hallo #{@request.article.user.nickname},
 
 %p
-  Dein Nachbar #{user_marker(@request.sender)} würde gerne eine Deiner Sachen ausleihen:
+  Dein Nachbar/Deine Nachbarin #{user_marker(@request.sender)} würde gerne eine Deiner Sachen ausleihen:
 
-.shareshore-panel
-  = render 'articles/article_view', article: @request.article, mail: true
+%p= render 'articles/article_view', article: @request.article, mail: true
 
 %p
   Er/Sie schreibt Dir folgende Nachricht:
 
 %p= @request.text
 
+%p
+  So kannst du mit ihm/ihr Kontakt aufnehmen:
+
+%p= render 'users/registrations/contact', user: @request.sender, showemail: @request.with_email, showphone: @request.with_phoneno, showname: @request.with_name, current_user: @request.article.user

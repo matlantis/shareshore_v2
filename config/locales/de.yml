@@ -57,8 +57,3 @@ de:
     searches:
       new: "Suche"
       
-  mail:
-    user_request_username: "Shareship Nutzeranfrage von %{user}"
-    user_request_anonymous: "Shareship Nutzeranfrage"
-    article_request_username: "Shareship Nutzeranfrage von %{user} für deine(n) %{article}"
-    article_request_anonymous: "Shareship Nutzeranfrage für deine(n) %{article}"

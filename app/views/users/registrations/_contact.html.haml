@@ -1,0 +1,35 @@
+-# locales
+- article ||= nil
+- showemail ||= false
+- showphone ||= false
+- showname ||= false
+
+= user_marker user
+%br/
+-if showname
+  %b
+    = User.human_attribute_name('name')
+    \:
+  = user.fullname
+- if showemail || user.showemail
+  - if article
+    - if current_user
+      - subject = t(".subject_article_request_username", user: current_user.nickname, article: article.title)
+    - else
+      - subject = t(".subject_article_request_anonymous", article: article.title)
+  - else
+    - if current_user
+      - subject = t(".subject_message_username", user: current_user.nickname)
+    - else
+      - subject = t(".subject_message_anonymous")    
+  %br/
+  %b
+    = User.human_attribute_name('email')
+    \:
+  = mail_to user.email, user.email, subject: subject
+- if showphone || user.showphone
+  %br/
+  %b
+    = User.human_attribute_name('phoneno')
+    \:
+  = user.phoneno

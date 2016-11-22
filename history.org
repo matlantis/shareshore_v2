@@ -3,7 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO contact details check boxes in article_request_mail form :enhancement:
 *** TODO map pattern kriterium                                          :bug:
     map in search zeigt alle locations nicht nur solche mit pattern kriterium
 *** TODO user alert if no location exists on article creation           :bug:
@@ -33,6 +32,8 @@
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
+*** DONE contact details check boxes in article_request_mail form :enhancement:
+    CLOSED: [2016-11-22 Di 16:07]
 *** DONE article details in article_request_mail rendern                :bug:
     CLOSED: [2016-11-22 Di 14:51]
 *** DONE Devise with email confirmation                             :feature:

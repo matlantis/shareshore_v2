@@ -24,8 +24,9 @@
         - if user_signed_in? && current_user.role == "admin"
           = render "articles/stockitem_form", stockitem: Stockitem.new.fill_from_article(article), hidden_fields: true
     .row
-      - unless article.details == ""
-        = article.details
+      .col-xs-12
+        - unless article.details == ""
+          = article.details
         
     - if current_user and current_user.id == article.user.id
       - #link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } )
@@ -35,37 +36,19 @@
         .col-xs-12.col-lg-6
           .contact_info
             %h4= t('.heading_contact_info')
-            = user_marker article.user
-            %br/
-            %b
-              = Article.human_attribute_name('name')
-              \:
-            = article.user.fullname
-            - if article.user.showemail
-              - if current_user
-                - subject = t("mail.article_request_username", user: current_user.nickname, article: article.title)
-              - else
-                - subject = t("mail.article_request_anonymous", article: article.title)
-              %br/
-              %b
-                = Article.human_attribute_name('email')
-                \:
-              = mail_to article.user.email, article.user.email, subject: subject
-            - if article.user.showphone
-              %br/
-              %b
-                = Article.human_attribute_name('phoneno')
-                \:
-              = article.user.phoneno
+            = render 'users/registrations/contact', user: article.user
         .col-xs-12.col-lg-6
           .shareshore-panel.clearfix.request-panel
             - if user_signed_in?
               .send-request
-                - request = UserArticleRequest.new({article: article})
+                - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true, with_name: !current_user.fullname.blank?})
                 = bootstrap_form_for request, remote: true, format: :json do |f|
                   = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                   = f.hidden_field :article_id
-
+                  = f.form_group do
+                    = f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
+                    = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
+                    = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
                   = f.form_group do
                     = f.submit t('.button_label_send_request')
               .request-was-send{style: "display: none"}

@@ -18,11 +18,7 @@ class User < ActiveRecord::Base
   validates :terms, acceptance: true
   
   def fullname
-    name = ""
-    if firstname
-      name += String(firstname) + " "
-    end
-    name += String(lastname)
+    [firstname, lastname].reject {|e| e.blank?}.join(" ")
   end
 
   protected

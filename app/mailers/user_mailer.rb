@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
   add_template_helper(ApplicationHelper)
+  add_template_helper(DeviseHelper)
   
   def article_request_mail(request)
     @request = request

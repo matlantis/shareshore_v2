@@ -41,11 +41,19 @@ de:
         tipp_panel_text: "kleine Hilfe zu show registrations"
         empty_locations_list_message: "Keine"
         warning_user_not_existent: "Nutzer nicht vorhanden"
+        subject_message_username: "Shareship Nachricht von %{user}"
+        subject_message_anonymous: "Shareship Nachricht"
 
       update_guidepost:
         update_contact_info_success: "Kontaktinformationen aktualisiert"
         create_location_success: "Standort erstellt"
         warning_location_not_geocoded: "Adresse ist unbekannt"
+
+      contact:
+        subject_article_request_username: "Shareship Nutzeranfrage von %{user} für deine(n) %{article}"
+        subject_article_request_anonymous: "Shareship Nutzeranfrage für deine(n) %{article}"
+        subject_message_username: "Shareship Nachricht von %{user}"
+        subject_message_anonymous: "Shareship Nachricht"
 
     sessions:
       new:

@@ -15,9 +15,9 @@
       = @user.nickname
   - if @user.showemail?
     - if current_user
-      - subject = t("mail.user_request_username", user: current_user.nickname)
+      - subject = t(".subject_message_username", user: current_user.nickname)
     - else
-      - subject = t("mail.user_request_anonymous")
+      - subject = t(".subject_message_anonymous")
     .row
       .col-xs-2.text-right
         %strong
