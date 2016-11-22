@@ -58,15 +58,20 @@
                 \:
               = article.user.phoneno
         .col-xs-12.col-lg-6
-          .shareshore-panel.clearfix
+          .shareshore-panel.clearfix.request-panel
             - if user_signed_in?
-              - request = UserArticleRequest.new({article: article})
-              = bootstrap_form_for request, remote: true, format: :json do |f|
-                = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
-                = f.hidden_field :article_id
+              .send-request
+                - request = UserArticleRequest.new({article: article})
+                = bootstrap_form_for request, remote: true, format: :json do |f|
+                  = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
+                  = f.hidden_field :article_id
 
-                = f.form_group do
-                  = f.submit t('.button_label_send_request')
+                  = f.form_group do
+                    = f.submit t('.button_label_send_request')
+              .request-was-send{style: "display: none"}
+                = t('.request_was_send')
+              .waiting{style: "display: none"}
+                = t('.waiting')
             - else
               .col-xs-6
                 = t('.text_only_signed_up_users')

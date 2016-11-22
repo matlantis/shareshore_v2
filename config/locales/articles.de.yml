@@ -23,6 +23,8 @@ de:
       placeholder_request_text: "Füge ein paar Worte und deine Kontaktdaten hinzu!"
       button_label_send_request: "Anfrage für diese Sache versenden"
       text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
+      request_was_send: "Anfrage versendet!"
+      waiting: "Anfrage wird gesendet ..."
       
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"

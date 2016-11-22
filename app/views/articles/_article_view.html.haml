@@ -1,18 +1,26 @@
+-# locals
+- home ||= false
+- mail ||= false
+- edit ||= false
 .row
   - article_show_id = "article_" + article.id.to_s + "_show"
   .col-sm-3
-    = article_marker_modal article
+    - if mail
+      = article_marker article
+    - else
+      = article_marker_modal article
     %br/
     - if defined?(home) && home
       %span.glyphicon.glyphicon-home{"data-toggle": "tooltip", title: t('articles.common.tooltip_home') }
     - if article.gratis
       %span.glyphicon.glyphicon-heart{"data-toggle": "tooltip", title: Article.human_attribute_name('gratis')}
-    %br/
     - if article.picture.present?
+      %br/
       %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
         = image_tag(article.picture_url(:thumb))
-  .modal.fade{:id => article_show_id}
-    = render 'articles/show_modal', article: article, home: home
+  - if !mail
+    .modal.fade{:id => article_show_id}
+      = render 'articles/show_modal', article: article, home: home
   .col-sm-5
     = rate_marker(article)
     %br/
