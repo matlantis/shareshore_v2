@@ -1,22 +1,29 @@
-= bootstrap_form_for(article, layout: :horizontal, remote: true) do |f|
-  = f.alert_message t('common.message_fix_errors')
-  - if article.stockitem_id
-    = f.hidden_field :title
-  - else
-    = f.text_field :title
-  - # f.number_field :quality, min: 0, max: 5, size: 8
-  = f.form_group do
-    - if article.id == nil && article.stockitem_id
-      - the_id = article.stockitem_id
+- if current_user.locations.count == 0 && article.id == nil # creation
+  .text-center
+    = succeed ":" do
+      = t('.create_location_at_first')
+    = link_to t('titles.locations.index'), locations_path
+- else
+  
+  = bootstrap_form_for(article, layout: :horizontal, remote: true) do |f|
+    = f.alert_message t('common.message_fix_errors')
+    - if article.stockitem_id
+      = f.hidden_field :title
     - else
-      - the_id = article.id
+      = f.text_field :title
+    - # f.number_field :quality, min: 0, max: 5, size: 8
+    = f.form_group do
+      - if article.id == nil && article.stockitem_id
+        - the_id = article.stockitem_id
+      - else
+        - the_id = article.id
 
-    = f.check_box :gratis, data: { article_id: the_id }, class: "article_gratis_cb", inline: true
-  %div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
-    = f.text_field :rate, size: 15
-  = f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: Article.human_attribute_name('location')
-  = f.text_area :details, placeholder: Article.human_attribute_name("details")
-  = f.hidden_field :stockitem_id
-  = f.form_group do
-    = f.submit t('forms.finish')
-    = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"
+      = f.check_box :gratis, data: { article_id: the_id }, class: "article_gratis_cb", inline: true
+    %div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
+      = f.text_field :rate, size: 15
+    = f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: Article.human_attribute_name('location')
+    = f.text_area :details, placeholder: Article.human_attribute_name("details")
+    = f.hidden_field :stockitem_id
+    = f.form_group do
+      = f.submit t('forms.finish')
+      = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"

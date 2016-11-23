@@ -35,7 +35,6 @@ de:
       empty_list_message: "Du hast keine Sachen. Erstelle einen!"
       user_not_existent: "Nutzer nicht vorhanden"
       tooltip_add_button: "Neue Sache hinzufügen"
-
     index_owner_help:
     
     index_user:
@@ -58,6 +57,9 @@ de:
 
     destroy:
       destroy_success: "Sache gelöscht"
-      
+
+    form:
+      create_location_at_first: "Du musst zuerst einen Standort erstellen"
+
     warning_not_owner: "Diese Sache gehört nicht Dir"
     warning_location_not_owner: "Standort gehört nicht zum Nutzer"

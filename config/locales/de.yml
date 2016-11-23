@@ -17,14 +17,12 @@ de:
       
     articles:
       new_from_stockitems: "Vorlagen"
-      index_owner: "Inventar"
-      index: "Sachen in der Nähe"
+      index: "Inventar"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
       
     locations:
-      index_owner: "Standorte"
-      index: "Leute in der Nähe"
+      index: "Standorte"
 
     users:
       registrations:
@@ -56,4 +54,4 @@ de:
       
     searches:
       new: "Suche"
-      
+      show: "In der Nähe"

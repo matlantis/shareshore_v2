@@ -129,4 +129,8 @@ module ApplicationHelper
   def articles_count(articles)
     articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
   end
+
+  def locations_count(locations)
+    locations.count.to_s + " " + I18n.t('activerecord.models.location', count: locations.count)
+  end
 end

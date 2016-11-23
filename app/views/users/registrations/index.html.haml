@@ -4,8 +4,12 @@
 
 - @users.each do |user|
   .row
-    .col-xs-12
+    .col-xs-4
       = user_marker(user)
+    .col-xs-4
+      = articles_count(user.articles)
+    .col-xs-4
+      = locations_count(user.locations)
 
 = will_paginate @users, renderer: BootstrapPagination::Rails
 
