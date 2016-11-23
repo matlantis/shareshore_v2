@@ -5,16 +5,13 @@
 ** Primär
 *** TODO map pattern kriterium                                          :bug:
     map in search zeigt alle locations nicht nur solche mit pattern kriterium
-*** TODO suche als get mit parametern statt als post            :enhancement:
-    besseres reload und zurück verhalten
 *** TODO reference to deleted location                                  :bug:
     user mit einer location
     search something on this location
     delete the location
     call search form -> should crash, cause location is gone
+    andere derartige szenarios entwerfen
 *** TODO hinweis leute in der nähe zu werben                           :text:
-*** TODO polls                                                      :feature:
-*** TODO dem nutzer eine mail schreiben                             :feature:
 *** TODO privacy                                                    :concept:
     - wie verhindere ich dass robots email und telefonnr auslesen?
     - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
@@ -22,8 +19,6 @@
     - vor- und nachname sind eigentlich völlig irrelevant
       rausschmeißen, aus öffentlichen Ansichten entfernen
 *** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
-*** TODO daten erheben                                              :concept:
-    welche daten will ich speichern?
 *** TODO Über uns bzw. Wer steckt dahinter? seite                      :text:
 *** TODO freundlichere begriffe für rechtliche sachen                  :text:
 *** TODO beta markup                                                   :text:
@@ -31,6 +26,11 @@
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
+*** DONE dem nutzer eine mail schreiben                             :feature:
+    CLOSED: [2016-11-23 Mi 14:19]
+*** DONE suche als get mit parametern statt als post            :enhancement:
+    CLOSED: [2016-11-23 Mi 14:18]
+    besseres reload und zurück verhalten
 *** DONE user alert if no location exists on article creation           :bug:
     CLOSED: [2016-11-23 Mi 14:01]
 *** DONE contact details check boxes in article_request_mail form :enhancement:
@@ -744,3 +744,6 @@
     - [X] artikel und standort listen editieren
     - [ ] Profil informationen
 
+*** TODO polls                                                      :feature:
+*** TODO daten erheben                                              :concept:
+    welche daten will ich speichern?

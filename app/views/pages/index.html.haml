@@ -8,7 +8,7 @@
 
   .shareshore-panel{:align => "center"}
     %h2= t(".heading_borrow_something")
-    = bootstrap_form_for @search do |f|
+    = bootstrap_form_for @search, url: search_path, method: :get do |f|
       - if current_user && current_user.locations.count > 0
         = f.form_group do
           = f.check_box :use_location, label: t('.user_location_cb_label')

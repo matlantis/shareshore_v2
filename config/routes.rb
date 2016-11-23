@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :stockitems
   post 'stockitems/new', to: "stockitems#new"
   
-  get '/searches', to: 'searches#new'
-  resources :searches, only: [:new, :create]
+  get '/search', to: 'searches#new', as: 'search'
+  #resources :searches, only: [:new, :create]
 
   get '/contacts', to: 'contacts#new'
   resources :contacts, only: [:new, :create]

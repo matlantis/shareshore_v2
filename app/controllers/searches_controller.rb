@@ -1,5 +1,11 @@
 class SearchesController < ApplicationController
   def new
+    # if there are search parameters continue with create
+    if params.key? :search
+      create
+      return
+    end
+    
     last_search = nil
     if session.key? :search_id
       last_search = Search.find_by(id: session[:search_id])
