@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index_owner, :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -101,7 +101,7 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     @list_is_empty = current_user.locations.empty?
     respond_to do |format|
-      format.html { redirect_to :index_owner, success: t('.destroy_success') }
+      format.html { redirect_to :index, success: t('.destroy_success') }
       format.js {}
       format.json { head :no_content }
     end
