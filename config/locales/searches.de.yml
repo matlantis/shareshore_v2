@@ -19,3 +19,5 @@ de:
       warning_about_own_articles: "Deine eigenen Sachen werden hier nicht angezeigt!"
       warning_about_own_locations: "Deine eigenen Standorte werden hier nicht angezeigt!"
       and_you: und Du
+      text_x_of_y_articles_are_shown: "Es werden %{x} von %{y} Sachen in der Nähe angezeigt."
+      text_x_of_y_locations_are_shown: "Es werden %{x} von %{y} Leuten in der Nähe angezeigt."

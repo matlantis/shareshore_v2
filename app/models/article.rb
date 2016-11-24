@@ -17,7 +17,7 @@ class Article < ActiveRecord::Base
   validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
   after_initialize :init
-  
+
   def init
     self.to_be_created = true
     self.rate ||= "1€/Tag"

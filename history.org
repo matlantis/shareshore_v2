@@ -3,8 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO map pattern kriterium                                          :bug:
-    map in search zeigt alle locations nicht nur solche mit pattern kriterium
 *** TODO reference to deleted location                                  :bug:
     user mit einer location
     search something on this location
@@ -26,6 +24,9 @@
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
+*** DONE map pattern kriterium                                          :bug:
+    CLOSED: [2016-11-24 Do 13:55]
+    map in search zeigt alle locations nicht nur solche mit pattern kriterium
 *** DONE dem nutzer eine mail schreiben                             :feature:
     CLOSED: [2016-11-23 Mi 14:19]
 *** DONE suche als get mit parametern statt als post            :enhancement:

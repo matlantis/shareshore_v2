@@ -39,19 +39,6 @@ class SearchesController < ApplicationController
     @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, @search.radius)
     @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, @search.radius)
 
-    @locations = Location.all
-    # remove own locations
-    if current_user
-      @locations = @locations.where.not(user: current_user)
-    end
-    # apply location criteria
-    @locations = @locations.near(@current_location, @search.radius)     
-    # paginate
-    @locations = @locations.paginate(page: params[:page], per_page: 20)
-
-    # provide houses to be drawn by the map
-    @houses = @locations.collect { |l| l.house }.uniq
-    
     @articles = Article.all
     # remove own articles
     if current_user
@@ -65,8 +52,18 @@ class SearchesController < ApplicationController
       @articles = @articles.search(@search.pattern) # no sorting is done here
     end
     # paginate
-    @articles = @articles.paginate(page: params[:page], per_page: 100)
-        
+    #@articles = @articles.paginate(page: params[:page], per_page: 5)
+
+    # locations
+    @locations = Location.where(id: @articles.map {|a| a.location_id})
+
+    # limit articles and locations
+    @articles = @articles.limit(Search.articles_per_page).page(1)
+    @locations = @locations.limit(Search.locations_per_page).page(1)
+    
+    # provide houses to be drawn by the map
+    @houses = @locations.collect { |l| l.house }.uniq
+    
     # determine if there is a house at given location
     @house_center
     houses_center = House.near(@current_location, 0.01)
