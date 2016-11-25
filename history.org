@@ -3,7 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO heading layout leserlicher                             :enhancement:
 *** TODO account mal schnell disablen können                        :feature:
 *** TODO leeres shareshore-panel aus search seite entfernen             :bug:
 *** TODO hinweis leute in der nähe zu werben                           :text:
@@ -36,6 +35,8 @@
     ohje :(
     ich brauch da irgendne warn page
     wie ist das auf nem smartphone - konnte nicht testen - eventuell production environment starten
+*** DONE heading layout leserlicher                             :enhancement:
+    CLOSED: [2016-11-25 Fr 17:58]
 *** CANCELED freundlichere begriffe für rechtliche sachen              :text:
     CLOSED: [2016-11-25 Fr 17:23]
     footer übersichtlicher gestalten
