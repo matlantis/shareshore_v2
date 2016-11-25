@@ -3,27 +3,55 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO reference to deleted location                                  :bug:
-    user mit einer location
-    search something on this location
-    delete the location
-    call search form -> should crash, cause location is gone
-    andere derartige szenarios entwerfen
+*** TODO heading layout leserlicher                             :enhancement:
+*** TODO account mal schnell disablen können                        :feature:
+*** TODO leeres shareshore-panel aus search seite entfernen             :bug:
 *** TODO hinweis leute in der nähe zu werben                           :text:
 *** TODO privacy                                                    :concept:
-    - wie verhindere ich dass robots email und telefonnr auslesen?
-    - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
-    - für die beta-phase: nur angemeldete user kriegen kontaktinfos und nutzerprofile angezeigt
-    - vor- und nachname sind eigentlich völlig irrelevant
-      rausschmeißen, aus öffentlichen Ansichten entfernen
-*** TODO Leitfaden zum Ver- und Ausleihen schreiben                    :text:
-*** TODO Über uns bzw. Wer steckt dahinter? seite                      :text:
-*** TODO freundlichere begriffe für rechtliche sachen                  :text:
+**** DONE fragen
+     - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
+       - nutzernamen verändern
+       - shareship benachrichtigen
+       - in faq aufnehmen?
+**** DONE entwurf
+     - beta phase - nur angemeldete user können suchen
+     - namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
+       oder aber: namen immer in kontakt anfrage eintragen! (diskutieren)
+     - namen für eigen daten anfordern, versicherung, dass die daten stimmen
+     - wie ist meine privatsphäre geschützt seite
+     - messages: beiden beteiligten link auf empfohlene vorgehensweise
+     - email und telefonnr standardmässig ausblenden (checkboxen ganz deaktivieren)
+       das könnte zu nem nutzer draw-back führen (größere hürde, um kontakt aufzunehmen). Lsg: benachrichtigungswege beschleunigen (bsp sms an nutzer (kosten?), facebook nachricht)
+     - hinweis bei anmeldung, dass der nutzer name dem schutz der privatspäre dient, um bösartigen nutzern die zuordnung zwischen standorten und realen menschen zu erschweren. hinweis, dass der nutzername jederzeit veränderbar ist
+     - hinweis bei standort eintrag, dass die hausnr offen gehalten werden kann, um den exakten wohnsitz zu verschleiern
+       in diesem zuge sollte die hausnr ein eigenes feld bekommen (location und house)
+     - i'm human captcha
+     - telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
+**** TODO massnahmen erstellen
 *** TODO beta markup                                                   :text:
 *** TODO mehr stockitems                                               :text:
 *** TODO wie-bin-ich-abgesichert-seite                                 :text:
     in FAQ
 *** TODO site ohne js testen                                            :bug:
+    ohje :(
+    ich brauch da irgendne warn page
+    wie ist das auf nem smartphone - konnte nicht testen - eventuell production environment starten
+*** CANCELED freundlichere begriffe für rechtliche sachen              :text:
+    CLOSED: [2016-11-25 Fr 17:23]
+    footer übersichtlicher gestalten
+    bin zufrieden
+*** DONE Leitfaden zum Ver- und Ausleihen schreiben                    :text:
+    CLOSED: [2016-11-25 Fr 16:41]
+*** DONE Über uns bzw. Wer steckt dahinter? seite                      :text:
+    CLOSED: [2016-11-25 Fr 12:04]
+*** DONE reference to deleted location                                  :bug:
+    CLOSED: [2016-11-24 Do 18:38]
+    user mit einer location
+    search something on this location
+    delete the location
+    call search form -> should crash, cause location is gone
+    andere derartige szenarios entwerfen
+    klappt soweit
 *** DONE map pattern kriterium                                          :bug:
     CLOSED: [2016-11-24 Do 13:55]
     map in search zeigt alle locations nicht nur solche mit pattern kriterium
@@ -748,3 +776,9 @@
 *** TODO polls                                                      :feature:
 *** TODO daten erheben                                              :concept:
     welche daten will ich speichern?
+*** TODO deletion layer                                             :feature:
+    bsp: searches sollten auch später noch lesbar sein, auch wenn location gelöscht ist, ebenso article_request, deren article gelöscht ist
+*** TODO footer hight according to width                        :enhancement:
+    layout changes on xs display
+*** TODO plaintext emails                                              :text:
+*** TODO email footer                                                  :text:

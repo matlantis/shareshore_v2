@@ -36,7 +36,7 @@
         .col-xs-12.col-lg-6
           .contact_info
             %h4= t('.heading_contact_info')
-            = render 'users/registrations/contact', user: article.user
+            = render 'users/registrations/contact', user: article.user, showemail: article.user.showemail, showphone: article.user.showphone
         .col-xs-12.col-lg-6
           .shareshore-panel.clearfix.request-panel
             - if user_signed_in?

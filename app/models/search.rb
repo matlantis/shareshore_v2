@@ -25,9 +25,13 @@ class Search < ActiveRecord::Base
         end
       end
     end
-    self.radius ||= 1.2
+    self.radius ||= Search.default_radius
   end
 
+  def self.default_radius
+    0.5
+  end
+  
   def self.articles_per_page
     100
   end

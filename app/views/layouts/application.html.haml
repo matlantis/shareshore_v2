@@ -23,16 +23,23 @@
           = yield
     %footer.footer
       .container
-        .pull-left
+        .col-sm-4.col-xs-12
           - if user_signed_in? && current_user.role == "admin"
             = link_to "Admin", '/pages/admin'
           - else
             Martin Puttke 2016
-        .pull-right
-          %ul.list-inline
+        .col-sm-4.col-xs-12
+          %h3= t('.heading_help')
+          %ul
             %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'
+            %li= link_to t('titles.pages.guideline'), '/pages/guideline'
             %li= link_to t('titles.pages.faq'), '/pages/faq'
             %li= link_to t('titles.contacts.new'), contacts_path
+            %li= link_to t('titles.pages.who_is_it'), '/pages/who_is_it'
+        .col-sm-4.col-xs-12
+          %h3= t('.heading_law')
+          %ul
             %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
             %li= link_to t('titles.pages.privacy'), '/pages/privacy'
+            %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
             %li= link_to t('titles.pages.about'), '/pages/about'

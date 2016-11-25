@@ -49,8 +49,10 @@ de:
       faq: "FAQ"
       terms_of_use: "AGB"
       about: "Impressum"
+      who_is_it: "Wer steckt dahinter?"
       privacy: "Datenschutz"
       disclaimer: "Haftungsausschluss"
+      guideline: "Leitfaden"
       
     searches:
       new: "Suche"

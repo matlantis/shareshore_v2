@@ -2,7 +2,8 @@ class Location < ActiveRecord::Base
   has_many :articles, inverse_of: :location, dependent: :delete_all
   belongs_to :user
   belongs_to :house
-
+  has_many :searches, dependent: :nullify
+  
   geocoded_by :fulladdress   # can also be an IP address
   before_validation :re_geocode, :if => :should_re_geocode?  # auto-fetch coordinates
 

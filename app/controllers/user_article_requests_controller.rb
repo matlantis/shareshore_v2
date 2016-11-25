@@ -76,6 +76,6 @@ class UserArticleRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_article_request_params
-      params.require(:user_article_request).permit(:text, :article_id)
+      params.require(:user_article_request).permit(:text, :article_id, :with_name, :with_phoneno, :with_email)
     end
 end

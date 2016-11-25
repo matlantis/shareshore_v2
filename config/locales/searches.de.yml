@@ -1,7 +1,7 @@
 de:
   searches:
     search_form:
-      pattern_placeholder: "Suchbegriff"
+      pattern_placeholder: "Suchbegriff (leer lassen für Alles!)"
       pattern_label: "Suche nach"
       radius_placeholder: "Suchradius"
       radius_label: "innerhalb von"
