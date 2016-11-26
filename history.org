@@ -20,10 +20,13 @@
        - nutzernamen verändern
        - shareship benachrichtigen
        - in faq aufnehmen?
-**** TODO massnahmen [1/10]
+**** TODO massnahmen [2/10]
      - [X] beta phase - nur angemeldete user können suchen
-     - [ ] namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
-       oder aber: namen immer in kontakt anfrage eintragen! (diskutieren)
+     - [X] namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
+       edit profil
+       show profil
+       _contact
+       index locations
      - [ ] namen für eigen daten anfordern, versicherung, dass die daten stimmen
      - [ ] wie ist meine privatsphäre geschützt seite
      - [ ] request : beiden beteiligten link auf empfohlene vorgehensweise

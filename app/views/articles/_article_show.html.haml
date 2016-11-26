@@ -41,7 +41,7 @@
           .shareshore-panel.clearfix.request-panel
             - if user_signed_in?
               .send-request
-                - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true, with_name: !current_user.fullname.blank?})
+                - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true})
                 = bootstrap_form_for request, remote: true, format: :json do |f|
                   = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                   = f.hidden_field :article_id

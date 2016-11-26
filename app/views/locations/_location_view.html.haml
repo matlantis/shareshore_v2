@@ -6,10 +6,10 @@
         \:
       = link_to location.user.nickname, user_path(location.user)
       %br/
-      %b
-        = User.human_attribute_name('name')
-        \:
-      = location.user.fullname
+      -# %b
+      -#   = User.human_attribute_name('name')
+      -#   \:
+      -# = location.user.fullname
       %br/
       = location_marker location
   .col-xs-4
