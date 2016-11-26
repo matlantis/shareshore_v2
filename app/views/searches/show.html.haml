@@ -29,7 +29,7 @@
       %li.active
         = link_to(t('titles.articles.index'), "#tab-articles", data: {toggle: "tab"}, class: "tab")
       %li
-        = link_to(t('titles.locations.index'), "#tab-locations", data: {toggle: "tab"}, class: "tab")
+        = link_to(User.model_name.human(count: 2), "#tab-locations", data: {toggle: "tab"}, class: "tab")
 
     .tab-content
       #tab-articles.tab-pane.fade.in.active
@@ -51,11 +51,12 @@
         -#= will_paginate @articles, renderer: BootstrapPagination::Rails
 
       #tab-locations.tab-pane.fade
-        .shareshore-panel
-          - if Search.locations_per_page < @locations.count
-            = t('.text_x_of_y_locations_are_shown', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
-          - if current_user
-            = t('.warning_about_own_locations')
+        - if Search.locations_per_page < @locations.count # || current_user
+          .shareshore-panel
+            - if Search.locations_per_page < @locations.count
+              = t('.text_x_of_y_locations_are_shown', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
+            -# if current_user
+              = t('.warning_about_own_locations')
         - if @locations.empty?
           .empty-list
             = t('.empty_locations_list_message')

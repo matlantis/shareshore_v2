@@ -16,12 +16,14 @@ Er/Sie schreibt Dir folgende Nachricht:
 
 So kannst du mit ihm/ihr Kontakt aufnehmen:
 
-<% end %>
 <% if @request.with_email %>
 <%= @request.sender.email %>
 <% end %>
 <% if @request.with_phoneno %>
-<%= sender.phoneno %>
+<%= @request.sender.phoneno %>
 <% end %>
+
+Eins noch! Bevor Du etwas verleihst, solltest du unseres Leitfaden lesen:
+<%= guideline_url %>
 
 Viele Grüße von Shareship!

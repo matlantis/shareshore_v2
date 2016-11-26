@@ -3,6 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO philosophie gedanke
+    werbefrei, kostenlos ähnlich wie bessermitfahren.de
 *** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
     damit man die nutzer auf neue Vorlagen hinweisen kann
 *** TODO Tutorial fehlt                                                :text:
@@ -20,7 +22,7 @@
        - nutzernamen verändern
        - shareship benachrichtigen
        - in faq aufnehmen?
-**** TODO massnahmen [2/10]
+**** TODO massnahmen [4/10]
      - [X] beta phase - nur angemeldete user können suchen
      - [X] namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
        edit profil
@@ -28,14 +30,17 @@
        _contact
        index locations
      - [ ] namen für eigen daten anfordern, versicherung, dass die daten stimmen
-     - [ ] wie ist meine privatsphäre geschützt seite
-     - [ ] request : beiden beteiligten link auf empfohlene vorgehensweise
+       momentan ist der name noch optional, denke das kann man auch so lassen
+     - [X] wie ist meine privatsphäre geschützt seite
+     - [X] request: beiden beteiligten link auf empfohlene vorgehensweise
      - [ ] email und telefonnr standardmässig ausblenden (checkboxen ganz deaktivieren)
        das könnte zu nem nutzer draw-back führen (größere hürde, um kontakt aufzunehmen). Lsg: benachrichtigungswege beschleunigen (bsp sms an nutzer (kosten?), facebook nachricht)
+       besser mitfahren gibt beides aus, wenn man das captcha eingibt, gibt auch den Namen aus ... hmmm, vielleicht ist das alles zu kompliziert gedacht
      - [ ] hinweis bei anmeldung, dass der nutzer name dem schutz der privatspäre dient, um bösartigen nutzern die zuordnung zwischen standorten und realen menschen zu erschweren. hinweis, dass der nutzername jederzeit veränderbar ist
      - [ ] hinweis bei standort eintrag, dass die hausnr offen gehalten werden kann, um den exakten wohnsitz zu verschleiern
        in diesem zuge sollte die hausnr ein eigenes feld bekommen (location und house)
      - [ ] i'm human captcha
+       ambethia recaptcha (scheinbar brauch man da nen account, wie ist das mit lizenz). das ist google magic. kost nix. wär blód darauf zu verzichten, in privacy statements drauf hinweisen
      - [ ] telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
 **** TODO massnahmen erstellen
 *** TODO mehr stockitems                                               :text:

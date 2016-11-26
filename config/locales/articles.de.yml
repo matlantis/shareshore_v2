@@ -25,6 +25,7 @@ de:
       text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
       request_was_send: "Anfrage versendet!"
       waiting: "Anfrage wird gesendet ..."
+      text_read_the_guideline: "Bevor du eine Sache ausleihst, ließ bitte unseren"
       
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"

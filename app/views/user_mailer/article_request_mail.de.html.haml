@@ -16,4 +16,7 @@
 
 %p= render 'users/registrations/contact', user: @request.sender, showemail: @request.with_email, showphone: @request.with_phoneno, showname: @request.with_name, current_user: @request.article.user
 
+%p Eins noch: Bevor Du etwas verleihst, solltest du unseren #{link_to t('titles.pages.guideline'), guideline_url} lesen!
+
+
 %p Viele Grüße von Shareship!

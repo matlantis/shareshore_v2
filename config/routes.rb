@@ -45,6 +45,8 @@ Rails.application.routes.draw do
   get "/pages/index", to: "pages#index"
   get "/pages/admin", to: "pages#admin"
   get "/pages/:page", to: "pages#show"
+  get "/pages/guideline", as: "guideline"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

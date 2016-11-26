@@ -46,13 +46,17 @@
                   = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                   = f.hidden_field :article_id
                   = f.form_group do
-                    = f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
+                    -#= f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
                     = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
                     = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
                   = f.form_group do
                     = f.submit t('.button_label_send_request')
               .request-was-send{style: "display: none"}
                 = t('.request_was_send')
+                %div
+                  %strong
+                    = t('.text_read_the_guideline')
+                    #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
               .waiting{style: "display: none"}
                 = t('.waiting')
             - else
