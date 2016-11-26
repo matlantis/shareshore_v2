@@ -10,4 +10,6 @@ de:
     application:
       title_shareship: "Shareship"
       heading_help: "Hilfe"
-      heading_law: "Juristisches"
+      heading_law: "Recht"
+      attention: Achtung
+      text_beta_warning: "Shareship befindet sich zur Zeit noch in Entwicklung! Die aktuelle Version ist eine Test-Version. Bisher unerkannte Fehler könnten zu Datenverlust oder Datenlecks, die Deine Privatsphäre gefährden, führen. Shareship kann keine Haftung für derarte Vorfälle übernehmen. Fahre nur fort, falls du bereit bist, dieses Risiko einzugehen."

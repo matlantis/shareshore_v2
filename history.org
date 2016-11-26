@@ -3,9 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO hinweis nutzer vorlagen vorzuschlagen                  :enhancement:
+    in den help text explizit ermuntern sachen ohne vorlage einzustellen
 *** TODO account mal schnell disablen können                        :feature:
-*** TODO leeres shareshore-panel aus search seite entfernen             :bug:
-*** TODO hinweis leute in der nähe zu werben                           :text:
 *** TODO privacy                                                    :concept:
 **** DONE fragen
      - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
@@ -27,14 +27,23 @@
      - i'm human captcha
      - telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
 **** TODO massnahmen erstellen
-*** TODO beta markup                                                   :text:
 *** TODO mehr stockitems                                               :text:
-*** TODO wie-bin-ich-abgesichert-seite                                 :text:
-    in FAQ
+    Ratschenkasten
 *** TODO site ohne js testen                                            :bug:
     ohje :(
     ich brauch da irgendne warn page
     wie ist das auf nem smartphone - konnte nicht testen - eventuell production environment starten
+*** DONE beta markup [2/2]                                             :text:
+    CLOSED: [2016-11-26 Sa 12:27]
+    - [X] logo
+    - [X] sign up
+*** DONE leeres shareshore-panel aus search seite entfernen             :bug:
+    CLOSED: [2016-11-25 Fr 18:08]
+*** CANCELED wie-bin-ich-abgesichert-seite                             :text:
+    CLOSED: [2016-11-25 Fr 18:06]
+    in FAQ
+    leitfaden geschrieben, in tutorial darauf verweisen
+    startseite verweist auf tutorial (wie funzt shareship), das sollte die frage beantworten
 *** DONE heading layout leserlicher                             :enhancement:
     CLOSED: [2016-11-25 Fr 17:58]
 *** CANCELED freundlichere begriffe für rechtliche sachen              :text:
@@ -783,3 +792,6 @@
     layout changes on xs display
 *** TODO plaintext emails                                              :text:
 *** TODO email footer                                                  :text:
+*** TODO favicon und logo                                           :feature:
+*** TODO hinweis leute in der nähe zu werben                           :text:
+    ins standort-such-ergebnisse eintragen (bei wenigen suchergebnissen)

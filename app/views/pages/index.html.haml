@@ -5,9 +5,12 @@
     = render 'index_help'
 
 .col-xs-12.col-sm-8.col-sm-pull-4
+  .row
+    .col-xs-12.text-center
+      = image_tag '/logo.png', alt: "Shareship beta"
 
   .shareshore-panel{:align => "center"}
-    %h2= t(".heading_borrow_something")
+    %h3= t(".heading_borrow_something")
     = bootstrap_form_for @search, url: search_path, method: :get do |f|
       - if current_user && current_user.locations.count > 0
         = f.form_group do
@@ -20,7 +23,7 @@
         = submit_tag t(".search_button_label"), class: "btn btn-default"
       
   .shareshore-panel{:align => "center"}
-    %h2= t(".heading_lend_something")
+    %h3= t(".heading_lend_something")
     %p= t(".text_earn_yourself_some_coins")
     - if user_signed_in?
       = link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'btn btn-default'

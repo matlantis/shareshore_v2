@@ -1,4 +1,4 @@
-- @title = t('titles.search.show')
+- @title = t('titles.searches.show')
 
 = render 'search_form', search: @search.dup
 
@@ -33,11 +33,12 @@
 
     .tab-content
       #tab-articles.tab-pane.fade.in.active
-        .shareshore-panel
-          - if Search.articles_per_page < @articles.count
-            = t('.text_x_of_y_articles_are_shown', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
-          - if current_user
-            = t('.warning_about_own_articles')
+        - if Search.articles_per_page < @articles.count || current_user
+          .shareshore-panel
+            - if Search.articles_per_page < @articles.count
+              = t('.text_x_of_y_articles_are_shown', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
+            - if current_user
+              = t('.warning_about_own_articles')
         - if @articles.empty?
           .empty-list
             = t('.empty_articles_list_message')

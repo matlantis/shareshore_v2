@@ -17,9 +17,18 @@
     = render 'layouts/navigation'
     .container.main-content
       .row
-        = render 'layouts/messages'
+        .col-xs-12
+          .shareshore-panel
+            %strong
+              = succeed ':' do
+                = t('.attention')
+            = t('.text_beta_warning')
+      
       .row
-        %div
+        .col-xs-12
+          = render 'layouts/messages'
+      .row
+        .col-xs-12
           = yield
     %footer.footer
       .container
