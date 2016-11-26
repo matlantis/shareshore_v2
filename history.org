@@ -3,36 +3,44 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO hinweis nutzer vorlagen vorzuschlagen                  :enhancement:
-    in den help text explizit ermuntern sachen ohne vorlage einzustellen
+*** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
+    damit man die nutzer auf neue Vorlagen hinweisen kann
+*** TODO Tutorial fehlt                                                :text:
+*** TODO bug report seite mit bug formular                          :feature:
 *** TODO account mal schnell disablen können                        :feature:
+    user kriegt nen disabled column
+    und dann? vielleicht gibts da schon was in devise - nix
+    vllt zusätzlicher check hook in jede controller methode, die authenticate aufruft, und dann redirect to ner block page
+    registration#edit derart, dass admin das setzen und wieder löschen kann
+    die artikel und standorte müssen dann temporär aus dem verkehr gezogen werden - das ist ein fetter brocken
+    in dem zusammenhang könnte man auch über ne email blacklist nachdenken
 *** TODO privacy                                                    :concept:
 **** DONE fragen
      - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
        - nutzernamen verändern
        - shareship benachrichtigen
        - in faq aufnehmen?
-**** DONE entwurf
-     - beta phase - nur angemeldete user können suchen
-     - namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
+**** TODO massnahmen [1/10]
+     - [X] beta phase - nur angemeldete user können suchen
+     - [ ] namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
        oder aber: namen immer in kontakt anfrage eintragen! (diskutieren)
-     - namen für eigen daten anfordern, versicherung, dass die daten stimmen
-     - wie ist meine privatsphäre geschützt seite
-     - messages: beiden beteiligten link auf empfohlene vorgehensweise
-     - email und telefonnr standardmässig ausblenden (checkboxen ganz deaktivieren)
+     - [ ] namen für eigen daten anfordern, versicherung, dass die daten stimmen
+     - [ ] wie ist meine privatsphäre geschützt seite
+     - [ ] request : beiden beteiligten link auf empfohlene vorgehensweise
+     - [ ] email und telefonnr standardmässig ausblenden (checkboxen ganz deaktivieren)
        das könnte zu nem nutzer draw-back führen (größere hürde, um kontakt aufzunehmen). Lsg: benachrichtigungswege beschleunigen (bsp sms an nutzer (kosten?), facebook nachricht)
-     - hinweis bei anmeldung, dass der nutzer name dem schutz der privatspäre dient, um bösartigen nutzern die zuordnung zwischen standorten und realen menschen zu erschweren. hinweis, dass der nutzername jederzeit veränderbar ist
-     - hinweis bei standort eintrag, dass die hausnr offen gehalten werden kann, um den exakten wohnsitz zu verschleiern
+     - [ ] hinweis bei anmeldung, dass der nutzer name dem schutz der privatspäre dient, um bösartigen nutzern die zuordnung zwischen standorten und realen menschen zu erschweren. hinweis, dass der nutzername jederzeit veränderbar ist
+     - [ ] hinweis bei standort eintrag, dass die hausnr offen gehalten werden kann, um den exakten wohnsitz zu verschleiern
        in diesem zuge sollte die hausnr ein eigenes feld bekommen (location und house)
-     - i'm human captcha
-     - telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
+     - [ ] i'm human captcha
+     - [ ] telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
 **** TODO massnahmen erstellen
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
-*** TODO site ohne js testen                                            :bug:
-    ohje :(
-    ich brauch da irgendne warn page
-    wie ist das auf nem smartphone - konnte nicht testen - eventuell production environment starten
+*** CANCELED hinweis nutzer vorlagen vorzuschlagen              :enhancement:
+    CLOSED: [2016-11-26 Sa 14:15]
+    in den help text explizit ermuntern sachen ohne vorlage einzustellen
+    steht da schon drin
 *** DONE beta markup [2/2]                                             :text:
     CLOSED: [2016-11-26 Sa 12:27]
     - [X] logo
@@ -795,3 +803,11 @@
 *** TODO favicon und logo                                           :feature:
 *** TODO hinweis leute in der nähe zu werben                           :text:
     ins standort-such-ergebnisse eintragen (bei wenigen suchergebnissen)
+*** TODO site ohne js testen                                            :bug:
+    ohje :(
+    ich brauch da irgendne warn page
+    wie ist das auf nem smartphone - konnte nicht testen - eventuell production environment starten
+    ohne js werden die remote formulare als html zurückgeschickt und dargestellt. gucken wo das zu welchen problemen führt.
+    neue article erstellen: führt server seitig zu "Can't verify CSRF token authenticity"
+    wär schon gut, wenn man den inhalt der pages ausblenden könnte
+    verhältnismässig unwichtig

@@ -32,7 +32,7 @@ de:
       location_not_existent: "Standort nicht vorhanden"
 
     index:
-      empty_list_message: "Du hast keine Sachen. Erstelle einen!"
+      empty_list_message: "Du hast noch keine Sachen eingestellt. Fang jetzt damit an!"
       user_not_existent: "Nutzer nicht vorhanden"
       tooltip_add_button: "Neue Sache hinzufügen"
     index_owner_help:

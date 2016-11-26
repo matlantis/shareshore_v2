@@ -1,4 +1,7 @@
+# coding: utf-8
 class SearchesController < ApplicationController
+  before_action :authenticate_user! # für beta phase
+                       
   def new
     # if there are search parameters continue with create
     if params.key? :search

@@ -11,6 +11,7 @@ de:
       heading_first_time_here: Neu hier?
       tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!
       user_location_cb_label: "eigenen Standort verwenden"
+      text_beta_unknown_user_warning: "In der Beta Version ist die Suchfunktion nur für angemeldete Benutzer zugänglich!"
 
     contact:
       shareship_email: "mail@shareship.de"

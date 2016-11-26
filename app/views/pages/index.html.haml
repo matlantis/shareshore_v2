@@ -7,30 +7,37 @@
 .col-xs-12.col-sm-8.col-sm-pull-4
   .row
     .col-xs-12.text-center
-      = image_tag '/logo.png', alt: "Shareship beta"
+      = image_tag '/logo.png', class: "img-responsive", alt: "Shareship beta"
 
-  .shareshore-panel{:align => "center"}
-    %h3= t(".heading_borrow_something")
-    = bootstrap_form_for @search, url: search_path, method: :get do |f|
-      - if current_user && current_user.locations.count > 0
+  - if user_signed_in?
+    .shareshore-panel{:align => "center"}
+      %h3= t(".heading_borrow_something")
+      = bootstrap_form_for @search, url: search_path, method: :get do |f|
+        - if current_user && current_user.locations.count > 0
+          = f.form_group do
+            = f.check_box :use_location, label: t('.user_location_cb_label')
+          = f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: t('.address_label')
+        = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
+        = f.hidden_field :radius
+        = f.hidden_field :pattern, value: ""
         = f.form_group do
-          = f.check_box :use_location, label: t('.user_location_cb_label')
-        = f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: t('.address_label')
-      = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
-      = f.hidden_field :radius
-      = f.hidden_field :pattern, value: ""
-      = f.form_group do
-        = submit_tag t(".search_button_label"), class: "btn btn-default"
-      
-  .shareshore-panel{:align => "center"}
-    %h3= t(".heading_lend_something")
-    %p= t(".text_earn_yourself_some_coins")
-    - if user_signed_in?
-      = link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'btn btn-default'
-    - else
+          = submit_tag t(".search_button_label"), class: "btn btn-default"
+
+    .shareshore-panel{:align => "center"}
+      %h3= t(".heading_lend_something")
+      %p= t(".text_earn_yourself_some_coins")
+      - if user_signed_in?
+        = link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'btn btn-default'
+      - else
+        = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
+        oder
+        = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
+  - else
+    .text-center
+      = t('.text_beta_unknown_user_warning')
       = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
       oder
-      \#{link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'}
+      = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
       
 :javascript
   $(document).ready(function() {

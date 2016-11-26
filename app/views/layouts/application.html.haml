@@ -16,9 +16,16 @@
   %body
     = render 'layouts/navigation'
     .container.main-content
+      %noscript
+        .row
+          .col-xs-12
+            .alert.alert-danger
+              = t('.warning_no_script')
+
       .row
         .col-xs-12
-          .shareshore-panel
+          .alert.alert-warning
+            -#%a.close{"data-dismiss" => "alert", :href => "#"} ×
             %strong
               = succeed ':' do
                 = t('.attention')
