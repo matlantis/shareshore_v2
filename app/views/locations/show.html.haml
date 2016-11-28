@@ -9,10 +9,11 @@
   .row
     .col-xs-3.text-right
       %strong
-        = Location.human_attribute_name("street_and_no")
+        = Location.human_attribute_name("street")
         \:
     .col-xs-9
-      = @location.street_and_no
+      = @location.street
+      = @location.number
   .row
     .col-xs-3.text-right
       %strong

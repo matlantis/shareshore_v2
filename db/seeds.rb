@@ -134,9 +134,9 @@ user_peter.save!
 
 # users need locations
 Location.destroy_all
-location_1 = user_martin.locations.create({street_and_no: "Hanauer Str. 47", postcode: "", city: "Alzenau", country: ""})
-location_2 = user_martin.locations.create({street_and_no: "Goethestr. 20", postcode: "", city: "Alzenau", country: ""})
-location_3 = user_peter.locations.create({street_and_no: "Haagweg. 12", postcode: "", city: "Wasserlos", country: ""})
+location_1 = user_martin.locations.create({street: "Hanauer Str.", number: "47", postcode: "", city: "Alzenau", country: ""})
+location_2 = user_martin.locations.create({street: "Goethestr.", number: "20", postcode: "", city: "Alzenau", country: ""})
+location_3 = user_peter.locations.create({street: "Haagweg", number: "12", postcode: "", city: "Wasserlos", country: ""})
 
 # a few articles
 Article.destroy_all

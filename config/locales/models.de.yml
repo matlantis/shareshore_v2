@@ -57,7 +57,8 @@ de:
         location: "Standort"
         picture: "Bild"
       location:
-        street_and_no: "Straße und Hausnr."
+        street: "Straße"
+        number: "Nummer"
         postcode: "Postleitzahl"
         city: "Stadt"
         country: "Land"
@@ -66,7 +67,8 @@ de:
         user: "Bewohner"
         articles: "Sachen"
       house:
-        street_and_no: "Straße und Hausnr."
+        street: "Straße"
+        number: "Nummer"
         postcode: "Postleitzahl"
         city: "Stadt"
         country: "Land"

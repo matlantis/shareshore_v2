@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #format.html { redirect_to edit_user_locations_path }
       end
     elsif params.has_key? :location            
-      p = params.require(:location).permit(:street_and_no, :postcode, :city, :country)
+      p = params.require(:location).permit(:street, :number, :postcode, :city, :country)
       @location = current_user.locations.create(p)
       respond_to do |format|
         if @location.save

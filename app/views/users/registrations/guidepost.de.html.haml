@@ -24,7 +24,8 @@
       Du hast noch keinen Standort angegeben. Standorte sind Adressen, an denen du Dinge verleihst. Also deine Garage, dein Schrebergarten und natürlich dein Zuhause. Fang also am besten mit Deinem Wohnsitz an!
       = bootstrap_form_for(@location, url: user_guidepost_path, layout: :horizontal) do |f|
         = f.alert_message t('common.message_fix_errors')
-        = f.text_field :street_and_no
+        = f.text_field :street
+        = f.text_field :number
         = f.text_field :postcode
         = f.text_field :city
         = f.text_field :country

@@ -10,10 +10,11 @@
   .row
     .col-xs-3.text-right
       %strong
-        = House.human_attribute_name("street_and_no")
+        = House.human_attribute_name("street")
         \:
     .col-xs-9
-      = @house.street_and_no
+      = @house.street
+      = @house.number
   .row
     .col-xs-3.text-right
       %strong

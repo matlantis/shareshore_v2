@@ -115,7 +115,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      permitted = [ :street_and_no, :postcode, :city, :country, :latitude, :longitude ]
+      permitted = [ :street, :number, :postcode, :city, :country, :latitude, :longitude ]
       if is_admin?
         permitted.push :house_id
       end

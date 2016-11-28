@@ -29,6 +29,7 @@ de:
         
       new:
         help_password_minimum_length: "mindestens %{length} Buchstaben"
+        help_nickname: "Der Nickname wird anderen Leute anstelle deines wahren Namens angezeigt und dient dem Schutz deiner Privatsphäre. Du kannst ihn später jederzeit ändern."
         i_do: "Ich bin mit den"
         terms_of_use:  Allgemeinen Geschäftsbedingungen
         and_the: und der

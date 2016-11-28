@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
   validates :latitude, presence: { message: "The address could not be found" }
   validates :longitude, presence: { message: "The address could not be found" }
 
-  validates :street_and_no, length: { minimum: 1, maximum: 100 }
+  validates :street, length: { minimum: 1, maximum: 100 }
   validates :city, length: { minimum: 1, maximum: 100 }
   validates :country, length: { minimum: 1, maximum: 100 }
   validates :postcode, length: { minimum: 1, maximum: 10 }
@@ -25,7 +25,11 @@ class Location < ActiveRecord::Base
   def init
     self.country ||= "Deutschland"
   end
-  
+
+  def street_and_no
+    [street, number].reject{|e| e.blank?}.join(" ")
+  end
+
   def fulladdress
     [street_and_no, postcode, city, country].reject {|e| e.blank?}.join(", ")
   end
@@ -35,7 +39,7 @@ class Location < ActiveRecord::Base
   end
 
   def should_re_geocode?
-    attrs = %w(street_and_no postcode city country)
+    attrs = %w(street number postcode city country)
     attrs.any?{|a| send "#{a}_changed?"}
   end
 
@@ -61,7 +65,7 @@ class Location < ActiveRecord::Base
       self.house = houses.first
     else # or create a new house with a normalized address
       #House.create({city: norm_city, postcode: norm_postcode, country: norm_country, street_ande_no: norm_street_and_no, longitude: longitude, latitude: latitude})
-      house = House.create({city: city, postcode: postcode, country: country, street_and_no: street_and_no, longitude: longitude, latitude: latitude})
+      house = House.create({city: city, postcode: postcode, country: country, street: street, number: number, longitude: longitude, latitude: latitude})
       self.house = house
     end
   end

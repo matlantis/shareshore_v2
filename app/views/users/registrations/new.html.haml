@@ -7,7 +7,7 @@
   = f.email_field :email, autofocus: true
   = f.password_field :password, autocomplete: "off", help: t('.help_password_minimum_length', length: @minimum_password_length) if @minimum_password_length
   = f.password_field :password_confirmation, autocomplete: "off"
-  = f.text_field :nickname
+  = f.text_field :nickname, help: t('.help_nickname')
   = f.form_group do
     = f.check_box :terms do
       = t('.i_do')

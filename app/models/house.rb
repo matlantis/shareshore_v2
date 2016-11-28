@@ -5,6 +5,10 @@ class House < ActiveRecord::Base
   # self destroy if nobody there (seems not to work)
   after_validation :destroy, on: :update, if: :has_no_locations?
 
+  def street_and_no
+    [street, number].reject{|e| e.blank?}.join(" ")
+  end
+  
   def shortaddress
     [street_and_no, city].reject {|e| e.blank?}.join(", ")
   end
