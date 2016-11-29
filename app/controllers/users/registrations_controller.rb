@@ -1,9 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  
   prepend_before_action :authenticate_scope!, only: [ :guidepost, :update_guidepost, :edit, :update, :destroy]
 
   def index
@@ -62,9 +61,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if !verify_recaptcha
+      flash.delete :recaptcha_error
+      build_resource(sign_up_params)
+      resource.valid?
+      resource.errors.add(:base, t('recaptcha.errors.verification_failed'))
+      clean_up_passwords(resource)
+      respond_with_navigational(resource) { render :new }
+    else
+      flash.delete :recaptcha_error
+      super
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -119,13 +128,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :showemail, :showphone, :terms) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite
   def after_update_path_for(resource)
     edit_user_registration_path
+  end
+
+
+  def check_captcha
+    unless verify_recaptcha
+      flash.delete :recaptcha_error
+      build_resource(sign_up_params)
+      resource.valid?
+      resource.errors.add(:base, "There was an error with the recaptcha code below. Please re-enter the code.")
+      clean_up_passwords(resource)
+      respond_with_navigational(resource) { render :new }
+      #self.resource = resource_class.new sign_up_params
+      #respond_with_navigational(resource) { render :new }
+    end 
   end
 
 end

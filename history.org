@@ -3,7 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO philosophie gedanke
+*** TODO contact formular aus show_modal raus nehmen                    :bug:
+*** TODO recaptcha erscheint nicht zweimal                              :bug:
+*** TODO philosophie gedanke                                           :text:
     werbefrei, kostenlos ähnlich wie bessermitfahren.de
 *** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
     damit man die nutzer auf neue Vorlagen hinweisen kann
@@ -43,9 +45,13 @@
      - [ ] i'm human captcha
        ambethia recaptcha (scheinbar brauch man da nen account, wie ist das mit lizenz). das ist google magic. kost nix. wär blód darauf zu verzichten, in privacy statements drauf hinweisen
      - [ ] telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
-**** Weiter überlegungen
+**** Weitere überlegungen
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
+*** DONE request javascript code in article/show                        :bug:
+    CLOSED: [2016-11-29 Di 13:11]
+    überprüfen, ob der grad incht nur in search/show ist
+    irgendwie global machen
 *** CANCELED hinweis nutzer vorlagen vorzuschlagen              :enhancement:
     CLOSED: [2016-11-26 Sa 14:15]
     in den help text explizit ermuntern sachen ohne vorlage einzustellen
@@ -820,3 +826,6 @@
     neue article erstellen: führt server seitig zu "Can't verify CSRF token authenticity"
     wär schon gut, wenn man den inhalt der pages ausblenden könnte
     verhältnismässig unwichtig
+*** TODO recaptcha in registrations/new hides password field on failure :bug:
+*** TODO solve captcha only once per session                    :enhancement:
+    may this comes automatically when put online

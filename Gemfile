@@ -74,3 +74,5 @@ gem 'mail_form'
 gem 'simple_form'
 
 gem 'haml'
+
+gem "recaptcha", require: "recaptcha/rails"

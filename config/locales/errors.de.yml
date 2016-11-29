@@ -22,6 +22,8 @@ de:
             email:
             terms:
               accepted: "müssen akzeptiert werden"
+            password_confirmation:
+              confirmation: "stimmt nicht überein"
 
         article:
           attributes:

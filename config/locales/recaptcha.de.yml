@@ -1,0 +1,5 @@
+de:
+  recaptcha:
+    errors:
+      verification_failed: "Das Captcha ist ungültig"
+      recaptcha_unreachable: "Zeitüberschreitung bei Auswertung des Captchas"

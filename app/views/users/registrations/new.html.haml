@@ -16,7 +16,8 @@
       = link_to t('.declaration_of_privacy'), '/pages/privacy'
       = succeed '.' do
         = t('.agree')
-      
+  = f.form_group do
+    = recaptcha_tags
   = f.form_group do
     = f.submit t('forms.finish')
     
