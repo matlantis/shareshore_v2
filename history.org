@@ -3,6 +3,7 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO was sind fixtures
 *** TODO upload auf heroku oä                                       :concept:
     alternativen auschecken
 *** TODO mehr stockitems                                               :text:
