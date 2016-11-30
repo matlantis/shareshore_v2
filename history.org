@@ -3,6 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO article_modal rausnehmen, auf article direkt verlinken
+*** TODO die locations search results sind nicht mehr nach entfernung sortiert :bug:
 *** TODO contact formular aus show_modal raus nehmen                    :bug:
 *** TODO recaptcha erscheint nicht zweimal                              :bug:
 *** TODO philosophie gedanke                                           :text:

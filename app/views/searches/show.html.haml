@@ -27,10 +27,13 @@
 
     %ul.nav.nav-tabs
       %li.active
-        = link_to(t('titles.articles.index'), "#tab-articles", data: {toggle: "tab"}, class: "tab")
+        = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
+          = @articles.count
+          = Article.model_name.human(count: @articles.count)
       %li
-        = link_to(User.model_name.human(count: 2), "#tab-locations", data: {toggle: "tab"}, class: "tab")
-
+        = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
+          = @locations.count
+          = User.model_name.human(count: @locations.count)
     .tab-content
       #tab-articles.tab-pane.fade.in.active
         - if Search.articles_per_page < @articles.count || current_user
