@@ -18,7 +18,6 @@ de:
     popup:
 
     article_show:
-      heading_contact_info: "Kontakt"
       heading_request: "Anfrage"
       placeholder_request_text: "Füge ein paar Worte und deine Kontaktdaten hinzu!"
       button_label_send_request: "Anfrage für diese Sache versenden"
@@ -26,8 +25,9 @@ de:
       request_was_send: "Anfrage versendet!"
       waiting: "Anfrage wird gesendet ..."
       text_read_the_guideline: "Bevor du eine Sache ausleihst, ließ bitte unseren"
-      view_contact_details_button: "Kontaktieren ..."
-      
+      view_contact_details_button: "Anzeigen"
+      heading_contact_info: "Kontakt"
+
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"
       empty_list_message: "Keine Sachen an diesem Standort"

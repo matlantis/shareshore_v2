@@ -21,6 +21,7 @@
     = f.text_field :lastname
     = f.text_field :phoneno
     = f.form_group do
+      -#= f.check_box :showname
       = f.check_box :showemail
       = f.check_box :showphone
     = f.password_field :current_password, help: t(".help_password_needed"), autocomplete: "off"

@@ -17,6 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash[:alert] = t('.warning_user_not_existent')
       redirect_to "/"
     end
+
+    @with_contact = verify_recaptcha
+    # remove the recaptcha error msg
+    flash.delete("recaptcha_error")
   end
 
   def guidepost
@@ -27,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params.has_key? :user
       @location = Location.new # create a location for the form (maybe needed)
       
-      p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :phoneno)
+      p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :showname, :phoneno)
       success = current_user.update(p)
       # this updates only the locations not the basic informations
       respond_to do |format|
@@ -129,7 +133,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite

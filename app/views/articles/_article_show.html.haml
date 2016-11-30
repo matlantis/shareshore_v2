@@ -4,7 +4,6 @@
       .col-xs-12
         - if article.picture.present?
           = image_tag(article.picture_url, class: "img-responsive")
-          %br/
     .row
       .col-xs-9
         = rate_marker(article)
@@ -16,6 +15,8 @@
             = t('articles.common.label_distance')
             \:
           = "%.1f km" % article.location.distance_from( @current_location )
+        %br/
+        = user_marker(article.user)
       .col-xs-3.text-right
         - if defined?(home) && home
           %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", title: t('articles.common.tooltip_home')}
@@ -33,35 +34,15 @@
         - unless @with_contact
           .col-xs-12
             .shareshore-panel
+              %h4= t('.heading_contact_info')
               = bootstrap_form_tag url: article_path(article), method: :get do |f|
                 = f.form_group do
-                  = f.submit t('.view_contact_details_button'), class: "btn btn-default"
-                = f.form_group do
                   = recaptcha_tags
+                = f.form_group do
+                  = f.submit t('.view_contact_details_button'), class: "btn btn-default"
         - else
           .col-xs-12.col-lg-6
-            .shareshore-panel
-              %h4= t('.heading_contact_info')
-              .row
-                - unless article.user.fullname.blank?
-                  .col-xs-12
-                    %b
-                      = succeed ':' do
-                        = User.human_attribute_name('name')
-                    = article.user.fullname
-                - unless article.user.email.blank?
-                  .col-xs-12
-                    %b
-                      = succeed ':' do
-                        = User.human_attribute_name('email')
-                    = mail_to article.user.email, article.user.email, subject: article_mail_subject(article)
-                - unless article.user.phoneno.blank?
-                  .col-xs-12
-                    %b
-                      = succeed ':' do
-                        = User.human_attribute_name('phoneno')
-                    = article.user.phoneno
-
+            = render 'users/registrations/contact', user: article.user, showemail: article.user.showemail, showphone: article.user.showphone, showname: article.user.showname, article: article
 
           .col-xs-12.col-lg-6
             .shareshore-panel

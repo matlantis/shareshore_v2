@@ -41,8 +41,8 @@ de:
         tipp_panel_text: "kleine Hilfe zu show registrations"
         empty_locations_list_message: "Keine"
         warning_user_not_existent: "Nutzer nicht vorhanden"
-        subject_message_username: "Shareship Nachricht von %{user}"
-        subject_message_anonymous: "Shareship Nachricht"
+        view_contact_details_button: "Anzeigen"
+        heading_contact_info: "Kontakt"
 
       update_guidepost:
         update_contact_info_success: "Kontaktinformationen aktualisiert"
@@ -50,6 +50,8 @@ de:
         warning_location_not_geocoded: "Adresse ist unbekannt"
 
       contact:
+        heading_contact_info: "Kontakt"
+        no_contact_info: "Der Nutzer hat keine Informationen veröffentlicht." # Nutze das Formular, um ihn zu kontaktieren."
 
     sessions:
       new:

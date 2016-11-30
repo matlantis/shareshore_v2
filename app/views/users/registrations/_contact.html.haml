@@ -4,32 +4,31 @@
 - showphone ||= false
 - showname = false # always
 
-= user_marker user
-%br/
--if showname
-  %b
-    = User.human_attribute_name('name')
-    \:
-  = user.fullname
-- if showemail
-  - if article
-    - if current_user
-      - subject = t(".subject_article_request_username", user: current_user.nickname, article: article.title)
-    - else
-      - subject = t(".subject_article_request_anonymous", article: article.title)
-  - else
-    - if current_user
-      - subject = t(".subject_message_username", user: current_user.nickname)
-    - else
-      - subject = t(".subject_message_anonymous")    
-  %br/
-  %b
-    = User.human_attribute_name('email')
-    \:
-  = mail_to user.email, user.email, subject: subject
-- if showphone
-  %br/
-  %b
-    = User.human_attribute_name('phoneno')
-    \:
-  = user.phoneno
+.shareshore-panel
+  %h4= t('.heading_contact_info')
+  - anycontact = false
+  .row
+    - unless user.fullname.blank? || !showname
+      .col-xs-12
+        %b
+          = succeed ':' do
+            = User.human_attribute_name('name')
+        = user.fullname
+        - anycontact = true
+    - unless user.email.blank? || !showemail
+      .col-xs-12
+        %b
+          = succeed ':' do
+            = User.human_attribute_name('email')
+        = mail_to user.email, user.email, subject: mail_subject(article)
+        - anycontact = true
+    - unless user.phoneno.blank? || !showphone
+      .col-xs-12
+        %b
+          = succeed ':' do
+            = User.human_attribute_name('phoneno')
+        = user.phoneno
+        - anycontact = true
+    - unless anycontact
+      .col-xs-12
+        = t('.no_contact_info')

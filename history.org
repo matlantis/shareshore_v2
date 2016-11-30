@@ -3,7 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO besser layouten (mobil im hinterkopf)
+*** TODO users: übermich und avatar                                 :feature:
+*** TODO besser layouten (mobil im hinterkopf)                  :enhancement:
     insbesondere
     - article/show
 *** TODO die locations search results sind nicht mehr nach entfernung sortiert :bug:
@@ -22,6 +23,8 @@
     in dem zusammenhang könnte man auch über ne email blacklist nachdenken
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
+*** DONE kontakt infos in users#show mit captcha schützen               :bug:
+    CLOSED: [2016-11-30 Mi 13:42]
 *** DONE privacy                                                    :concept:
     CLOSED: [2016-11-30 Mi 12:20]
 **** DONE fragen

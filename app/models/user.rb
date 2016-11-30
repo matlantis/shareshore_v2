@@ -10,12 +10,20 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :articles
   accepts_nested_attributes_for :locations, reject_if: :all_blank
   
+  after_initialize :init
+  
   #validates :role, inclusion: { in: %w(admin user) }
   validates :nickname, uniqueness: true,
             format: { with: /\A[a-zA-Z0-9\.\-_]+\z/ }
   validates :phoneno, format: { with: /\A[a-zA-Z0-9\- ]*\z/ }
 
   validates :terms, acceptance: true
+
+  def init
+    showemail ||= false
+    showphone ||= false
+    showname ||= false
+  end
   
   def fullname
     [firstname, lastname].reject {|e| e.blank?}.join(" ")
@@ -25,4 +33,5 @@ class User < ActiveRecord::Base
   def confirmation_required?
     true # to disable confirmation stuff set to false
   end
+
 end
