@@ -1,15 +1,10 @@
 .row
   - unless defined? owner
     .col-xs-4
-      %b
-        = Location.human_attribute_name('user')
-        \:
-      = link_to location.user.nickname, user_path(location.user)
+      = user_marker(location.user)
       %br/
-      -# %b
-      -#   = User.human_attribute_name('name')
-      -#   \:
-      -# = location.user.fullname
+      - if defined?(home) && home
+        %span.glyphicon.glyphicon-home{"data-toggle": "tooltip", title: t('articles.common.tooltip_home') }
       %br/
       = location_marker location
   .col-xs-4
@@ -29,11 +24,11 @@
     - if @current_location
       %br/
       - if defined?(home) && home
-        %span.glyphicon.glyphicon-home{"data-toggle" => "tooltip", :title => "Bei Dir im Haus"}
+        %strong= t('articles.common.tooltip_home')
       - else
-        %b
-          = t('locations.common.label.distance')
-          \:
+        %strong
+          = succeed ":" do
+            = t('locations.common.label_distance')
         = "%.1f km" % location.distance_from( @current_location )
     - if defined? owner
       %br/

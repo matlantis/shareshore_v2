@@ -3,6 +3,8 @@
 %br/
 - house.locations.each do |location|
   - local_articles = articles.where("location_id = ?", location.id)
+  - if local_articles.count == 0
+    - next
   = user_marker(location.user)
   (#{link_to articles_count(local_articles), articles_location_path(location)})
   %br/

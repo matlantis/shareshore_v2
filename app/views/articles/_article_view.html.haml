@@ -33,10 +33,13 @@
       = user_marker article.user
     %br/
     - if @current_location
-      %strong
-        = t('articles.common.label_distance')
-        \:
-      = "%.1f km" % article.location.distance_from( @current_location )
+      - if defined?(home) && home
+        %strong= t('articles.common.tooltip_home')
+      - else
+        %strong
+          = succeed ":" do
+            = t('articles.common.label_distance')
+        = "%.1f km" % article.location.distance_from( @current_location )
 .row
   .col-xs-12
     = truncate(article.details, length: 60)

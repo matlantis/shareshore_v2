@@ -59,7 +59,8 @@ class SearchesController < ApplicationController
 
     # locations
     @locations = Location.where(id: @articles.map {|a| a.location_id})
-
+    @locations = @locations.near(@current_location, @search.radius) # resort
+    
     # limit articles and locations
     @articles = @articles.limit(Search.articles_per_page).page(1)
     @locations = @locations.limit(Search.locations_per_page).page(1)

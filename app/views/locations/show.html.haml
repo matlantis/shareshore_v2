@@ -41,9 +41,9 @@
       \:
     .col-xs-9
       - @location.articles.each do |article|
-        = article_marker_modal article
+        = article_marker article
         - article_show_id = "article_" + article.id.to_s + "_show"
-        .modal.fade{:id => article_show_id}
+        -#.modal.fade{:id => article_show_id}
           = render 'articles/show_modal', article: article, home: false
   - if @location.house.locations.count > 1
     .row
