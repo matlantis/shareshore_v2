@@ -4,7 +4,7 @@
 %p
   Dein Nachbar/Deine Nachbarin #{user_marker(@request.sender)} würde gerne eine Deiner Sachen ausleihen:
 
-%p= render 'articles/article_view', article: @request.article, mail: true
+%p= render 'articles/article_view', article: @request.article, modal: false
 
 %p
   Er/Sie schreibt Dir folgende Nachricht:

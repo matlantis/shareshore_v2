@@ -1,11 +1,11 @@
 -# locals
 - home ||= false
-- mail ||= false
+- modal ||= false
 - edit ||= false
 .row
   - article_show_id = "article_" + article.id.to_s + "_show"
   .col-sm-3
-    - if mail
+    - if !modal
       = article_marker article
     - else
       = article_marker_modal article
@@ -18,7 +18,7 @@
       %br/
       %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
         = image_tag(article.picture_url(:thumb))
-  - if !mail
+  - if modal
     .modal.fade{:id => article_show_id}
       = render 'articles/show_modal', article: article, home: home
   .col-sm-5
