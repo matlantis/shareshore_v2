@@ -4,6 +4,12 @@ class ContactsController < ApplicationController
     if params.key? :subject
       @contact.subject = params.delete(:subject)
     end
+    if params.key? :message
+      @contact.message = params.delete(:message)
+    end
+
+
+      
 
     if current_user
       @contact.name = current_user.nickname

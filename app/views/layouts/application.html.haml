@@ -20,16 +20,21 @@
         .row
           .col-xs-12
             .alert.alert-danger
-              = t('.warning_no_script')
-
+              %p
+                = t('.warning_no_script')
       .row
         .col-xs-12
           .alert.alert-warning
             -#%a.close{"data-dismiss" => "alert", :href => "#"} ×
-            %strong
-              = succeed ':' do
-                = t('.attention')
-            = t('.text_beta_warning')
+            %p
+              %strong
+                = succeed ':' do
+                  = t('.attention')
+              = t('.text_beta_warning')
+            %p
+              = t('.bug_found')
+              - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
+              = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
       
       .row
         .col-xs-12

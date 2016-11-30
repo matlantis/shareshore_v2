@@ -3,17 +3,13 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO users: übermich und avatar                                 :feature:
-*** TODO besser layouten (mobil im hinterkopf)                  :enhancement:
-    insbesondere
-    - article/show
 *** TODO die locations search results sind nicht mehr nach entfernung sortiert :bug:
 *** TODO philosophie gedanke                                           :text:
     werbefrei, kostenlos ähnlich wie bessermitfahren.de
 *** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
     damit man die nutzer auf neue Vorlagen hinweisen kann
-*** TODO Tutorial fehlt                                                :text:
-*** TODO bug report seite mit bug formular                          :feature:
+*** DONE bug report seite mit bug formular                          :feature:
+    CLOSED: [2016-11-30 Mi 14:13]
 *** TODO account mal schnell disablen können                        :feature:
     user kriegt nen disabled column
     und dann? vielleicht gibts da schon was in devise - nix
@@ -846,3 +842,8 @@
 *** TODO solve captcha only once per session                    :enhancement:
     may this comes automatically when put online
 *** TODO namen für eigen daten anfordern, versicherung, dass die daten stimmen
+*** TODO users: übermich und avatar                                 :feature:
+*** TODO besser layouten (mobil im hinterkopf)                  :enhancement:
+    insbesondere
+    - article/show
+*** TODO Tutorial fehlt                                                :text:
