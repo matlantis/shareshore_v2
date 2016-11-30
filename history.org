@@ -3,10 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO article_modal rausnehmen, auf article direkt verlinken
+*** TODO besser layouten (mobil im hinterkopf)
+    insbesondere
+    - article/show
 *** TODO die locations search results sind nicht mehr nach entfernung sortiert :bug:
-*** TODO contact formular aus show_modal raus nehmen                    :bug:
-*** TODO recaptcha erscheint nicht zweimal                              :bug:
 *** TODO philosophie gedanke                                           :text:
     werbefrei, kostenlos ähnlich wie bessermitfahren.de
 *** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
@@ -20,21 +20,26 @@
     registration#edit derart, dass admin das setzen und wieder löschen kann
     die artikel und standorte müssen dann temporär aus dem verkehr gezogen werden - das ist ein fetter brocken
     in dem zusammenhang könnte man auch über ne email blacklist nachdenken
-*** TODO privacy                                                    :concept:
+*** TODO mehr stockitems                                               :text:
+    Ratschenkasten
+*** DONE privacy                                                    :concept:
+    CLOSED: [2016-11-30 Mi 12:20]
 **** DONE fragen
      - wie gehe ich vor, wenn jmd gestalkt wird, wie kann ich davor schützen?
        - nutzernamen verändern
        - shareship benachrichtigen
        - in faq aufnehmen?
-**** TODO massnahmen [6/9]
+**** DONE massnahmen [9/9]
+     CLOSED: [2016-11-30 Mi 12:20]
      - [X] beta phase - nur angemeldete user können suchen
      - [X] namen komplett ausblenden, da sie ungerechtfertigt vertrauen ausstrahlen
        edit profil
        show profil
        _contact
        index locations
-     - [ ] namen für eigen daten anfordern, versicherung, dass die daten stimmen
+     - [X] namen für eigen daten anfordern, versicherung, dass die daten stimmen
        momentan ist der name noch optional, denke das kann man auch so lassen
+       ticket erstellt
      - [X] wie ist meine privatsphäre geschützt seite
      - [X] request: beiden beteiligten link auf empfohlene vorgehensweise
      - CANCELED email und telefonnr standardmässig ausblenden (checkboxen ganz deaktivieren)
@@ -44,12 +49,18 @@
      - [X] hinweis bei anmeldung, dass der nutzer name dem schutz der privatspäre dient, um bösartigen nutzern die zuordnung zwischen standorten und realen menschen zu erschweren. hinweis, dass der nutzername jederzeit veränderbar ist
      - [X] hinweis bei standort eintrag, dass die hausnr offen gehalten werden kann, um den exakten wohnsitz zu verschleiern
        in diesem zuge sollte die hausnr ein eigenes feld bekommen (location und house)
-     - [ ] i'm human captcha
+     - [X] i'm human captcha
        ambethia recaptcha (scheinbar brauch man da nen account, wie ist das mit lizenz). das ist google magic. kost nix. wär blód darauf zu verzichten, in privacy statements drauf hinweisen
-     - [ ] telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
+     - [X] telefonnr und email vor bots verstecken (nicht notwendig, wenn sie nicht angezeigt werden)
 **** Weitere überlegungen
-*** TODO mehr stockitems                                               :text:
-    Ratschenkasten
+*** CANCELED recaptcha erscheint nicht zweimal                          :bug:
+    CLOSED: [2016-11-30 Mi 12:19]
+    umgangen
+*** CANCELED contact formular aus show_modal raus nehmen                :bug:
+    CLOSED: [2016-11-30 Mi 12:19]
+    show modal ist statt dessen raus
+*** DONE article_modal rausnehmen, auf article direkt verlinken
+    CLOSED: [2016-11-30 Mi 11:35]
 *** DONE request javascript code in article/show                        :bug:
     CLOSED: [2016-11-29 Di 13:11]
     überprüfen, ob der grad incht nur in search/show ist
@@ -831,3 +842,4 @@
 *** TODO recaptcha in registrations/new hides password field on failure :bug:
 *** TODO solve captcha only once per session                    :enhancement:
     may this comes automatically when put online
+*** TODO namen für eigen daten anfordern, versicherung, dass die daten stimmen

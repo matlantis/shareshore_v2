@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'
 
   get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
-  
+
   devise_scope :user do
     get "users/guidepost", action: :guidepost, controller: 'users/registrations', as: 'user_guidepost'
     put "users/guidepost", action: :update_guidepost, controller: 'users/registrations'

@@ -28,39 +28,67 @@
         - unless article.details == ""
           = article.details
         
-    - if current_user and current_user.id == article.user.id
-      - #link_to("", "", class: "glyphicon glyphicon-pencil article_cb", data: { article_id: article.id } )
-      - #link_to("", article, method: :delete, data: { confirm: t("Are you sure?") }, class: "glyphicon glyphicon-remove", remote: true)
-    - else
+    - unless ( current_user && current_user.id == article.user.id )
       .row
-        .col-xs-12.col-lg-6
-          .contact_info
-            %h4= t('.heading_contact_info')
-            = render 'users/registrations/contact', user: article.user, showemail: article.user.showemail, showphone: article.user.showphone
-        .col-xs-12.col-lg-6
-          .shareshore-panel.clearfix.request-panel
-            - if user_signed_in?
-              .send-request
-                - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true})
-                = bootstrap_form_for request, remote: true, format: :json do |f|
-                  = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
-                  = f.hidden_field :article_id
-                  = f.form_group do
-                    -#= f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
-                    = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
-                    = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
-                  = f.form_group do
-                    = f.submit t('.button_label_send_request')
-              .request-was-send{style: "display: none"}
-                = t('.request_was_send')
-                %div
-                  %strong
-                    = t('.text_read_the_guideline')
-                    #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
-              .waiting{style: "display: none"}
-                = t('.waiting')
-            - else
-              .col-xs-6
-                = t('.text_only_signed_up_users')
-              .col-xs-6.text-right
-                = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
+        - unless @with_contact
+          .col-xs-12
+            .shareshore-panel
+              = bootstrap_form_tag url: article_path(article), method: :get do |f|
+                = f.form_group do
+                  = f.submit t('.view_contact_details_button'), class: "btn btn-default"
+                = f.form_group do
+                  = recaptcha_tags
+        - else
+          .col-xs-12.col-lg-6
+            .shareshore-panel
+              %h4= t('.heading_contact_info')
+              .row
+                - unless article.user.fullname.blank?
+                  .col-xs-12
+                    %b
+                      = succeed ':' do
+                        = User.human_attribute_name('name')
+                    = article.user.fullname
+                - unless article.user.email.blank?
+                  .col-xs-12
+                    %b
+                      = succeed ':' do
+                        = User.human_attribute_name('email')
+                    = mail_to article.user.email, article.user.email, subject: article_mail_subject(article)
+                - unless article.user.phoneno.blank?
+                  .col-xs-12
+                    %b
+                      = succeed ':' do
+                        = User.human_attribute_name('phoneno')
+                    = article.user.phoneno
+
+
+          .col-xs-12.col-lg-6
+            .shareshore-panel
+              %h4= t('.heading_request')
+              .clearfix.request-panel
+                - if user_signed_in?
+                  .send-request
+                    - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true})
+                    = bootstrap_form_for request, remote: true, format: :json do |f|
+                      = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
+                      = f.hidden_field :article_id
+                      = f.form_group do
+                        -#= f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
+                        = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
+                        = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
+                      = f.form_group do
+                        = f.submit t('.button_label_send_request')
+                  .request-was-send{style: "display: none"}
+                    = t('.request_was_send')
+                    %div
+                      %strong
+                        = t('.text_read_the_guideline')
+                        #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
+                  .waiting{style: "display: none"}
+                    = t('.waiting')
+                - else
+                  .col-xs-6
+                    = t('.text_only_signed_up_users')
+                  .col-xs-6.text-right
+                    = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"

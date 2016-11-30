@@ -26,6 +26,7 @@ de:
       request_was_send: "Anfrage versendet!"
       waiting: "Anfrage wird gesendet ..."
       text_read_the_guideline: "Bevor du eine Sache ausleihst, ließ bitte unseren"
+      view_contact_details_button: "Kontaktieren ..."
       
     index_location:
       tip_panel_text: "kleine Hilfe zu index_location"

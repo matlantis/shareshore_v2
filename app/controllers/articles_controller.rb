@@ -54,6 +54,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @with_contact = verify_recaptcha
+    # remove the recaptcha error msg
+    flash.delete("recaptcha_error")
   end
 
   # GET /articles/new

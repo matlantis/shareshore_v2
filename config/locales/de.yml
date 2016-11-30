@@ -1,4 +1,10 @@
 de:
+  mail:
+    subject_article_request_username: "Shareship Nutzeranfrage von %{user} für deine(n) %{article}"
+    subject_article_request_anonymous: "Shareship Nutzeranfrage für deine(n) %{article}"
+    subject_message_username: "Shareship Nachricht von %{user}"
+    subject_message_anonymous: "Shareship Nachricht"
+
   forms:
     cancel: "Abbrechen"
     finish: "Fertig"
