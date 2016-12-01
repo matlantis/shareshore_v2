@@ -32,7 +32,7 @@
             .article{:id => article_div_id}
               .row
                 .col-xs-6
-                  %a.article_cb{"data-article-id" => "#{article.stockitem_id.to_s}", :href => "#"}
+                  %a.item_edit_button{"data-item-id" => "#{article.stockitem_id.to_s}", :href => "#"}
                     = article.title
                         
                 .col-xs-6.text-right
@@ -59,9 +59,9 @@
   $(document).ready(function(){
     $(".article_edit").hide();
     
-    $(".article_cb").click( function(e) {
+    $(".item_edit_button").click( function(e) {
       e.preventDefault();
-      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit";
+      var thedivid = "#article_" + $(this).attr("data-item-id") + "_div .article_edit";
       console.log(thedivid);
       $(thedivid).toggle(200);
     });

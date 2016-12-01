@@ -1,39 +1,36 @@
+-# locals
+- home ||= false
+- edit ||= false
 .row
-  - unless defined? owner
-    .col-xs-4
+  - unless edit
+    .col-xs-6.col-sm-3
+      = user_marker(location.user)
+      - if home
+        = home_icon
+    .col-xs-6.col-sm-4
+      = location_marker location
+    .col-xs-6.col-sm-2
+      = articles_location_count_link(location)
+
+    .col-xs-6.col-sm-3
+      - if @current_location
+        = distance_label home, @current_location, location
+  - else
+    .col-xs-6
+      = location.street
+      = location.number
+      %br/
+      = location.postcode
+      %br/
+      = location.city
+      %br/
+      = location.country
+    .col-xs-6
+      = location_marker location
+      %br/
       = user_marker(location.user)
       %br/
-      - if defined?(home) && home
-        %span.glyphicon.glyphicon-home{"data-toggle": "tooltip", title: t('articles.common.tooltip_home') }
+      = articles_location_count_link(location)
       %br/
-      = location_marker location
-  .col-xs-4
-    = location.street
-    = location.number
-    %br/
-    = location.postcode
-    %br/
-    = location.city
-    %br/
-    = location.country
-  .col-xs-4.text-right
-    %b
-      = Location.human_attribute_name('articles')
-      \:
-    = link_to location.articles.count, articles_location_path(location)
-    - if @current_location
-      %br/
-      - if defined?(home) && home
-        %strong= t('articles.common.tooltip_home')
-      - else
-        %strong
-          = succeed ":" do
-            = t('locations.common.label_distance')
-        = "%.1f km" % location.distance_from( @current_location )
-    - if defined? owner
-      %br/
-      = location_marker location
-  - if defined?(owner) && ((current_user && current_user.id == location.user.id) || is_admin?)
-    .col-xs-4.text-right
-      = link_to("", "", class: "glyphicon glyphicon-pencil location_edit_button edit-remove", data: { location_id: location.id }, data_toggle: "tooltip", title: t('.tooltip_edit_button') )
-      = link_to("", location, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true, data_toggle: "tooltip", title: t('.tooltip_remove_button') )
+      .text-right
+        = edit_icons(location)

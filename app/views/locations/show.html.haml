@@ -9,48 +9,46 @@
   .row
     .col-xs-3.text-right
       %strong
-        = Location.human_attribute_name("street")
-        \:
+        = Location.human_attribute_name("user").concat(":")
+    .col-xs-9
+      = user_marker(@location.user)
+  .row
+    .col-xs-3.text-right
+      %strong
+        = Location.human_attribute_name("street").concat(":")
     .col-xs-9
       = @location.street
       = @location.number
   .row
     .col-xs-3.text-right
       %strong
-        = Location.human_attribute_name("postcode")
-        \:
+        = Location.human_attribute_name("postcode").concat(":")
     .col-xs-9
       = @location.postcode
   .row
     .col-xs-3.text-right
       %strong
-        = Location.human_attribute_name("city")
-        \:
+        = Location.human_attribute_name("city").concat(":")
     .col-xs-9
       = @location.city
   .row
     .col-xs-3.text-right
       %strong
-        = Location.human_attribute_name("country")
-        \:
+        = Location.human_attribute_name("country").concat(":")
     .col-xs-9
       = @location.country
   .row
     .col-xs-3.text-right
-      = link_to articles_count(@location.articles), articles_location_path(@location)
-      \:
+      %strong
+        = articles_location_count_link(@location).concat(":")
     .col-xs-9
-      - @location.articles.each do |article|
-        = article_marker article
-        - article_show_id = "article_" + article.id.to_s + "_show"
-        -#.modal.fade{:id => article_show_id}
-          = render 'articles/show_modal', article: article, home: false
+      = @location.articles.map {|article| article_marker article }.join(", ").html_safe
   - if @location.house.locations.count > 1
     .row
       .col-xs-12
         .house
           = t('.text_there_are_x_users_in_this', count: @location.house.locations.count-1)
-          =link_to @location.house do
+          = link_to @location.house do
             %span.glyphicon.glyphicon-home
             = House.model_name.human
   .row.hidden

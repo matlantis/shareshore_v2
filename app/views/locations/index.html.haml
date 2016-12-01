@@ -28,9 +28,9 @@
   $(document).ready(function(){
     $(".location_edit").hide();
 
-    $("body").on("click", ".location_edit_button", function(e) {
+    $("body").on("click", ".item_edit_button", function(e) {
       e.preventDefault();
-      var thedivid = "#location_" + $(this).attr("data-location-id") + "_div .location_edit";
+      var thedivid = "#location_" + $(this).attr("data-item-id") + "_div .location_edit";
       console.log(thedivid);
       $(thedivid).toggle(200);
     });

@@ -114,7 +114,8 @@ module ApplicationHelper
       else
         content_tag :span, class: "user_marker" do
           link_to article do
-            txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
+            #txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
+            txt1 = ""
             if article.stockitem_id
               txt1.concat(" ").concat(article.stockitem.title)
             else
@@ -128,6 +129,12 @@ module ApplicationHelper
   
   def articles_count(articles)
     articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
+  end
+
+  def articles_location_count_link(location)
+    link_to articles_location_path(location) do
+      location.articles.count.to_s + " " + I18n.t('activerecord.models.article', count: location.articles.count)
+    end
   end
 
   def locations_count(locations)
@@ -147,6 +154,32 @@ module ApplicationHelper
       else
         subject = t("mail.subject_message_anonymous")    
       end
+    end
+  end
+
+  def edit_icons(item)
+    if user_signed_in? && (current_user.id == item.user.id || is_admin? )
+      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil item_edit_button edit-remove", data: { item_id: item.id }, data_toggle: "tooltip", title: t('.tooltip_edit_button') )
+      txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true, data_toggle: "tooltip", title: t('.tooltip_remove_button'))
+      txt1.concat(txt2)
+    end
+  end
+
+  def home_icon
+    content_tag :span, "", class: "glyphicon glyphicon-home", data_toggle: "tooltip", title: t('articles.common.tooltip_home')
+  end
+
+  def gratis_icon
+    content_tag :span, "", class: "glyphicon glyphicon-heart", data_toggle: "tooltip", title: Article.human_attribute_name('gratis')
+  end
+
+  def distance_label(home, loc1, loc2)
+    if home
+      content_tag :strong, t('articles.common.tooltip_home')
+    else
+      txt1 = content_tag :strong, t('locations.common.label_distance').concat(":")
+      txt2 = "%.1f km" % loc2.distance_from( loc1 )
+      txt1 = txt1.concat(" ").concat(txt2)
     end
   end
 end

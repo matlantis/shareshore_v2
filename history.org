@@ -3,11 +3,12 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO was sind fixtures
 *** TODO upload auf heroku oä                                       :concept:
     alternativen auschecken
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
+*** DONE layout improvements
+    CLOSED: [2016-12-01 Do 14:53]
 *** DONE in der map markern werden locations ohne article angezeigt
     CLOSED: [2016-11-30 Mi 18:09]
     locations ohne article mit pattern match

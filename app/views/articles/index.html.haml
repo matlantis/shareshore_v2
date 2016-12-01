@@ -28,9 +28,9 @@
   $(document).ready(function(){
     $(".article_edit").hide();
 
-    $("body").on("click", ".article_cb", function(e) {
+    $("body").on("click", ".item_edit_button", function(e) {
       e.preventDefault();
-      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_edit";
+      var thedivid = "#article_" + $(this).attr("data-item-id") + "_div .article_edit";
       // console.log(thedivid);
       $(thedivid).toggle(200);
     });
