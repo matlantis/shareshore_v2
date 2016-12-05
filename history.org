@@ -3,10 +3,14 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO environments, wie funktioniert das
+    stockitem seeds
+    stockitems exportieren und importieren
 *** TODO upload auf heroku oä                                       :concept:
     alternativen auschecken
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
+    Parkplatz
 *** DONE layout improvements
     CLOSED: [2016-12-01 Do 14:53]
 *** DONE in der map markern werden locations ohne article angezeigt
