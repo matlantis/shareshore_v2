@@ -1,6 +1,11 @@
 var defaultZoom = 17;
 
-drawmap_leaflet = function(mapid, marker_defs, bounds, onMapClick = null, onMapDblClick = null, zoom = defaultZoom) {
+drawmap_leaflet = function(mapid, marker_defs, bounds, onMapClick, onMapDblClick, zoom) {
+  // parameter defaults
+  onMapClick = onMapClick || null;
+  onMapDblClick = onMapDblClick || null;
+  zoom = zoom || defaultZoom;
+    
   var map = L.map(mapid);
   if ( bounds.length == 1 )
     map.setView(bounds[0], zoom);
