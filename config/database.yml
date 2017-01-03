@@ -58,9 +58,12 @@ development:
   encoding: unicode
   pool: 5
   
-  adapter: sqlite3
-  database: db/development.sqlite3
+  #adapter: sqlite3
+  #database: db/development.sqlite3
 
+  adapter: postgresql
+  database: shareshore_v2_development
+  
 production:
   encoding: unicode
   pool: 5
