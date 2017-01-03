@@ -1,4 +1,4 @@
-class House < ActiveRecord::Base
+class House < ApplicationRecord
   has_many :locations, dependent: :nullify
   reverse_geocoded_by :latitude, :longitude
 

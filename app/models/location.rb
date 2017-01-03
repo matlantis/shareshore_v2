@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   has_many :articles, inverse_of: :location, dependent: :delete_all
   belongs_to :user
   belongs_to :house

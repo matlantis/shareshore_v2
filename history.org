@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO standort ansicht und liste mit articlen an standort mergen
+*** TODO in profile edit has checkbox for show name, but its not shown nowhere
+*** TODO contact dont show checkboxes for phone or name if not given
+*** TODO admin create stockitem in article/show only if not associated with a stockitem
 *** TODO environments, wie funktioniert das
     stockitem seeds
     stockitems exportieren und importieren

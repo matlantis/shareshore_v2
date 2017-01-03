@@ -1,5 +1,5 @@
 # coding: utf-8
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   attr_accessor :to_be_created
   mount_uploader :picture, PictureUploader
 

@@ -1,4 +1,4 @@
-class UserArticleRequest < ActiveRecord::Base
+class UserArticleRequest < ApplicationRecord
   belongs_to :sender, class_name: "User"
   belongs_to :article
 
