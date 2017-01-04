@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   
   def prepare_search_session
-    print 'prepare'
     unless session.key? :search # seems to be a new user
       addr = Geocoder.address(request.remote_ip)
       if addr == "Reserved" # got that for remote_ip localhost
