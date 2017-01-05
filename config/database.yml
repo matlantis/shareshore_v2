@@ -62,18 +62,20 @@ development:
   #database: db/development.sqlite3
 
   adapter: postgresql
-  database: shareshore_v2_development
+  #database: shareshore_v2_development
+  url: <%= ENV['DATABASE_URL'] %>
   
 production:
   encoding: unicode
   pool: 5
   
   adapter: postgresql
-  database: shareshore_v2_production___
-  username: shareshore_v2_soeinscheiss
-  password: lalalalllaa
+  # on heroku this information seems to be totally boogie
+  #database: shareshore_v2_production
+  #username: shareshore_v2
   #password: <%= ENV['SHARESHORE_V2_DATABASE_PASSWORD'] %>
-
+  url: <%= ENV['DATABASE_URL'] %>
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
