@@ -70,8 +70,9 @@ production:
   
   adapter: postgresql
   database: shareshore_v2_production___
-  username: shareshore_v2
-  password: <%= ENV['SHARESHORE_V2_DATABASE_PASSWORD'] %>
+  username: shareshore_v2_soeinscheiss
+  password: lalalalllaa
+  #password: <%= ENV['SHARESHORE_V2_DATABASE_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
