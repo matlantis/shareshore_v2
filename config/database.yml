@@ -69,7 +69,7 @@ production:
   pool: 5
   
   adapter: postgresql
-  database: shareshore_v2_production
+  database: shareshore_v2_production___
   username: shareshore_v2
   password: <%= ENV['SHARESHORE_V2_DATABASE_PASSWORD'] %>
 
