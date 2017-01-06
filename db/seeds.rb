@@ -105,7 +105,7 @@ Stockitem.create({title: "Standbohrmaschine", details_hint: "", rate: "2€/Benu
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: "Werkstatt"})
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: ""})
 
-group :development do
+if ENV['RAILS_ENV'].to_s == 'development' || ENV['RAILS_ENV'].to_s == ''
   # two users
   User.destroy_all
 
