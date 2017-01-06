@@ -1,13 +1,13 @@
 class Location < ApplicationRecord
   has_many :articles, inverse_of: :location, dependent: :delete_all
   belongs_to :user
-  belongs_to :house
+  belongs_to :house, optional: true
   has_many :searches, dependent: :nullify
   
   geocoded_by :fulladdress   # can also be an IP address
   before_validation :re_geocode, :if => :should_re_geocode?  # auto-fetch coordinates
 
-  validates :user, presence: true
+  #validates :user, presence: true # auto in rails 5
   validates :latitude, presence: { message: "The address could not be found" }
   validates :longitude, presence: { message: "The address could not be found" }
 

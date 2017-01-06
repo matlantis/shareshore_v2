@@ -5,14 +5,14 @@ class Article < ApplicationRecord
 
   belongs_to :location
   belongs_to :user
-  belongs_to :stockitem
+  belongs_to :stockitem, optional: true
 
   # hack see https://github.com/alexreisner/geocoder/issues/26
   reverse_geocoded_by "locations.latitude", "locations.longitude"
 
   validates :title, length: { minimum: 1, maximum: 50 }
-  validates :location, presence: true
-  validates :user, presence: true
+  #validates :location, presence: true # auto in rails 5
+  #validates :user, presence: true # auto in rails 5
   validates :rate, length: { minimum: 1, maximum: 50 }
   validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 

@@ -1,5 +1,5 @@
 class Search < ApplicationRecord
-  belongs_to :location
+  belongs_to :location, optional: true
 
   geocoded_by :address
   before_validation :geocode, unless: :use_location
