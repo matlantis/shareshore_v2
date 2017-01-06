@@ -105,41 +105,43 @@ Stockitem.create({title: "Standbohrmaschine", details_hint: "", rate: "2€/Benu
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: "Werkstatt"})
 #Stockitem.create({title: "", details_hint: "", rate: "1€/Tag", room: ""})
 
-# two users
-User.destroy_all
+group :development do
+  # two users
+  User.destroy_all
 
-user_martin = User.new
-user_martin.email = 'martinstefanputtke@posteo.de'
-user_martin.password = 'martin'
-user_martin.password_confirmation = 'martin'
-user_martin.nickname = "martin"
-user_martin.firstname = ""
-user_martin.lastname = ""
-user_martin.phoneno = ""
-user_martin.showemail = true
-user_martin.showphone = false
-user_martin.save!
+  user_martin = User.new
+  user_martin.email = 'martinstefanputtke@posteo.de'
+  user_martin.password = 'martin'
+  user_martin.password_confirmation = 'martin'
+  user_martin.nickname = "martin"
+  user_martin.firstname = ""
+  user_martin.lastname = ""
+  user_martin.phoneno = ""
+  user_martin.showemail = true
+  user_martin.showphone = false
+  user_martin.save!
 
-user_peter = User.new
-user_peter.email = 'peter@example.com'
-user_peter.password = 'peterp'
-user_peter.password_confirmation = 'peterp'
-user_peter.nickname = "peter"
-user_peter.firstname = ""
-user_peter.lastname = ""
-user_peter.phoneno = ""
-user_peter.showemail = true
-user_peter.showphone = false
-user_peter.save!
+  user_peter = User.new
+  user_peter.email = 'peter@example.com'
+  user_peter.password = 'peterp'
+  user_peter.password_confirmation = 'peterp'
+  user_peter.nickname = "peter"
+  user_peter.firstname = ""
+  user_peter.lastname = ""
+  user_peter.phoneno = ""
+  user_peter.showemail = true
+  user_peter.showphone = false
+  user_peter.save!
 
-# users need locations
-Location.destroy_all
-location_1 = user_martin.locations.create({street: "Hanauer Str.", number: "47", postcode: "", city: "Alzenau", country: ""})
-location_2 = user_martin.locations.create({street: "Goethestr.", number: "20", postcode: "", city: "Alzenau", country: ""})
-location_3 = user_peter.locations.create({street: "Haagweg", number: "12", postcode: "", city: "Wasserlos", country: ""})
+  # users need locations
+  Location.destroy_all
+  location_1 = user_martin.locations.create({street: "Hanauer Str.", number: "47", postcode: "", city: "Alzenau", country: ""})
+  location_2 = user_martin.locations.create({street: "Goethestr.", number: "20", postcode: "", city: "Alzenau", country: ""})
+  location_3 = user_peter.locations.create({street: "Haagweg", number: "12", postcode: "", city: "Wasserlos", country: ""})
 
-# a few articles
-Article.destroy_all
-user_martin.articles.create({title: "Dremel", details: "high tech", location_id: location_1.id, quality: 3, rate: "3€ pro Tag", gratis: false, stockitem_id: dremel.id})
-user_martin.articles.create({title: "Frack", details: "Größe XL", location_id: location_2.id, quality: 5, rate: "5€ pro Tag", gratis: false, stockitem_id: frack.id})
-user_peter.articles.create({title: "Milchkuh", details: "gescheckt", location_id: location_3.id, quality: 5, rate: "5€ pro Tag", gratis: true, stockitem_id: nil})
+  # a few articles
+  Article.destroy_all
+  user_martin.articles.create({title: "Dremel", details: "high tech", location_id: location_1.id, quality: 3, rate: "3€ pro Tag", gratis: false, stockitem_id: dremel.id})
+  user_martin.articles.create({title: "Frack", details: "Größe XL", location_id: location_2.id, quality: 5, rate: "5€ pro Tag", gratis: false, stockitem_id: frack.id})
+  user_peter.articles.create({title: "Milchkuh", details: "gescheckt", location_id: location_3.id, quality: 5, rate: "5€ pro Tag", gratis: true, stockitem_id: nil})
+end
