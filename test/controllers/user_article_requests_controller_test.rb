@@ -18,7 +18,7 @@ class UserArticleRequestsControllerTest < ActionController::TestCase
 
   test "should create user_article_request" do
     assert_difference('UserArticleRequest.count') do
-      post :create, user_article_request: { article_id: @user_article_request.article_id, receiver_id: @user_article_request.receiver_id, sender_id: @user_article_request.sender_id, text: @user_article_request.text }
+      post :create, user_article_request: { article_id: @user_article_request.article_id, receiver_id: @user_article_request.receiver_id, user_id: @user_article_request.user_id, text: @user_article_request.text }
     end
 
     assert_redirected_to user_article_request_path(assigns(:user_article_request))
@@ -35,7 +35,7 @@ class UserArticleRequestsControllerTest < ActionController::TestCase
   end
 
   test "should update user_article_request" do
-    patch :update, id: @user_article_request, user_article_request: { article_id: @user_article_request.article_id, receiver_id: @user_article_request.receiver_id, sender_id: @user_article_request.sender_id, text: @user_article_request.text }
+    patch :update, id: @user_article_request, user_article_request: { article_id: @user_article_request.article_id, receiver_id: @user_article_request.receiver_id, user_id: @user_article_request.user_id, text: @user_article_request.text }
     assert_redirected_to user_article_request_path(assigns(:user_article_request))
   end
 

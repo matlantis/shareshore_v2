@@ -2,7 +2,7 @@
   Hallo #{@request.article.user.nickname},
 
 %p
-  Dein Nachbar/Deine Nachbarin #{user_marker(@request.sender)} würde gerne eine Deiner Sachen ausleihen:
+  Dein Nachbar/Deine Nachbarin #{user_marker(@request.user)} würde gerne eine Deiner Sachen ausleihen:
 
 %p= render 'articles/article_view', article: @request.article, modal: false
 
@@ -14,7 +14,7 @@
 %p
   So kannst du mit ihm/ihr Kontakt aufnehmen:
 
-%p= render 'users/registrations/contact', user: @request.sender, showemail: @request.with_email, showphone: @request.with_phoneno, showname: @request.with_name, current_user: @request.article.user
+%p= render 'users/registrations/contact', user: @request.user, showemail: @request.with_email, showphone: @request.with_phoneno, showname: @request.with_name, current_user: @request.article.user
 
 %p Eins noch: Bevor Du etwas verleihst, solltest du unseren #{link_to t('titles.pages.guideline'), guideline_url} lesen!
 

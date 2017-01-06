@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-  has_many :articles, inverse_of: :location, dependent: :delete_all
+  has_many :articles, inverse_of: :location, dependent: :destroy
   belongs_to :user
   belongs_to :house, optional: true
   has_many :searches, dependent: :nullify

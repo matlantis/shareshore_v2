@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :locations, inverse_of: :user, dependent: :delete_all
-  has_many :articles, inverse_of: :user, dependent: :delete_all
+  has_many :locations, inverse_of: :user, dependent: :destroy
+  has_many :articles, inverse_of: :user, dependent: :destroy
+  has_many :user_article_requests, inverse_of: :user, dependent: :destroy
 
   accepts_nested_attributes_for :articles
   accepts_nested_attributes_for :locations, reject_if: :all_blank

@@ -6,12 +6,13 @@ class Search < ApplicationRecord
 
   validates :latitude, presence: { message: "The address could not be found" }, unless: :use_location
   validates :longitude, presence: { message: "The address could not be found" }, unless: :use_location
-  
+
+  validates :use_location, inclusion: { in: [true, false] }
   validates :location, presence: true, if: :use_location
   validates :radius, numericality: { greater_than_or_equal_to: 0 }
 
   def init(request, user)
-    self.use_location ||=  !user.nil? && user.locations.count > 0
+    self.use_location ||= !user.nil? && user.locations.count > 0
     if self.use_location
       self.location ||= user.locations.first
     else
@@ -29,7 +30,7 @@ class Search < ApplicationRecord
   end
 
   def self.default_radius
-    0.5
+    1.0
   end
   
   def self.articles_per_page

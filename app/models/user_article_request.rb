@@ -1,5 +1,5 @@
 class UserArticleRequest < ApplicationRecord
-  belongs_to :sender, class_name: "User"
+  belongs_to :user, inverse_of: :user_article_requests
   belongs_to :article
 
   after_initialize :init

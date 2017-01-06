@@ -1,6 +1,6 @@
 Hallo <%= @request.article.user.nickname %>,
 
-Dein Nachbar/Deine Nachbarin <%= @request.sender.nickname %> würde gerne eine Deiner Sachen ausleihen:
+Dein Nachbar/Deine Nachbarin <%= @request.user.nickname %> würde gerne eine Deiner Sachen ausleihen:
 
 <%= @request.article.title %>
 <% if @request.article.gratis %>
@@ -17,10 +17,10 @@ Er/Sie schreibt Dir folgende Nachricht:
 So kannst du mit ihm/ihr Kontakt aufnehmen:
 
 <% if @request.with_email %>
-<%= @request.sender.email %>
+<%= @request.user.email %>
 <% end %>
 <% if @request.with_phoneno %>
-<%= @request.sender.phoneno %>
+<%= @request.user.phoneno %>
 <% end %>
 
 Eins noch! Bevor Du etwas verleihst, solltest du unseres Leitfaden lesen:

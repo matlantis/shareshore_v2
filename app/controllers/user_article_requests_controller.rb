@@ -27,7 +27,7 @@ class UserArticleRequestsController < ApplicationController
   # POST /user_article_requests.json
   def create
     @request = UserArticleRequest.new(user_article_request_params)
-    @request.sender = current_user
+    @request.user = current_user
 
     respond_to do |format|
       if @request.save
