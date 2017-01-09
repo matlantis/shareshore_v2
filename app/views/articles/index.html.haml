@@ -35,13 +35,13 @@
       $(thedivid).toggle(200);
     });
 
-    $('body').on('click', '.article_gratis_cb', function() {
-      var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
-      console.log(thedivid);
-      $(thedivid).toggle(200);
-    });
+    //$('body').on('click', '.article_gratis_cb', function() {
+    //  var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
+    //  console.log(thedivid);
+    //  $(thedivid).toggle(200);
+    //});
 
-    $('.article_rate_gratis').hide()
+    //$('.article_rate_gratis').hide()
 
     $("#article_new").hide();
 
@@ -76,7 +76,7 @@
     $(".article_placeholder").before(newText);
 
     // hide the rate field of the article form (just in case)
-    $('.article_rate_gratis').hide()
+    // $('.article_rate_gratis').hide()
     
     // hide the new div
     $("#article_new").hide(200);

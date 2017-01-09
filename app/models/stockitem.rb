@@ -7,7 +7,7 @@ class Stockitem < ApplicationRecord
   def fill_from_article(article)
     self.title = article.title
     self.details_hint = article.details
-    self.rate = article.rate
+    #self.rate = article.rate
     self.room = ""
     self
   end

@@ -56,20 +56,25 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def rate_marker(article)
-    capture do
-      content_tag :span, class: "rate_marker" do
-        txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh", data_toggle: "tooltip", title: Article.human_attribute_name('rate')
-        if article.gratis
-          txt2 = content_tag :strong, Article.human_attribute_name('gratis')
-        else
-          txt2 = article.rate
-        end
-        txt1.concat(" ").concat(txt2)
-      end
+    content_tag :span, class: "rate-model-" + article.rate do
+      t("articles.rate_models." + article.rate)
     end
   end
+  # def rate_marker(article)
+  #   capture do
+  #     content_tag :span, class: "rate_marker" do
+  #       txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh", data_toggle: "tooltip", title: Article.human_attribute_name('rate')
+  #       if article.gratis
+  #         txt2 = content_tag :strong, Article.human_attribute_name('gratis')
+  #       else
+  #         txt2 = article.rate
+  #       end
+  #       txt1.concat(" ").concat(txt2)
+  #     end
+  #   end
+  # end
 
   def user_marker(user)
     capture do
@@ -173,6 +178,11 @@ module ApplicationHelper
     content_tag :span, "", class: "glyphicon glyphicon-heart", data_toggle: "tooltip", title: Article.human_attribute_name('gratis')
   end
 
+  def rate_icon(rate_model)
+    content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
+    #image_tag ArticlesHelper::RateModel.image(rate_model), height: '16'
+  end
+  
   def distance_label(home, loc1, loc2)
     if home
       content_tag :strong, t('articles.common.tooltip_home')

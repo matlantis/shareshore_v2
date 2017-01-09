@@ -14,16 +14,19 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 1, maximum: 50 }
   #validates :location, presence: true # auto in rails 5
   #validates :user, presence: true # auto in rails 5
-  validates :rate, length: { minimum: 1, maximum: 50 }
+  #validates :rate, length: { minimum: 1, maximum: 50 }
+
+  validates :rate, inclusion: ArticlesHelper::RateModel.list_models
+  
   validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
   after_initialize :init
 
   def init
     self.to_be_created = true
-    self.rate ||= "1€/Tag"
-    self.quality ||= 3
-    self.gratis ||= false
+    self.rate ||= ArticlesHelper::RateModel.list_models[0]
+    #self.quality ||= 3
+    #self.gratis ||= false
   end
   
   def self.search(search)
@@ -34,11 +37,13 @@ class Article < ApplicationRecord
     self.to_be_created = false
     self.title = stockitem.title
     self.details = stockitem.details_hint
-    self.rate = stockitem.rate
+    #self.rate = stockitem.rate
+    self.rate = ArticlesHelper::RateModel.list_models[0]
     self.picture = stockitem.picture
     self.stockitem_id = stockitem.id
-    self.quality = 3
-    self.gratis = false
+    #self.quality = 3
+    #self.gratis = false
     self
   end
+
 end

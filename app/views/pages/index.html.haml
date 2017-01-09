@@ -36,10 +36,12 @@
         = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
   - else
     .text-center
-      = t('.text_beta_unknown_user_warning')
-      = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
-      oder
-      = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
+      %p
+        = t('.text_beta_unknown_user_warning')
+      %p
+        = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
+        oder
+        = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
       
 :javascript
   $(document).ready(function() {

@@ -3,18 +3,73 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO contributions page                                            :text:
+    mit lizenz stuff
+*** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!
+    
+*** TODO leihgebühr umorganisieren                                  :concept:
+    umbenennen
+    - gegenleistung
+    - im austausch
+    - tarif
+    - in Erwartung
+    - Modell
+    - rate
+    - leihmodell, leihbasis
+    - in return
+    - zum Dank
+
+    
+    tarifvorschlag oder tarifmodellauswahl
+    modelle:
+    - lächeln nix - icon: herz
+    - schokolade 1€ - icon: candy
+    - wein 5€: icon: weinglas
+    - theaterkarte 20€, icon: theatermaske
+    - rakete 10 000 000€, icon: rakete
+    - speziell (siehe bemerkung), icon: stern
+
+    staffellung:
+    - 1 Stunden
+    - 1 Tage
+    - 1 Wochen
+    - 1 Monate
+
+    erklärung zum tarifmodell
+    - in das hilfepanel und in den tooltip bei vorlagen, inventar
+    - in den tooltip bei artikellisten
+    - in die FAQ
+    - extra page auf die immer verlinkt wird
+    - genaue formulierung ist wichtig
+
+**** implementation [6/8]
+    - [ ] datenbank: gratis checkbox entfällt - unwichtig
+    - [X] modell in rate feld eintragen, validation für vordefinierte werte
+    - [X] article_form
+      - gratis checkbox raus
+      - dropdown box rein
+    - [X] article_show
+      - gratis icon durch modell icon ersetzen
+      - rate feld raus
+    - [X] icons raussuchen
+    - [X] stockitem: rate rauslassen
+    - [X] stockitem article convertion and vice versa
+    - [ ] article_form: bildchen on selection
 *** TODO standort ansicht und liste mit articlen an standort mergen
 *** TODO in profile edit has checkbox for show name, but its not shown nowhere
 *** TODO contact dont show checkboxes for phone or name if not given
 *** TODO admin create stockitem in article/show only if not associated with a stockitem
-*** TODO environments, wie funktioniert das
-    stockitem seeds
-    stockitems exportieren und importieren
-*** TODO upload auf heroku oä                                       :concept:
-    alternativen auschecken
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** CANCELED environments, wie funktioniert das
+    CLOSED: [2017-01-08 So 13:29]
+    stockitem seeds
+    stockitems exportieren und importieren
+    vorläufig kein automatismus - wann brauch man es denn?
+*** DONE upload auf heroku oä                                       :concept:
+    CLOSED: [2017-01-08 So 13:27]
+    alternativen auschecken
 *** DONE layout improvements
     CLOSED: [2016-12-01 Do 14:53]
 *** DONE in der map markern werden locations ohne article angezeigt
