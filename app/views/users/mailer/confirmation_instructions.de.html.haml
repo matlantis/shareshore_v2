@@ -1,4 +1,4 @@
 %p
   Hallo #{@email}!
 %p Bestätige deine Email-Adresse durch Klick auf diesen Link:
-%p= link_to t('Bestätigen'), confirmation_url(@resource, confirmation_token: @token)
+%p= link_to 'Bestätigen', confirmation_url(@resource, confirmation_token: @token)

@@ -2,6 +2,7 @@
 - article ||= nil
 - showemail ||= false
 - showphone ||= false
+- current_user ||= nil
 - showname = false # always
 
 .shareshore-panel
@@ -20,7 +21,7 @@
         %b
           = succeed ':' do
             = User.human_attribute_name('email')
-        = mail_to user.email, user.email, subject: mail_subject(article)
+        = mail_to user.email, user.email, subject: mail_subject_article_request(article, current_user)
         - anycontact = true
     - unless user.phoneno.blank? || !showphone
       .col-xs-12

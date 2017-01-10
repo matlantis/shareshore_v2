@@ -3,6 +3,12 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO anfrage senden passiert nix
+    vmtl weil email grad buggy ist, testen wenn das richtig läuft
+    da sollte das error modal aufploppen
+*** TODO jesko bug anzahl artikel unter vorlagen                        :bug:
+    Neuanlage eines Artikels => Speichern => zeigt an "Du hast schon 18 Sachen! "
+Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!
