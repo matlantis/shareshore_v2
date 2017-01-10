@@ -18,7 +18,7 @@ class Article < ApplicationRecord
 
   validates :rate, inclusion: ArticlesHelper::RateModel.list_models
   
-  validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+  #validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
   after_initialize :init
 
