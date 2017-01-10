@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "rate-models";
-  src:url("rate-models.eot");
-  src:url("rate-models.eot?#iefix") format("embedded-opentype"),
-    url("rate-models.woff") format("woff"),
-    url("rate-models.ttf") format("truetype"),
-    url("rate-models.svg#rate-models") format("svg");
+  src:font-url("rate-models.eot");
+  src:font-url("rate-models.eot?#iefix") format("embedded-opentype"),
+    font-url("rate-models.woff") format("woff"),
+    font-url("rate-models.ttf") format("truetype"),
+    font-url("rate-models.svg#rate-models") format("svg");
   font-weight: normal;
   font-style: normal;
 
