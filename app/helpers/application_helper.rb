@@ -58,10 +58,12 @@ module ApplicationHelper
   end
 
   def rate_marker(article)
-    content_tag :span, class: "rate-model-" + article.rate do
-      t("articles.rate_models." + article.rate)
-    end
+    content_tag(:span, " ", class: "rate-model-" + article.rate) +
+      t("articles.rate_models." + article.rate) +
+      " " +
+      content_tag(:sup ,("(" + link_to("?", "/pages/rate") + ")").html_safe)
   end
+
   # def rate_marker(article)
   #   capture do
   #     content_tag :span, class: "rate_marker" do
@@ -180,7 +182,6 @@ module ApplicationHelper
 
   def rate_icon(rate_model)
     content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
-    #image_tag ArticlesHelper::RateModel.image(rate_model), height: '16'
   end
   
   def distance_label(home, loc1, loc2)

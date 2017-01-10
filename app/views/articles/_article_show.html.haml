@@ -24,7 +24,6 @@
           = home_icon
         -# if article.gratis
           = gratis_icon
-        = rate_icon(article.rate)
         - if user_signed_in? && current_user.role == "admin"
           = render "articles/stockitem_form", stockitem: Stockitem.new.fill_from_article(article), hidden_fields: true
     .row
