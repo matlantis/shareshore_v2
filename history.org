@@ -3,6 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO beta warning ausblenden (wie cookie)
+*** TODO layout inventar ist unübersichtlich
+*** TODO standort erstellen direkt nach dem login - wegweiser
 *** TODO anfrage senden passiert nix
     vmtl weil email grad buggy ist, testen wenn das richtig läuft
     da sollte das error modal aufploppen

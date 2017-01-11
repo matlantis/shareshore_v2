@@ -14,7 +14,7 @@ console.log("call onCreateSuccess")
 <% newtext = escape_javascript(render 'article_owner', article: @article) %>
 <% nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count %>
 
-<% narticles = Article.all.count %>
+<% narticles = current_user.articles.count %>
 
 onCreateSuccess(<%= article_id %>,
                 <%= stockitem_id %>,
