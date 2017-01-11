@@ -23,19 +23,22 @@
             .alert.alert-danger
               %p
                 = t('.warning_no_script')
-      .row
-        .col-xs-12
-          .alert.alert-warning
-            -#%a.close{"data-dismiss" => "alert", :href => "#"} ×
-            %p
-              %strong
-                = succeed ':' do
-                  = t('.attention')
-              = t('.text_beta_warning')
-            %p
-              = t('.bug_found')
-              - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
-              = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
+
+      - if !session[:beta_accepted]
+        .row
+          .col-xs-12
+            .alert.alert-warning
+              -#%a.close.accept-beta{"data-dismiss": "alert", href: "accept_beta", remote: true} ×
+              = link_to "×", "accept_beta", class: "close", data: {dismiss: "alert"}, remote: true
+              %p
+                %strong
+                  = succeed ':' do
+                    = t('.attention')
+                = t('.text_beta_warning')
+              %p
+                = t('.bug_found')
+                - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
+                = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
       
       .row
         .col-xs-12
@@ -43,6 +46,7 @@
       .row
         .col-xs-12
           = yield
+
     %footer.footer
       .container
         .col-sm-4.col-xs-12
@@ -64,4 +68,4 @@
             %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
             %li= link_to t('titles.pages.privacy'), '/pages/privacy'
             %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
-            %li= link_to t('titles.pages.about'), '/pages/about'
+            %li= link_to t('titles.pages.about'), '/pages/about'  

@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :prepare_search_session
   before_action :set_locale
+
+  def accept_beta
+    session[:beta_accepted] = true
+  end
   
   def prepare_search_session
     unless session.key? :search # seems to be a new user

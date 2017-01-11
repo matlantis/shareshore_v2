@@ -12,9 +12,12 @@ de:
       heading_help: "Hilfe"
       heading_law: "Recht"
       attention: Achtung
-      text_beta_warning: "Shareship befindet sich zur Zeit noch in Entwicklung! Die aktuelle Version ist eine Test-Version. Bisher unerkannte Fehler könnten zu Datenverlust oder Datenlecks, die Deine Privatsphäre gefährden, führen. Shareship kann keine Haftung für derarte Vorfälle übernehmen. Fahre nur fort, falls du bereit bist, dieses Risiko einzugehen."
+      text_beta_warning: "Shareship befindet sich zur Zeit noch in Entwicklung! Die aktuelle Version ist eine Test-Version. Bisher unerkannte Fehler könnten zu Datenverlust oder Datenlecks, die Deine Privatsphäre gefährden, führen. Shareship kann keine Haftung für derarte Vorfälle übernehmen. Fahre nur fort, falls du bereit bist, dieses Risiko einzugehen, oder verlasse diese Seite."
       warning_no_script: "Javascript ist in Deinem Browser deaktiviert, vielleicht verwendest du auch einen Script Blocker. Shareship verwendet Javascript, um eine einfach zu bedienende Oberfläche zu gestalten. Ohne Javascript ist Shareship derzeit leider nicht lauffähig. Wir verwenden Javascript nicht, um irritierende Werbeinhalte einzublenden, Bitcoins zu minen oder deinen Computer zu hacken. Es werden außerdem keine Scripte von Drittanbietern verwendet. Gründe genug, den Script Blocker jetzt zu deaktivieren, oder? 🙃"
       bug_found: "Du hast einen Bug gefunden?"
       write_us: "Schreib uns!"
       subject_bug_found: "Bug gefunden"
       text_describe_bug: "Beschreibe den Bug!"
+
+    beta_warn_bar:
+      text_beta_warning: "Shareship befindet sich zur Zeit noch in Entwicklung! Die aktuelle Version ist eine Test-Version. Bisher unerkannte Fehler könnten zu Datenverlust oder Datenlecks, die Deine Privatsphäre gefährden, führen. Shareship kann keine Haftung für derarte Vorfälle übernehmen. Fahre nur fort, falls du bereit bist, dieses Risiko einzugehen."
