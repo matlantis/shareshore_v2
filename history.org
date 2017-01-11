@@ -3,20 +3,24 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO beta warning ausblenden (wie cookie)
+*** TODO datenbank: article gratis entfällt
+*** TODO article_form: bildchen on selection der rate
+*** TODO beta warning ausblenden (wie cookie warning)
 *** TODO layout inventar ist unübersichtlich
 *** TODO standort erstellen direkt nach dem login - wegweiser
-*** TODO anfrage senden passiert nix
-    vmtl weil email grad buggy ist, testen wenn das richtig läuft
-    da sollte das error modal aufploppen
-*** TODO jesko bug anzahl artikel unter vorlagen                        :bug:
-    Neuanlage eines Artikels => Speichern => zeigt an "Du hast schon 18 Sachen! "
-Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!
+*** TODO standort ansicht und liste mit articlen an standort mergen
+*** TODO in profile edit has checkbox for show name, but its not shown nowhere
+*** TODO contact dont show checkboxes for phone or name if not given
+*** TODO admin create stockitem in article/show only if not associated with a stockitem
+*** TODO mehr stockitems                                               :text:
+    Ratschenkasten
+    Parkplatz
     
-*** TODO leihgebühr umorganisieren                                  :concept:
+*** DONE leihgebühr umorganisieren                                  :concept:
+    CLOSED: [2017-01-11 Mi 14:01]
     umbenennen
     - gegenleistung
     - im austausch
@@ -51,8 +55,7 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     - extra page auf die immer verlinkt wird
     - genaue formulierung ist wichtig
 
-**** implementation [6/8]
-    - [ ] datenbank: gratis checkbox entfällt - unwichtig
+**** implementation [6/6]
     - [X] modell in rate feld eintragen, validation für vordefinierte werte
     - [X] article_form
       - gratis checkbox raus
@@ -63,14 +66,14 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     - [X] icons raussuchen
     - [X] stockitem: rate rauslassen
     - [X] stockitem article convertion and vice versa
-    - [ ] article_form: bildchen on selection
-*** TODO standort ansicht und liste mit articlen an standort mergen
-*** TODO in profile edit has checkbox for show name, but its not shown nowhere
-*** TODO contact dont show checkboxes for phone or name if not given
-*** TODO admin create stockitem in article/show only if not associated with a stockitem
-*** TODO mehr stockitems                                               :text:
-    Ratschenkasten
-    Parkplatz
+*** DONE jesko bug anzahl artikel unter vorlagen                        :bug:
+    CLOSED: [2017-01-11 Mi 14:00]
+    Neuanlage eines Artikels => Speichern => zeigt an "Du hast schon 18 Sachen! "
+Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
+*** DONE anfrage senden passiert nix
+    CLOSED: [2017-01-11 Mi 13:59]
+    vmtl weil email grad buggy ist, testen wenn das richtig läuft
+    da sollte das error modal aufploppen
 *** CANCELED environments, wie funktioniert das
     CLOSED: [2017-01-08 So 13:29]
     stockitem seeds

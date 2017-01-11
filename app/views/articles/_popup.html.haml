@@ -10,6 +10,6 @@
   %br/
   - if (not local_articles.empty?) && local_articles.count < 4 # show only when at least one and at most 3 articles are present
     - local_articles.each do |article|
-      = article_marker_modal article
+      = article_marker article
   %br/
   %br/
