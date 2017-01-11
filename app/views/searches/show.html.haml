@@ -13,7 +13,7 @@
             - has_a_location_here = true
           - else
             = user_marker(location.user)
-            (#{link_to articles_count(location.articles), articles_location_path(location)})
+            (#{link_to articles_count(location.articles), location_path(location)})
         - if has_a_location_here
           = t('.and_you')
           %span.glyphicon.glyphicon-heart

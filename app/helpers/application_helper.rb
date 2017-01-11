@@ -138,12 +138,16 @@ module ApplicationHelper
     articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
   end
 
-  def articles_location_count_link(location)
-    link_to articles_location_path(location) do
-      location.articles.count.to_s + " " + I18n.t('activerecord.models.article', count: location.articles.count)
-    end
+  def articles_location_count(location)
+    location.articles.count.to_s + " " + I18n.t('activerecord.models.article', count: location.articles.count)
   end
 
+  def articles_location_count_link(location)
+    link_to articles_location_path(location) do
+      articles_location_count(location)
+    end
+  end
+  
   def locations_count(locations)
     locations.count.to_s + " " + I18n.t('activerecord.models.location', count: locations.count)
   end

@@ -1,4 +1,4 @@
-- @title = t('location')
+- @title = @location.shortaddress
 
 -#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
@@ -37,7 +37,7 @@
         = Location.human_attribute_name("country").concat(":")
     .col-xs-9
       = @location.country
-  .row
+  -#.row
     .col-xs-3.text-right
       %strong
         = articles_location_count_link(@location).concat(":")
@@ -69,7 +69,17 @@
             = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
           %div
             = t('.text_drag_marker_to_location')
-            
+  .row
+    .col-xs-12
+      - if @articles.empty?
+        .empty-list
+          = t('.empty_list_message')
+      - @articles.each do |article|
+        - article_div_id = "article_" + article.id.to_s + "_div"
+        .article{:id => article_div_id}
+          .article_view
+            = render 'articles/article_view', article: article, edit: false, home: false
+
 = render 'layouts/modal_error'
 
 :javascript

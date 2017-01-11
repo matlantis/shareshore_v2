@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @articles = @user.articles.order(location_id: :asc, title: :asc)
   end
 
-  def index_location
+  def index_location # unused
     @location = Location.find_by(id: params[:location_id])
     if @location
       @articles = @location.articles

@@ -10,7 +10,7 @@
     .col-xs-6.col-sm-4
       = location_marker location
     .col-xs-6.col-sm-2
-      = articles_location_count_link(location)
+      = articles_location_count(location)
 
     .col-xs-6.col-sm-3
       - if @current_location
@@ -30,7 +30,7 @@
       %br/
       = user_marker(location.user)
       %br/
-      = articles_location_count_link(location)
+      = articles_location_count(location)
       %br/
       .text-right
         = edit_icons(location)

@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
     #if location.geocode
     #  @current_location = location
     #end
+    @articles = @location.articles.order(title: :asc)
   end
 
   # GET /locations/new

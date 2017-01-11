@@ -21,7 +21,6 @@
     braucht man die seite überhaupt?
 *** TODO datenbank: article gratis entfällt                            :code:
 *** TODO article_form: bildchen on selection der rate           :enhancement:
-*** TODO beta warning ausblenden (wie cookie warning)           :enhancement:
 *** TODO layout inventar ist unübersichtlich                         :layout:
 *** TODO standort erstellen direkt nach dem login - wegweiser       :concept:
 *** TODO contributions page                                            :text:
@@ -34,6 +33,8 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE beta warning ausblenden (wie cookie warning)           :enhancement:
+    CLOSED: [2017-01-11 Mi 16:21]
     
 *** DONE leihgebühr umorganisieren                                  :concept:
     CLOSED: [2017-01-11 Mi 14:01]

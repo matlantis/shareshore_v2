@@ -17,7 +17,7 @@
         = t('.empty_locations_list_message')
       - @user.locations.each do |location|
         = location_marker location
-        , #{link_to articles_count(location.articles), articles_location_path(location)}
+        (#{articles_location_count(location)})
         %br/
         
   - if is_admin?
