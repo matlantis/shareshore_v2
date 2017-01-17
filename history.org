@@ -3,7 +3,11 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO move javascript into assets                                   :code:
+*** TODO resend information instructions                                :bug:
+    translations
+    submit funzt nicht
+*** TODO move more javascript into assets                              :code:
+    done partly but don't know how to do it with the map and the ajax responses, that depend on context
 *** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
 *** TODO request: reply-to auf verleiher email setzen                   :bug:
 *** TODO löse das karten layout problem                              :layout:
