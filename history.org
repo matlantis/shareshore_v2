@@ -3,12 +3,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
+*** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
 *** TODO resend information instructions                                :bug:
     translations
     submit funzt nicht
 *** TODO move more javascript into assets                              :code:
     done partly but don't know how to do it with the map and the ajax responses, that depend on context
-*** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
 *** TODO request: reply-to auf verleiher email setzen                   :bug:
 *** TODO löse das karten layout problem                              :layout:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
@@ -26,7 +27,6 @@
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
-*** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
 *** TODO contact dont show checkboxes for phone or name if not given    :bug:
 *** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
 *** TODO mehr stockitems                                               :text:
