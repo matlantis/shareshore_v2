@@ -46,6 +46,8 @@
       .row
         .col-xs-12
           = yield
+          
+      = render 'layouts/modal_error'
 
     %footer.footer
       .container
@@ -69,3 +71,5 @@
             %li= link_to t('titles.pages.privacy'), '/pages/privacy'
             %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
             %li= link_to t('titles.pages.about'), '/pages/about'  
+
+        

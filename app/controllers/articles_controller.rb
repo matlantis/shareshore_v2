@@ -88,11 +88,6 @@ class ArticlesController < ApplicationController
     # @articles['new'].push(a)    
   end
 
-  # GET /articles/1/edit
-  def edit
-    session[:return_to] ||= request.referer
-  end
-
   # POST /articles
   # POST /articles.json
   def create

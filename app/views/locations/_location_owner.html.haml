@@ -1,5 +1,5 @@
-- location_div_id = "location_" + location.id.to_s + "_div"
-.location{:id => location_div_id}
+- item_div_id = "location_" + location.id.to_s + "_div"
+.location{id: item_div_id}
   .location_view
     = render 'location_view', location: location, edit: true
   .row.location_edit

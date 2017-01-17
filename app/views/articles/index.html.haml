@@ -17,51 +17,13 @@
   #article_null_div.article
     .row
       .col-xs-12.text-right
-        = link_to("", "", class: "glyphicon glyphicon-plus", id: "article_new_button", data_toggle: "tooltip", title: t('.tooltip_add_button') )
+        = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", data: {toggle_target: "#article_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
     #article_new.row
       .col-xs-12
         = render 'form', article: Article.new
 
-= render 'layouts/modal_error'
-
 :javascript
   $(document).ready(function(){
-    $(".article_edit").hide();
-
-    $("body").on("click", ".item_edit_button", function(e) {
-      e.preventDefault();
-      var thedivid = "#article_" + $(this).attr("data-item-id") + "_div .article_edit";
-      // console.log(thedivid);
-      $(thedivid).toggle(200);
-    });
-
-    //$('body').on('click', '.article_gratis_cb', function() {
-    //  var thedivid = "#article_" + $(this).attr("data-article-id") + "_div .article_rate";
-    //  console.log(thedivid);
-    //  $(thedivid).toggle(200);
-    //});
-
-    //$('.article_rate_gratis').hide()
-
-    $("#article_new").hide();
-
-    $("body").on("click", "#article_new_button", function(e) {
-      e.preventDefault();
-      var thedivid = "#article_new";
-      console.log(thedivid);
-      $(thedivid).toggle(200);
-    });
-
-    $('body').on("ajax:success", function(e, data, status, xhr) {
-      console.log("Success");
-    });
-
-    $('body').on("ajax:error", function(e, xhr, status, error) {
-      console.log("Error");
-      $("#modal-error").modal("show");
-    });
-
-    $('.to_hide').hide();
   })
 
   var onCreateSuccess = function(article_id, stockitem_id, newText, formText, nstockitems, narticles) {

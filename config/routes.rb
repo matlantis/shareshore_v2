@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   
   root "pages#index"
 
-  resources :articles
+  resources :articles, except: [ :edit ]
   resources :locations, except: [ :new]
 
   get '/users/:user_id/articles', action: :index_user, controller: 'articles', as: 'articles_user'

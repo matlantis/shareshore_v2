@@ -17,42 +17,12 @@
   .location
     .row
       .col-xs-12.text-right
-        = link_to("", "", class: "glyphicon glyphicon-plus", id: "location_new_button", data_toggle: "tooltip", title: t('.tooltip_add_button') )
+        = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", id: "location_new_button", data: {toggle_target: "#location_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
     #location_new.row
       .col-xs-12
         = render 'form', location: Location.new
 
-= render 'layouts/modal_error'
-
 :javascript
   $(document).ready(function(){
-    $(".location_edit").hide();
-
-    $("body").on("click", ".item_edit_button", function(e) {
-      e.preventDefault();
-      var thedivid = "#location_" + $(this).attr("data-item-id") + "_div .location_edit";
-      console.log(thedivid);
-      $(thedivid).toggle(200);
-    });
-
-    $("#location_new").hide();
-    
-    $("body").on("click", "#location_new_button", function(e) {
-      e.preventDefault();
-      var thedivid = "#location_new";
-      console.log(thedivid);
-      $(thedivid).toggle(200);
-    });
-
-    $('body').on("ajax:success", function(e, data, status, xhr) {
-      console.log("Success");
-    });
-
-    $('body').on("ajax:error", function(e, xhr, status, error) {
-      console.log("Error");
-      $("#modal-error").modal("show");
-    });
-
-    $('.to_hide').hide();
   });
   

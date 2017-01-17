@@ -170,7 +170,8 @@ module ApplicationHelper
 
   def edit_icons(item)
     if user_signed_in? && (current_user.id == item.user.id || is_admin? )
-      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil item_edit_button edit-remove", data: { item_id: item.id }, data_toggle: "tooltip", title: t('.tooltip_edit_button') )
+      item_class = item.class.to_s.downcase
+      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "##{item_class}_#{item.id}_div .#{item_class}_edit", toggle: "tooltip"} , title: t('.tooltip_edit_button') )
       txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", remote: true, data_toggle: "tooltip", title: t('.tooltip_remove_button'))
       txt1.concat(txt2)
     end

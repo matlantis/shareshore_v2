@@ -3,22 +3,18 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO move javascript into assets                                   :code:
+*** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
+*** TODO request: reply-to auf verleiher email setzen                   :bug:
 *** TODO löse das karten layout problem                              :layout:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
 *** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
     unter das hilfe panel mit sinnvollen links zur aktuelle seite
     mal ne liste machen
 *** TODO "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
-*** TODO artikel im kartenaussschnitt                               :feature:
-    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
-    quasi per js nachladen
-    aber nur bis zu nem annehmbaren maximum
-*** TODO passwort abfrage bei ändern der nutzendaten nervig     :enhancement:
-    nur beim ändern des passwortes oder der email nötig
-    dazu separate seiten
 *** TODO contact: auf der nutzer profil seite kann man nutzer nicht kontaktieren :bug:
     irgendwie umorganisieren
-    braucht man die seite überhaupt?
+    braucht man die seite überhaupt? jaja - für die standorte der user
 *** TODO datenbank: article gratis entfällt                            :code:
 *** TODO article_form: bildchen on selection der rate           :enhancement:
 *** TODO layout inventar ist unübersichtlich                         :layout:
@@ -26,13 +22,23 @@
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
-*** TODO standort ansicht und liste mit articlen an standort mergen :enhancement:
 *** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
 *** TODO contact dont show checkboxes for phone or name if not given    :bug:
 *** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** TODO passwort abfrage bei ändern der nutzendaten nervig     :enhancement:
+    nur beim ändern des passwortes oder der email nötig
+    dazu separate seiten
+    besser die profile seite etwas umbauen, so dass das moderner wirkt
+    edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
+*** TODO artikel im kartenaussschnitt                               :feature:
+    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
+    quasi per js nachladen
+    aber nur bis zu nem annehmbaren maximum
+*** DONE standort ansicht und liste mit articlen an standort mergen :enhancement:
+    CLOSED: [2017-01-11 Mi 18:27]
 *** DONE beta warning ausblenden (wie cookie warning)           :enhancement:
     CLOSED: [2017-01-11 Mi 16:21]
     
