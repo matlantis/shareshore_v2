@@ -52,14 +52,21 @@
               .clearfix.request-panel
                 - if user_signed_in?
                   .send-request
-                    - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: true})
+                    - request = UserArticleRequest.new({article: article, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})
                     = bootstrap_form_for request, remote: true, format: :json do |f|
                       = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                       = f.hidden_field :article_id
                       = f.form_group do
-                        -#= f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
-                        = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
-                        = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
+                        -# unless current_user.fullname.blank?
+                          = f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
+                        - unless current_user.phoneno.blank?
+                          = f.check_box :with_phoneno, label: "#{UserArticleRequest.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
+                        - else
+                          = f.hidden_field :with_phoneno
+                        - unless current_user.email.blank?
+                          = f.check_box :with_email, label: "#{UserArticleRequest.human_attribute_name(:with_email)} (#{current_user.email})"
+                        - else
+                          = f.hidden_field :with_email
                       = f.form_group do
                         = f.submit t('.button_label_send_request')
                   .request-was-send{style: "display: none"}
@@ -70,6 +77,7 @@
                         #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
                   .waiting{style: "display: none"}
                     = t('.waiting')
+                  .error-msg{style: "display: none"}
                 - else
                   .col-xs-6
                     = t('.text_only_signed_up_users')
