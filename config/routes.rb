@@ -24,9 +24,16 @@ Rails.application.routes.draw do
   
   root "pages#index"
 
-  resources :articles, except: [ :edit ]
+  resources :articles, except: [ :edit, :create ]
   resources :locations, except: [ :new]
 
+  resources :articles do
+    collection do
+      post 'create_from_index'
+      post 'create_from_stockitems'
+    end
+  end
+  
   get '/users/:user_id/articles', action: :index_user, controller: 'articles', as: 'articles_user'
   #get '/locations/:location_id/articles', action: :index_location, controller: 'articles', as: 'articles_location'
   get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'

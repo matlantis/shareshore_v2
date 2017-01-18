@@ -88,23 +88,38 @@ class ArticlesController < ApplicationController
     # @articles['new'].push(a)    
   end
 
-  # POST /articles
-  # POST /articles.json
-  def create
+  def create_from_index
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, success: t('.create_success') }
         format.json { render :show, status: :created, location: @article }
-        format.js { render 'create_success'}
+        format.js { render 'create_success_index'}
+          
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
-        format.js { render 'create_error'}
+        format.js { render 'create_error_index'}
       end
     end
   end
 
+  def create_from_stockitems
+    @article = current_user.articles.new(article_params)
+    respond_to do |format|
+      if @article.save        
+        format.html { redirect_to @article, success: t('.create_success') }
+        format.json { render :show, status: :created, location: @article }
+        format.js { render 'create_success_stockitems'}
+          
+      else
+        format.html { render :new }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.js { render 'create_error_stockitems'}
+      end
+    end
+  end
+  
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update

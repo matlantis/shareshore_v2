@@ -3,11 +3,25 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO CSRF error
-    Can't verify CSRF token authenticity
-    scheinbar invalide forms
-    Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
-    ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
+*** TODO try forms without remote and enable turbolinks                :code:
+*** TODO registrier mail mit text alternative                           :bug:
+*** TODO invisible captcha                                      :enhancement:
+    https://github.com/markets/invisible_captcha
+    captcha nur für nicht angemeldete user anzeigen
+    
+    Jesko dazu:
+    Vielleicht könnte man bei registrierten Nutzern auch auf die Roboter-Prüfung verzichten
+    und stattdessen ein Throttling/Block machen, wenn zu viele Seiten in zu kurzer
+    Zeit abgegrast werden. Hier hilft evtl.  https://github.com/kickstarter/rack-attack 
+
+*** TODO requests contact method                                    :feature:
+    antwort mglkeit
+    contact validation löschen
+    für den fehlerfall das formular durch ein generiertes ersetzen (ähnlich wie articles und locations)
+
+*** TODO purify                                                         :bug:
+     Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
+     ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
 *** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
 *** TODO resend information instructions                                :bug:

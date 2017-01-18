@@ -20,40 +20,8 @@
         = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", data: {toggle_target: "#article_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
     #article_new.row
       .col-xs-12
-        = render 'form', article: Article.new
+        = render 'form', article: Article.new, url: create_from_index_articles_path
 
 :javascript
   $(document).ready(function(){
   })
-
-  var onCreateSuccess = function(article_id, stockitem_id, newText, formText, nstockitems, narticles) {
-    // remove the empty-list div, if existend
-    $(".empty-list").hide(200)
-    
-    console.log("within onCreateSuccess")
-    // replace the form content (so no need to reset the form, right?)
-    $("#new_article").replaceWith(formText)
-                 
-    // place the new content
-    $(".article_placeholder").before(newText);
-
-    // hide the rate field of the article form (just in case)
-    // $('.article_rate_gratis').hide()
-    
-    // hide the new div
-    $("#article_new").hide(200);
-
-    // hide the generated edit div
-    var div_id = "#article_" + article_id + "_div .article_edit"
-    console.log(div_id);
-    $(div_id).hide(200);
-
-  };
-
-  var onCreateError = function(article_id, stockitem_id, newText, formText, nstockitems){
-    console.log("within onCreateError")
-
-    // replace the form content (so no need to reset the form, right?)
-    $("#new_article").replaceWith(formText)
-    
-  };

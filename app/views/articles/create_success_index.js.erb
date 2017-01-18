@@ -1,0 +1,13 @@
+<% article_id = "null" %>
+<% article_id = @article.id.to_s if @article.id %>
+
+<% new_article = Article.new %>
+<% if @article.stockitem_id %>
+  <% new_article.fill_from_stockitem(@article.stockitem) %>
+<% end %>
+<% formText = escape_javascript(render 'form', article: new_article, url: create_from_index_articles_path) %>
+
+<% newText = escape_javascript(render 'article_owner', article: @article) %>
+
+//console.log("call onCreateSuccess")
+onCreateSuccessIndex(<%= article_id %>, "<%= newText %>", "<%= formText %>")
