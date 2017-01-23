@@ -40,37 +40,17 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    # commented because always create for the current_user
-    # # can only create own locations
-    # unless params[:user_id].to_i == current_user.id
-    #   respond_to do |format|
-    #     format.html { redirect_to locations_url, alert: 'Can only create own locations' }
-    #     format.json { head :no_content }
-    #   end
-    #   return
-    # end
-    
-    # user = User.find_by(id: params[:user_id])
-    # # check if user exists
-    # unless user
-    #   respond_to do |format|
-    #     format.html { redirect_to locations_url, alert: 'could not find user' }
-    #     format.json { head :no_content }
-    #   end
-    #   return
-    # end
-
     @location = current_user.locations.create(location_params)
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
 
     respond_to do |format|
       if @location.save
-        format.html { render :show, success: t('.create_success') }
+        format.html { redirect_to locations_path, notice: t('.create_success') }
         format.json { render :show, status: :created, location: @location }
         format.js { render 'create_success' }
       else
         handle_geocoding_error(@location)
-        format.html { render :new }
+        format.html { redirect_to locations_path, alert: t('.create_error') }
         format.json { render json: @location.errors, status: :unprocessable_entity }
         format.js { render 'create_error' }
       end
@@ -83,12 +63,12 @@ class LocationsController < ApplicationController
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
     respond_to do |format|
       if @location.update(location_params)
-        format.html { render :show, success: t('.update_success') }
+        format.html { redirect_to locations_path, notice: t('.update_success') }
         format.json { render :show, status: :ok, location: @location }
         format.js { render 'update_success' }
       else
         handle_geocoding_error(@location)
-        format.html { render :edit }
+        format.html { redirect_to locations_path, alert: t('.update_error') }
         format.json { render json: @location.errors, status: :unprocessable_entity }
         format.js { render 'update_error' }
       end
@@ -98,11 +78,12 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   # DELETE /locations/1.json
   def destroy
+    user = @location.user
     @location.destroy
     @location_div_id = "location_" + @location.id.to_s + "_div" # for js
-    @list_is_empty = current_user.locations.empty?
+    @list_is_empty = user.locations.empty?
     respond_to do |format|
-      format.html { redirect_to :index, success: t('.destroy_success') }
+      format.html { redirect_to locations_path, notice: t('.destroy_success') }
       format.js {}
       format.json { head :no_content }
     end
@@ -126,7 +107,7 @@ class LocationsController < ApplicationController
     # use to verify the location really belongs to the current user
     # not sure if this works, depends devise ensures that current_user is really the user that logged in
     def verify_user_is_owner
-      # user is already authenticated
+      # admin is already authenticated
       unless is_admin? || current_user.id == @location.user.id
         respond_to do |format|
           format.html { redirect_to edit_user_registration_path, danger: t('locations.warning_not_owner') }

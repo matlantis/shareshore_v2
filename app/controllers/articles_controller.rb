@@ -92,12 +92,12 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, success: t('.create_success') }
+        format.html { redirect_to articles_path, notice: t('.create_success') }
         format.json { render :show, status: :created, location: @article }
         format.js { render 'create_success_index'}
           
       else
-        format.html { render :new }
+        format.html { redirect_to articles_path, alert: t('.create_error') }
         format.json { render json: @article.errors, status: :unprocessable_entity }
         format.js { render 'create_error_index'}
       end
@@ -108,12 +108,12 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save        
-        format.html { redirect_to @article, success: t('.create_success') }
+        format.html { redirect_to user_new_article_from_stockitems_path, notice: t('.create_success') }
         format.json { render :show, status: :created, location: @article }
         format.js { render 'create_success_stockitems'}
           
       else
-        format.html { render :new }
+        format.html { redirect_to user_new_article_from_stockitems_path, alert: t('.create_error') }
         format.json { render json: @article.errors, status: :unprocessable_entity }
         format.js { render 'create_error_stockitems'}
       end
@@ -127,10 +127,10 @@ class ArticlesController < ApplicationController
     success = @article.update(article_params)
     respond_to do |format|
       if success
-        format.html {redirect_to session.delete(:return_to), success: t('.update_success') }
+        format.html { redirect_to articles_path, notice: t('.update_success') }
         format.js { render 'update_success' }
       else
-        format.html { render :edit }
+        format.html { redirect_to articles_path, alert: t('.update_error') }
         format.js { render 'update_error' }
       end
     end
@@ -143,7 +143,7 @@ class ArticlesController < ApplicationController
     @article_div_id = "article_" + @article.id.to_s + "_div" # for js
     @list_is_empty = current_user.articles.empty?
     respond_to do |format|
-      format.html { redirect_to edit_user_articles_path, success: t('.destroy_success') }
+      format.html { redirect_to articles_path, notice: t('.destroy_success') }
       format.js {}
       format.json { head :no_content }
     end
@@ -178,7 +178,7 @@ class ArticlesController < ApplicationController
       # check if location belongs to the user
       unless is_admin? || user.locations.exists?(article_params[:location_id])
         respond_to do |format|
-          format.html { redirect_to articles_url, error: t('articles.warning_location_not_user')}
+          format.html { redirect_to articles_url, alert: t('articles.warning_location_not_user')}
           format.json { head :no_content }
         end
         return

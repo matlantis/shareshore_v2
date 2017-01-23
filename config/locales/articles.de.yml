@@ -58,14 +58,21 @@ de:
     show:
       tip_panel_text: "kleine Hilfe zu show"
     
-    create:
+    create_from_index:
       create_success: "Sache erstellt"
+      create_error: "Fehler beim Erstellen der Sache"
+      
+    create_from_stockitems:
+      create_success: "Sache erstellt"
+      create_error: "Fehler beim Erstellen der Sache"
       
     update:
       update_success: "Sache aktualisiert"
+      update_error: "Fehler beim Aktualisieren der Sache"
 
     destroy:
       destroy_success: "Sache gelöscht"
+      destroy_error: "Fehler beim Löschen der Sache"
 
     form:
       create_location_at_first: "Du musst zuerst einen Standort erstellen"

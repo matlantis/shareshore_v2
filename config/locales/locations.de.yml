@@ -22,12 +22,15 @@ de:
 
     create:
       create_success: "Standort erstellt"
+      create_error: "Fehler beim Erstellen des Standortes"
       
     update:
       update_success: "Standort aktualisiert"
+      update_error: "Fehler beim Aktualisieren des Standortes"
 
     destroy:
       destroy_success: "Standort gelöscht"
+      destroy_error: "Fehler beim Löschen des Standortes"
 
     warning_location_not_geocoded: "Adresse ist unbekannt"
     warning_not_owner: "Dieser Standort gehört nicht Dir"

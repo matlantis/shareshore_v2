@@ -1,4 +1,4 @@
-- url ||= create_from_index_articles_path
+- url ||= (article)? article_path(article) : create_from_index_articles_path
 
 - if current_user.locations.count == 0 && article.id == nil # creation
   .text-center

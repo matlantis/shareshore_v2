@@ -98,7 +98,7 @@ var onArticlesDestroy = function(article_div_id, list_is_empty) {
   $('#' + article_div_id).remove();
 
   // show the empty-list div, if list is empty
-  if ( list_is_empty ) {
+  if ( list_is_empty == "true") {
     $(".empty-list").show(200);
   }
 }

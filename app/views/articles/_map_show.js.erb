@@ -4,7 +4,7 @@ marker_defs = [];
 bounds = [];
 
 // add location marker
-marker_defs.push(<%= create_map_house_marker(@articles, location.house) %>)
+marker_defs.push(<%= create_map_house_marker(Article.all, location.house) %>)
 
 bounds.push(<%= "[ #{location.latitude}, #{location.longitude} ]" %>);
 

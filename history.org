@@ -3,7 +3,12 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO try forms without remote and enable turbolinks                :code:
+*** TODO remove the unneeded json respond_to statements                :code:
+    wenn das json formular für die requests raus ist (da gibts ein ticket), einfach alle json responds löschen
+*** TODO js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
+    seite lädt immer mit allem aufgeklappt
+
+
 *** TODO registrier mail mit text alternative                           :bug:
 *** TODO invisible captcha                                      :enhancement:
     https://github.com/markets/invisible_captcha
@@ -18,7 +23,6 @@
 *** TODO requests contact method                                    :feature:
     antwort mglkeit
     contact validation löschen
-    für den fehlerfall das formular durch ein generiertes ersetzen (ähnlich wie articles und locations)
 
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
@@ -28,9 +32,6 @@
 *** TODO resend information instructions                                :bug:
     translations
     submit funzt nicht
-*** TODO move more javascript into assets                              :code:
-    done partly but don't know how to do it with the map and the ajax responses, that depend on context
-    die maps ham nochn bissl js code
 *** TODO request: reply-to auf verleiher email setzen                   :bug:
 *** TODO löse das karten layout problem                              :layout:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
@@ -62,6 +63,30 @@
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
+*** TODO send request without js: reade guidline message missing :enhancement:
+*** CANCELED request: on error: das formular durch gener ersetzen :enhancement:
+    CLOSED: [2017-01-23 Mo 20:33]
+    (ähnlich wie articles und locations)
+    entfällt wenns keine validation gibt - also bitte das antwort konzept realisieren
+*** DONE try forms without remote and enable turbolinks [11/11]        :code:
+    CLOSED: [2017-01-23 Mo 20:22]
+    - [X] article einstellen mit vorlage
+    - [X] article einstellen ohne vorlage
+    - [X] article updaten
+    - [X] article loeschen
+    - [X] standort einstellen
+    - [X] standort updaten
+    - [X] standort löschen
+    - [X] request abschicken -> redirect article mit flash message
+      - [X] captcha
+      - [X] request
+    - [X] die flash message funzt nicht!
+    - [X] fehlerfälle!
+    - [X] remote wieder einschalten
+*** DONE move more javascript into assets                              :code:
+    CLOSED: [2017-01-23 Mo 18:11]
+    done partly but don't know how to do it with the map and the ajax responses, that depend on context
+    die maps ham nochn bissl js code. nicht weiter in assets verschieben, weil content generiert wird
 *** DONE standort ansicht und liste mit articlen an standort mergen :enhancement:
     CLOSED: [2017-01-11 Mi 18:27]
 *** DONE beta warning ausblenden (wie cookie warning)           :enhancement:

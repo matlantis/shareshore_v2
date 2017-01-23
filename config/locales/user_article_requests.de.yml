@@ -1,3 +1,7 @@
 de:
   user_article_requests:
     no_contact_method: "Zu wenig Kontaktinformationen"
+    
+    create:
+      request_send: "Anfrage versendet!"
+      request_error: "Anfrage fehlerhaft!"

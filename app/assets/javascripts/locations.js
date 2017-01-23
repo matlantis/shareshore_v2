@@ -43,7 +43,7 @@ var onLocationsDestroy = function(location_div_id, list_is_empty) {
   $('#' + location_div_id).remove();
 
   // show the empty-list div, if list is empty
-  if (list_is_empty ) {
+  if (list_is_empty == "true") {
     $(".empty-list").show(200);
   }
 }
