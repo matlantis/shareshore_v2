@@ -1,0 +1,8 @@
+- formtext = escape_javascript(render('form', article: @article))
+
+:plain
+  console.log('update error');
+  onArticlesUpdateError("#{formtext}", "#{@article_div_id}")
+
+
+

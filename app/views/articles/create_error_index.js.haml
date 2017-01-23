@@ -1,0 +1,6 @@
+- formtext = escape_javascript(render 'form', article: @article, url: create_from_index_articles_path)
+
+:plain
+  onArticlesCreateErrorIndex("#{formtext}");
+
+

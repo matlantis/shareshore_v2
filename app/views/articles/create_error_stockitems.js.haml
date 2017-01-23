@@ -1,0 +1,10 @@
+- stockitem_id = "null"
+- stockitem_id = @article.stockitem_id.to_s if @article.stockitem_id
+
+- formtext = escape_javascript(render 'form', article: @article, url: create_from_stockitems_articles_path)
+
+:plain
+  onArticlesCreateErrorStockitems("#{stockitem_id}",
+                                  "#{formtext}");
+
+

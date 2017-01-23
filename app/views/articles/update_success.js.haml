@@ -1,0 +1,5 @@
+- newtext = escape_javascript(render('article_owner', article: @article))
+
+:plain
+  console.log('update success');
+  onArticlesUpdateSuccess("#{newtext}", "#{@article_div_id}")

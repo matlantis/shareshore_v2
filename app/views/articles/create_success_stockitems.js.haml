@@ -1,0 +1,20 @@
+- stockitem_id = "null"
+- stockitem_id = @article.stockitem_id.to_s if @article.stockitem_id
+
+- new_article = Article.new
+- if @article.stockitem_id
+  - new_article.fill_from_stockitem(@article.stockitem)
+
+- formtext = escape_javascript(render 'form', article: new_article, url: create_from_stockitems_articles_path)
+
+- nstockitems = current_user.articles.where("stockitem_id = ?", @article.stockitem_id).count
+
+- narticles = current_user.articles.count
+
+:plain
+  onArticlesCreateSuccessStockitems("#{stockitem_id}",
+                                    "#{formtext}",
+                                    "#{nstockitems}",
+                                    "#{narticles}");
+
+

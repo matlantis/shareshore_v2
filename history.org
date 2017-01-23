@@ -13,6 +13,7 @@
     Vielleicht könnte man bei registrierten Nutzern auch auf die Roboter-Prüfung verzichten
     und stattdessen ein Throttling/Block machen, wenn zu viele Seiten in zu kurzer
     Zeit abgegrast werden. Hier hilft evtl.  https://github.com/kickstarter/rack-attack 
+*** TODO pinning the map using bootstrap affix
 
 *** TODO requests contact method                                    :feature:
     antwort mglkeit
@@ -29,6 +30,7 @@
     submit funzt nicht
 *** TODO move more javascript into assets                              :code:
     done partly but don't know how to do it with the map and the ajax responses, that depend on context
+    die maps ham nochn bissl js code
 *** TODO request: reply-to auf verleiher email setzen                   :bug:
 *** TODO löse das karten layout problem                              :layout:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:

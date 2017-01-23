@@ -1,0 +1,5 @@
+- newtext = escape_javascript(render 'location_owner', location: @location)
+- formtext = escape_javascript(render 'form', location: Location.new)
+
+:plain
+  onLocationsCreateSuccess("#{newtext}", "#{formtext}", "#{@location_div_id}")

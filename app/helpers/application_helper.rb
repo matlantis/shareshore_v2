@@ -198,4 +198,35 @@ module ApplicationHelper
       txt1 = txt1.concat(" ").concat(txt2)
     end
   end
+
+  def create_map_house_marker(articles, house, house_center = nil)
+    local_articles = articles.joins(:location).where("locations.house_id = ?", house.id)
+    html_text = escape_javascript(render 'articles/popup', house: house, articles: local_articles )
+    if house == house_center
+      home_html = "<br>" + html_text
+      home_id = house.id
+    else
+      ("{ coords: [#{house.latitude}, #{house.longitude} ], " +
+       " html: '#{html_text}', " +
+       " id: #{house.id}, " +
+       " color: 'red' }").html_safe
+    end
+  end
+  
+  def create_map_house_markers(articles, houses, house_center)
+    txt = houses.map { |house|
+      create_map_house_marker(articles, house, house_center)
+    }.join(",").html_safe
+  end
+
+  def create_map_current_location_marker(current_location)
+    # save text for home marker
+    home_html = "#{@current_location.shortaddress}"
+    home_id = -1
+
+    ("{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], " + 
+     " html: '<strong>#{t('articles.map.marker_your_location')}</strong><br>#{home_html}', " +
+     " id: #{home_id}, " +
+     " color: 'blue' }").html_safe
+  end
 end

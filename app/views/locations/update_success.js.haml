@@ -1,0 +1,5 @@
+- newtext = escape_javascript(render('location_owner', location: @location))
+
+:plain
+  console.log('update success');
+  onLocationsUpdateSuccess("#{@location_div_id}","#{newtext}")

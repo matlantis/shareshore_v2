@@ -1,8 +1,0 @@
-console.log('remove div: <%= @article_div_id %>');
-// remove the desired article div
-$('#<%= @article_div_id %>').remove();
-
-// show the empty-list div, if list is empty
-<% if @list_is_empty %>
-$(".empty-list").show(200);
-<% end %>

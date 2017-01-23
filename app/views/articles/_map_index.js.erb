@@ -1,37 +1,17 @@
+<% articles ||= Article.all %>
+
 // prepare the marker data
 var marker_defs, bounds;
 
 // build up bounds vector
 bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
 
-// save text for home marker
-<% home_html = "#{@current_location.shortaddress}" %>
-<% home_id = -1 %>
 
 // add house markers
-marker_defs = [
-<% @houses.each do |house| %>
-<% local_articles = articles.joins(:location).where("locations.house_id = ?", house.id) %>
-<% html_text = escape_javascript(render 'articles/popup', house: house, articles: local_articles ) %>
-<% if house == @house_center %>
-<% home_html = "<br>" + html_text %>
-<% home_id = house.id %>
-<% next %>
-<% end %>
-<%= "{ coords: [#{house.latitude}, #{house.longitude} ], ".html_safe %>
-<%= " html: '#{html_text}', ".html_safe %>
-<%= " id: #{house.id}, ".html_safe %>
-<%= " color: 'red' },".html_safe %>
-<% end %>        
-];
+marker_defs = [ <%= create_map_house_markers(articles, @houses, @house_conter) %>];
 
 // add current location marker
-marker_defs.push(
-<%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
-<%= " html: '<strong>#{t('articles.map.marker_your_location')}</strong><br>#{home_html}', ".html_safe %>
-<%= " id: #{home_id}, ".html_safe %>
-<%= " color: 'blue' }".html_safe %>
-);
+marker_defs.push( <%= create_map_current_location_marker(@current_location) %> )
 
 // draw the map
 var map, markers;

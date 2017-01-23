@@ -4,27 +4,18 @@ marker_defs = [];
 bounds = [];
 
 // add location marker
-marker_defs.push(
-  <% articles = Article.joins(:location).where("locations.house_id = ?", location.house_id) %>
-  <% html_text = escape_javascript(render 'articles/popup', house: location.house, articles: articles ) %>
-  <%= "{ coords: [#{location.latitude}, #{location.longitude} ], ".html_safe %>
-  <%= " html: '#{html_text}', ".html_safe %>
-  <%= " id: -1, ".html_safe %>
-  <%= " color: 'red' }".html_safe %>
-);
+marker_defs.push(<%= create_map_house_marker(@articles, location.house) %>)
+
 bounds.push(<%= "[ #{location.latitude}, #{location.longitude} ]" %>);
 
 <% if @current_location # show if location is known %> 
-<% unless current_user && current_user.id == location.user.id # but not for own locations%> 
-// add current location marker
-marker_defs.push(
-  <%= "{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], ".html_safe %>
-  <%= " html: '#{t('articles.map.marker_your_location')}', ".html_safe %>
-  <%= " id: -1, ".html_safe %>
-  <%= " color: 'blue' }".html_safe %>
-);
-bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
-<% end %>
+  <% unless current_user && current_user.id == location.user.id # but not for own locations%>
+
+    // add current location marker
+    marker_defs.push(<%= create_map_current_location_marker(@current_location) %>)
+
+    bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
+  <% end %>
 <% end %>
 
 // draw the map
