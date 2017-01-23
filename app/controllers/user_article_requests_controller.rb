@@ -33,12 +33,11 @@ class UserArticleRequestsController < ApplicationController
       if @request.save
         UserMailer.article_request_mail(@request).deliver_now
         format.html { redirect_to article_path(@request.article), notice: t(".request_send") }
-        format.json { render :show, status: :created, location: @request }
         format.js { head :ok }
         
       else
         format.html { redirect_to article_path(@request.article), alert: t(".request_error") }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
+
         format.js { head :unprocessible_entity }
       end
     end
@@ -50,10 +49,10 @@ class UserArticleRequestsController < ApplicationController
   #   respond_to do |format|
   #     if @request.update(user_article_request_params)
   #       format.html { redirect_to @request, notice: 'User article request was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @request }
+
   #     else
   #       format.html { render :edit }
-  #       format.json { render json: @request.errors, status: :unprocessable_entity }
+
   #     end
   #   end
   # end
@@ -64,7 +63,7 @@ class UserArticleRequestsController < ApplicationController
   #   @request.destroy
   #   respond_to do |format|
   #     format.html { redirect_to user_article_requests_url, notice: 'User article request was successfully destroyed.' }
-  #     format.json { head :no_content }
+
   #   end
   # end
 

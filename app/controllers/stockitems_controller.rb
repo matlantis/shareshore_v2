@@ -45,10 +45,10 @@ class StockitemsController < ApplicationController
     respond_to do |format|
       if @stockitem.save
         format.html { redirect_to @stockitem, notice: 'Stockitem was successfully created.' }
-        format.json { render :show, status: :created, location: @stockitem }
+
       else
         format.html { render :new }
-        format.json { render json: @stockitem.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -59,10 +59,10 @@ class StockitemsController < ApplicationController
     respond_to do |format|
       if @stockitem.update(stockitem_params)
         format.html { redirect_to @stockitem, notice: 'Stockitem was successfully updated.' }
-        format.json { render :show, status: :ok, location: @stockitem }
+
       else
         format.html { render :edit }
-        format.json { render json: @stockitem.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -73,7 +73,7 @@ class StockitemsController < ApplicationController
     @stockitem.destroy
     respond_to do |format|
       format.html { redirect_to stockitems_url, notice: 'Stockitem was successfully destroyed.' }
-      format.json { head :no_content }
+
     end
   end
 

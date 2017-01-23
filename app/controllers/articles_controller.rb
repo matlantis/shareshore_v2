@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
+  invisible_captcha only: [:show], honeypot: :name
+  
   def index
     # admins can see articles of other users
     user = nil
@@ -54,6 +56,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    # with recaptcha
     @with_contact = verify_recaptcha
     # remove the recaptcha error msg
     flash.delete("recaptcha_error")
@@ -93,12 +96,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_path, notice: t('.create_success') }
-        format.json { render :show, status: :created, location: @article }
         format.js { render 'create_success_index'}
           
       else
         format.html { redirect_to articles_path, alert: t('.create_error') }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
         format.js { render 'create_error_index'}
       end
     end
@@ -109,12 +110,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save        
         format.html { redirect_to user_new_article_from_stockitems_path, notice: t('.create_success') }
-        format.json { render :show, status: :created, location: @article }
         format.js { render 'create_success_stockitems'}
           
       else
         format.html { redirect_to user_new_article_from_stockitems_path, alert: t('.create_error') }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
         format.js { render 'create_error_stockitems'}
       end
     end
@@ -145,7 +144,6 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to articles_path, notice: t('.destroy_success') }
       format.js {}
-      format.json { head :no_content }
     end
   end
 
@@ -167,7 +165,6 @@ class ArticlesController < ApplicationController
         respond_to do |format|
           flash[:danger] = t('articles.warning_not_owner')
           format.html { redirect_to articles_url }
-          format.json { head :no_content }
         end
       end
     end
@@ -179,7 +176,6 @@ class ArticlesController < ApplicationController
       unless is_admin? || user.locations.exists?(article_params[:location_id])
         respond_to do |format|
           format.html { redirect_to articles_url, alert: t('articles.warning_location_not_user')}
-          format.json { head :no_content }
         end
         return
       end

@@ -46,12 +46,12 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.save
         format.html { redirect_to locations_path, notice: t('.create_success') }
-        format.json { render :show, status: :created, location: @location }
+
         format.js { render 'create_success' }
       else
         handle_geocoding_error(@location)
         format.html { redirect_to locations_path, alert: t('.create_error') }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
+
         format.js { render 'create_error' }
       end
     end
@@ -64,12 +64,12 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to locations_path, notice: t('.update_success') }
-        format.json { render :show, status: :ok, location: @location }
+
         format.js { render 'update_success' }
       else
         handle_geocoding_error(@location)
         format.html { redirect_to locations_path, alert: t('.update_error') }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
+
         format.js { render 'update_error' }
       end
     end
@@ -85,7 +85,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to locations_path, notice: t('.destroy_success') }
       format.js {}
-      format.json { head :no_content }
+
     end
   end
 
@@ -111,7 +111,7 @@ class LocationsController < ApplicationController
       unless is_admin? || current_user.id == @location.user.id
         respond_to do |format|
           format.html { redirect_to edit_user_registration_path, danger: t('locations.warning_not_owner') }
-          format.json { head :no_content }
+
         end
       end
     end
