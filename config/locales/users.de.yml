@@ -43,6 +43,12 @@ de:
         warning_user_not_existent: "Nutzer nicht vorhanden"
         view_contact_details_button: "Anzeigen"
         heading_contact_info: "Kontakt"
+        heading_message: "Nachricht"
+        placeholder_message_text: "Deine Nachricht"
+        button_label_send_message: "Nachricht versenden"
+        text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
+        message_was_send: "Nachricht versendet!"
+        waiting: "Nachricht wird gesendet ..."
 
       update_guidepost:
         update_contact_info_success: "Kontaktinformationen aktualisiert"

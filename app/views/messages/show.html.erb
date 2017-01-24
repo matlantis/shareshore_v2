@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @message.text %>
+</p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @message.sender %>
+</p>
+
+<p>
+  <strong>Receiver:</strong>
+  <%= @message.receiver %>
+</p>
+
+<p>
+  <strong>With name:</strong>
+  <%= @message.with_name %>
+</p>
+
+<p>
+  <strong>With phoneno:</strong>
+  <%= @message.with_phoneno %>
+</p>
+
+<p>
+  <strong>With email:</strong>
+  <%= @message.with_email %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

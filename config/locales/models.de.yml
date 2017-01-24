@@ -31,6 +31,10 @@ de:
         with_phoneno: "Telefonnummer hinzufügen"
         with_email: "Emailadresse hinzufügen"
         with_name: "Namen hinzufügen"
+      message:
+        with_phoneno: "Telefonnummer hinzufügen"
+        with_email: "Emailadresse hinzufügen"
+        with_name: "Namen hinzufügen"
       user:
         remember_me: "Angemeldet bleiben"
         firstname: "Vorname"

@@ -8,4 +8,12 @@ class UserMailer < ApplicationMailer
     subject = t('.subject', article: request.article.title)
     mail(to: to_address, subject: subject)
   end
+
+  def user_message_mail(message)
+    @message = message
+    to_address = message.receiver.email
+    from = t('.sender', sender: message.sender.nickname)
+    subject = t('.subject', sender: message.sender.nickname)
+    mail(to: to_address, subject: subject, from: from)
+  end
 end

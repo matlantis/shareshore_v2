@@ -3,8 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
-
+*** TODO in devise emails wird der nutzen mit seiner email statt nickname angesprochen
+*** TODO translation missing: de.devise.sessions.user.already_signed_out
 *** TODO user messaging and contact
+**** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
 **** TODO request: fehler, wenn keine contact details vorhanden sind    :bug:
 **** TODO requests contact method                                   :feature:
@@ -16,6 +18,9 @@
      braucht man die seite überhaupt? jaja - für die standorte der user
 **** DONE contact dont show checkboxes for phone or name if not given   :bug:
      CLOSED: [2017-01-24 Di 16:27]
+**** TODO user messages verschicken
+**** DONE user messages empfangen
+     CLOSED: [2017-01-24 Di 20:54]
 **** konzept user messaging
      schreibe nachrichten an einen nutzer
      werden gespeichert aber als email versandt (vorläufig)
@@ -35,9 +40,6 @@
 *** TODO js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
     seite lädt immer mit allem aufgeklappt
     testen, ob das am browser liegt, und ob das in produktiv auch so ist
-
-*** TODO registrier mail mit text alternative                           :bug:
-    bitte testen
 *** TODO löse das karten layout problem                              :layout:
 *** TODO pinning the map using bootstrap affix                       :layout:
 *** TODO purify                                                         :bug:
@@ -75,6 +77,10 @@
 *** TODO zu viele anfragen auf einmal blockieren
     zwecks spam schutz
     https://github.com/kickstarter/rack-attack
+
+*** DONE registrier mail mit text alternative                           :bug:
+    CLOSED: [2017-01-24 Di 21:05]
+    bitte testen
 
 *** DONE invisible captcha                                      :enhancement:
     CLOSED: [2017-01-24 Di 16:05]

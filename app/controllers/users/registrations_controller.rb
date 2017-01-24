@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to "/"
     end
 
-    @with_contact = verify_recaptcha
+    @with_contact = user_signed_in? || verify_recaptcha
     # remove the recaptcha error msg
     flash.delete("recaptcha_error")
   end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  sender: one
+  receiver: one
+  with_name: false
+  with_phoneno: false
+  with_email: false
+
+two:
+  text: MyString
+  sender: two
+  receiver: two
+  with_name: false
+  with_phoneno: false
+  with_email: false

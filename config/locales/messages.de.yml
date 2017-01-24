@@ -1,0 +1,6 @@
+de:
+  messages:
+    create:
+      message_send: "Nachricht versendet!"
+      message_error: "Nachricht fehlerhaft!"
+    

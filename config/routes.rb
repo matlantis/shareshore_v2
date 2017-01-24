@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   resources :user_article_requests
   resources :houses, only: [:show, :index, :edit, :update]
 
