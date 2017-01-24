@@ -1,0 +1,8 @@
+:plain
+  Hallo #{@resource.email}!
+
+  Dein Account würde gesperrt wegen zu vieler ungültiger Anmeldungsversuche.
+
+  Um deinen Account zu entsperren, rufe diesen Link in Deinem Webbrowser auf:
+  
+  #{unlock_url(@resource, unlock_token: @token)}
