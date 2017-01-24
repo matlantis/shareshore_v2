@@ -4,45 +4,60 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO email signatur unter alle emails
+*** TODO user messaging and contact
+**** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
+**** TODO request: fehler, wenn keine contact details vorhanden sind    :bug:
+**** TODO requests contact method                                   :feature:
+     antwort mglkeit
+     contact validation löschen
+**** TODO request: reply-to auf verleiher email setzen                  :bug:
+**** TODO contact: auf der nutzer profil seite kann man nutzer nicht kontaktieren :bug:
+     irgendwie umorganisieren
+     braucht man die seite überhaupt? jaja - für die standorte der user
+**** DONE contact dont show checkboxes for phone or name if not given   :bug:
+     CLOSED: [2017-01-24 Di 16:27]
+**** konzept user messaging
+     schreibe nachrichten an einen nutzer
+     werden gespeichert aber als email versandt (vorläufig)
+     
+     requests: getrennt betrachten, dienen als gute vorlage
+
+     antwort emails werden automatisch als user message gespeichert und weiter geleitet
+     (wie geht das?)
+
+     requests und messages enthalten reply to feld zum antworten und hinweis im text
+***** message attributes
+      sender, receiver (achja da gabs irgendein problem), in associations mal as: ausprobieren
+      text
+      contact mglkeiten
+      betreff? nöö
+*** TODO email signatur unter alle emails                       :enhancement:
 *** TODO js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
     seite lädt immer mit allem aufgeklappt
     testen, ob das am browser liegt, und ob das in produktiv auch so ist
 
 *** TODO registrier mail mit text alternative                           :bug:
     bitte testen
+*** TODO löse das karten layout problem                              :layout:
 *** TODO pinning the map using bootstrap affix                       :layout:
-
-*** TODO requests contact method                                    :feature:
-    antwort mglkeit
-    contact validation löschen
-
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
-*** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
-*** TODO request: fehler, wenn keine contact details vorhanden sind     :bug:
 *** TODO resend information instructions                                :bug:
     translations
     submit funzt nicht
-*** TODO request: reply-to auf verleiher email setzen                   :bug:
-*** TODO löse das karten layout problem                              :layout:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
+*** TODO layout inventar ist unübersichtlich                         :layout:
 *** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
     unter das hilfe panel mit sinnvollen links zur aktuelle seite
     mal ne liste machen
 *** TODO "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
-*** TODO contact: auf der nutzer profil seite kann man nutzer nicht kontaktieren :bug:
-    irgendwie umorganisieren
-    braucht man die seite überhaupt? jaja - für die standorte der user
 *** TODO datenbank: article gratis entfällt                            :code:
 *** TODO article_form: bildchen on selection der rate           :enhancement:
-*** TODO layout inventar ist unübersichtlich                         :layout:
 *** TODO standort erstellen direkt nach dem login - wegweiser       :concept:
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
-*** TODO contact dont show checkboxes for phone or name if not given    :bug:
 *** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
@@ -56,7 +71,7 @@
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
-*** TODO send request without js: reade guidline message missing :enhancement:
+*** TODO send request without js: read guideline message missing :enhancement:
 *** TODO zu viele anfragen auf einmal blockieren
     zwecks spam schutz
     https://github.com/kickstarter/rack-attack
