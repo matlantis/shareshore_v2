@@ -5,8 +5,6 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
 
-  invisible_captcha only: [:show], honeypot: :name
-  
   def index
     # admins can see articles of other users
     user = nil
@@ -57,7 +55,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     # with recaptcha
-    @with_contact = verify_recaptcha
+    @with_contact = user_signed_in? || verify_recaptcha
     # remove the recaptcha error msg
     flash.delete("recaptcha_error")
   end

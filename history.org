@@ -3,16 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO invisible captcha                                      :enhancement:
-    https://github.com/markets/invisible_captcha
-    captcha nur für nicht angemeldete user anzeigen
-    
-    Jesko dazu:
-    Vielleicht könnte man bei registrierten Nutzern auch auf die Roboter-Prüfung verzichten
-    und stattdessen ein Throttling/Block machen, wenn zu viele Seiten in zu kurzer
-    Zeit abgegrast werden. Hier hilft evtl.  https://github.com/kickstarter/rack-attack 
-
-    vorerst bei recaptcha bleiben. invisible captcha nicht wirklich hilfreich. jeskos methode überdenken
+*** TODO zu viele anfragen auf einmal blockieren
+    zwecks spam schutz
+    https://github.com/kickstarter/rack-attack
 
 *** TODO js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
     seite lädt immer mit allem aufgeklappt
@@ -65,6 +58,20 @@
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
 *** TODO send request without js: reade guidline message missing :enhancement:
+
+*** DONE invisible captcha                                      :enhancement:
+    CLOSED: [2017-01-24 Di 16:05]
+    https://github.com/markets/invisible_captcha
+    captcha nur für nicht angemeldete user anzeigen
+    
+    Jesko dazu:
+    Vielleicht könnte man bei registrierten Nutzern auch auf die Roboter-Prüfung verzichten
+    und stattdessen ein Throttling/Block machen, wenn zu viele Seiten in zu kurzer
+    Zeit abgegrast werden. Hier hilft evtl.  https://github.com/kickstarter/rack-attack 
+
+    vorerst bei recaptcha bleiben. invisible captcha nicht wirklich hilfreich. jeskos methode überdenken
+
+    massnahme: registrierte nutzer vom captcha für die requests befreien
 *** DONE remove the unneeded json respond_to statements                :code:
     CLOSED: [2017-01-23 Mo 20:38]
     wenn das json formular für die requests raus ist (da gibts ein ticket), einfach alle json responds löschen
