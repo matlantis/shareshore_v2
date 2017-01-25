@@ -39,9 +39,6 @@
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
-*** TODO resend information instructions                                :bug:
-    translations
-    submit funzt nicht
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
 *** TODO layout inventar ist unübersichtlich                         :layout:
 *** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
@@ -71,6 +68,10 @@
 *** TODO zu viele anfragen auf einmal blockieren
     zwecks spam schutz
     https://github.com/kickstarter/rack-attack
+*** DONE resend information instructions                                :bug:
+    CLOSED: [2017-01-25 Mi 14:51]
+    translations
+    submit funzt nicht
     
 *** DONE js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
     CLOSED: [2017-01-25 Mi 14:45]
