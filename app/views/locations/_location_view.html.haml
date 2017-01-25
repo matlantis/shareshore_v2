@@ -26,11 +26,11 @@
       %br/
       = location.country
     .col-xs-6
+      .pull-right
+        = edit_icons(location)
       = location_marker location
       %br/
       = user_marker(location.user)
       %br/
       = articles_location_count(location)
       %br/
-      .text-right
-        = edit_icons(location)

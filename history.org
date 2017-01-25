@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO artikel im kartenaussschnitt                               :feature:
+    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
+    quasi per js nachladen
+    aber nur bis zu nem annehmbaren maximum
 *** TODO search results: haus info: und Du                              :bug:
     wenn kein user im gleichen haus wie der nutzer
     da ist das und zu viel
@@ -65,10 +69,6 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
-*** TODO artikel im kartenaussschnitt                               :feature:
-    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
-    quasi per js nachladen
-    aber nur bis zu nem annehmbaren maximum
 *** DONE einfacheres article layout [2/2]
     CLOSED: [2017-01-25 Mi 21:21]
     - [X] search results nach häusern und nutzern sortieren
