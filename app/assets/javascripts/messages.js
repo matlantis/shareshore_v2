@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   // ajax response for user messages
   $('.message_form').on('ajax:success', function () {
     // find a parent element

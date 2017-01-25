@@ -16,4 +16,8 @@ class UserMailer < ApplicationMailer
     subject = t('.subject', sender: message.sender.nickname)
     mail(to: to_address, subject: subject, from: from)
   end
+
+  def receive(email)
+    puts "received an email: " + email
+  end
 end

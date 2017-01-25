@@ -34,10 +34,6 @@
       text
       contact mglkeiten
       betreff? nöö
-    
-*** TODO js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
-    seite lädt immer mit allem aufgeklappt
-    testen, ob das am browser liegt, und ob das in produktiv auch so ist
 *** TODO löse das karten layout problem                              :layout:
 *** TODO pinning the map using bootstrap affix                       :layout:
 *** TODO purify                                                         :bug:
@@ -75,6 +71,17 @@
 *** TODO zu viele anfragen auf einmal blockieren
     zwecks spam schutz
     https://github.com/kickstarter/rack-attack
+    
+*** DONE js code wird in article/standorte nicht korrekt ausgefúhrt     :bug:
+    CLOSED: [2017-01-25 Mi 14:45]
+    seite lädt immer mit allem aufgeklappt
+    testen, ob das am browser liegt, und ob das in produktiv auch so ist
+
+    turbolinks war der übertäter
+    however, mit turbolinks 'turbolinks:load' verwenden, ohne 'page:change'
+*** DONE howto set production to maintanance mode
+    CLOSED: [2017-01-25 Mi 14:10]
+    heroku maintenance:on
 *** DONE in devise emails wird der nutzen mit seiner email statt nickname angesprochen
     CLOSED: [2017-01-25 Mi 13:59]
 *** DONE email signatur unter alle emails                       :enhancement:

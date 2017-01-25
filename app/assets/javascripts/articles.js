@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
+  console.log("runnnn")
   // hide all item edit forms on load
   $(".article_edit").hide();
   $("#article_new").hide();
