@@ -1,5 +1,7 @@
 %p
-  Hallo #{@resource.email}!
+  Hallo #{@resource.nickname}!
 %p Dein Account würde gesperrt wegen zu vieler ungültiger Anmeldungsversuche.
 %p Klicke auf diesen Link, um deinen Account zu entsperren:
 %p= link_to 'Account entsperren', unlock_url(@resource, unlock_token: @token)
+
+= render 'user_mailer/signature'

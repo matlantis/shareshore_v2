@@ -1,7 +1,8 @@
 :plain
-  Hallo #{@email}!
+  Hallo #{@resource.nickname}!
 
   Bestätige deine Email-Adresse, indem du diesen Link in deinem Webbrowser aufrufst:
 
   #{confirmation_url(@resource, confirmation_token: @token)}
 
+  #{render 'user_mailer/signature'}

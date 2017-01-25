@@ -45,6 +45,8 @@ de:
     sessions:
       signed_in: "Erfolgreich angemeldet."
       signed_out: "Erfolgreich abgemeldet."
+      user:
+        already_signed_out: "Du warst bereits abgemeldet."
     unlocks:
       new:
         Resend unlock instructions: "Resend unlock instructions"
