@@ -35,13 +35,15 @@
       text
       contact mglkeiten
       betreff? nöö
+*** TODO einfacheres article layout [1/2]
+    - [X] search results nach häusern und nutzern sortieren
+    - [ ] article_view layout vereinfachen
 *** TODO löse das karten layout problem                              :layout:
 *** TODO pinning the map using bootstrap affix                       :layout:
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
-*** TODO layout inventar ist unübersichtlich                         :layout:
 *** TODO "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
@@ -52,6 +54,11 @@
      edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
 *** TODO contributions page                                            :text:
     mit lizenz stuff
+    - nominatim
+    - rails
+    - google captcha
+    - gems
+    - fonts (icons für rate)
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten

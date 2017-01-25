@@ -47,12 +47,32 @@
         - if @articles.empty?
           .empty-list
             = t('.empty_articles_list_message')
-        - @articles.each do |article|
-          - article_div_id = "article_" + article.id.to_s + "_div"
-          - home = article.location.house == @house_center
-          %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
-            .article_view
-              = render 'articles/article_view', article: article, edit: false, home: home
+
+        - @location_articles_list.each do |e|
+          - location = e[:location]
+          - articles = e[:articles]
+          - home = location.house == @house_center
+          .location_view
+            = render 'locations/location_view', location: location, home: home
+          - articles.each do |article|
+            - article_div_id = "article_" + article.id.to_s + "_div"
+            %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+              .article_view
+                = render 'articles/article_view', article: article, edit: false, home: home
+        
+            
+        -# @houses.each do |house|
+          - home = house == @house_center
+          -# collect users in this house
+          - local_users = house.locations.map {|l| l.user} # FIX: users may appear more than once
+          - local_users.each do |user|
+            .user
+              #{user_marker(user)}, #{house_marker(house)}, #{distance_label home, @current_location, house}
+            - @articles.each do |article|
+              - article_div_id = "article_" + article.id.to_s + "_div"
+              %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+                .article_view
+                  = render 'articles/article_view', article: article, edit: false, home: home
         -#= will_paginate @articles, renderer: BootstrapPagination::Rails
 
       #tab-locations.tab-pane.fade

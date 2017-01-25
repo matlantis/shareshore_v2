@@ -60,10 +60,16 @@ class SearchesController < ApplicationController
     # locations
     @locations = Location.where(id: @articles.map {|a| a.location_id})
     @locations = @locations.near(@current_location, @search.radius) # resort
-    
+
     # limit articles and locations
     @articles = @articles.limit(Search.articles_per_page).page(1)
     @locations = @locations.limit(Search.locations_per_page).page(1)
+    
+    # build an location_articles_list
+    @location_articles_list = @locations.map { |l|
+      local_articles = @articles.where(location_id: l.id)
+      {location: l, articles: local_articles }
+    }
     
     # provide houses to be drawn by the map
     @houses = @locations.collect { |l| l.house }.uniq
