@@ -3,6 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO search results: haus info: und Du                              :bug:
+    wenn kein user im gleichen haus wie der nutzer
+    da ist das und zu viel
 *** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
 *** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)

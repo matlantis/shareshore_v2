@@ -5,8 +5,6 @@
   - unless edit
     .col-xs-6.col-sm-3
       = user_marker(location.user)
-      - if home
-        = home_icon
     .col-xs-6.col-sm-4
       = location_marker location
     .col-xs-6.col-sm-2
@@ -14,6 +12,8 @@
 
     .col-xs-6.col-sm-3
       - if @current_location
+        - if home
+          = home_icon
         = distance_label home, @current_location, location
   - else
     .col-xs-6

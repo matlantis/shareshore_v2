@@ -2,48 +2,38 @@
 -#
 -# Items to show
 -# without (view s.o.'s location): article_marker, rate_marker, details
+-# current_location (search results): article_marker, rate_marker, details
 -# edit (own articles): article_marker, rate_marker, details, location_marker, edit_icons
--# current_location (search results): article_marker, rate_marker, details, location_marker, distance
   
 -# locals
-- home ||= false
+-# home ||= false
 - modal ||= false
 - edit ||= false
 
-- if modal
-  .modal.fade{:id => article_show_id}
-    = render 'articles/show_modal', article: article, home: home
-
-.row
-  - article_show_id = "article_" + article.id.to_s + "_show"
-  .col-xs-6.col-sm-4.col-lg-3
-    - if home
-      = home_icon
-    -# if article.gratis
-      = gratis_icon
-    - if !modal
+- article_show_id = "article_" + article.id.to_s + "_show"
+- if edit
+  .row
+    .col-xs-3
       = article_marker article
-    - else
-      = article_marker_modal article
-  .col-xs-6.col-sm-4.col-lg-2
-    = rate_marker(article)
-  - unless edit
-    .col-xs-6.col-sm-4.col-lg-2
-      = user_marker article.user
-  -#.col-sm-4.col-lg-1
-  -#- if article.picture.present?
-    .col-sm-3
-      %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
-        = image_tag(article.picture_url(:thumb))
-  - if @current_location
-    .col-xs-6.col-sm-4.col-lg-2
-      = distance_label home, @current_location, article.location
-  .col-xs-10.col-sm-6.col-lg-3
-    = location_marker article.location
-  - if edit
+    .col-xs-4
+      = rate_marker(article)
+    .col-xs-3
+      = location_marker article.location
     .col-xs-2
       .text-right
         = edit_icons(article)
+- else
+  .row
+    .col-xs-6
+      = article_marker_modal article
+    .col-xs-6
+      = rate_marker(article)
+    -#.col-sm-4.col-lg-1
+    -#- if article.picture.present?
+      .col-sm-3
+        %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
+          = image_tag(article.picture_url(:thumb))
+        
 .row
   .col-xs-12
     = truncate(article.details, length: 60)

@@ -38,11 +38,12 @@
           = User.model_name.human(count: @locations.count)
     .tab-content
       #tab-articles.tab-pane.fade.in.active
-        - if Search.articles_per_page < @articles.count || current_user
+        -# if Search.articles_per_page < @articles.count || current_user
+        - if Search.articles_per_page < @articles.count
           .shareshore-panel
             - if Search.articles_per_page < @articles.count
               = t('.text_x_of_y_articles_are_shown', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
-            - if current_user
+            -# if current_user
               = t('.warning_about_own_articles')
         - if @articles.empty?
           .empty-list
@@ -52,13 +53,19 @@
           - location = e[:location]
           - articles = e[:articles]
           - home = location.house == @house_center
-          .location_view
-            = render 'locations/location_view', location: location, home: home
-          - articles.each do |article|
-            - article_div_id = "article_" + article.id.to_s + "_div"
-            %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
-              .article_view
-                = render 'articles/article_view', article: article, edit: false, home: home
+          .shareshore-panel
+            .location{"data-house-id": "#{location.house_id}"}
+              .location_view
+                = render 'locations/location_view', location: location, home: home
+            - articles.each do |article|
+              - article_div_id = "article_" + article.id.to_s + "_div"
+              .row
+                .col-xs-1
+                .col-xs-10
+                  %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+                    .article_view
+                      = render 'articles/article_view', article: article, edit: false, home: home
+                .col-xs-1
         
             
         -# @houses.each do |house|
