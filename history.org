@@ -1,9 +1,10 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAYS(s) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
-#+TAGS: bug feature enhancement text layout concept code
+#+TAGS: bug feature enhancement text layout concept code theme
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO user messaging and contact
+*** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
+*** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
 **** TODO request: fehler, wenn keine contact details vorhanden sind    :bug:
@@ -41,33 +42,26 @@
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
 *** TODO layout inventar ist unübersichtlich                         :layout:
-*** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
-    unter das hilfe panel mit sinnvollen links zur aktuelle seite
-    mal ne liste machen
 *** TODO "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
-*** TODO datenbank: article gratis entfällt                            :code:
-*** TODO article_form: bildchen on selection der rate           :enhancement:
-*** TODO standort erstellen direkt nach dem login - wegweiser       :concept:
+*** TODO nutzerführung nach anmeldung                                 :theme:
+**** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
+**** TODO passwort abfrage bei ändern der nutzendaten nervig    :enhancement:
+     nur beim ändern des passwortes oder der email nötig
+     dazu separate seiten
+     besser die profile seite etwas umbauen, so dass das moderner wirkt
+     edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
 *** TODO contributions page                                            :text:
     mit lizenz stuff
 *** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
-*** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
-*** TODO passwort abfrage bei ändern der nutzendaten nervig     :enhancement:
-    nur beim ändern des passwortes oder der email nötig
-    dazu separate seiten
-    besser die profile seite etwas umbauen, so dass das moderner wirkt
-    edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
 *** TODO artikel im kartenaussschnitt                               :feature:
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
-*** TODO send request without js: read guideline message missing :enhancement:
-*** TODO zu viele anfragen auf einmal blockieren
-    zwecks spam schutz
-    https://github.com/kickstarter/rack-attack
+*** DONE contact: nicht verfügbare contactmethoden ausgrauen
+    CLOSED: [2017-01-25 Mi 16:12]
 *** DONE resend information instructions                                :bug:
     CLOSED: [2017-01-25 Mi 14:51]
     translations
@@ -1057,3 +1051,14 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO zugriff auf new_articles_from_stockitems tracken           :feature:
     damit man die nutzer auf neue Vorlagen hinweisen kann
     nervt vielleicht
+*** TODO datenbank cleanup                                             :code:
+    - article gratis entfällt
+*** TODO zu viele anfragen auf einmal blockieren
+    zwecks spam schutz
+    https://github.com/kickstarter/rack-attack
+*** TODO send request without js: read guideline message missing :enhancement:
+*** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
+*** TODO article_form: bildchen on selection der rate           :enhancement:
+*** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
+    unter das hilfe panel mit sinnvollen links zur aktuelle seite
+    mal ne liste machen

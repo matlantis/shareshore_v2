@@ -30,9 +30,20 @@ class User < ApplicationRecord
     [firstname, lastname].reject {|e| e.blank?}.join(" ")
   end
 
+  def phoneno_or_none
+    (phoneno.blank?)? I18n.t("common.none_given") : phoneno
+  end
+
+  def email_or_none
+    (email.blank?)? I18n.t("common.none_given") : email
+  end
+
+  def fullname_or_none
+    (fullname.blank?)? I18n.t("common.none_given") : fullname
+  end
+
   protected
   def confirmation_required?
     true # to disable confirmation stuff set to false
   end
-
 end

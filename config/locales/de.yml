@@ -16,6 +16,7 @@ de:
     unknown_user: "Unbekannter Benutzer"
     unknown_article: "Unbekannte Sache"
     unknown_location: "Unbekannter Standort"
+    none_given: "Nicht angegeben"
     
   titles:
     contacts:
