@@ -49,6 +49,10 @@
           
       = render 'layouts/modal_error'
 
+    - if defined? @with_map
+      .container-fluid
+        #mapid{style: "width: 100%; height: 400px;"}
+          
     %footer.footer
       .container
         .col-sm-4.col-xs-12

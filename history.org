@@ -7,6 +7,7 @@
     wenn kein user im gleichen haus wie der nutzer
     da ist das und zu viel
 *** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
+    nutzer sollen ihre kontaktdaten selber in die message schreiben
 *** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
@@ -38,11 +39,9 @@
       text
       contact mglkeiten
       betreff? nöö
-*** TODO einfacheres article layout [1/2]
-    - [X] search results nach häusern und nutzern sortieren
-    - [ ] article_view layout vereinfachen
-*** TODO löse das karten layout problem                              :layout:
-*** TODO pinning the map using bootstrap affix                       :layout:
+*** TODO löse das karten layout problem [/]                          :layout:
+    - [X] pinning the map using bootstrap affix
+      tried it, not so good
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
@@ -70,6 +69,10 @@
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
+*** DONE einfacheres article layout [2/2]
+    CLOSED: [2017-01-25 Mi 21:21]
+    - [X] search results nach häusern und nutzern sortieren
+    - [X] article_view layout vereinfachen
 *** DONE contact: nicht verfügbare contactmethoden ausgrauen
     CLOSED: [2017-01-25 Mi 16:12]
 *** DONE resend information instructions                                :bug:

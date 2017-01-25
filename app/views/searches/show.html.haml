@@ -21,13 +21,26 @@
 
 .row
   .col-xs-12
-    #mapid{:style => "width: -1; height: 400px;"}
-  
+    -#test024{"data-spy": "affix", "data-offset-top":"195"}
+      Irgendein blödsinn
+    -#mapid{style: "width: -1; height: 400px;", "data-spy": "affix", "data-offset-top":"195"}
+    #mapid{style: "width: 100%; height: 300px;"}
 .row
   .col-xs-12
+    .row
+      .col-xs-6.text-center.shareshore-panel
+        = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
+          %h3
+            = @articles.count
+            = Article.model_name.human(count: @articles.count)
 
-
-    %ul.nav.nav-tabs
+      .col-xs-6.text-center.shareshore-panel
+        = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
+          %h3
+            = @locations.count
+            = User.model_name.human(count: @locations.count)
+          
+    -#%ul.nav.nav-tabs
       %li.active
         = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
           = @articles.count

@@ -56,7 +56,7 @@
       = link_to t('.link_openstreetmap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank"
   .row
     .col-xs-12
-      #mapid{:style => "width: -1; height: 400px;"}
+      #mapid{:style => "width: -1; height: 300px;"}
   - if current_user == @location.user
     .row
       .col-xs-12
