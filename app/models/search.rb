@@ -9,7 +9,7 @@ class Search < ApplicationRecord
 
   validates :use_location, inclusion: { in: [true, false] }
   validates :location, presence: true, if: :use_location
-  validates :radius, numericality: { greater_than_or_equal_to: 0 }
+  #validates :radius, numericality: { greater_than_or_equal_to: 0 }
 
   def init(request, user)
     self.use_location ||= !user.nil? && user.locations.count > 0

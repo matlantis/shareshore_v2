@@ -6,15 +6,16 @@
 *** TODO leaflet and turbolinks zusammen erzeugen fehlermeldungen       :bug:
 *** TODO entfernung in geh minuten                                  :feature:
     oder je nach dauer mit fahrrad oder auto
-*** TODO artikel im kartenaussschnitt [2/3]                         :feature:
+*** TODO artikel im kartenaussschnitt [5/7]                         :feature:
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
     - [X] schreibe searches#create so um, dass es eine bounding box als argument nimmt
     - [X] per js den results bereich und die karten marker neu laden
-    - [ ] get rid of radius (use default)
-    - [ ] find articles in a box not a circle
-    - [ ] load the results after map is displayed 
+    - [X] get rid of radius (use default)
+    - [X] find articles in a box not a circle
+    - [X] load the results after map is displayed
+    - [ ] need to cache them! on client side
     - [ ] don't scroll map if at top or bottom                   :enhancement:
 
 *** TODO search results: haus info: und Du                              :bug:

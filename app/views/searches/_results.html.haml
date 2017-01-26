@@ -22,7 +22,7 @@
         - if Search.articles_per_page < @articles.count
           .shareshore-panel
             - if Search.articles_per_page < @articles.count
-              = t('.text_x_of_y_articles_are_shown', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
+              = t('.text_x_of_y', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
             -# if current_user
               = t('.warning_about_own_articles')
         - if @articles.empty?
@@ -51,7 +51,7 @@
         - if Search.locations_per_page < @locations.count # || current_user
           .shareshore-panel
             - if Search.locations_per_page < @locations.count
-              = t('.text_x_of_y_locations_are_shown', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
+              = t('.text_x_of_y', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
             -# if current_user
               = t('.warning_about_own_locations')
         - if @locations.empty?

@@ -14,10 +14,11 @@ de:
 
     show:
       text_at_house: Im Haus
+      and_you: und Du
+
+    results:
+      text_x_of_y: "%{x} von %{y}"
       empty_articles_list_message: "Leider keine Sachen gefunden"
       empty_locations_list_message: "Leider keine Leute gefunden"
       warning_about_own_articles: "Deine eigenen Sachen werden hier nicht angezeigt!"
       warning_about_own_locations: "Deine eigenen Standorte werden hier nicht angezeigt!"
-      and_you: und Du
-      text_x_of_y: "%{x} von %{y}"
-
