@@ -18,6 +18,7 @@ de:
       write_us: "Schreib uns!"
       subject_bug_found: "Bug gefunden"
       text_describe_bug: "Beschreibe den Bug!"
+      toggle_map_tooltip: "Karte aus- und einblenden"
 
     beta_warn_bar:
       text_beta_warning: "Shareship befindet sich zur Zeit noch in Entwicklung! Die aktuelle Version ist eine Test-Version. Bisher unerkannte Fehler könnten zu Datenverlust oder Datenlecks, die Deine Privatsphäre gefährden, führen. Shareship kann keine Haftung für derarte Vorfälle übernehmen. Fahre nur fort, falls du bereit bist, dieses Risiko einzugehen."
