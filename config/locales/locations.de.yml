@@ -9,10 +9,10 @@ de:
       tooltip_remove_button: "Standort löschen"
   
     index:
-      empty_list_message: "Du hast keine Standorte. Erstelle einen!"
       tooltip_add_button: "Neuen Standort hinzufügen"
 
     show:
+      empty_list_message: "Es gibt keine Sachen an diesem Standort"
       tip_panel_text: "kleine Hilfe zu show"
       text_there_are_x_users_in_this: Es gibt noch %{count} Nutzer in diesem
       link_openstreetmap: 'Auf OpenStreetMap ansehen (im neuen Fenster)'

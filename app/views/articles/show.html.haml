@@ -1,5 +1,5 @@
 - @title = @article.title
-
+- @with_map = true
 -#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
     = t('.tip_panel_text')
@@ -8,7 +8,7 @@
 .col-xs-12
   %h3= @title
   = render 'article_show', article: @article
-  .row
+  -#.row
     .col-xs-12
       #mapid{:style => "width: -1; height: 300px;"}
 
@@ -18,6 +18,6 @@
   };
   
   $(document).on('turbolinks:load', function() {
-    #{render 'articles/map_show.js.erb', location: @article.location, formats: [:js]}
+    #{render 'articles/map_show.js.erb', house: @article.location.house, formats: [:js]}
     
   });

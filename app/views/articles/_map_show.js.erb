@@ -4,18 +4,18 @@ marker_defs = [];
 bounds = [];
 
 // add location marker
-marker_defs.push(<%= create_map_house_marker(Article.all, location.house) %>)
+marker_defs.push(<%= create_map_house_marker(Article.all, house) %>)
 
-bounds.push(<%= "[ #{location.latitude}, #{location.longitude} ]" %>);
+bounds.push(<%= "[ #{house.latitude}, #{house.longitude} ]" %>);
 
 <% if @current_location # show if location is known %> 
-  <% unless current_user && current_user.id == location.user.id # but not for own locations%>
+  <% #unless current_user && current_user.id == location.user.id # but not for own locations%>
 
-    // add current location marker
-    marker_defs.push(<%= create_map_current_location_marker(@current_location) %>)
+  // add current location marker
+  marker_defs.push(<%= create_map_current_location_marker(@current_location) %>)
 
-    bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
-  <% end %>
+  bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
+  <% #end %>
 <% end %>
 
 // draw the map
