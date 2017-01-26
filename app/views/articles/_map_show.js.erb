@@ -8,16 +8,16 @@ marker_defs.push(<%= create_map_house_marker(Article.all, house) %>)
 
 bounds.push(<%= "[ #{house.latitude}, #{house.longitude} ]" %>);
 
+marker_def_center = null
 <% if @current_location # show if location is known %> 
   <% #unless current_user && current_user.id == location.user.id # but not for own locations%>
 
   // add current location marker
-  marker_defs.push(<%= create_map_current_location_marker(@current_location) %>)
+  marker_def_center = <%= create_map_current_location_marker(@current_location) %>)
 
   bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
   <% #end %>
 <% end %>
 
 // draw the map
-var map, markers;
-[map, markers] = drawmap_leaflet("mapid", marker_defs, bounds, onMapClick);
+drawmap_leaflet("mapid", marker_defs, marker_def_center, bounds);

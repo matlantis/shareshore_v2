@@ -9,6 +9,7 @@ de:
       tooltip_remove_button: "Standort löschen"
   
     index:
+      empty_list_message: "Du hast keine Standorte. Erstelle einen!"
       tooltip_add_button: "Neuen Standort hinzufügen"
 
     show:

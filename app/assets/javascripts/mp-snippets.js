@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   // class to toggle the visibility of some target
   $("body").on("click", ".mp-toggle-visibility", function(e) {
     e.preventDefault();

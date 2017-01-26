@@ -3,10 +3,20 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO artikel im kartenaussschnitt                               :feature:
+*** TODO leaflet and turbolinks zusammen erzeugen fehlermeldungen       :bug:
+*** TODO entfernung in geh minuten                                  :feature:
+    oder je nach dauer mit fahrrad oder auto
+*** TODO artikel im kartenaussschnitt [2/3]                         :feature:
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
     aber nur bis zu nem annehmbaren maximum
+    - [X] schreibe searches#create so um, dass es eine bounding box als argument nimmt
+    - [X] per js den results bereich und die karten marker neu laden
+    - [ ] get rid of radius (use default)
+    - [ ] find articles in a box not a circle
+    - [ ] load the results after map is displayed 
+    - [ ] don't scroll map if at top or bottom                   :enhancement:
+
 *** TODO search results: haus info: und Du                              :bug:
     wenn kein user im gleichen haus wie der nutzer
     da ist das und zu viel
@@ -43,9 +53,6 @@
       text
       contact mglkeiten
       betreff? nöö
-*** TODO löse das karten layout problem [/]                          :layout:
-    - [X] pinning the map using bootstrap affix
-      tried it, not so good
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
@@ -69,6 +76,11 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE löse das karten layout problem [2/2]                        :layout:
+    CLOSED: [2017-01-26 Do 14:00]
+    - [X] pinning the map using bootstrap affix
+      tried it, not so good
+    - [X] global map!!
 *** DONE einfacheres article layout [2/2]
     CLOSED: [2017-01-25 Mi 21:21]
     - [X] search results nach häusern und nutzern sortieren

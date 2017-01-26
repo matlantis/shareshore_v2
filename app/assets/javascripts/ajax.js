@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   // global ajax responses
   $('body').on("ajax:success", function(e, data, status, xhr) {
     console.log("Success");

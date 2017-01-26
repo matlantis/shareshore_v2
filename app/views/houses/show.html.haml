@@ -53,7 +53,7 @@
     = t('.with_us')
 
 :javascript
-  $(document).on('turbolinks:load', function() {
+  $(document).ready(function() {
     var onMapClick = function(e) {
       console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
     };

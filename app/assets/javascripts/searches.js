@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $(".toggle-scroll").on('click', function(e) {
     e.preventDefault();
     console.log("toggle-scroll");
@@ -15,10 +15,16 @@ $(document).on('turbolinks:load', function() {
     $('.main-content').toggleClass('map_visible')
     $('.all_but_map').toggleClass('map_visible')
 
-    // scroll the view down by map height when map is opening
+    // scroll the view by half of map height when map is opening or closing
     if ( $('.all_but_map').hasClass('map_visible') )
       $('html, body').animate({
-        scrollTop: '+=' + $(window).height() * 0.4
+        scrollTop: '+=' + $(window).height() * 0.2
       }, 200);
+    else
+      $('html, body').animate({
+        scrollTop: '-=' + $(window).height() * 0.2
+      }, 200);
+
   })
+
 })

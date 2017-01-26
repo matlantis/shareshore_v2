@@ -79,7 +79,7 @@
             = render 'articles/article_view', article: article, edit: false, home: false
 
 :javascript
-  $(document).on('turbolinks:load', function() {
+  $(document).ready(function() {
      
      var stopLocationSet = function(e) {
        // disable dragging

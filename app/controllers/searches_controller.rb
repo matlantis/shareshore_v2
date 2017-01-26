@@ -23,12 +23,21 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_parameters)
-    unless @search.save
-      # handle could not geocode error (like locations)
-      render 'new'
-      return
+    # if coming from map, dont save the search
+    if params[:commit] != 'Map'
+      unless @search.save
+        # handle could not geocode error (like locations)
+        render 'new'
+        return
+      end
+      session[:search_id] = @search.id
+    else
+      unless @search.valid?
+        # handle could not geocode error (like locations)
+        render 'new'
+        return
+      end
     end
-    session[:search_id] = @search.id
 
     if @search.use_location
       @current_location = @search.location
@@ -36,11 +45,24 @@ class SearchesController < ApplicationController
       @current_location = Location.new({latitude: @search.latitude, longitude: @search.longitude})
     end
 
+    # if address is not given (coming from map), write coords into address field
+    # for view and subsequent submit
+    if not @search.address and not @search.use_location
+      @search.address = "[" + @search.latitude.to_s + "," + @search.longitude.to_s + "]"
+    end
+
+    
     # provide bounding box for the map (would be better if done on client side)
-    @bound_n = Geocoder::Calculations.endpoint(@current_location, 0, @search.radius)
-    @bound_s = Geocoder::Calculations.endpoint(@current_location, 180, @search.radius)
-    @bound_e = Geocoder::Calculations.endpoint(@current_location, 90, @search.radius)
-    @bound_w = Geocoder::Calculations.endpoint(@current_location, 270, @search.radius)
+    # if comming from map to it differently
+    if params[:commit] != 'Map'
+      @bounds = [ Geocoder::Calculations.endpoint(@current_location, 0, @search.radius),
+                  Geocoder::Calculations.endpoint(@current_location, 180, @search.radius),
+                  Geocoder::Calculations.endpoint(@current_location, 90, @search.radius),
+                  Geocoder::Calculations.endpoint(@current_location, 270, @search.radius) ]
+    else
+      @bounds = [ Geocoder::Calculations.endpoint(@current_location, 45, @search.radius/4),
+                  Geocoder::Calculations.endpoint(@current_location, 225, @search.radius/4) ]
+    end
 
     @articles = Article.all
     # remove own articles
@@ -81,11 +103,14 @@ class SearchesController < ApplicationController
       @house_center = houses_center.first
     end
 
-    render 'show'
+    respond_to do |format|
+      format.html { render 'show' }
+      format.js { render 'show' }
+    end
   end
 
   private
   def search_parameters
-    params.require('search').permit(['pattern'], ['address'], ['radius'], ['use_location'], ['location_id'])
+    params.require(:search).permit(:pattern, :address, :radius, :use_location, :location_id, :longitude, :latitude)
   end
 end

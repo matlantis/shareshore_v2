@@ -1,0 +1,66 @@
+.row
+  .col-xs-12
+    .row
+      .col-xs-6.text-center.shareshore-panel
+        = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
+          %h3
+            = @articles.count
+            = Article.model_name.human(count: @articles.count)
+
+      .col-xs-6.text-center.shareshore-panel
+        %h3
+          = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
+            = @locations.count
+            = User.model_name.human(count: @locations.count)
+          -#.pull-right
+            = link_to "#", class: "toggle-scroll" do
+              %span.glyphicon.glyphicon-resize-vertical
+                
+    .tab-content
+      #tab-articles.tab-pane.fade.in.active
+        -# if Search.articles_per_page < @articles.count || current_user
+        - if Search.articles_per_page < @articles.count
+          .shareshore-panel
+            - if Search.articles_per_page < @articles.count
+              = t('.text_x_of_y_articles_are_shown', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
+            -# if current_user
+              = t('.warning_about_own_articles')
+        - if @articles.empty?
+          .empty-list
+            = t('.empty_articles_list_message')
+
+        - @location_articles_list.each do |e|
+          - location = e[:location]
+          - articles = e[:articles]
+          - home = location.house == @house_center
+          .shareshore-panel
+            .location{"data-house-id": "#{location.house_id}"}
+              .location_view
+                = render 'locations/location_view', location: location, home: home
+            - articles.each do |article|
+              - article_div_id = "article_" + article.id.to_s + "_div"
+              .row
+                .col-xs-1
+                .col-xs-10
+                  %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+                    .article_view
+                      = render 'articles/article_view', article: article, edit: false, home: home
+                .col-xs-1
+
+      #tab-locations.tab-pane.fade
+        - if Search.locations_per_page < @locations.count # || current_user
+          .shareshore-panel
+            - if Search.locations_per_page < @locations.count
+              = t('.text_x_of_y_locations_are_shown', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
+            -# if current_user
+              = t('.warning_about_own_locations')
+        - if @locations.empty?
+          .empty-list
+            = t('.empty_locations_list_message')
+        - @locations.each do |location|
+          - location_div_id = "location_" + location.id.to_s + "_div"
+          - home = location.house == @house_center
+          .location{"data-house-id" => "#{location.house_id}", :id => location_div_id}
+            .location_view
+              = render 'locations/location_view', location: location, home: home
+        -#= will_paginate @locations, renderer: BootstrapPagination::Rails

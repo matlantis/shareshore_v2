@@ -1,0 +1,18 @@
+-# render the resuts
+- results_text = escape_javascript(render 'results')
+
+:plain
+  console.log("its the response");
+  // replace #tab-content with rendered text
+  $('#results').html("#{results_text}");
+  //$('#results').html("lalala");
+
+  // create new markers
+  marker_defs = [ #{create_map_house_markers(@articles, @houses, @house_center)}];
+
+  // clear all markers in the map (by recreating the markers_layer)
+  window.map.removeLayer(window.markers_layer)
+  window.markers_layer = new L.FeatureGroup();
+  map.addLayer(window.markers_layer);
+  add_markers_to_map(marker_defs, window.map, window.markers_layer)
+  

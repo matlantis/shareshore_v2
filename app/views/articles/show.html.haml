@@ -17,7 +17,7 @@
     console.log("You clicked the marker " + e.target.index);
   };
   
-  $(document).on('turbolinks:load', function() {
+  $(document).ready(function() {
     #{render 'articles/map_show.js.erb', house: @article.location.house, formats: [:js]}
     
   });

@@ -4,15 +4,13 @@
 var marker_defs, bounds;
 
 // build up bounds vector
-bounds = <%= "[ [ #{@bound_n[0]}, #{@bound_n[1]} ], [ #{@bound_s[0]}, #{@bound_s[1]} ], [ #{@bound_e[0]}, #{@bound_e[1]} ], [ #{@bound_w[0]}, #{@bound_w[1]} ] ]" %>;
-
+bounds = <%= "#{@bounds.to_s} "%>
 
 // add house markers
-marker_defs = [ <%= create_map_house_markers(articles, @houses, @house_conter) %>];
+marker_defs = [ <%= create_map_house_markers(articles, @houses, @house_center) %>];
 
 // add current location marker
-marker_defs.push( <%= create_map_current_location_marker(@current_location) %> )
+marker_def_center = <%= create_map_current_location_marker(@current_location) %>;
 
 // draw the map
-var map, markers;
-[map, markers] = drawmap_leaflet("mapid", marker_defs, bounds);
+drawmap_leaflet("mapid", marker_defs, marker_def_center, bounds);
