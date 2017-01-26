@@ -23,5 +23,5 @@
         = render 'form', article: Article.new, url: create_from_index_articles_path
 
 :javascript
-  $(document).ready(function(){
+  $(document).on('turbolinks:load', function(){
   })

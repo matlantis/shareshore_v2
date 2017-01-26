@@ -17,7 +17,7 @@
     = f.submit t(".search_button_label"), class: "btn btn-default"
 
 :javascript
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
 
     $('#search_use_location').on('click', function(e) {
       console.log('test: '+ e.target.checked);

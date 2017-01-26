@@ -44,7 +44,7 @@
         = link_to t("titles.users.sessions.new"), new_user_session_path, class: 'btn btn-default'
       
 :javascript
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
 
     $('#search_use_location').on('click', function(e) {
       $('#search_location_id').parent().toggle(e.target.checked);

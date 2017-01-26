@@ -21,6 +21,6 @@
     console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
   };
 
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
     #{render 'articles/map_show.js.erb', location: @house.locations.first, formats: [:js]}
   });

@@ -35,20 +35,14 @@
             = Article.model_name.human(count: @articles.count)
 
       .col-xs-6.text-center.shareshore-panel
-        = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
-          %h3
+        %h3
+          = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
             = @locations.count
             = User.model_name.human(count: @locations.count)
+          -#.pull-right
+            = link_to "#", class: "toggle-scroll" do
+              %span.glyphicon.glyphicon-resize-vertical
           
-    -#%ul.nav.nav-tabs
-      %li.active
-        = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
-          = @articles.count
-          = Article.model_name.human(count: @articles.count)
-      %li
-        = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
-          = @locations.count
-          = User.model_name.human(count: @locations.count)
     .tab-content
       #tab-articles.tab-pane.fade.in.active
         -# if Search.articles_per_page < @articles.count || current_user
@@ -80,21 +74,6 @@
                       = render 'articles/article_view', article: article, edit: false, home: home
                 .col-xs-1
         
-            
-        -# @houses.each do |house|
-          - home = house == @house_center
-          -# collect users in this house
-          - local_users = house.locations.map {|l| l.user} # FIX: users may appear more than once
-          - local_users.each do |user|
-            .user
-              #{user_marker(user)}, #{house_marker(house)}, #{distance_label home, @current_location, house}
-            - @articles.each do |article|
-              - article_div_id = "article_" + article.id.to_s + "_div"
-              %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
-                .article_view
-                  = render 'articles/article_view', article: article, edit: false, home: home
-        -#= will_paginate @articles, renderer: BootstrapPagination::Rails
-
       #tab-locations.tab-pane.fade
         - if Search.locations_per_page < @locations.count # || current_user
           .shareshore-panel
@@ -118,7 +97,7 @@
     console.log("You clicked the marker " + e.target.index);
   };
   
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
     #{render 'articles/map_index.js.erb', articles: @articles, formats: [:js]}
     
     // article hover event handler
