@@ -19,13 +19,7 @@
 :javascript
   $(document).on('turbolinks:load', function() {
 
-    $('#search_use_location').on('click', function(e) {
-      console.log('test: '+ e.target.checked);
-      $('#search_location_id').parentsUntil('.form-group').parent().toggle(e.target.checked);
-      $('#search_address').parentsUntil('.form-group').parent().toggle(!e.target.checked);
-    });
+    $('#search_location_id').closest('.form-group').toggle(#{search.use_location});
+    $('#search_address').closest('.form-group').toggle(!#{search.use_location});
 
-    $('#search_location_id').parentsUntil('.form-group').parent().toggle(#{search.use_location});
-    $('#search_address').parentsUntil('.form-group').parent().toggle(!#{search.use_location});
-    console.log("hier #{search.use_location}");
   });

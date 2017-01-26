@@ -46,12 +46,7 @@
 :javascript
   $(document).on('turbolinks:load', function() {
 
-    $('#search_use_location').on('click', function(e) {
-      $('#search_location_id').parent().toggle(e.target.checked);
-      $('#search_address').parent().toggle(!e.target.checked);
-    });
-
-    $('#search_location_id').parent().toggle(#{@search.use_location});
-    $('#search_address').parent().toggle(!#{@search.use_location});
+    $('#search_location_id').closest('.form-group').toggle(#{@search.use_location});
+    $('#search_address').closest('.form-group').toggle(!#{@search.use_location});
 
   });

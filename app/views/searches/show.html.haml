@@ -1,4 +1,5 @@
 - @title = t('titles.searches.show')
+- @with_map = true
 
 = render 'search_form', search: @search.dup
 
@@ -19,7 +20,7 @@
           %span.glyphicon.glyphicon-heart
           !
 
-.row
+-#.row
   .col-xs-12
     -#test024{"data-spy": "affix", "data-offset-top":"195"}
       Irgendein blödsinn

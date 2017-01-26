@@ -16,43 +16,40 @@
     = render 'application/favicon'
   %body
     = render 'layouts/navigation'
-    .container.main-content
-      %noscript
+    .all_but_map{class: @with_map && 'map_visible' }
+      .container.main-content{class: @with_map && 'map_visible' }
+        %noscript
+          .row
+            .col-xs-12
+              .alert.alert-danger
+                %p
+                  = t('.warning_no_script')
+
+        - if !session[:beta_accepted]
+          .row
+            .col-xs-12
+              .alert.alert-warning
+                -#%a.close.accept-beta{"data-dismiss": "alert", href: "accept_beta", remote: true} ×
+                = link_to "×", "accept_beta", class: "close", data: {dismiss: "alert"}, remote: true
+                %p
+                  %strong
+                    = succeed ':' do
+                      = t('.attention')
+                  = t('.text_beta_warning')
+                %p
+                  = t('.bug_found')
+                  - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
+                  = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
+
         .row
           .col-xs-12
-            .alert.alert-danger
-              %p
-                = t('.warning_no_script')
-
-      - if !session[:beta_accepted]
+            = render 'layouts/messages'
         .row
           .col-xs-12
-            .alert.alert-warning
-              -#%a.close.accept-beta{"data-dismiss": "alert", href: "accept_beta", remote: true} ×
-              = link_to "×", "accept_beta", class: "close", data: {dismiss: "alert"}, remote: true
-              %p
-                %strong
-                  = succeed ':' do
-                    = t('.attention')
-                = t('.text_beta_warning')
-              %p
-                = t('.bug_found')
-                - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
-                = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
-      
-      .row
-        .col-xs-12
-          = render 'layouts/messages'
-      .row
-        .col-xs-12
-          = yield
-          
-      = render 'layouts/modal_error'
+            = yield
 
-    - if defined? @with_map
-      .container-fluid
-        #mapid{style: "width: 100%; height: 400px;"}
-          
+        = render 'layouts/modal_error'
+
     %footer.footer
       .container
         .col-sm-4.col-xs-12
@@ -76,4 +73,12 @@
             %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
             %li= link_to t('titles.pages.about'), '/pages/about'  
 
+    - if defined? @with_map
+      .container-fluid
+        .global-map-container
+          .text-right
+            = link_to "#", class: 'mp-toggle-visibility toggle-map', data: { toggle_target: "#mapid" } do
+              %span.glyphicon.glyphicon-eye-open
+          #mapid.global{style: "width: 100vw; height: 40vh;"}
+          
         
