@@ -16,7 +16,10 @@
             = user_marker(location.user)
             (#{link_to articles_count(location.articles), location_path(location)})
         - if has_a_location_here
-          = t('.and_you')
+          - if @house_center.locations.count > 1
+            = t('.and_you')
+          - else
+            = t('.you')
           %span.glyphicon.glyphicon-heart
           !
 

@@ -3,11 +3,14 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO client side filter für suchergebnisse
-    
+*** TODO description etwas einrücken
 *** TODO leaflet and turbolinks zusammen erzeugen fehlermeldungen       :bug:
 *** TODO entfernung in geh minuten                                  :feature:
     oder je nach dauer mit fahrrad oder auto
+    einfach easy as der luftlinie kalkulieren
+    1km luftline ~ 1.5 km zickzack ~ 20min zu Fuß 
+    5km luftlinie ~ 7.5 km zickzack ~ 30min mit Fahrrad
+    20km
 *** TODO artikel im kartenaussschnitt [6/10]                        :feature:
     wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
     quasi per js nachladen
@@ -31,10 +34,6 @@
     - [ ] checkbox im kartenausschnitt suchen könnte das problem lösen (ohne radius!)
     - [ ] mit der bounding box ist die sortierung nach entfernung futsch
     - [ ] don't scroll map if at top or bottom                   :enhancement:
-      
-*** TODO search results: haus info: und Du                              :bug:
-    wenn kein user im gleichen haus wie der nutzer
-    da ist das und zu viel
 *** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
     nutzer sollen ihre kontaktdaten selber in die message schreiben
 *** TODO user messaging and contact                                   :theme:
@@ -91,6 +90,16 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE click on map marker -> scroll to location              :enhancement:
+    CLOSED: [2017-01-27 Fr 16:55]
+      
+*** DONE search results: haus info: und Du                              :bug:
+    CLOSED: [2017-01-27 Fr 16:00]
+    wenn kein user im gleichen haus wie der nutzer
+    da ist das und zu viel
+*** DONE client side filter für suchergebnisse
+    CLOSED: [2017-01-27 Fr 15:18]
+    done but disabled
 *** DONE löse das karten layout problem [2/2]                        :layout:
     CLOSED: [2017-01-26 Do 14:00]
     - [X] pinning the map using bootstrap affix

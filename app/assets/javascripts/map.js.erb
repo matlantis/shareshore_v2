@@ -1,11 +1,10 @@
 $(document).ready(function() {
   // article hover event handler
   var onArticleMouseEnter = function(e) {
-    // search the marker with the correct house index
+    // search the marker with the correct house id
     for (i = 0; i< window.markers.length; i++) {
-      //if ( window.markers[i].index == $(this).attr("data-house-id") ) {
       var house_id = $(this).parentsUntil("[data-house-id]").parent().attr("data-house-id")
-      if ( window.markers[i].index == house_id ) {       
+      if ( window.markers[i].house_id == house_id ) {       
         window.markers[i].openPopup();
         break;
       }
@@ -14,10 +13,10 @@ $(document).ready(function() {
 
   // article hover event handler
   var onArticleMouseLeave = function(e) {
-    // search the marker with the correct house index
+    // search the marker with the correct house id
     for (i = 0; i< window.markers.length; i++) {
       var house_id = $(this).parentsUntil("[data-house-id]").parent().attr("data-house-id")
-      if ( window.markers[i].index == house_id ) {
+      if ( window.markers[i].house_id == house_id ) {
         window.markers[i].closePopup();
         break;
       }
@@ -44,14 +43,21 @@ add_markers_to_map = function(marker_defs, map, markers_layer) {
     else { icon = icon_blue; } //( marker_defs[i].color == 'blue' )
     var marker = L.marker(marker_defs[i].coords, { icon: icon }).addTo(markers_layer);
     marker.bindPopup(marker_defs[i].html);
-    marker.index = marker_defs[i].id;
+    marker.house_id = marker_defs[i].id;
     markers.push(marker);
     //marker.on('click', onMarkerClick);
-    
+
+    marker.on('click', function(e) {
+      console.log("mouseclick : " + e.target.house_id)
+      if ( e.target.house_id == -1 ) return;
+      $('html, body').animate({
+        scrollTop: $('.location[data-house-id=' + e.target.house_id + ']').offset().top
+    }, 200);
+    });
   }
 }
 
-drawmap_leaflet = function(mapid, marker_defs, marker_def_center, bounds, onMapClick, onMapDblClick, zoom) {
+drawmap_leaflet = function(mapid, marker_defs, marker_defs_center, bounds, onMapClick, onMapDblClick, zoom) {
   // parameter defaults
   onMapClick = onMapClick || null;
   onMapDblClick = onMapDblClick || null;
@@ -77,7 +83,7 @@ drawmap_leaflet = function(mapid, marker_defs, marker_def_center, bounds, onMapC
   // center marker
   center_marker_layer = new L.FeatureGroup();
   map.addLayer(center_marker_layer)
-  add_markers_to_map([marker_def_center], map, center_marker_layer)
+  add_markers_to_map(marker_defs_center, map, center_marker_layer)
   
   // markers (but not center)
   window.markers_layer = new L.FeatureGroup();

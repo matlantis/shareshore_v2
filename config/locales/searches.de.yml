@@ -15,6 +15,7 @@ de:
     show:
       text_at_house: Im Haus
       and_you: und Du
+      you: Du
 
     results:
       text_x_of_y: "%{x} von %{y}"
