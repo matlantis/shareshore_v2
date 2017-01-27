@@ -27,7 +27,8 @@
     -#mapid{style: "width: -1; height: 400px;", "data-spy": "affix", "data-offset-top":"195"}
     #mapid{style: "width: 100%; height: 300px;"}
 #results
-  -#= render 'results'
+  -# comment rendering results to draw results via js after page load
+  = render 'results'
 
 :javascript
   onMapClick = function(e) {
@@ -35,8 +36,6 @@
   };
   
   $(document).ready(function() {
-    //$('#mapid').hide()
-  
     #{render 'articles/map_index.js.erb', articles: @articles, formats: [:js]}
     
     var reloadSearch = function() {
@@ -50,10 +49,6 @@
             //"search%5Bradius%5D=" + distance/1000 + "&" +
             //"search%5Blongitude%5D=" + center.lng + "&" +
             //"search%5Blatitude%5D=" + center.lat + "&" +
-            //"search%5Bnw_lng%5D=" + nw.lng + "&" +
-            //"search%5Bnw_lat%5D=" + nw.lat + "&" +
-            //"search%5Bse_lng%5D=" + se.lng + "&" +
-            //"search%5Bse_lat%5D=" + se.lat + "&" +
             "mapupdate=true" + "&" +
             "nw_lng=" + nw.lng + "&" +
             "nw_lat=" + nw.lat + "&" +
@@ -69,13 +64,13 @@
       // console.log("got an answer")
       //})
     }
-  
-    if ( typeof window.map !== 'undefined' ) {
-      window.map.on('zoomend', reloadSearch)
-      window.map.on('moveend', reloadSearch)
-    }
-
-    reloadSearch();
-    //$('#mapid').show()
+    
+    // uncomment to draw results via js after page load
+    // if ( typeof window.map !== 'undefined' ) {
+    //   window.map.on('zoomend', reloadSearch)
+    //   window.map.on('moveend', reloadSearch)
+    // }
+    // reloadSearch();
+    
   });
 

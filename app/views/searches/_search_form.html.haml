@@ -1,7 +1,7 @@
 = bootstrap_form_for search, url: search_path, method: :get, layout: :horizontal do |f|
   = f.alert_message t('common.message_fix_errors')
   = f.text_field :pattern, placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_pattern_field")
-  -#= f.text_field :radius, placeholder: t(".radius_placeholder"), label: t(".radius_label"), append: "km"
+  = f.text_field :radius, placeholder: t(".radius_placeholder"), label: t(".radius_label"), append: "km"
 
   - if current_user && current_user.locations.count > 0
     = f.form_group do

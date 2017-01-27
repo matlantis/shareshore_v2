@@ -4,7 +4,7 @@
       .col-xs-6.text-center.shareshore-panel
         = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
           %h3
-            = @articles.count
+            %span.articles_count= @articles.count
             = Article.model_name.human(count: @articles.count)
 
       .col-xs-6.text-center.shareshore-panel
@@ -18,6 +18,10 @@
                 
     .tab-content
       #tab-articles.tab-pane.fade.in.active
+        -#.filter # works but disabled
+          = bootstrap_form_tag url: "", layout: :horizontal do |f|
+            = f.text_field "filter_pattern", placeholder: "was suchstt du?"
+            
         -# if Search.articles_per_page < @articles.count || current_user
         - if Search.articles_per_page < @articles.count
           .shareshore-panel
@@ -33,19 +37,20 @@
           - location = e[:location]
           - articles = e[:articles]
           - home = location.house == @house_center
-          .shareshore-panel
+          .shareshore-panel.location-pane
             .location{"data-house-id": "#{location.house_id}"}
               .location_view
                 = render 'locations/location_view', location: location, home: home
             - articles.each do |article|
               - article_div_id = "article_" + article.id.to_s + "_div"
-              .row
-                .col-xs-1
-                .col-xs-10
-                  %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
-                    .article_view
-                      = render 'articles/article_view', article: article, edit: false, home: home
-                .col-xs-1
+              .article-pane{article_title: "#{article.title}"}
+                .row
+                  .col-xs-1
+                  .col-xs-10
+                    %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
+                      .article_view
+                        = render 'articles/article_view', article: article, edit: false, home: home
+                  .col-xs-1
 
       #tab-locations.tab-pane.fade
         - if Search.locations_per_page < @locations.count # || current_user

@@ -202,7 +202,7 @@ module ApplicationHelper
   def create_map_house_marker(articles, house, house_center = nil)
     local_articles = articles.joins(:location).where("locations.house_id = ?", house.id)
     html_text = escape_javascript(render 'articles/popup', house: house, articles: local_articles )
-    if house == house_center
+    if false && house == house_center
       home_html = "<br>" + html_text
       home_id = house.id
     else

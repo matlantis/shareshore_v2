@@ -7,9 +7,10 @@ class SearchesController < ApplicationController
     if params.key? :search
       create
       return
-    elsif params.key? :mapupdate
-      update
-      return
+    # uncomment to draw results via js after page load
+    # elsif params.key? :mapupdate
+    #   update
+    #   return
     end
     
     last_search = nil
@@ -47,42 +48,45 @@ class SearchesController < ApplicationController
                 Geocoder::Calculations.endpoint(@current_location, 90, radius),
                 Geocoder::Calculations.endpoint(@current_location, 270, radius) ]
 
-    # @articles = Article.all
-    # # remove own articles
-    # if current_user
-    #   @articles = @articles.where.not(user: current_user)
-    # end
+    # disable to draw results via js after page load (no articles need in this step)
+    if true 
+      @articles = Article.all
+      # remove own articles
+      if current_user
+        @articles = @articles.where.not(user: current_user)
+      end
 
-    # # apply location criteria
-    # @articles = @articles.joins(:location)
-    # @articles = @articles.near(@current_location, @search.radius)
-    # @articles = @articles.order(title: :asc) # 2nd criterion after location
+      # apply location criteria
+      @articles = @articles.joins(:location)
+      @articles = @articles.near(@current_location, @search.radius)
+      @articles = @articles.order(title: :asc) # 2nd criterion after location
 
-    # # apply pattern criteria
-    # unless @search.pattern.empty?
-    #   @articles = @articles.search(@search.pattern) # no sorting is done here
-    # end
-    # # paginate
-    # #@articles = @articles.paginate(page: params[:page], per_page: 5)
+      # apply pattern criteria
+      unless @search.pattern.empty?
+        @articles = @articles.search(@search.pattern) # no sorting is done here
+      end
+      # paginate
+      #@articles = @articles.paginate(page: params[:page], per_page: 5)
 
-    # # locations
-    # @locations = Location.where(id: @articles.map {|a| a.location_id})
+      # locations
+      @locations = Location.where(id: @articles.map {|a| a.location_id})
 
-    # # this is unneccesarry
-    # #@locations = @locations.near(@current_location, @search.radius) # resort
+      # this is unneccesarry (no its not, please understand re-sort as re-sort!)
+      @locations = @locations.near(@current_location, @search.radius) # re-sort
 
-    # # limit articles and locations
-    # @articles = @articles.limit(Search.articles_per_page).page(1)
-    # @locations = @locations.limit(Search.locations_per_page).page(1)
-    
-    # # build an location_articles_list
-    # @location_articles_list = @locations.map { |l|
-    #   local_articles = @articles.where(location_id: l.id)
-    #   {location: l, articles: local_articles }
-    # }
-    
-    # # provide houses to be drawn by the map
-    # @houses = @locations.collect { |l| l.house }.uniq
+      # limit articles and locations
+      @articles = @articles.limit(Search.articles_per_page).page(1)
+      @locations = @locations.limit(Search.locations_per_page).page(1)
+      
+      # build an location_articles_list
+      @location_articles_list = @locations.map { |l|
+        local_articles = @articles.where(location_id: l.id)
+        {location: l, articles: local_articles }
+      }
+      
+      # provide houses to be drawn by the map
+      @houses = @locations.collect { |l| l.house }.uniq
+    end
     
     # determine if there is a house at given location
     houses_center = House.near(@current_location, 0.01)
@@ -95,7 +99,9 @@ class SearchesController < ApplicationController
     end
   end
   
-  def update
+  # not used
+  # draw results via js after page load or on map change
+  def update 
     # find last search
     @search = Search.find_by(id: session[:search_id])
     unless @search

@@ -25,8 +25,8 @@ $(document).ready(function() {
   }
 
   // hover on location marker pops up the map popup
-  $(".location_marker").on('mouseenter', onArticleMouseEnter);
-  $(".location_marker").on('mouseleave', onArticleMouseLeave);
+  $("body").on('mouseenter', ".location_marker", onArticleMouseEnter);
+  $("body").on('mouseleave', ".location_marker", onArticleMouseLeave);
 })
 
 var defaultZoom = 17;
@@ -74,15 +74,15 @@ drawmap_leaflet = function(mapid, marker_defs, marker_def_center, bounds, onMapC
   // add scale
   L.control.scale().addTo(map);
 
-  // markers (but not center)
-  window.markers_layer = new L.FeatureGroup();
-  map.addLayer(markers_layer)
-  add_markers_to_map(marker_defs, map, window.markers_layer)
-
   // center marker
   center_marker_layer = new L.FeatureGroup();
   map.addLayer(center_marker_layer)
   add_markers_to_map([marker_def_center], map, center_marker_layer)
+  
+  // markers (but not center)
+  window.markers_layer = new L.FeatureGroup();
+  map.addLayer(markers_layer)
+  add_markers_to_map(marker_defs, map, window.markers_layer)
   
   return map;
 }
