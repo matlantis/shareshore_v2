@@ -100,11 +100,11 @@ var onArticlesDestroy = function(article_div_id, list_is_empty) {
   }
 }
 
-var onArticlesUpdateError = function(formtext) {
+var onArticlesUpdateError = function(formtext, article_div_id) {
   $('#' + article_div_id + ' form').replaceWith(formtext);
 }
 
-var onArticlesUpdateSuccess = function(newtext) {
+var onArticlesUpdateSuccess = function(newtext, article_div_id) {
   $('#' + article_div_id).replaceWith(newtext);
 
   $('#' + article_div_id + ' .article_edit').hide(200)

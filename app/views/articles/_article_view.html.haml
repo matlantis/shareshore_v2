@@ -21,6 +21,11 @@
       = location_marker article.location
       .pull-right
         = edit_icons(article)
+  .row
+    .col-xs-3
+    .col-xs-9
+      .article-description
+        = truncate(article.details, length: 100)
 
 - else
   .row
@@ -34,6 +39,7 @@
         %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
           = image_tag(article.picture_url(:thumb))
         
-.row
-  .col-xs-12
-    = truncate(article.details, length: 60)
+  .row
+    .col-xs-12
+      .article-description
+        = truncate(article.details, length: 100)

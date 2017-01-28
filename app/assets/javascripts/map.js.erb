@@ -24,8 +24,8 @@ $(document).ready(function() {
   }
 
   // hover on location marker pops up the map popup
-  $("body").on('mouseenter', ".location_marker", onArticleMouseEnter);
-  $("body").on('mouseleave', ".location_marker", onArticleMouseLeave);
+  $("#results").on('mouseenter', ".location_marker", onArticleMouseEnter);
+  $("#results").on('mouseleave', ".location_marker", onArticleMouseLeave);
 })
 
 var defaultZoom = 17;
@@ -50,9 +50,12 @@ add_markers_to_map = function(marker_defs, map, markers_layer) {
     marker.on('click', function(e) {
       console.log("mouseclick : " + e.target.house_id)
       if ( e.target.house_id == -1 ) return;
+      // check visible tab
+      var tab = ( $('#tab-articles').is(":visible") )? "#tab-articles" : "#tab-locations"
+      console.log('tab: ' + tab)
       $('html, body').animate({
-        scrollTop: $('.location[data-house-id=' + e.target.house_id + ']').first().offset().top
-    }, 200);
+        scrollTop: $(tab + ' .location[data-house-id=' + e.target.house_id + ']').first().offset().top
+      }, 200);
     });
   }
 }

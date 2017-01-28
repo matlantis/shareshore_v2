@@ -3,11 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** DONE use pattern field als filter (if it was empty before)
-    CLOSED: [2017-01-28 Sa 14:16]
-    easy
-*** TODO radius durch bewegungsmittel (howto) ersetzen
-*** TODO description etwas einrücken
+*** DONE description etwas einrücken
+    CLOSED: [2017-01-28 Sa 14:53]
 *** TODO leaflet and turbolinks zusammen erzeugen fehlermeldungen       :bug:
 *** TODO entfernung in geh minuten                                  :feature:
     oder je nach dauer mit fahrrad oder auto
@@ -15,29 +12,6 @@
     1km luftline ~ 1.5 km zickzack ~ 20min zu Fuß 
     5km luftlinie ~ 7.5 km zickzack ~ 30min mit Fahrrad
     20km
-*** TODO artikel im kartenaussschnitt [6/10]                        :feature:
-    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
-    quasi per js nachladen
-    aber nur bis zu nem annehmbaren maximum
-    - [X] schreibe searches#create so um, dass es eine bounding box als argument nimmt
-    - [X] per js den results bereich und die karten marker neu laden
-    - [X] get rid of radius (use default)
-    - [X] find articles in a box not a circle
-    - [X] load the results after map is displayed
-    - [X] erst mal altes verhalten wiederherstellbar machen (mit radius)
-    - [ ] need to cache them! on client side
-      im prinzip läuft das darauf hinaus, die suche beim clienten durchzuführen!
-      - server
-        - create liefert das html grundgerüst
-        - update liefert alle article, locations, users in einem bestimmten gebiet per json, außerdem die bbox des gebiets
-        - wenn zu viele artikel im gebiet sind ... oje das ist scheiß kompliziert (das problem erst mal ohne cache lösen)
-      - client
-        - je nach kartenaussschnitt wird die artikelliste (locationsliste) und die map markers neu erstellt.
-        - wenn der kartenausschnitt die bbox verlässt, werden via update zusätzliche artikel angefragt
-        
-    - [ ] checkbox im kartenausschnitt suchen könnte das problem lösen (ohne radius!)
-    - [ ] mit der bounding box ist die sortierung nach entfernung futsch
-    - [ ] don't scroll map if at top or bottom                   :enhancement:
 *** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
     nutzer sollen ihre kontaktdaten selber in die message schreiben
 *** TODO user messaging and contact                                   :theme:
@@ -94,6 +68,11 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE use pattern field als filter (if it was empty before)
+    CLOSED: [2017-01-28 Sa 14:16]
+    easy
+*** DONE radius durch bewegungsmittel (howto) ersetzen
+    CLOSED: [2017-01-28 Sa 14:16]
 *** DONE click on map marker -> scroll to location              :enhancement:
     CLOSED: [2017-01-27 Fr 16:55]
       
@@ -1118,3 +1097,26 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
     unter das hilfe panel mit sinnvollen links zur aktuelle seite
     mal ne liste machen
+*** TODO artikel im kartenaussschnitt aktualisieren [6/10]          :feature:
+    wär doch toll wenn die karte alle nutzer und artikel im kartenausschnitt anzeigen würde, auch wenn man den verändert
+    quasi per js nachladen
+    aber nur bis zu nem annehmbaren maximum
+    - [X] schreibe searches#create so um, dass es eine bounding box als argument nimmt
+    - [X] per js den results bereich und die karten marker neu laden
+    - [X] get rid of radius (use default)
+    - [X] find articles in a box not a circle
+    - [X] load the results after map is displayed
+    - [X] erst mal altes verhalten wiederherstellbar machen (mit radius)
+    - [ ] need to cache them! on client side
+      im prinzip läuft das darauf hinaus, die suche beim clienten durchzuführen!
+      - server
+        - create liefert das html grundgerüst
+        - update liefert alle article, locations, users in einem bestimmten gebiet per json, außerdem die bbox des gebiets
+        - wenn zu viele artikel im gebiet sind ... oje das ist scheiß kompliziert (das problem erst mal ohne cache lösen)
+      - client
+        - je nach kartenaussschnitt wird die artikelliste (locationsliste) und die map markers neu erstellt.
+        - wenn der kartenausschnitt die bbox verlässt, werden via update zusätzliche artikel angefragt
+        
+    - [ ] checkbox im kartenausschnitt suchen könnte das problem lösen (ohne radius!)
+    - [ ] mit der bounding box ist die sortierung nach entfernung futsch
+    - [ ] don't scroll map if at top or bottom                   :enhancement:
