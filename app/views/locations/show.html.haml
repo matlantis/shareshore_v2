@@ -6,37 +6,37 @@
     = t('.tip_panel_text')
 
 -#.col-xs-12.col-sm-9.col-sm-pull-3
-.col-xs-12
+.col-xs-12.col-sm-6
   .row
-    .col-xs-3.text-right
+    .col-xs-6.text-right
       %strong
         = Location.human_attribute_name("user").concat(":")
-    .col-xs-9
+    .col-xs-6
       = user_marker(@location.user)
   .row
-    .col-xs-3.text-right
+    .col-xs-6.text-right
       %strong
         = Location.human_attribute_name("street").concat(":")
-    .col-xs-9
+    .col-xs-6
       = @location.street
       = @location.number
   .row
-    .col-xs-3.text-right
+    .col-xs-6.text-right
       %strong
         = Location.human_attribute_name("postcode").concat(":")
-    .col-xs-9
+    .col-xs-6
       = @location.postcode
   .row
-    .col-xs-3.text-right
+    .col-xs-6.text-right
       %strong
         = Location.human_attribute_name("city").concat(":")
-    .col-xs-9
+    .col-xs-6
       = @location.city
   .row
-    .col-xs-3.text-right
+    .col-xs-6.text-right
       %strong
         = Location.human_attribute_name("country").concat(":")
-    .col-xs-9
+    .col-xs-6
       = @location.country
   -#.row
     .col-xs-3.text-right
@@ -52,31 +52,28 @@
           = link_to @location.house do
             %span.glyphicon.glyphicon-home
             = House.model_name.human
-  .row.hidden
-    .col-xs-12.text-right
-      = link_to t('.link_openstreetmap'), "http://www.openstreetmap.org/?mlat=#{@location.latitude}&mlon=#{@location.longitude}#map=18/#{@location.latitude}/#{@location.longitude}", target: "_blank"
-  - if current_user == @location.user
-    .row
-      .col-xs-12
-        #set_location_remark.shareshore-panel.clearfix
-          = t('.text_location_incorrect')
-          = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default pull-right"
-        #set_location_controls.shareshore-panel.clearfix
-          .pull-right
-            = link_to t("forms.cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default"
-            = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
-          %div
-            = t('.text_drag_marker_to_location')
-  .row
-    .col-xs-12
-      - if @articles.empty?
-        .empty-list
-          = t('.empty_list_message')
-      - @articles.each do |article|
-        - article_div_id = "article_" + article.id.to_s + "_div"
-        .article{:id => article_div_id}
-          .article_view
-            = render 'articles/article_view', article: article, edit: false, home: false
+            
+- if current_user == @location.user
+  .col-xs-12.col-sm-6.text-center.shareshore-panel
+    #set_location_remark
+      = t('.text_location_incorrect')
+      = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
+    #set_location_controls
+      %div
+        = t('.text_drag_marker_to_location')
+      = link_to t("forms.cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default"
+      = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
+
+.row
+  .col-xs-12
+    - if @articles.empty?
+      .empty-list
+        = t('.empty_list_message')
+    - @articles.each do |article|
+      - article_div_id = "article_" + article.id.to_s + "_div"
+      .article{:id => article_div_id}
+        .article_view
+          = render 'articles/article_view', article: article, edit: false, home: false
 
 :javascript
   $(document).ready(function() {

@@ -193,9 +193,20 @@ module ApplicationHelper
     if home
       content_tag :strong, t('articles.common.tooltip_home')
     else
-      txt1 = content_tag :strong, t('locations.common.label_distance').concat(":")
-      txt2 = "%.1f km" % loc2.distance_from( loc1 )
-      txt1 = txt1.concat(" ").concat(txt2)
+      distance = loc2.distance_from( loc1 )
+      if distance < SearchesHelper::Howto.radius("foot")
+        time = (distance / 3 * 60).round
+        txt =  I18n.t('searches.howtos.foot') + " ~ " + time.to_s + " min"
+      elsif distance < SearchesHelper::Howto.radius("bike")
+        time = (distance / 15 * 60).round
+        txt =  I18n.t('searches.howtos.bike') + " ~ " + time.to_s + " min"
+      elsif distance < SearchesHelper::Howto.radius("car")
+        time = (distance / 75 * 60).round
+        txt =  I18n.t('searches.howtos.car') + " ~ " + time.to_s + " min"
+      else
+        txt = t('locations.common.label_distance') + ": %.1f km" % distance
+      end
+      content_tag :span, txt, data_toggle: "tooltip", title: "%.1f km" % distance
     end
   end
 

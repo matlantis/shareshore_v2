@@ -7,7 +7,7 @@ module SearchesHelper
     end
 
     def self.list_howtos
-      ["foot", "bike", "car"]
+      ["foot", "bike", "car", "rocket"]
     end
     
     def self.list
@@ -37,8 +37,8 @@ module SearchesHelper
         5.0
       when "car"
         20.0
-      else
-        raise "Unknown Howto"
+      else # rocket
+        10000
       end
     end
 

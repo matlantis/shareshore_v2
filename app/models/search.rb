@@ -29,7 +29,7 @@ class Search < ApplicationRecord
       end
     end
     #self.radius ||= Search.default_radius
-    self.howto ||= SearchesHelper::Howto.list_howto[1] # choose bike
+    self.howto ||= SearchesHelper::Howto.list_howtos[1] # choose bike
   end
 
   def self.default_radius
