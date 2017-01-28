@@ -210,6 +210,10 @@ module ApplicationHelper
     end
   end
 
+  def search_howto_radius(howto)
+    I18n.t('searches.howto_radius_explanation', radius: "%.0f" % SearchesHelper::Howto.radius(howto))
+  end
+  
   def create_map_house_marker(articles, house, house_center = nil)
     local_articles = articles.joins(:location).where("locations.house_id = ?", house.id)
     html_text = escape_javascript(render 'articles/popup', house: house, articles: local_articles )

@@ -3,11 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO location country choice box
 *** TODO howtos brauchen icons                                  :enhancement:
-*** TODO formular gestaltung (such formular)
-    check boxen horizontal
-    addresszeile checkbox und feld in eine zeile
-    howto checkbox brauchen nen tooltip
 *** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
@@ -65,6 +62,11 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE formular gestaltung (such formular)
+    CLOSED: [2017-01-28 Sa 22:33]
+    check boxen horizontal
+    addresszeile checkbox und feld in eine zeile - sieht doof aus
+    howto checkbox brauchen nen tooltip
 *** DONE entfernung in geh minuten                                  :feature:
     CLOSED: [2017-01-28 Sa 18:29]
     oder je nach dauer mit fahrrad oder auto
@@ -1054,11 +1056,14 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     welche daten will ich speichern?
 *** TODO deletion layer                                             :feature:
     bsp: searches sollten auch später noch lesbar sein, auch wenn location gelöscht ist, ebenso article_request, deren article gelöscht ist
-*** TODO footer hight according to width                        :enhancement:
+*** DONE footer hight according to width                        :enhancement:
+    CLOSED: [2017-01-28 Sa 18:58]
     layout changes on xs display
-*** TODO plaintext emails                                              :text:
+*** DONE plaintext emails                                              :text:
+    CLOSED: [2017-01-28 Sa 18:58]
 *** TODO email footer                                                  :text:
-*** TODO favicon und logo                                           :feature:
+*** DONE favicon und logo                                           :feature:
+    CLOSED: [2017-01-28 Sa 18:58]
 *** TODO hinweis leute in der nähe zu werben                           :text:
     ins standort-such-ergebnisse eintragen (bei wenigen suchergebnissen)
 *** TODO site ohne js testen                                            :bug:
@@ -1071,14 +1076,15 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     verhältnismässig unwichtig
 *** TODO recaptcha in registrations/new hides password field on failure :bug:
 *** TODO solve captcha only once per session                    :enhancement:
-    may this comes automatically when put online
+    may this comes automatically when put online - nope
 *** TODO namen für eigen daten anfordern, versicherung, dass die daten stimmen
 *** TODO users: übermich und avatar                                 :feature:
 *** TODO besser layouten (mobil im hinterkopf)                  :enhancement:
     insbesondere
     - article/show
 *** TODO Tutorial fehlt                                                :text:
-*** TODO bessere lsg für die karte finden, scrollbox der suchergebnisse :feature:
+*** DONE bessere lsg für die karte finden, scrollbox der suchergebnisse :feature:
+    CLOSED: [2017-01-28 Sa 18:56]
 *** TODO account mal schnell disablen können                        :feature:
     user kriegt nen disabled column
     und dann? vielleicht gibts da schon was in devise - nix

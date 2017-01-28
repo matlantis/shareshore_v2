@@ -77,7 +77,7 @@
       .container-fluid
         .global-map-container
           .text-right
-            = link_to "#", class: 'mp-toggle-visibility toggle-map', data: { toggle_target: "#mapid", toggle: "tooltip" }, title: t('.toggle_map_tooltip') do
+            = link_to "Click: " + t(".toggle_map_tooltip"), class: 'mp-toggle-visibility toggle-map', data: { toggle_target: "#mapid", toggle: "tooltip" }, title: t('.toggle_map_tooltip') do
               %span.glyphicon.glyphicon-eye-open
           #mapid.global{style: "width: 100vw; height: 40vh;"}
           

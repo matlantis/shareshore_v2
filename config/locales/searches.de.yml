@@ -1,13 +1,14 @@
 de:
   searches:
+    howto_radius_explanation: "max. %{radius} km weit"
     howtos:
       foot: zu Fuß
       bike: auf dem Fahrrad
       car: im Fahrzeug
-      rocket: mit der Rackete
+      rocket: mit der Rakete
     search_form:
       pattern_placeholder: "Suchbegriff (leer lassen für Alles!)"
-      pattern_label: "Was"
+      pattern_label: "Was?"
       radius_placeholder: "Suchradius"
       radius_label: "innerhalb von"
       address_placeholder: "Adresse"

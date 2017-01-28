@@ -1,12 +1,8 @@
-= bootstrap_form_for search, url: search_path, method: :get, layout: :horizontal do |f|
+-#%h3 Bootstrap
+-#= bootstrap_form_for search, url: search_path, method: :get, layout: :horizontal do |f|
   = f.alert_message t('common.message_fix_errors')
   = f.text_field :pattern, placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_pattern_field"), class: "filter_pattern"
-  -#= f.text_field :radius, placeholder: t(".radius_placeholder"), label: t(".radius_label"), append: "km"
-  = f.collection_select(:howto, SearchesHelper::Howto.list, :howto, :text, label: t('.howto_label'))
-  -#= f.form_group :howto, label: { text: t('.howto_label')}  do
-    = f.radio_button :howto, "foot", label: t('searches.howtos.foot'), data: {toggle: "tooltip"}, title: "lala"
-    = f.radio_button :howto, "bike", label: t('searches.howtos.bike')
-
+  = f.collection_radio_buttons :howto, SearchesHelper::Howto.list, :howto, :text, label: t('.howto_label'), inline: true
   - if current_user && current_user.locations.count > 0
     = f.form_group do
       = f.check_box :use_location, label: t('.user_location_cb_label')
@@ -20,6 +16,55 @@
   = f.form_group do
     = f.submit t(".search_button_label"), class: "btn btn-default"
 
+-#%h3 Rails
+= form_for search, url: search_path, method: :get, html: {class: "form-horizontal"} do |f|
+  .row
+    .form-group
+      = f.label :pattern, class: "control-label col-xs-2"
+      .col-xs-10
+        = f.text_field :pattern, placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true, class: "form-control filter_pattern"
+  .row
+    .form-group
+      = f.label :howto, class: "control-label col-xs-2"
+      .col-xs-10
+        = f.label :howto_foot, class: "radio-inline", data_toggle: "tooltip", title: "#{search_howto_radius('foot')}" do
+          = f.radio_button :howto, "foot"
+          = t('activerecord.attributes.search.howto_foot')
+        = f.label :howto_bike, class: "radio-inline", data_toggle: "tooltip", title: "#{search_howto_radius('bike')}" do
+          = f.radio_button :howto, "bike"
+          = t('activerecord.attributes.search.howto_bike')
+        = f.label :howto_car, class: "radio-inline", data_toggle: "tooltip", title: "#{search_howto_radius('car')}" do
+          = f.radio_button :howto, "car"
+          = t('activerecord.attributes.search.howto_car')
+        = f.label :howto_rocket, class: "radio-inline", data_toggle: "tooltip", title: "#{search_howto_radius('rocket')}" do
+          = f.radio_button :howto, "rocket"
+          = t('activerecord.attributes.search.howto_rocket')
+  .row
+    .form-group
+      = f.label :address, class: "control-label col-xs-2"
+      .col-xs-10
+        - if current_user && current_user.locations.count > 0
+          = f.label :use_location, class: "checkbox-inline" do
+            = f.check_box :use_location
+            = Search.human_attribute_name("use_location")
+        - else
+          = f.hidden_field :use_location, value: false
+  .row
+    .form-group
+      .col-xs-2
+      .col-xs-10
+        = f.select :location_id, options_from_collection_for_select(current_user.locations, :id, :shortaddress), { }, class: "form-control"
+  .row
+    .form-group
+      .col-xs-2
+      .col-xs-10
+        = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), class: "form-control"
+  .row
+    .form-group
+      .col-xs-2
+      .col-xs-10
+        = f.submit t(".search_button_label"), class: "btn btn-default"
+      
 :javascript
   $(document).ready(function() {
 

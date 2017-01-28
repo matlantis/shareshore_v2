@@ -78,4 +78,11 @@ de:
         latitude: "Breitengrad"
         longitude: "Längengrad"
       search:
-        howto: erreichbar
+        howto: Wie?
+        pattern: Was?
+        address: Wo?
+        use_location: eigenen Standort verwenden
+        howto_foot: zu Fuß
+        howto_bike: auf dem Fahrrad
+        howto_car: im Fahrzeug
+        howto_rocket: mit der Rakete
