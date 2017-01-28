@@ -10,7 +10,8 @@ class Search < ApplicationRecord
   validates :use_location, inclusion: { in: [true, false] }
   validates :location, presence: true, if: :use_location
   # comment the radius validation to draw results via js after page load
-  validates :radius, numericality: { greater_than_or_equal_to: 0 }
+  #validates :radius, numericality: { greater_than_or_equal_to: 0 }
+  validates :howto, inclusion: {in: SearchesHelper::Howto.list_howtos}
 
   def init(request, user)
     self.use_location ||= !user.nil? && user.locations.count > 0
@@ -27,7 +28,8 @@ class Search < ApplicationRecord
         end
       end
     end
-    self.radius ||= Search.default_radius
+    #self.radius ||= Search.default_radius
+    self.howto ||= SearchesHelper::Howto.list_howto[1] # choose bike
   end
 
   def self.default_radius

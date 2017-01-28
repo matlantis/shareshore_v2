@@ -77,3 +77,5 @@ de:
         country: "Land"
         latitude: "Breitengrad"
         longitude: "Längengrad"
+      search:
+        howto: erreichbar

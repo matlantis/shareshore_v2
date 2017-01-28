@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('body').on('input', '#filter_pattern',function(e) {
+  $('body').on('input', '.filter_pattern',function(e) {
     console.log("got input");
 
     var pattern = new RegExp(e.target.value, "i")

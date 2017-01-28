@@ -16,12 +16,12 @@ class ApplicationController < ActionController::Base
       if addr == "Reserved" # got that for remote_ip localhost
         addr = "Dresden, Germany"
       end
-      if addr
-        search = Search.new
-        search.address = addr
-        search.radius = 1.5
-        session[:search] = search
-      end
+      # if addr
+      #   search = Search.new
+      #   search.address = addr
+      #   search.radius = 1.5
+      #   session[:search] = search
+      # end
     end    
   end
 

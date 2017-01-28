@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** DONE use pattern field als filter (if it was empty before)
+    CLOSED: [2017-01-28 Sa 14:16]
+    easy
+*** TODO radius durch bewegungsmittel (howto) ersetzen
 *** TODO description etwas einrücken
 *** TODO leaflet and turbolinks zusammen erzeugen fehlermeldungen       :bug:
 *** TODO entfernung in geh minuten                                  :feature:
@@ -1108,6 +1112,9 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO send request without js: read guideline message missing :enhancement:
 *** TODO admin create stockitem in article/show only if not associated with a stockitem :enhancement:
 *** TODO article_form: bildchen on selection der rate           :enhancement:
+    - f.collection_radio_buttons(:gender, [['Male', 'icon_male'], ['Female', 'icon_female']], :first, :last, :item_wrapper_class => 'horizontal') do |gender|
+  = gender.label { image_tag("/assets/icons/16x16/#{gender.text}.png") + gender.radio_button  }
+.clear
 *** TODO mal über einen "weiter zu" bereich nachdenken          :enhancement:
     unter das hilfe panel mit sinnvollen links zur aktuelle seite
     mal ne liste machen

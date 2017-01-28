@@ -1,12 +1,18 @@
 de:
   searches:
+    howtos:
+      foot: zu Fuß
+      bike: auf dem Fahrrad
+      car: im Fahrzeug
+      
     search_form:
       pattern_placeholder: "Suchbegriff (leer lassen für Alles!)"
-      pattern_label: "Suche nach"
+      pattern_label: "Was"
       radius_placeholder: "Suchradius"
       radius_label: "innerhalb von"
       address_placeholder: "Adresse"
-      address_label: "um"
+      address_label: "Wo?"
+      howto_label: "Wie?"
       user_location_cb_label: "eigenen Standort verwenden"
       search_button_label: "Suche"
       tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!

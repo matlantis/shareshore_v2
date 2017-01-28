@@ -51,7 +51,7 @@ add_markers_to_map = function(marker_defs, map, markers_layer) {
       console.log("mouseclick : " + e.target.house_id)
       if ( e.target.house_id == -1 ) return;
       $('html, body').animate({
-        scrollTop: $('.location[data-house-id=' + e.target.house_id + ']').offset().top
+        scrollTop: $('.location[data-house-id=' + e.target.house_id + ']').first().offset().top
     }, 200);
     });
   }

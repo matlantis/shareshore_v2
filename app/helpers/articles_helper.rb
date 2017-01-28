@@ -1,6 +1,5 @@
 # coding: utf-8
 module ArticlesHelper
-
   class RateModel
     attr_accessor :model
     

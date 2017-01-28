@@ -1,0 +1,6 @@
+%p
+  = t('.text_address_missmatch')
+  - mail_to 'mail@shareship.de', 'mail@shareship.de!', subject: t('.mail_subject_address_missmatch', house: @house.id )
+  = t('.get_in_contact')
+  = link_to t('titles.contacts.new'), contacts_path(subject: t('.mail_subject_address_missmatch', house: @house.id ))
+  = t('.with_us')
