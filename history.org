@@ -3,8 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO location country choice box
-*** TODO howtos brauchen icons                                  :enhancement:
 *** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:
@@ -18,9 +16,9 @@
      braucht man die seite überhaupt? jaja - für die standorte der user
 **** DONE contact dont show checkboxes for phone or name if not given   :bug:
      CLOSED: [2017-01-24 Di 16:27]
-**** TODO user messages verschicken
-**** DONE user messages empfangen
-     CLOSED: [2017-01-24 Di 20:54]
+**** DONE user messages verschicken
+     CLOSED: [2017-01-29 So 13:03]
+**** TODO user messages empfangen
 **** konzept user messaging
      schreibe nachrichten an einen nutzer
      werden gespeichert aber als email versandt (vorläufig)
@@ -36,6 +34,8 @@
       text
       contact mglkeiten
       betreff? nöö
+*** TODO location country choice box
+*** TODO howtos brauchen icons                                  :enhancement:
 *** TODO den blödsinn mit den kontaktdaten einfach rausschmeißen!
     nutzer sollen ihre kontaktdaten selber in die message schreiben
 *** TODO purify                                                         :bug:
