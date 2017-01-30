@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: [:userreply]
+  
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   before_action :authenticate_admin!, only: [:index]
   before_action :authenticate_user!, only: [:show, :new, :create]
-
   # GET /messages
   # GET /messages.json
   def index
@@ -23,7 +24,44 @@ class MessagesController < ApplicationController
   # # GET /messages/1/edit
   # def edit
   # end
+  def userreply
+    # get sender and receiver from TO address
+    uuid_match = /msg_([0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12})_([0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12})@userreply.shareship.de/.match(params['recipient'])
+    
+    receiver_public_uuid = uuid_match[1]
+    sender_private_uuid = uuid_match[2]
+    
+    receiver = User.find_by(public_uuid: receiver_public_uuid)
+    sender = User.find_by(private_uuid: sender_private_uuid)
 
+    # compare senders email address
+    unless sender and sender.email ==  params['sender']
+      # send error 406 if something went to say "don't retry" to mailgun
+      head :not_acceptable
+      logger.info "sender not accepted"
+      return
+    end
+
+    unless receiver
+      head :not_acceptable
+      logger.info "receiver not accepted"
+      return
+    end
+    
+    # create a message object and store it
+    @message = Message.new({text: params['body-plain'], receiver_id: receiver.id, sender_id: sender.id, with_name: false, with_phoneno: false, with_email: false})
+
+    if @message.save
+      # call UserMailer user_message_mail
+      UserMailer.user_message_mail(@message).deliver_now
+      # render ok
+      head :ok
+    else
+      head :not_acceptable
+    end
+      
+  end
+  
   # POST /messages
   # POST /messages.json
   def create

@@ -3,6 +3,12 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO profil ansicht
+    listet nur locations, könnte aber auch artikel listen wie search
+*** TODO email verification after change behaves like new registration
+    
+*** TODO translation                                                    :bug:
+    Confirmation token translation missing: de.activerecord.errors.models.user.attributes.confirmation_token.invalid
 *** TODO user messaging and contact                                   :theme:
 **** TODO request nachrichten vereinfachen (inhaltlich)
 **** TODO in profile edit has checkbox for show name, but its not shown nowhere :bug:

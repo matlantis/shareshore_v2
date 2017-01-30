@@ -4,5 +4,5 @@ de:
       subject: "Shareship: Anfrage für deine(n) %{article}"
 
     user_message_mail:
-      sender: "%{sender} über Shareship<mail@shareship.de>"
+      sender: "%{sender} über Shareship <mail@shareship.de>"
       subject: "Shareship: Nachricht von %{sender}"

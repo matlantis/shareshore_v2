@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get '/contacts', to: 'contacts#new'
   resources :contacts, only: [:new, :create]
+
+  post '/userreply', to: 'messages#userreply'
   
   # use own devise controllers
   devise_for :users, controllers: {
