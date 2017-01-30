@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
   def userreply
     # get sender and receiver from TO address
     uuid_match = /msg_([0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12})_([0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12})@userreply.shareship.de/.match(params['recipient'])
-    if !uuid_match || uuid_match.length == 3
+    if !uuid_match || uuid_match.length != 3
       # send error 406 if something went to say "don't retry" to mailgun
       head :not_acceptable
       logger.info "bad TO address"
