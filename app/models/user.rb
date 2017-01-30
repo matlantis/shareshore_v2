@@ -17,10 +17,13 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: true, length: { minimum: 1, maximum: 50 }
             # format: { with: /\A[a-zA-Z0-9\.\-_]+\z/ }
   validates :phoneno, format: { with: /\A[a-zA-Z0-9\- ]*\z/ }
-
+  validates :uuid_private, uniqueness: true, format: { with: /[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/ }
+  validates :uuid_public, uniqueness: true, format: { with: /[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/ }
   validates :terms, acceptance: true
 
   def init
+    uuid_private = SecureRandom.uuid
+    uuid_public = SecureRandom.uuid
     showemail ||= false
     showphone ||= false
     showname ||= false
