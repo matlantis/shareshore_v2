@@ -1,10 +1,5 @@
 %p
-  Hallo #{@request.article.user.nickname},
-
-%p
-  Dein Nachbar/Deine Nachbarin #{user_marker(@request.user)} würde gerne eine Deiner Sachen ausleihen:
-
-%p= render 'articles/article_view', article: @request.article, modal: false
+  Dein Nachbar/Deine Nachbarin #{user_marker(@request.user)} würde gerne Deine(n) #{article_marker(@request.article)} ausleihen.
 
 %p
   Er/Sie schreibt Dir folgende Nachricht:
@@ -13,9 +8,7 @@
   %pre= @request.text
 
 %p
-  So kannst du mit ihm/ihr Kontakt aufnehmen:
-
-%p= render 'users/registrations/contact', user: @request.user, showemail: @request.with_email, showphone: @request.with_phoneno, showname: @request.with_name, current_user: @request.article.user
+  Antworte auf diese Nachricht, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
 
 %p Eins noch: Bevor Du etwas verleihst, solltest du unseren #{link_to t('titles.pages.guideline'), guideline_url} lesen!
 

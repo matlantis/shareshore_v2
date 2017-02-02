@@ -56,7 +56,6 @@ de:
       text_of_this: davon!
 
     show:
-      tip_panel_text: "kleine Hilfe zu show"
     
     create_from_index:
       create_success: "Sache erstellt"

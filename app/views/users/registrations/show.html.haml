@@ -7,40 +7,27 @@
 .col-xs-12.col-sm-9.col-sm-pull-3
   %h3= @title
       
-  .row
-    .col-xs-2
-      %strong
-        = succeed ':' do
-          = User.human_attribute_name('locations')
-    .col-xs-10
-      - if @user.locations.empty?
-        = t('.empty_locations_list_message')
-      - @user.locations.each do |location|
-        = location_marker location
-        (#{articles_location_count(location)})
-        %br/
-        
   - if is_admin?
     .row
       .col-xs-12
         = link_to "Articles", articles_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
         = link_to "Locations", locations_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
-  - unless @with_contact
-    .shareshore-panel
-      %h4= t('.heading_contact_info')
-      = bootstrap_form_tag url: user_path(@user), method: :get do |f|
-        = f.form_group do
-          = recaptcha_tags
-        = f.form_group do
-          = f.submit t('.view_contact_details_button'), class: "btn btn-default"
-
-  - else
-    .col-xs-12.col-lg-6
-      = render 'contact', user: @user, showemail: @user.showemail, showphone: @user.showphone, showname: @user.showname
-    .col-xs-12.col-lg-6
+  .row
+    - unless @with_contact
       .shareshore-panel
+        %h4= t('.heading_contact_info')
+        = bootstrap_form_tag url: user_path(@user), method: :get do |f|
+          = f.form_group do
+            = recaptcha_tags
+          = f.form_group do
+            = f.submit t('.view_contact_details_button'), class: "btn btn-default"
+
+    - else
+      .col-xs-12.col-lg-6
+        = render 'contact', user: @user, showemail: @user.showemail, showphone: @user.showphone, showname: @user.showname
+      .col-xs-12.col-lg-6
         %h4= t('.heading_message')
-        .clearfix.message-panel
+        .message-panel
           - if user_signed_in?
             .send-message
               - message = Message.new({receiver: @user, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})
@@ -50,13 +37,13 @@
                 = f.form_group do
                   -# unless current_user.fullname.blank?
                     = f.check_box :with_name, label: "#{Message.human_attribute_name(:with_name)} (#{current_user.fullname})"
-                  - unless current_user.phoneno.blank?
+                  -# unless current_user.phoneno.blank?
                     = f.check_box :with_phoneno, label: "#{Message.human_attribute_name(:with_phoneno)} (#{current_user.phoneno})"
-                  - else
+                  -# else
                     = f.hidden_field :with_phoneno
-                  - unless current_user.email.blank?
+                  -# unless current_user.email.blank?
                     = f.check_box :with_email, label: "#{Message.human_attribute_name(:with_email)} (#{current_user.email})"
-                  - else
+                  -# else
                     = f.hidden_field :with_email
                 = f.form_group do
                   = f.submit t('.button_label_send_message')
@@ -70,4 +57,17 @@
               = t('.text_only_signed_up_users')
             .col-xs-6.text-right
               = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
-      
+
+  .row
+    .col-xs-2
+      %strong
+        = succeed ':' do
+          = User.human_attribute_name('locations')
+    .col-xs-10
+      - if @user.locations.empty?
+        = t('.empty_locations_list_message')
+      - @user.locations.each do |location|
+        = location_marker location
+        (#{articles_location_count(location)})
+        %br/
+        

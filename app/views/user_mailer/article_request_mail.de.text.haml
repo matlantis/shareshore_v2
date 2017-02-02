@@ -1,0 +1,20 @@
+:plain
+  Dein Nachbar/Deine Nachbarin #{@request.user.nickname} würde gerne Deine(n) #{@request.article.title} ausleihen.
+
+  Er/Sie schreibt Dir folgende Nachricht:
+
+  #{@request.text}
+
+  Antworte auf diese Nachricht, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
+
+  Eins noch! Bevor Du etwas verleihst, solltest du unseres Leitfaden lesen:
+  #{guideline_url}
+
+  Erfahre mehr über #{@request.user.nickname} unter
+  #{user_url(@request.user)}
+
+  Schau Dir deine(n) #{@request.article.title} an unter
+  #{article_url(@request.article)}
+
+  #{render 'user_mailer/signature'}
+

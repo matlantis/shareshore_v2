@@ -56,7 +56,7 @@
                     = bootstrap_form_for request, remote: true, html: {class: "message_form"} do |f|
                       = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                       = f.hidden_field :article_id
-                      = f.form_group do
+                      -#= f.form_group do
                         -# unless current_user.fullname.blank?
                           = f.check_box :with_name, label: "#{UserArticleRequest.human_attribute_name(:with_name)} (#{current_user.fullname})"
                         -# unless current_user.phoneno.blank?

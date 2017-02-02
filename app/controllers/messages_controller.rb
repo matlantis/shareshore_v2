@@ -121,6 +121,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:text, :html, :receiver_id, :with_name, :with_phoneno, :with_email)
+      params.require(:message).permit(:text, :html, :receiver_id)
     end
 end
