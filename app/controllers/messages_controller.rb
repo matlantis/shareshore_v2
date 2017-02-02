@@ -55,7 +55,7 @@ class MessagesController < ApplicationController
     end
     
     # create a message object and store it
-    @message = Message.new({text: params['body-plain'], receiver_id: receiver.id, sender_id: sender.id, with_name: false, with_phoneno: false, with_email: false, subject: params['subject']})
+    @message = Message.new({text: params['body-plain'], html: params['body-html'], receiver_id: receiver.id, sender_id: sender.id, with_name: false, with_phoneno: false, with_email: false, subject: params['subject']})
 
     if @message.save
       # call UserMailer user_message_mail
@@ -73,6 +73,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.sender = current_user
+
+    # for testing add a html part
+    #@message.html = "<h1>Mal gucken</h1>"
     
     respond_to do |format|
       if @message.save
@@ -118,6 +121,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:text, :receiver_id, :with_name, :with_phoneno, :with_email)
+      params.require(:message).permit(:text, :html, :receiver_id, :with_name, :with_phoneno, :with_email)
     end
 end

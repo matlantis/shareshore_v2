@@ -3,6 +3,9 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO mail: in reply mail den shareship text wegstrippen
+    oder einfach weglassen
+
 *** TODO profil ansicht
     listet nur locations, könnte aber auch artikel listen wie search
 *** TODO email verification after change behaves like new registration
@@ -68,6 +71,9 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE mail: html and text weiterleiten
+    CLOSED: [2017-02-02 Do 13:33]
+    in html email wird der text einfach fehlerhaft dargestellt (newlines). das passiert natürlich auch in den formularen (probieren).
 *** DONE formular gestaltung (such formular)
     CLOSED: [2017-01-28 Sa 22:33]
     check boxen horizontal
