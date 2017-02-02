@@ -22,11 +22,11 @@ class User < ApplicationRecord
   validates :terms, acceptance: true
 
   def init
-    private_uuid ||= SecureRandom.uuid
-    public_uuid ||= SecureRandom.uuid
-    showemail ||= false
-    showphone ||= false
-    showname ||= false
+    self.private_uuid ||= SecureRandom.uuid
+    self.public_uuid ||= SecureRandom.uuid
+    self.showemail ||= false
+    self.showphone ||= false
+    self.showname ||= false
   end
   
   def fullname
