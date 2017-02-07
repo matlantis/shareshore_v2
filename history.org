@@ -4,73 +4,20 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO mobile ansicht
+*** TODO schicker cookie hinweis                                     :layout:
+    http://veganer-kuchen.net/
+*** TODO mobile ansicht                                              :layout:
     Guck mal nach metatag für den Viewport. Ohne das nehmen Mobilgeräte am das die 
 Seite nicht optimiert ist und setzt die Viewportbreite auf ~1000px Breite. Kann 
 man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO abschnitt über diebstahl in faq ergänzen                      :text:
 *** TODO dns weiterleitung von shareship.de                             :bug:
-*** TODO bug formular gibt keine rückmeldung                            :bug:
-    der link auf das bug formular sollte auch ohne den beta hinweis sichtbar sein
 *** TODO profil ansicht
     listet nur locations, könnte aber auch artikel listen wie search
 *** TODO email verification after change behaves like new registration
     
 *** TODO translation                                                    :bug:
     Confirmation token translation missing: de.activerecord.errors.models.user.attributes.confirmation_token.invalid
-*** TODO user messaging and contact                                   :theme:
-**** DONE request nachrichten vereinfachen (inhaltlich)
-     CLOSED: [2017-02-02 Do 18:08]
-**** CANCELED in profile edit has checkbox for show name, but its not shown nowhere :bug:
-     CLOSED: [2017-02-02 Do 18:09]
-     stimmt gar nicht
-**** CANCELED request: fehler, wenn keine contact details vorhanden sind :bug:
-     CLOSED: [2017-02-02 Do 18:08]
-**** DONE requests contact method                                   :feature:
-     CLOSED: [2017-02-02 Do 14:32]
-     antwort mglkeit
-     contact validation löschen
-**** DONE request: reply-to auf verleiher email setzen                  :bug:
-     CLOSED: [2017-02-02 Do 14:32]
-**** DONE contact: auf der nutzer profil seite kann man nutzer nicht kontaktieren :bug:
-     CLOSED: [2017-02-02 Do 14:32]
-     irgendwie umorganisieren
-     braucht man die seite überhaupt? jaja - für die standorte der user
-**** DONE contact dont show checkboxes for phone or name if not given   :bug:
-     CLOSED: [2017-01-24 Di 16:27]
-**** DONE user messages verschicken
-     CLOSED: [2017-01-29 So 13:03]
-**** DONE user messages empfangen
-     CLOSED: [2017-02-02 Do 14:31]
-**** TODO requests rausnehmen
-     testweise
-**** DONE den blödsinn mit den kontaktdaten einfach rausschmeißen!
-     CLOSED: [2017-02-02 Do 18:08]
-     nutzer sollen ihre kontaktdaten selber in die message schreiben
-**** POSTPONED mail: in reply mail den shareship text wegstrippen
-     oder einfach weglassen
-***** vorschlag
-      man könnte die haml vorlage in eine regex verwandeln
-      - vorher signature einsetzen
-      - sender nickname könnte man auch einsetzen
-      - sender url auch
-      - message_text durch (.*) ersetzen (geht das über mehrere zeilen?)
-      - da müsste am ende exakt der message_text rausfallen
-**** konzept user messaging
-     schreibe nachrichten an einen nutzer
-     werden gespeichert aber als email versandt (vorläufig)
-     
-     requests: getrennt betrachten, dienen als gute vorlage
-
-     antwort emails werden automatisch als user message gespeichert und weiter geleitet
-     (wie geht das?)
-
-     requests und messages enthalten reply to feld zum antworten und hinweis im text
-***** message attributes
-      sender, receiver (achja da gabs irgendein problem), in associations mal as: ausprobieren
-      text
-      contact mglkeiten
-      betreff? nöö
 *** TODO location country choice box
 *** TODO howtos brauchen icons                                  :enhancement:
 *** TODO purify                                                         :bug:
@@ -97,6 +44,40 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE bug formular gibt keine rückmeldung                            :bug:
+    CLOSED: [2017-02-07 Di 14:23]
+    der link auf das bug formular sollte auch ohne den beta hinweis sichtbar sein
+*** DONE user messaging and contact                                   :theme:
+    CLOSED: [2017-02-07 Di 13:28]
+**** DONE request nachrichten vereinfachen (inhaltlich)
+     CLOSED: [2017-02-02 Do 18:08]
+**** CANCELED in profile edit has checkbox for show name, but its not shown nowhere :bug:
+     CLOSED: [2017-02-02 Do 18:09]
+     stimmt gar nicht
+**** CANCELED request: fehler, wenn keine contact details vorhanden sind :bug:
+     CLOSED: [2017-02-02 Do 18:08]
+**** DONE requests contact method                                   :feature:
+     CLOSED: [2017-02-02 Do 14:32]
+     antwort mglkeit
+     contact validation löschen
+**** DONE request: reply-to auf verleiher email setzen                  :bug:
+     CLOSED: [2017-02-02 Do 14:32]
+**** DONE contact: auf der nutzer profil seite kann man nutzer nicht kontaktieren :bug:
+     CLOSED: [2017-02-02 Do 14:32]
+     irgendwie umorganisieren
+     braucht man die seite überhaupt? jaja - für die standorte der user
+**** DONE contact dont show checkboxes for phone or name if not given   :bug:
+     CLOSED: [2017-01-24 Di 16:27]
+**** DONE user messages verschicken
+     CLOSED: [2017-01-29 So 13:03]
+**** DONE user messages empfangen
+     CLOSED: [2017-02-02 Do 14:31]
+**** CANCELED requests rausnehmen
+     CLOSED: [2017-02-07 Di 13:28]
+     testweise - bleiben jetzt erstmal drin
+**** DONE den blödsinn mit den kontaktdaten einfach rausschmeißen!
+     CLOSED: [2017-02-02 Do 18:08]
+     nutzer sollen ihre kontaktdaten selber in die message schreiben
 *** DONE mail: html and text weiterleiten
     CLOSED: [2017-02-02 Do 13:33]
     in html email wird der text einfach fehlerhaft dargestellt (newlines). das passiert natürlich auch in den formularen (probieren).
@@ -1173,3 +1154,27 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     - [ ] checkbox im kartenausschnitt suchen könnte das problem lösen (ohne radius!)
     - [ ] mit der bounding box ist die sortierung nach entfernung futsch
     - [ ] don't scroll map if at top or bottom                   :enhancement:
+*** POSTPONED mail: in reply mail den shareship text wegstrippen
+    oder einfach weglassen
+***** vorschlag
+      man könnte die haml vorlage in eine regex verwandeln
+      - vorher signature einsetzen
+      - sender nickname könnte man auch einsetzen
+      - sender url auch
+      - message_text durch (.*) ersetzen (geht das über mehrere zeilen?)
+      - da müsste am ende exakt der message_text rausfallen
+**** konzept user messaging
+     schreibe nachrichten an einen nutzer
+     werden gespeichert aber als email versandt (vorläufig)
+     
+     requests: getrennt betrachten, dienen als gute vorlage
+
+     antwort emails werden automatisch als user message gespeichert und weiter geleitet
+     (wie geht das?)
+
+     requests und messages enthalten reply to feld zum antworten und hinweis im text
+***** message attributes
+      sender, receiver (achja da gabs irgendein problem), in associations mal as: ausprobieren
+      text
+      contact mglkeiten
+      betreff? nöö

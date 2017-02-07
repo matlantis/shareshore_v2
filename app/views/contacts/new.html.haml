@@ -10,14 +10,20 @@
   = t('.text_use_form')
 
 .shareshore-panel
-  = bootstrap_form_for @contact, layout: :horizontal do |f|
-    = f.alert_message t('common.message_fix_errors')
-    .div{class: "#{"hidden" if current_user}"}
-      = f.text_field :name
-      = f.email_field :email
-    = f.text_field :subject
-    = f.text_area :message
-    = f.hidden_field :nickname
-    = f.form_group do
-      = f.submit t('.submit_label')
+  .send-message
+    = bootstrap_form_for @contact, layout: :horizontal, remote: true, html: {class: "message_form"} do |f|
+      = f.alert_message t('common.message_fix_errors')
+      .div{class: "#{"hidden" if current_user}"}
+        = f.text_field :name
+        = f.email_field :email
+      = f.text_field :subject
+      = f.text_area :message
+      = f.hidden_field :nickname
+      = f.form_group do
+        = f.submit t('.submit_label')
+  .message-was-send{style: "display: none"}
+    = t('.message_was_send')
+  .waiting{style: "display: none"}
+    = t('.waiting')
+  .error-msg{style: "display: none"}
     
