@@ -24,6 +24,8 @@ de:
               accepted: "müssen akzeptiert werden"
             password_confirmation:
               confirmation: "stimmt nicht überein"
+            confirmation_token:
+              invalid: "Die Bestätigung ist ungültig"
 
         article:
           attributes:

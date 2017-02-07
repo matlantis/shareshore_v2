@@ -15,9 +15,6 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO profil ansicht
     listet nur locations, könnte aber auch artikel listen wie search
 *** TODO email verification after change behaves like new registration
-    
-*** TODO translation                                                    :bug:
-    Confirmation token translation missing: de.activerecord.errors.models.user.attributes.confirmation_token.invalid
 *** TODO location country choice box
 *** TODO howtos brauchen icons                                  :enhancement:
 *** TODO purify                                                         :bug:
@@ -40,13 +37,20 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
     - gems
     - fonts (icons für rate)
     - Glyphicons
-*** TODO richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
+    - bootstrap
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
+    CLOSED: [2017-02-07 Di 15:54]
+    
+*** DONE translation                                                    :bug:
+    CLOSED: [2017-02-07 Di 15:23]
+    Confirmation token translation missing: de.activerecord.errors.models.user.attributes.confirmation_token.invalid
+*** DONE der link auf das bug formular sollte auch ohne den beta hinweis sichtbar sein
+    CLOSED: [2017-02-07 Di 15:21]
 *** DONE bug formular gibt keine rückmeldung                            :bug:
     CLOSED: [2017-02-07 Di 14:23]
-    der link auf das bug formular sollte auch ohne den beta hinweis sichtbar sein
 *** DONE user messaging and contact                                   :theme:
     CLOSED: [2017-02-07 Di 13:28]
 **** DONE request nachrichten vereinfachen (inhaltlich)
