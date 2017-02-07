@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def show
+    @title = t("titles.pages.#{params[:page]}")
     render template: "pages/#{params[:page]}"
   end
   

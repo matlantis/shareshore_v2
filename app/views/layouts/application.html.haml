@@ -59,7 +59,7 @@
             Martin Puttke 2016
         .col-sm-4.col-xs-12
           %h3= t('.heading_help')
-          %ul
+          %ul.list-unstyled
             %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'
             %li= link_to t('titles.pages.guideline'), '/pages/guideline'
             %li= link_to t('titles.pages.faq'), '/pages/faq'
@@ -68,11 +68,12 @@
             %li= link_to t('.bug_found'), contacts_path(subject: t('.subject_bug_found'), message: t('.text_describe_bug') + "\r\r" + "Url: " + request.url) 
         .col-sm-4.col-xs-12
           %h3= t('.heading_law')
-          %ul
+          %ul.list-unstyled
             %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
             %li= link_to t('titles.pages.privacy'), '/pages/privacy'
             %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
             %li= link_to t('titles.pages.about'), '/pages/about'  
+            %li= link_to t('titles.pages.contrib'), '/pages/contrib'  
 
   - if defined? @with_map
     .container-fluid

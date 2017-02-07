@@ -13,5 +13,7 @@ de:
       user_location_cb_label: "eigenen Standort verwenden"
       text_beta_unknown_user_warning: "In der Beta Version ist die Suchfunktion nur für angemeldete Benutzer zugänglich!"
 
+    contrib:
+      this_project_was_made_with_the_help_of: "Dieses Projekt wurde realisiert mit der Hilfe von:"
     contact:
       shareship_email: "mail@shareship.de"

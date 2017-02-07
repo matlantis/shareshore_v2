@@ -29,18 +29,21 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
      dazu separate seiten
      besser die profile seite etwas umbauen, so dass das moderner wirkt
      edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
-*** TODO contributions page                                            :text:
-    mit lizenz stuff
-    - nominatim
-    - rails
-    - google captcha
-    - gems
-    - fonts (icons für rate)
-    - Glyphicons
-    - bootstrap
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE pages setzen kein title attribute
+    CLOSED: [2017-02-07 Di 16:26]
+*** DONE contributions page                                            :text:
+    CLOSED: [2017-02-07 Di 16:26]
+    mit lizenz stuff [5/5]
+    - [X] rails
+    - [X] bootstrap
+    - [X] Glyphicons
+    - [X] google captcha
+    - [X] nominatim
+    - gems
+    - fonts (icons für rate)
 *** DONE richtlinie: vereinbart ausdrücklich eine gegenleistung!       :text:
     CLOSED: [2017-02-07 Di 15:54]
     
