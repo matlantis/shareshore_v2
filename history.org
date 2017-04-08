@@ -4,6 +4,11 @@
 * Shareshore V2 Todos
 ** Primär
 
+*** TODO contact zu nutzern via formular: absender nick as betreff streichen
+    das wird sonst komisch, wenn man reply macht und den andere (Paul) liest dann "Re: Nachricht von Paul" 
+*** TODO anfragen für article reply-to adresse
+    geht momentan an mail@shareship.de
+*** TODO seite contacts: send gibt keine rückmeldung                    :bug:
 *** TODO schicker cookie hinweis                                     :layout:
     http://veganer-kuchen.net/
 *** TODO mobile ansicht                                              :layout:
@@ -11,7 +16,6 @@
 Seite nicht optimiert ist und setzt die Viewportbreite auf ~1000px Breite. Kann 
 man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO abschnitt über diebstahl in faq ergänzen                      :text:
-*** TODO dns weiterleitung von shareship.de                             :bug:
 *** TODO profil ansicht
     listet nur locations, könnte aber auch artikel listen wie search
 *** TODO email verification after change behaves like new registration
@@ -32,6 +36,51 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE dns weiterleitung von shareship.de                             :bug:
+    CLOSED: [2017-04-08 Sa 20:19]
+**** Protokoll
+***** versuch 1
+      <2017-04-08 Sa 15:15>
+      - ausgangszustand
+        dns config: siehe Projects/shareship/www/2017-04-08_campusspeicher_dns_configuration.png
+        http://www.shareship.de -> geht
+        http://shareship.de -> http://shareship.de.herokuapp.com -> no such app
+        http://www.shareship.de.herokuapp.com -> no such app (muss wohl so sein)
+      - added shareship.de, 3600, IN, CNAME, shareship.de.herokudns.com
+      - folgen
+        anmeldung auf campusspeicher webmailer mit @shareship.de adresse geht nicht
+      - änderung rückgängig gemacht: webmailer scheint wieder zu gehen (ohne verzögerung), jedoch fehlerpopup in webmailer gui (verbindung zum speicherserver fehlgeschlagen) - oder auch nicht (zweiter versuch nach einer minute schlägt fehl) - verhalten inkonsistent, mal gehts mal nicht, immer fehler mit speicherserver, fehlernachricht leicht variierend (schätzte, weil die dns konfiguration noch nicht weit genug propagiert ist, besser noch warten), um <2017-04-08 Sa 16:43> geht's wieder ohne fehler
+***** versuch 2
+      ziel: stelle fest, ob nach der änderung http://shareship.de geht
+      dns config: siehe Projects/shareship/www/2017-04-08_campusspeicher_dns_configuration.png
+      - vorher [4/5]
+        - [X] http://www.shareship.de
+        - [ ] http://shareship.de
+        - [X] anmeldung auf campusspeicher mit mail@shareship.de
+        - [X] email an svenja@shareship.de (via contacts formular)
+        - [X] email antwort an matlantis von svenja's campusspeicher
+          msg_989ec184-3cdf-41cd-8c43-81d7a9c10c8b_e12c6f02-ed8f-492d-932e-79df0130c496@userreply.shareship.de
+      - added shareship.de, 3600, IN, CNAME, shareship.de.herokudns.com
+        <2017-04-08 Sa 16:57>
+      - warten
+      - <2017-04-08 Sa 19:21> keine veränderung, weiter warten
+      - unter firefox gehts!!!!!
+      - mache änderungen rückgängig und probiers nochmal
+      - btw campusspeicher email login geht nicht
+      - <2017-04-08 Sa 19:34> änderung rúckgängig gemacht
+      - keine unmittelbare veränderung (auch nicht email login)
+      - <2017-04-08 Sa 20:15> email login geht wieder
+      - http://shareship.de geht auch im firefox!!
+      - es geht selbst im eww!
+      - check [5/5]
+        - [X] http://www.shareship.de
+        - [X] http://shareship.de firefox, eww, nicht im vivaldi :(
+        - [X] anmeldung auf campusspeicher mit mail@shareship.de
+        - [X] email an svenja@shareship.de (via contacts formular)
+        - [X] email antwort an matlantis von svenja's campusspeicher
+          msg_989ec184-3cdf-41cd-8c43-81d7a9c10c8b_e12c6f02-ed8f-492d-932e-79df0130c496@userreply.shareship.de
+
+      - als gelöst betrachten!
 *** DONE pages setzen kein title attribute
     CLOSED: [2017-02-07 Di 16:26]
 *** DONE contributions page                                            :text:
@@ -1090,6 +1139,7 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO email footer                                                  :text:
 *** DONE favicon und logo                                           :feature:
     CLOSED: [2017-01-28 Sa 18:58]
+    http://realfavicongenerator.net/
 *** TODO hinweis leute in der nähe zu werben                           :text:
     ins standort-such-ergebnisse eintragen (bei wenigen suchergebnissen)
 *** TODO site ohne js testen                                            :bug:
