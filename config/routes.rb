@@ -58,4 +58,5 @@ Rails.application.routes.draw do
   get "/pages/guideline", as: "guideline"
   
   get "accept_beta", to: "application#accept_beta"
+  get "accept_cookies", to: "application#accept_cookies"
 end

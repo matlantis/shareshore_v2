@@ -25,23 +25,7 @@
               .alert.alert-danger
                 %p
                   = t('.warning_no_script')
-
-        - if !session[:beta_accepted]
-          .row
-            .col-xs-12
-              .alert.alert-warning
-                -#%a.close.accept-beta{"data-dismiss": "alert", href: "accept_beta", remote: true} ×
-                = link_to "×", "accept_beta", class: "close", data: {dismiss: "alert"}, remote: true
-                %p
-                  %strong
-                    = succeed ':' do
-                      = t('.attention')
-                  = t('.text_beta_warning')
-                -#%p
-                  = t('.bug_found')
-                  - message = t('.text_describe_bug') + "\n\nUrl: " + request.url
-                  = link_to t('.write_us'), contacts_path(subject: t('.subject_bug_found'), message: message) 
-
+                  
         .row
           .col-xs-12
             = render 'layouts/messages'
@@ -50,6 +34,25 @@
             = yield
 
         = render 'layouts/modal_error'
+
+      .notifications
+        - if !session[:beta_accepted]
+          #beta-warning.notification
+            %strong
+              = succeed ':' do
+                = t('.attention')
+            = t('.text_beta_warning')
+            .pull-right
+              = link_to t(".accept_beta_button"), "accept_beta", class: "mp-toggle-visibility", data: {"toggle-target": "#beta-warning"}, remote: true
+
+        - if !session[:cookies_accepted]
+          #cookie-warning.notification
+            %strong
+              = succeed ':' do
+                = t('.attention')
+            = t('.text_cookie_warning')
+            .pull-right
+              = link_to t(".accept_cookies_button"), "accept_cookies", class: "mp-toggle-visibility", data: {"toggle-target": "#cookie-warning"}, remote: true
 
     %footer.footer
       .container

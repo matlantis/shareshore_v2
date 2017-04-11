@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   def accept_beta
     session[:beta_accepted] = true
   end
+
+  def accept_cookies
+    session[:cookies_accepted] = true
+  end
   
   def prepare_search_session
     unless session.key? :search # seems to be a new user
