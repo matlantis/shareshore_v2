@@ -1,10 +1,6 @@
 - @title = @user.nickname
 
-.col-xs-12.col-sm-3.col-sm-push-9
-  = tipp_panel do
-    = render 'show_help'
-
-.col-xs-12.col-sm-9.col-sm-pull-3
+.col-xs-12.col-sm-9
   %h3= @title
       
   - if is_admin?
@@ -72,3 +68,6 @@
         (#{articles_location_count(location)})
         %br/
         
+.col-xs-12.col-sm-3
+  = tipp_panel do
+    = render 'show_help'

@@ -4,15 +4,9 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO change order of help panel and content in every page   :enhancement:
 *** TODO seite contacts: send gibt keine rückmeldung                    :bug:
 *** TODO schicker cookie hinweis                                     :layout:
     http://veganer-kuchen.net/
-*** DONE mobile ansicht                                              :layout:
-    CLOSED: [2017-04-11 Di 14:02]
-    Guck mal nach metatag für den Viewport. Ohne das nehmen Mobilgeräte am das die 
-Seite nicht optimiert ist und setzt die Viewportbreite auf ~1000px Breite. Kann 
-man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO abschnitt über diebstahl in faq ergänzen                      :text:
 *** TODO profil ansicht
     listet nur locations, könnte aber auch artikel listen wie search
@@ -34,6 +28,13 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE change order of help panel and content in every page   :enhancement:
+    CLOSED: [2017-04-11 Di 15:51]
+*** DONE mobile ansicht                                              :layout:
+    CLOSED: [2017-04-11 Di 14:02]
+    Guck mal nach metatag für den Viewport. Ohne das nehmen Mobilgeräte am das die 
+Seite nicht optimiert ist und setzt die Viewportbreite auf ~1000px Breite. Kann 
+man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** DONE contact zu nutzern via formular: absender nick as betreff streichen
     CLOSED: [2017-04-11 Di 13:09]
     das wird sonst komisch, wenn man reply macht und den andere (Paul) liest dann "Re: Nachricht von Paul" 
