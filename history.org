@@ -4,7 +4,8 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO contact zu nutzern via formular: absender nick as betreff streichen
+*** DONE contact zu nutzern via formular: absender nick as betreff streichen
+    CLOSED: [2017-04-11 Di 13:09]
     das wird sonst komisch, wenn man reply macht und den andere (Paul) liest dann "Re: Nachricht von Paul" 
 *** TODO anfragen für article reply-to adresse
     geht momentan an mail@shareship.de

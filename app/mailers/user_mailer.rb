@@ -5,8 +5,10 @@ class UserMailer < ApplicationMailer
   def article_request_mail(request)
     @request = request
     to_address = request.article.user.email
+    from = t('.sender', sender: request.user.nickname)
+    reply_to = "msg_" + request.user.public_uuid + "_" + request.article.user.private_uuid + "@userreply.shareship.de"
     subject = t('.subject', article: request.article.title)
-    mail(to: to_address, subject: subject)
+    mail(to: to_address, subject: subject, from: from, reply_to: reply_to)
   end
 
   def user_message_mail(message)
