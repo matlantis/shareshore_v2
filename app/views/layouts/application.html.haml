@@ -37,7 +37,7 @@
 
       .notifications
         - if !session[:beta_accepted]
-          #beta-warning.notification
+          #beta-warning.notification.clearfix
             %strong
               = succeed ':' do
                 = t('.attention')
@@ -46,7 +46,7 @@
               = link_to t(".accept_beta_button"), "accept_beta", class: "mp-toggle-visibility", data: {"toggle-target": "#beta-warning"}, remote: true
 
         - if !session[:cookies_accepted]
-          #cookie-warning.notification
+          #cookie-warning.notification.clearfix
             %strong
               = succeed ':' do
                 = t('.attention')
