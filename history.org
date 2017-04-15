@@ -3,28 +3,45 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO https                                                      :feature:
-*** TODO omniauth                                                   :feature:
-*** TODO leitfaden reduzieren auf einfache anwendung                   :text:
-*** TODO checkliste statt leitfaden                                 :feature:
+*** TODO das search form schaut beschissen aus, wenn display zu klein   :bug:
+*** TODO ersetze tafel schokolade durch ein eis
+    besser als icon darzustellen
+    
+*** TODO search: wenn adresse unbekannt, kommt einfach nix              :bug:
 *** TODO englisch                                                   :feature:
-*** TODO profil ansicht                                             :feature:
-    listet nur locations, könnte aber auch artikel listen wie search
-*** TODO howtos brauchen icons                                  :enhancement:
-*** TODO purify                                                         :bug:
-     Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
-     ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
-*** TODO vorlagen seite übersichtlicher gestalten                    :layout:
+*** TODO https                                                      :feature:
 *** TODO nutzerführung nach anmeldung                                 :theme:
+**** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
 **** TODO passwort abfrage bei ändern der nutzendaten nervig    :enhancement:
      nur beim ändern des passwortes oder der email nötig
      dazu separate seiten
      besser die profile seite etwas umbauen, so dass das moderner wirkt
      edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
+*** TODO profil text und bild                                       :feature:
+    netter text macht profile menschlicher
+    bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
+*** TODO profil ansicht                                             :feature:
+    listet nur locations, könnte aber auch artikel listen wie search
+    und ne map, ausserdem gibts in zukunft nur noch eine location
+*** TODO vorlagen seite übersichtlicher gestalten                    :layout:
+*** TODO leitfaden überarbeiten                                        :text:
+    leitfaden reduzieren auf einfache anwendung
+    sprich: abstand nehmen von hochwertigen gegenständen
+    checkliste statt leitfaden                                
+*** TODO Contributions Seite ist noch etwas mager                      :text:
+*** TODO ich brauch ne remote test seite                            :feature:
+    mailgun muss anhand des receivers entscheiden können wo es welche mail hinschickne muss
+*** TODO purify                                                         :bug:
+     Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
+     ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE transport_models brauchen icons                        :enhancement:
+    CLOSED: [2017-04-15 Sa 21:45]
+    glyphicons-shoe-steps
+    glyphicons-bicycle
 *** DONE location country choice box                            :enhancement:
     CLOSED: [2017-04-15 Sa 18:37]
 *** DONE erfolgreich angemeldet notification raus               :enhancement:
@@ -159,7 +176,7 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
     CLOSED: [2017-01-28 Sa 22:33]
     check boxen horizontal
     addresszeile checkbox und feld in eine zeile - sieht doof aus
-    howto checkbox brauchen nen tooltip
+    transport checkbox brauchen nen tooltip
 *** DONE entfernung in geh minuten                                  :feature:
     CLOSED: [2017-01-28 Sa 18:29]
     oder je nach dauer mit fahrrad oder auto
@@ -175,7 +192,7 @@ man auf Devicewidth stellen und es sieht so aus wie am PC aus.
 *** DONE use pattern field als filter (if it was empty before)
     CLOSED: [2017-01-28 Sa 14:16]
     easy
-*** DONE radius durch bewegungsmittel (howto) ersetzen
+*** DONE radius durch bewegungsmittel (transport) ersetzen
     CLOSED: [2017-01-28 Sa 14:16]
 *** DONE click on map marker -> scroll to location              :enhancement:
     CLOSED: [2017-01-27 Fr 16:55]
@@ -1253,4 +1270,5 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
       text
       contact mglkeiten
       betreff? nöö
+*** TODO omniauth                                                   :feature:
 *** TODO omniauth                                                   :feature:

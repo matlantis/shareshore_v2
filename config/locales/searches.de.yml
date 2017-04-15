@@ -1,20 +1,21 @@
 de:
   searches:
-    howto_radius_explanation: "max. %{radius} km weit"
-    howtos:
+    transport_radius_explanation: "max. %{radius} km weit"
+    transport_models:
       foot: zu Fuß
       bike: auf dem Fahrrad
       car: im Fahrzeug
       rocket: mit der Rakete
     search_form:
+      use_location_tooltip: "Verwende eigenen Standort oder gib eine Adresse ein"
       pattern_placeholder: "Suchbegriff (leer lassen für Alles!)"
       pattern_label: "Was?"
       radius_placeholder: "Suchradius"
       radius_label: "innerhalb von"
       address_placeholder: "Adresse"
       address_label: "Wo?"
-      howto_label: "Wie?"
-      user_location_cb_label: "eigenen Standort verwenden"
+      transport_label: "Wie?"
+      user_location_cb_label: "bei mir zu Hause"
       search_button_label: "Suche"
       tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!
       tooltip_pattern_field: Wonach suchst du? Einfach leer lassen, wenn du Alles willst!

@@ -185,6 +185,11 @@ module ApplicationHelper
     content_tag :span, "", class: "glyphicon glyphicon-heart", data_toggle: "tooltip", title: Article.human_attribute_name('gratis')
   end
 
+  def transport_icon(transport_model)
+    #content_tag :span, "", class: "transport-model-" + transport_model, data_toggle: "tooltip", title: t("searches.transport_models." + transport_model)
+    content_tag :span, "", class: "transport-model-" + transport_model
+  end
+  
   def rate_icon(rate_model)
     content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
   end
@@ -194,24 +199,31 @@ module ApplicationHelper
       content_tag :strong, t('articles.common.tooltip_home')
     else
       distance = loc2.distance_from( loc1 )
-      if distance < SearchesHelper::Howto.radius("foot")
+      if distance < SearchesHelper::TransportModel.radius("foot")
         time = (distance / 3 * 60).round
-        txt =  I18n.t('searches.howtos.foot') + " ~ " + time.to_s + " min"
-      elsif distance < SearchesHelper::Howto.radius("bike")
+        txt = " ~ " + time.to_s + " min"
+        model = "foot"
+      elsif distance < SearchesHelper::TransportModel.radius("bike")
         time = (distance / 15 * 60).round
-        txt =  I18n.t('searches.howtos.bike') + " ~ " + time.to_s + " min"
-      elsif distance < SearchesHelper::Howto.radius("car")
+        txt = " ~ " + time.to_s + " min"
+        model = "bike"
+      elsif distance < SearchesHelper::TransportModel.radius("car")
         time = (distance / 75 * 60).round
-        txt =  I18n.t('searches.howtos.car') + " ~ " + time.to_s + " min"
+        txt = " ~ " + time.to_s + " min"
+        model = "car"
       else
         txt = t('locations.common.label_distance') + ": %.1f km" % distance
+        model = "rocket"
       end
-      content_tag :span, txt, data_toggle: "tooltip", title: "%.1f km" % distance
+      tooltip = "%.1f km (%s)" % [distance, I18n.t('searches.transport_models.' + model)]
+      content_tag :span,  data_toggle: "tooltip", title: tooltip do
+        transport_icon(model) + txt
+      end
     end
   end
 
-  def search_howto_radius(howto)
-    I18n.t('searches.howto_radius_explanation', radius: "%.0f" % SearchesHelper::Howto.radius(howto))
+  def search_transport_radius(transport)
+    t("searches.transport_models." + transport) + ": " + I18n.t('searches.transport_radius_explanation', radius: "%.0f" % SearchesHelper::TransportModel.radius(transport))
   end
   
   def create_map_house_marker(articles, house, house_center = nil)

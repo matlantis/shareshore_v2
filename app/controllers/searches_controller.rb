@@ -53,7 +53,7 @@ class SearchesController < ApplicationController
 
     #radius = Search.default_radius
     #radius = @search.radius
-    bound_distance = SearchesHelper::Howto.radius(@search.howto)/3
+    bound_distance = SearchesHelper::TransportModel.radius(@search.transport)/3
     # provide bounding box for the map (would be better if done on client side)
     @bounds = [ Geocoder::Calculations.endpoint(@current_location, 0, bound_distance),
                 Geocoder::Calculations.endpoint(@current_location, 180, bound_distance),
@@ -70,7 +70,7 @@ class SearchesController < ApplicationController
 
       # apply location criteria
       @articles = @articles.joins(:location)
-      @articles = @articles.near(@current_location, SearchesHelper::Howto.radius(@search.howto))
+      @articles = @articles.near(@current_location, SearchesHelper::TransportModel.radius(@search.transport))
       @articles = @articles.order(title: :asc) # 2nd criterion after location
 
       # apply pattern criteria
@@ -84,7 +84,7 @@ class SearchesController < ApplicationController
       @locations = Location.where(id: @articles.map {|a| a.location_id})
 
       # this is unneccesarry (no its not, please understand re-sort as re-sort!)
-      @locations = @locations.near(@current_location, SearchesHelper::Howto.radius(@search.howto)) # re-sort
+      @locations = @locations.near(@current_location, SearchesHelper::TransportModel.radius(@search.transport)) # re-sort
 
       # limit articles and locations
       @articles = @articles.limit(Search.articles_per_page).page(1)
@@ -178,6 +178,6 @@ class SearchesController < ApplicationController
 
   private
   def search_parameters
-    params.require(:search).permit(:pattern, :address, :howto, :use_location, :location_id, :longitude, :latitude)
+    params.require(:search).permit(:pattern, :address, :transport, :use_location, :location_id, :longitude, :latitude)
   end
 end

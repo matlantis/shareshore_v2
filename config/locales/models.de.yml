@@ -78,11 +78,11 @@ de:
         latitude: "Breitengrad"
         longitude: "Längengrad"
       search:
-        howto: Wie?
+        transport: Wie?
         pattern: Was?
         address: Wo?
-        use_location: eigenen Standort verwenden
-        howto_foot: zu Fuß
-        howto_bike: auf dem Fahrrad
-        howto_car: im Fahrzeug
-        howto_rocket: mit der Rakete
+        use_location: bei mir zu Hause
+        transport_foot: zu Fuß
+        transport_bike: auf dem Fahrrad
+        transport_car: im Fahrzeug
+        transport_rocket: mit der Rakete

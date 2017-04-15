@@ -1,36 +1,36 @@
 module SearchesHelper
-  class Howto
-    attr_accessor :howto
+  class TransportModel
+    attr_accessor :transport
     
-    def initialize(howto)
-      self.howto = howto
+    def initialize(transport)
+      self.transport = transport
     end
 
-    def self.list_howtos
+    def self.list_transport_models
       ["foot", "bike", "car", "rocket"]
     end
     
     def self.list
-      howtos = list_howtos
-      howtos.map do |m|
-        Howto.new(m)
+      transport_models = list_transport_models
+      transport_models.map do |m|
+        TransportModel.new(m)
       end
     end
 
-    def self.image(howto)
-      howto + ".png"
+    def self.image(transport)
+      transport + ".png"
     end
 
-    def self.text(howto)
-      I18n.t("searches.howtos." + howto)
+    def self.text(transport)
+      I18n.t("searches.transport_models." + transport)
     end
     
     def text
-      Howto.text(self.howto)
+      TransportModel.text(self.transport)
     end
 
-    def self.radius(howto)
-      case howto
+    def self.radius(transport)
+      case transport
       when "foot"
         1.0
       when "bike"
@@ -43,7 +43,7 @@ module SearchesHelper
     end
 
     def radius
-      self.radius(self.howto)
+      self.radius(self.transport)
     end
   end
 end

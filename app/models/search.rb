@@ -11,13 +11,13 @@ class Search < ApplicationRecord
   validates :location, presence: true, if: :use_location
   # comment the radius validation to draw results via js after page load
   #validates :radius, numericality: { greater_than_or_equal_to: 0 }
-  validates :howto, inclusion: {in: SearchesHelper::Howto.list_howtos}
+  validates :transport, inclusion: {in: SearchesHelper::TransportModel.list_transport_models}
 
   after_initialize :init
 
   def init
     #self.radius ||= Search.default_radius
-    self.howto ||= SearchesHelper::Howto.list_howtos[1] # choose bike
+    self.transport ||= SearchesHelper::TransportModel.list_transport_models[1] # choose bike
   end
 
   def self.default_radius
