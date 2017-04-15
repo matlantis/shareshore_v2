@@ -37,7 +37,7 @@
       %strong
         = Location.human_attribute_name("country").concat(":")
     .col-xs-6
-      = @location.country
+      = @location.country_name
   -#.row
     .col-xs-3.text-right
       %strong
@@ -56,8 +56,10 @@
 - if current_user == @location.user
   .col-xs-12.col-sm-6.text-center.shareshore-panel
     #set_location_remark
-      = t('.text_location_incorrect')
-      = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
+      %p
+        = t('.text_location_incorrect')
+      %p
+        = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
     #set_location_controls
       %div
         = t('.text_drag_marker_to_location')

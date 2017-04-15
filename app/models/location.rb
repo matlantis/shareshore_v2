@@ -23,15 +23,20 @@ class Location < ApplicationRecord
   after_initialize :init
   
   def init
-    self.country ||= "Deutschland"
+    self.country ||= "WS" # make a good guess in the controller
   end
 
+  def country_name
+    country = ISO3166::Country[self.country]
+    country.translations[I18n.locale.to_s] || country.name
+  end
+  
   def street_and_no
     [street, number].reject{|e| e.blank?}.join(" ")
   end
 
   def fulladdress
-    [street_and_no, postcode, city, country].reject {|e| e.blank?}.join(", ")
+    [street_and_no, postcode, city, country_name].reject {|e| e.blank?}.join(", ")
   end
 
   def shortaddress

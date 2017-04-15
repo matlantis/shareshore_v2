@@ -15,18 +15,29 @@ class ApplicationController < ActionController::Base
   end
   
   def prepare_search_session
-    unless session.key? :search # seems to be a new user
+    # resolve the origin of the request and store the location for later use
+    unless session.has_key?(:address)
       addr = Geocoder.address(request.remote_ip)
       if addr == "Reserved" # got that for remote_ip localhost
         addr = "Dresden, Germany"
       end
+      if addr
+        session[:address] = addr
+      end      
+    end
+    
+    # unless session.key? :search # seems to be a new user
+      #addr = Geocoder.address(request.remote_ip)
+      #if addr == "Reserved" # got that for remote_ip localhost
+      #  addr = "Dresden, Germany"
+      #end
       # if addr
       #   search = Search.new
       #   search.address = addr
       #   search.radius = 1.5
       #   session[:search] = search
       # end
-    end    
+    # end    
   end
 
   def set_locale

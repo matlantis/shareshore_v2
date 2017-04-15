@@ -26,16 +26,30 @@
                 %p
                   = t('.warning_no_script')
                   
-        .row
+        -#.row
           .col-xs-12
-            = render 'layouts/messages'
+            -#= render 'layouts/messages'
+            - flash.each do |key, value|
+              %div{:class => "alert alert-#{key}"}
+                %a.close{"data-dismiss" => "alert", :href => "#"} ×
+                %ul
+                  %li
+                    = value
         .row
           .col-xs-12
             = yield
 
         = render 'layouts/modal_error'
 
-      .notifications
+      .top-notifications
+        - flash.each_with_index do |item, index|
+          -#%div{:class => "alert alert-#{item[0]}", id: "flash-message-" + index.to_s}
+          .notification.clearfix{id: "flash-message-" + index.to_s}
+            = item[1]
+            .pull-right
+              = link_to t(".flash_close_button"), "#", class: "mp-toggle-visibility", data: {"toggle-target": "#flash-message-" + index.to_s}
+
+      .bottom-notifications
         - if !session[:beta_accepted]
           #beta-warning.notification.clearfix
             %strong
@@ -43,7 +57,7 @@
                 = t('.attention')
             = t('.text_beta_warning')
             .pull-right
-              = link_to t(".accept_beta_button"), "accept_beta", class: "mp-toggle-visibility", data: {"toggle-target": "#beta-warning"}, remote: true
+              = link_to t(".accept_beta_button"), "/accept_beta", class: "mp-toggle-visibility", data: {"toggle-target": "#beta-warning"}, remote: true
 
         - if !session[:cookies_accepted]
           #cookie-warning.notification.clearfix
@@ -52,7 +66,7 @@
                 = t('.attention')
             = t('.text_cookie_warning')
             .pull-right
-              = link_to t(".accept_cookies_button"), "accept_cookies", class: "mp-toggle-visibility", data: {"toggle-target": "#cookie-warning"}, remote: true
+              = link_to t(".accept_cookies_button"), "/accept_cookies", class: "mp-toggle-visibility", data: {"toggle-target": "#cookie-warning"}, remote: true
 
     %footer.footer
       .container

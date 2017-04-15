@@ -3,18 +3,18 @@
 
 * Shareshore V2 Todos
 ** Primär
-
-*** TODO abschnitt über diebstahl in faq ergänzen                      :text:
-*** TODO profil ansicht
+*** TODO https                                                      :feature:
+*** TODO omniauth                                                   :feature:
+*** TODO leitfaden reduzieren auf einfache anwendung                   :text:
+*** TODO checkliste statt leitfaden                                 :feature:
+*** TODO englisch                                                   :feature:
+*** TODO profil ansicht                                             :feature:
     listet nur locations, könnte aber auch artikel listen wie search
-*** TODO email verification after change behaves like new registration
-*** TODO location country choice box
 *** TODO howtos brauchen icons                                  :enhancement:
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
-*** TODO "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
 **** TODO passwort abfrage bei ändern der nutzendaten nervig    :enhancement:
@@ -25,6 +25,17 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE location country choice box                            :enhancement:
+    CLOSED: [2017-04-15 Sa 18:37]
+*** DONE erfolgreich angemeldet notification raus               :enhancement:
+    CLOSED: [2017-04-15 Sa 13:38]
+*** CANCELED email verification after change behaves like new registration :bug:
+    CLOSED: [2017-04-11 Di 19:32]
+    das ist wirklich ziemlich egal
+*** DONE "Vorlagen" in "Anbieten" umbenennen                    :enhancement:
+    CLOSED: [2017-04-11 Di 17:51]
+*** CANCELED abschnitt über diebstahl in faq ergänzen                  :text:
+    CLOSED: [2017-04-11 Di 17:48]
 *** DONE schicker cookie hinweis                                     :layout:
     CLOSED: [2017-04-11 Di 17:05]
     http://veganer-kuchen.net/
@@ -1242,3 +1253,4 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
       text
       contact mglkeiten
       betreff? nöö
+*** TODO omniauth                                                   :feature:

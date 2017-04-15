@@ -16,7 +16,7 @@
         = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", id: "location_new_button", data: {toggle_target: "#location_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
     #location_new.row
       .col-xs-12
-        = render 'form', location: Location.new
+        = render 'form', location: @location
 
 .col-xs-12.col-sm-3
   = tipp_panel do

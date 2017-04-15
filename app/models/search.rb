@@ -18,7 +18,10 @@ class Search < ApplicationRecord
     if self.use_location
       self.location ||= user.locations.first
     else
-      unless self.address
+      # try to get address from session
+      if session.has_key?[:address]
+        self.address = session[:adress]
+      else
         addr = Geocoder.address(request.remote_ip)
         if addr == "Reserved" # got that for remote_ip localhost
           addr = "Dresden, Germany"

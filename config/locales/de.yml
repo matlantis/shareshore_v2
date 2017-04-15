@@ -23,7 +23,7 @@ de:
       new: "Kontakt"
       
     articles:
-      new_from_stockitems: "Vorlagen"
+      new_from_stockitems: "Anbieten"
       index: "Inventar"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
