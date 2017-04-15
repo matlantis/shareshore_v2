@@ -21,7 +21,17 @@ class SearchesController < ApplicationController
       @search = last_search.dup
     else
       @search = Search.new
-      @search.init(request, current_user)
+      
+      @search.use_location ||= !current_user.nil? && current_user.locations.count > 0
+      # set the location
+      if !current_user.nil? && current_user.locations.count > 0
+        @search.location ||= current_user.locations.first
+      end
+
+      # try to get address from session
+      if session.has_key?(:address)
+        @search.address = session[:address]
+      end
     end
   end
 

@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       addr = Geocoder.address(request.remote_ip)
       if addr == "Reserved" # got that for remote_ip localhost
         addr = "Dresden, Germany"
+        addr = "Berlin, BE 13357, Germany"
       end
       if addr
         session[:address] = addr
