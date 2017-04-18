@@ -1,0 +1,25 @@
+de:
+  layouts:
+    navigation:
+      brand_shareship: "Shareship"
+      
+    modal_error:
+      heading_error: Error
+      text_unexpected_error_occured: An Error has occured. Please reload the page!
+
+    application:
+      title_shareship: "Shareship"
+      heading_help: "Help"
+      heading_law: "Law"
+      attention: Attention
+      flash_close_button: "Close"
+      accept_cookies_button: "Accept"
+      text_cookie_warning: "By using this web page you aggree to the usage of cookies."
+      accept_beta_button: "Accept"
+      text_beta_warning: "Shareship is still under development! This is a test version. Errors may lead to data loss or privacy threats. Shareship can not take responsibility for such incidents. Continue only, if you are ready to take the risk or better leave this side."
+      warning_no_script: "Javascript is deactivated. Please enable it."
+      bug_found: "Found a bug?"
+      write_us: "Write us!"
+      subject_bug_found: "Found a bug"
+      text_describe_bug: "Describe the bug!"
+      toggle_map_tooltip: "Toggle map view"

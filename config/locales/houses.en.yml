@@ -1,0 +1,9 @@
+de:
+  houses:
+    show:
+      tip_panel_text: "little help to show"
+    index_help:
+      text_address_missmatch: Found an error? Different Addresses in the same house?
+      mail_subject_address_missmatch: "Address Missmatch: House ID: %{house}"
+      get_in_contact: Get in
+      with_us: with us!

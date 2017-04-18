@@ -1,4 +1,12 @@
 en:
+  mail_form:
+    errors:
+      models:
+        contact:
+          attributes:
+            email:
+              invalid: "is not a valid email address"
+              
   activerecord:
     errors:
       models:
@@ -12,6 +20,12 @@ en:
               blank: "is needed"
               invalid: "does not match"
             email:
+            terms:
+              accepted: "must be accepted"
+            password_confirmation:
+              confirmation: "does not match"
+            confirmation_token:
+              invalid: "is invalid"
 
         article:
           attributes:
@@ -23,7 +37,6 @@ en:
               greater_than_or_equal_to: "may not be negative"
             rate_intervall:
               inclusion: " must be one of [hour, day, week, month, year]"
-
 
 
   errors:

@@ -1,0 +1,39 @@
+de:
+  locations:
+    common:
+      label_distance: "Distance"
+
+    location_view:
+      delete_confirmation_question: "Do you really want to delete this location?"
+      tooltip_edit_button: "Edit location"
+      tooltip_remove_button: "Delete location"
+  
+    index:
+      empty_list_message: "You do not have a location. Create one!"
+      tooltip_add_button: "Create new location"
+
+    show:
+      empty_list_message: "There are no things at this location"
+      tip_panel_text: "little help to show"
+      text_there_are_x_users_in_this: There are %{count} other users in this
+      link_openstreetmap: 'View on OpenStreetMap (in a new window)'
+      text_location_incorrect: "The location on the map is not correct?"
+      link_set_manually: "Fix it manually"
+      text_drag_marker_to_location: "Draw the marker to the correct location and click on 'Done'!"
+
+    create:
+      create_success: "Location Created"
+      create_error: "Error on creating location"
+      
+    update:
+      update_success: "Location updated"
+      update_error: "Error on updating location"
+
+    destroy:
+      destroy_success: "Location deleted"
+      destroy_error: "Error on deleting location"
+
+    warning_location_not_geocoded: "The address is unknown"
+    warning_not_owner: "This location does not belong to you"
+
+      

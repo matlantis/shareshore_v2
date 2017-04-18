@@ -1,0 +1,39 @@
+de:
+  searches:
+    good_with_foot: "reachable by foot"
+    good_with_bike: "reachable by bike"
+    good_with_car: "reachable by car"
+    good_with_rocket: "reachable with a rocket"
+    transport_radius_explanation: "max. %{radius} km away"
+    transport_models:
+      foot: by foot
+      bike: by bike
+      car: by car
+      rocket: with a rocket
+    search_form:
+      use_location_tooltip: "Use own location or enter an address"
+      pattern_placeholder: "Search term (leave empty for everything!)"
+      pattern_label: "What?"
+      radius_placeholder: "Radius"
+      radius_label: "within"
+      address_placeholder: "Address"
+      address_label: "Where?"
+      transport_label: "How?"
+      user_location_cb_label: "At my House"
+      search_button_label: "Search"
+      tooltip_address_field: Enter your address or just or city of residence!
+      tooltip_pattern_field: What are you looking for? Leave empty, to see everything!
+
+    new:
+      unknown_location: The address is unknown
+    show:
+      text_at_house: In the House
+      and_you: and You
+      you: You
+
+    results:
+      text_x_of_y: "%{x} of %{y}"
+      empty_articles_list_message: "Nothing found"
+      empty_locations_list_message: "No one found"
+      warning_about_own_articles: "Your own things are not shown here!"
+      warning_about_own_locations: "Your own locations are not shown here!"

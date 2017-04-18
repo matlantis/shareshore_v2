@@ -1,0 +1,80 @@
+de:
+  articles:
+    rate_models:
+      smile: "For a smile"
+      chocolate: "For a ball of ice cream or ca. 1€"
+      wine: "For a bottle of wine or ca. 5€"
+      theater: "For a theater ticket or ca. 20€"
+      rocket: "For a journey to moon or ca. 10 Millionen €"
+      special: "See remark for the consideration"
+    common:
+      label_distance: "Distance"
+      tooltip_home: "In your house"
+  
+    article_owner:
+
+      
+    article_view:
+      delete_confirmation_question: "Do you really want to delete this thing?"
+      tooltip_edit_button: "edit thing"
+      tooltip_remove_button: "delete thing"
+
+    map:
+      marker_your_location: "your location"
+
+    popup:
+
+    article_show:
+      heading_request: "Request"
+      placeholder_request_text: "Add a few words and your contact details!"
+      button_label_send_request: "Send a request for this thing"
+      text_only_signed_up_users: "The owner only allows signed users to contact him/her."
+      request_was_send: "Request send!"
+      waiting: "Sending request ..."
+      text_read_the_guideline: "Before borrowing something please read our"
+      view_contact_details_button: "View"
+      heading_contact_info: "Contact"
+
+    index_location:
+      tip_panel_text: "little help to index_location"
+      empty_list_message: "No things at this location"
+      location_not_existent: "Location not existent"
+
+    index:
+      empty_list_message: "Nothing placed yet. Let's go start now!"
+      user_not_existent: "User not existent"
+      tooltip_add_button: "Add new thing"
+    index_owner_help:
+    
+    index_user:
+      tip_panel_text: "little help to index_user"
+
+    new_from_stockitems:
+      tip_panel_text: "little help to new_from_stockitems"
+      link_create_without_template: "Create without template"
+      text_you_already_have: You already have
+      text_of_this: of this!
+
+    show:
+    
+    create_from_index:
+      create_success: "Thing created"
+      create_error: "Error on creating thing"
+      
+    create_from_stockitems:
+      create_success: "Thing created"
+      create_error: "Error on creating thing"
+      
+    update:
+      update_success: "Thing updated"
+      update_error: "Error on updating thing"
+
+    destroy:
+      destroy_success: "Thing deleted"
+      destroy_error: "Error on deleting thing"
+
+    form:
+      create_location_at_first: "Create a location first"
+
+    warning_not_owner: "This thing does not belong to you"
+    warning_location_not_owner: "Location does not belong to user"

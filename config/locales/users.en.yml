@@ -1,0 +1,72 @@
+de:
+  users:
+    confirmations:
+      new:
+        Resend confirmation instructions: "Resend confirmation instructions"
+
+    passwords:
+      edit:
+        header_change_password: "Change password"
+        submit: "submit"
+        help_password_minimum_length: "at least %{length} letters"
+      new:
+        submit: "Send email to reset"
+
+    registrations:
+      edit:
+        tipp_panel_text: "little help to edit registrations"
+        text_awaiting_confirmation: "Awaiting Confirmation of"
+        help_password_leave_blank: "Leave blank for no change"
+        help_password_needed: "Your current password is needed to update our account"
+        link_public_profile: "View public profil"
+        link_cancel_account: "Delete my profile"
+        delete_confirmation_question: "Do you really want to delete your profile?"
+        new_password_label: "Change password to"
+        new_password_confirmation_label: "retype"
+        
+      guidepost:
+        tipp_panel_text: "Guidepost help"
+        
+      new:
+        help_password_minimum_length: "at least %{length} letters"
+        help_nickname: "The nickname will be shown to other people instead of your true name. This protects your privacy. You can change it at any time later."
+        i_do: "I agree with the"
+        terms_of_use:  Terms of Use
+        and_the: and the
+        declaration_of_privacy: Privacy Declaration
+        agree: 
+        see_terms: "(see)"
+        
+      show:
+        tipp_panel_text: "little help zu show registrations"
+        empty_locations_list_message: "None"
+        warning_user_not_existent: "User not existent"
+        view_contact_details_button: "View"
+        heading_contact_info: "Contact"
+        heading_message: "Message"
+        placeholder_message_text: "Your message"
+        button_label_send_message: "Send message"
+        text_only_signed_up_users: "The User only allows signed people to contact him."
+        message_was_send: "Message send!"
+        waiting: "Sending message ..."
+
+      update_guidepost:
+        update_contact_info_success: "Updated contakt informationen"
+        create_location_success: "Location created"
+        warning_location_not_geocoded: "Address is unknown"
+
+      contact:
+        heading_contact_info: "Contakt"
+        no_contact_info: "The User has not published any information." # Nutze das Formular, um ihn zu kontaktieren."
+
+    sessions:
+      new:
+        submit: "Login"
+
+    shared:
+      links:
+        link_signin_omniauth: "Login mith"
+
+    unlocks:
+      new:
+        submit: "Send email to unlock"

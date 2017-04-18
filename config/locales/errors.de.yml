@@ -25,7 +25,7 @@ de:
             password_confirmation:
               confirmation: "stimmt nicht überein"
             confirmation_token:
-              invalid: "Die Bestätigung ist ungültig"
+              invalid: "ist ungültig"
 
         article:
           attributes:

@@ -1,0 +1,9 @@
+de:
+  user_mailer:
+    article_request_mail:
+      sender: "%{sender} via Shareship <mail@shareship.de>"
+      subject: "Shareship: Request for a thing"
+
+    user_message_mail:
+      sender: "%{sender} via Shareship <mail@shareship.de>"
+      subject: "Shareship: User message"

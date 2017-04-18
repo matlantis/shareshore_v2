@@ -13,6 +13,7 @@ de:
       invalid: "Ungültige Anmeldedaten."
       invalid_token: "Der Anmelde-Token ist ungültig."
       locked: "Dein Account ist gesperrt."
+      last_attempt: "Du hast noch einen Versuch bevor dein Account gesperrt wird."
       not_found_in_database: "E-Mail-Adresse oder Passwort ungültig."
       timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich erneut an."
       unauthenticated: "Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst."
@@ -24,6 +25,8 @@ de:
         subject: "Anleitung um Dein Passwort zurückzusetzen"
       unlock_instructions:
         subject: "Anleitung um Deinen Account zu entsperren"
+      password_change:
+        subject: "Passwort geändert"
     omniauth_callbacks:
       failure: "Du konntest nicht Deinem %{kind}-Account angemeldet werden, weil '%{reason}'."
       success: "Du hast Dich erfolgreich mit Deinem %{kind}-Account angemeldet."
@@ -33,7 +36,6 @@ de:
       send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen können."
       updated: "Dein Passwort wurde geändert. Du bist jetzt angemeldet."
       updated_not_active: "Dein Passwort wurde geändert."
-
     registrations:
       destroyed: "Dein Account wurde gelöscht."
       signed_up: "Du hast dich erfolgreich registriert."
@@ -49,7 +51,7 @@ de:
         already_signed_out: "Du warst bereits abgemeldet."
     unlocks:
       new:
-        Resend unlock instructions: "Resend unlock instructions"
+        Resend unlock instructions: "Anleitung zum Entsperren erneut senden"
       send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren können."
       send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren kannst."
       unlocked: "Dein Account wurde entsperrt. Du bist jetzt angemeldet."

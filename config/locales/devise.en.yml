@@ -4,12 +4,14 @@ en:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
+      confirmed_and_signed_in: "Thanks for your registration. You are now signed in."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."
+      invalid_token: "The login tokin is invalid."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "Invalid %{authentication_keys} or password."
@@ -45,8 +47,11 @@ en:
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      user:
+        already_signed_out: "Already signed out."
     unlocks:
+      new:
+        Resend unlock instructions: "Resend unlock instructions"
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."

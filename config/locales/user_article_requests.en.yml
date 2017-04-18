@@ -1,0 +1,7 @@
+de:
+  user_article_requests:
+    no_contact_method: "Not enough contakt information"
+    
+    create:
+      request_send: "Request send!"
+      request_error: "Request erroneous!"

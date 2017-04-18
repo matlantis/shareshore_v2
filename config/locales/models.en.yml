@@ -1,0 +1,88 @@
+de:
+  mail_form:
+    models:
+      contact:
+        one: "Contact"
+        other: "Contacts"
+    attributes:
+      contact:
+        name: "Name"
+        email: "Email"
+        subject: "Subject"
+        message: "Message"
+        nickname: "Nickname"
+
+  activerecord:
+    models:
+      user:
+        one: "User"
+        other: "People"
+      article:
+        one: "Thing"
+        other: "Things"
+      location:
+        one: "Location"
+        other: "Locations"
+      house:
+        one: "House"
+        other: "Houses"
+    attributes:
+      user_article_request:
+        with_phoneno: "Add phone number"
+        with_email: "Add email address"
+        with_name: "Add name"
+      message:
+        with_phoneno: "Add phone number"
+        with_email: "Add email address"
+        with_name: "Add name"
+      user:
+        remember_me: "Remember me"
+        firstname: "First name"
+        lastname: "Last name"
+        name: "Name"
+        phoneno: "Phone"
+        showemail: "Show email publicly"
+        showphone: "Show phone publicly"
+        showname: "Show name publicly"
+        password: "password"
+        password_confirmation: "Password confirmatino"
+        current_password: "Current Password"
+        locations: "Locations"
+        terms: "Terms of Use and Privacy Declaration"
+      article:
+        title: "Name"
+        details: "Remark"
+        value_eur: "Value (€)"
+        rate: "Consideration"
+        rate_interval: "Period"
+        gratis: "For a smile"
+        user: "Owner"
+        location: "Location"
+        picture: "Picture"
+      location:
+        street: "Street"
+        number: "No."
+        postcode: "Postcode"
+        city: "City"
+        country: "Country"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        user: "Inhabitant"
+        articles: "Things"
+      house:
+        street: "Street"
+        number: "No."
+        postcode: "Postcode"
+        city: "City"
+        country: "Country"
+        latitude: "Latitude"
+        longitude: "Longitude"
+      search:
+        transport: How?
+        pattern: What?
+        address: Where?
+        use_location: in my house
+        transport_foot: by foot
+        transport_bike: by bike
+        transport_car: by car
+        transport_rocket: with a rocket

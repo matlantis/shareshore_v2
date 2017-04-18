@@ -1,89 +1,67 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-en:
-  hello: "Hello world"
-  Search Articles: "Search Articles"
-  Search Term: "Search Term"
-  Search for: "Search for"
-  Search Radius: "Search Radius"
-  within: "within"
-  address: "address"
-  around: "around"
-  Search: "Search"
-  for: "for"
-  at: "at"
-  nearby: "nearby"
-  Articles: "Articles"
-  Loggin in as: "Logged in as"
-  New Article: "New Article"
-  Edit Profile: "Edit Profile"
-  Logout: "Logout"
-  Signup: "Sign up"
-  Login: "Login"
-  Editing Article: "Editing Article"
-  Edit: "Edit"
-  Delete: "Delete"
-  Create Article: "Create Article"
-  Please fix the errors below: "Please fix the errors below:"
-  Editing Location: "Editing Location"
-  Distance: "Distance"
-  Are you sure?: "Are you sure?"
-  Show: "Show"
-  New Location: "New Location"
-  View public profile: "View public profile"
-  My Articles: "My Articles"
-  Locations: "Locations"
-  Basic Info: "Basic Info"
-  we need your current password to confirm your changes: "we need your current password to confirm your changes"
-  leave blank if you dont want to change it: "leave blank if you don't want to change it"
-  Phone number: "Phone number"
-  Show email address in contact details to the public: "Show email address in contact details to the public"
-  Show phone number in contact details to the public: "Show phone number in contact details to the public"
-  Update: "Update"
-  Cancel my account: "Cancel my account"
-  Add: "Add"
-  Articles at this location: "Articles at this location"
-  really_delete_location_question: "Really delete location? All %{count} Articles will also be deleted!"
-  password_minimum_characters: "%{chars} characters minimum"
-  Currently waiting confirmation for: "Currently waiting confirmation for"
-  Unhappy: "Unhappy"
-  address_unknown: "Address is unknown"
-  Forgot your password?: "Forgot your password?"
-  Didnt receive confirmation instructions?: "Didn't receive confirmation instructions?"
-  Didnt receive unlock instructions?: "Didnt receive unlock instructions?"
-  Sign in with: "Sign in with %{provider}"
-  Profile of user: "Profile of"
-  Name: "Name"
-  Articles of this user: "Articles of %{nickname}"
-  Articles at: "Articles at %{location}"
-  First_time_here: "First time here?"
-  How_does_shareshore_work: "How does Shareshore work?"
-  Shareshore_is_a: "Shareshore is a sharing network"
-  Terms_of_use: "Terms of Use"
-  Tutorial: "Tutorial"
-  Contact: "Contact"
-  FAQ: "FAQ"
-  Gratis: "Gratis"
-  Info: "Info"
-
+de:
   mail:
-    user_request_username: "Shareshore request from user %{user}"
-    user_request_anonymous: "Shareshore user request"
+    subject_article_request_username: "Shareship user request from %{user} for your %{article}"
+    subject_article_request_anonymous: "Shareship user request for your %{article}"
+    subject_message_username: "Shareship message from von %{user}"
+    subject_message_anonymous: "Shareship message"
+
+  forms:
+    cancel: "Cancel"
+    finish: "Done"
+    reset: "Reset"
+    
+  common:
+    message_fix_errors: "Please fix the following errors"
+    title_tip_panel: "tip"
+    unknown_user: "Unknown user"
+    unknown_article: "Unknown thing"
+    unknown_location: "Unknown location"
+    none_given: "not given"
+    
+  titles:
+    contacts:
+      new: "Contact"
+      
+    articles:
+      new_from_stockitems: "Offer"
+      index: "Inventory"
+      index_location: "Things of %{user}"
+      index_user: "Things of %{user}"
+      
+    locations:
+      index: "Locations"
+
+    users:
+      registrations:
+        edit: "Profile"
+        guidepost: "What now?"
+        new: "Create profile"
+        show: "User"
+
+      sessions:
+        new: "Login"
+        destroy: "Logout"
+
+      passwords:
+        new: "Forgotten password?"
+
+      confirmations:
+        new: "Confirm account"
+
+      unlocks:
+        new: "Unlock account"
+        
+    pages:
+      tutorial: "Tutorial"
+      faq: "FAQ"
+      terms_of_use: "Terms"
+      about: "About"
+      who_is_it: "Who is it?"
+      privacy: "Privacy"
+      disclaimer: "Disclaimer"
+      guideline: "Guideline"
+      contrib: "Contributions"
+      
+    searches:
+      new: "Search"
+      show: "Nearby"

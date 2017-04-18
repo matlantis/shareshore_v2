@@ -1,0 +1,13 @@
+de:
+  contacts:
+    new:
+      submit_label: Submit
+      shareship_email: "mail@shareship.de"
+      text_write_email: "Write us an email!"
+      text_use_form: "Or use the form!"
+      message_was_send: "Message send!"
+      waiting: "Sending message ..."
+
+    create:
+      cannot_send_message: "Message could not be send"
+      thanks: "Thanks for your message. We will contact you soon!"
