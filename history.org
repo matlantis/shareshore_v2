@@ -3,11 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO das search form schaut beschissen aus, wenn display zu klein   :bug:
-*** TODO ersetze tafel schokolade durch ein eis
-    besser als icon darzustellen
-    
-*** TODO search: wenn adresse unbekannt, kommt einfach nix              :bug:
 *** TODO englisch                                                   :feature:
 *** TODO https                                                      :feature:
 *** TODO nutzerführung nach anmeldung                                 :theme:
@@ -38,6 +33,23 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE die fahrzeug zeit einschätzung ist blödsinn im Stadtverkehr    :bug:
+    CLOSED: [2017-04-18 Di 13:47]
+    
+*** DONE search: wenn adresse unbekannt, kommt einfach nix              :bug:
+    CLOSED: [2017-04-18 Di 13:24]
+*** DONE das search form schaut beschissen aus, wenn display zu klein   :bug:
+    CLOSED: [2017-04-18 Di 12:16]
+*** DONE ersetze tafel schokolade durch ein eis                 :enhancement:
+    CLOSED: [2017-04-18 Di 12:03]
+    besser als icon darzustellen
+*** DONE standort löschen löst flash nachricht aus              :enhancement:
+    CLOSED: [2017-04-18 Di 11:49]
+    annoying
+*** DONE bereits angemeldete user nicht mit der cookie warnung belästigen :enhancement:
+    CLOSED: [2017-04-18 Di 11:44]
+*** DONE search form fehlerhafte leerzeile wenn user keinen standort hat :bug:
+    CLOSED: [2017-04-18 Di 11:28]
 *** DONE transport_models brauchen icons                        :enhancement:
     CLOSED: [2017-04-15 Sa 21:45]
     glyphicons-shoe-steps

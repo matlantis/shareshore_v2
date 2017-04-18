@@ -40,6 +40,7 @@ class SearchesController < ApplicationController
     # if coming from map, dont save the search
     unless @search.save
       # handle could not geocode error (like locations)
+      handle_geocoding_error(@search)
       render 'new'
       return
     end
@@ -180,4 +181,13 @@ class SearchesController < ApplicationController
   def search_parameters
     params.require(:search).permit(:pattern, :address, :transport, :use_location, :location_id, :longitude, :latitude)
   end
+
+    def handle_geocoding_error(search)
+      if search.errors[:latitude] or search.errors[:longitude] # could not be geocoded
+        search.errors.clear
+        search.errors.add(:address, t("locations.warning_location_not_geocoded"))
+        print "ttttttttttttttttttttttttttttttttttttttttttttt"
+      end
+    end
+
 end

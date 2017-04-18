@@ -33,7 +33,7 @@ de:
       destroy_success: "Standort gelöscht"
       destroy_error: "Fehler beim Löschen des Standortes"
 
-    warning_location_not_geocoded: "Adresse ist unbekannt"
+    warning_location_not_geocoded: "Die Adresse ist unbekannt"
     warning_not_owner: "Dieser Standort gehört nicht Dir"
 
       

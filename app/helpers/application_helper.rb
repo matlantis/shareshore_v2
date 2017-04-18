@@ -172,7 +172,7 @@ module ApplicationHelper
     if user_signed_in? && (current_user.id == item.user.id || is_admin? )
       item_class = item.class.to_s.downcase
       txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "##{item_class}_#{item.id}_div .#{item_class}_edit", toggle: "tooltip"} , title: t('.tooltip_edit_button') )
-      txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('.tooltip_remove_button'))
+      txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('.tooltip_remove_button'), remote: true)
       txt1.concat(txt2)
     end
   end
@@ -194,7 +194,7 @@ module ApplicationHelper
     content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
   end
   
-  def distance_label(home, loc1, loc2)
+  def distance_label_time(home, loc1, loc2)
     if home
       content_tag :strong, t('articles.common.tooltip_home')
     else
@@ -216,6 +216,31 @@ module ApplicationHelper
         model = "rocket"
       end
       tooltip = "%.1f km (%s)" % [distance, I18n.t('searches.transport_models.' + model)]
+      content_tag :span,  data_toggle: "tooltip", title: tooltip do
+        transport_icon(model) + txt
+      end
+    end
+  end
+
+  def distance_label(home, loc1, loc2)
+    if home
+      content_tag :strong, t('articles.common.tooltip_home')
+    else
+      distance = loc2.distance_from( loc1 )
+      if distance < SearchesHelper::TransportModel.radius("foot")
+        txt = "  ca. %i m" % [(distance * 100).round * 10]
+        model = "foot"
+      elsif distance < SearchesHelper::TransportModel.radius("bike")
+        txt = "  ca. %.1f km" % [distance]
+        model = "bike"
+      elsif distance < SearchesHelper::TransportModel.radius("car")
+        txt = "  ca. %i km" % [(distance / 10).round * 10]
+        model = "car"
+      else
+        txt = "  ca. %f km" % [(distance / 100).round * 100]
+        model = "rocket"
+      end
+      tooltip = I18n.t("searches.good_with_" + model)
       content_tag :span,  data_toggle: "tooltip", title: tooltip do
         transport_icon(model) + txt
       end

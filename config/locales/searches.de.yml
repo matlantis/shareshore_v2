@@ -1,5 +1,9 @@
 de:
   searches:
+    good_with_foot: "Gut zu Fuß erreichbar"
+    good_with_bike: "Gut mit dem Fahrrad erreichbar"
+    good_with_car: "Gut mit dem Fahrzeug erreichbar"
+    good_with_rocket: "Gut mit der Rakete erreichbar"
     transport_radius_explanation: "max. %{radius} km weit"
     transport_models:
       foot: zu Fuß
@@ -20,6 +24,8 @@ de:
       tooltip_address_field: Gib deine Adresse oder einfach nur deinen Wohnort ein!
       tooltip_pattern_field: Wonach suchst du? Einfach leer lassen, wenn du Alles willst!
 
+    new:
+      unknown_location: Die Adresse ist unbekannt
     show:
       text_at_house: Im Haus
       and_you: und Du
