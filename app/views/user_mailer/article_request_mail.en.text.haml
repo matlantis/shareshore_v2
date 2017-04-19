@@ -1,0 +1,20 @@
+:plain
+  Your neighbour #{@request.user.nickname} likes to borrow your #{@request.article.title}.
+
+  He/She sends you the following message:
+
+  #{@request.text}
+
+  Reply to this message by using the reply function of your email software!
+
+  Just one thing: Before lending something consider reading our Guideline to prevent yourself from taking unneccessary risks:
+  #{guideline_url}
+
+  Learn more about #{@request.user.nickname} on
+  #{user_url(@request.user)}
+
+  Visit your #{@request.article.title} on
+  #{article_url(@request.article)}
+
+  #{render 'user_mailer/signature'}
+

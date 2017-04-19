@@ -1,0 +1,24 @@
+- @title = t('titles.pages.about')
+
+%h3= @title
+
+%h4 Angaben gemäß § 5 TMG:
+%p
+  Martin Puttke
+  %br/
+  Shareship
+  %br/
+  Torgauer Str. 14
+  %br/
+  01127 Dresden
+%h4 Kontakt:
+%table
+  %tr
+    %td Telefon:
+    %td +49 (0) 179 9113709
+  %tr
+    %td E-Mail:
+    %td martinstefanputtke@posteo.de
+%h4= t('titles.pages.disclaimer')
+= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
+    

@@ -1,0 +1,11 @@
+%p
+  You received a message from #{user_marker(@message.sender)} via Shareship:
+
+%p
+  - if @message.html
+    = @message.html.html_safe
+  - else
+    %pre= @message.text
+  
+%p
+  Reply to this message by using the reply function of your email software!
