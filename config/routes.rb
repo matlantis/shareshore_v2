@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # # the locale scope
+  # scope "(:locale)", locale: /en|de/ do
+  #   root to: 'welcome#index'
+  # end
+
   resources :messages
   resources :user_article_requests
   resources :houses, only: [:show, :index, :edit, :update]

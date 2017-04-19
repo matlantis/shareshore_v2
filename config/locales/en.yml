@@ -1,4 +1,4 @@
-de:
+en:
   mail:
     subject_article_request_username: "Shareship user request from %{user} for your %{article}"
     subject_article_request_anonymous: "Shareship user request for your %{article}"

@@ -1,4 +1,4 @@
-de:
+en:
   user_mailer:
     article_request_mail:
       sender: "%{sender} via Shareship <mail@shareship.de>"

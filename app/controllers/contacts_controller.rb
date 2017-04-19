@@ -8,9 +8,6 @@ class ContactsController < ApplicationController
       @contact.message = params.delete(:message)
     end
 
-
-      
-
     if current_user
       @contact.name = current_user.nickname
       @contact.email = current_user.email
