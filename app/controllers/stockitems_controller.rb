@@ -15,7 +15,7 @@ class StockitemsController < ApplicationController
 
     @articles = []
     @stockitems.each do |t|
-      a = Article.new(title: t["title_" + I18n.locale.to_s] , details: t.details_hint, rate: t.rate, picture: t.picture, stockitem_id: t.id, quality: 3)
+      a = Article.new(title: t["title_" + I18n.locale.to_s] , details: t["details_hint_" + I18n.locale.to_s], picture: t.picture, stockitem_id: t.id, quality: 3)
       @articles.push(a)
     end
   end
@@ -85,6 +85,6 @@ class StockitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stockitem_params
-      params.require(:stockitem).permit(:title_de, :title_en, :details_hint, :rate, :picture, :room)
+      params.require(:stockitem).permit(:title_de, :title_en, :details_hint_de, :details_hint_en, :picture, :room)
     end
 end

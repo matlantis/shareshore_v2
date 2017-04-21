@@ -14,8 +14,6 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 1, maximum: 50 }
   #validates :location, presence: true # auto in rails 5
   #validates :user, presence: true # auto in rails 5
-  #validates :rate, length: { minimum: 1, maximum: 50 }
-
   validates :rate, inclusion: ArticlesHelper::RateModel.list_models
   
   #validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
@@ -36,8 +34,7 @@ class Article < ApplicationRecord
   def fill_from_stockitem(stockitem)
     self.to_be_created = false
     self.title = stockitem["title_" + I18n.locale.to_s]
-    self.details = stockitem.details_hint
-    #self.rate = stockitem.rate
+    self.details = stockitem["details_hint_" + I18n.locale.to_s]
     self.rate = ArticlesHelper::RateModel.list_models[0]
     self.picture = stockitem.picture
     self.stockitem_id = stockitem.id

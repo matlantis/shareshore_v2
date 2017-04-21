@@ -18,7 +18,7 @@ class StockitemsControllerTest < ActionController::TestCase
 
   test "should create stockitem" do
     assert_difference('Stockitem.count') do
-      post :create, stockitem: { details_hint: @stockitem.details_hint, picture: @stockitem.picture, rate_eur: @stockitem.rate_eur, rate_interval: @stockitem.rate_interval, title: @stockitem.title_de }
+      post :create, stockitem: { details_hint_de: @stockitem.details_hint_de, details_hint_en: @stockitem.details_hint_en, picture: @stockitem.picture, title: @stockitem.title_de }
     end
 
     assert_redirected_to stockitem_path(assigns(:stockitem))
@@ -35,7 +35,7 @@ class StockitemsControllerTest < ActionController::TestCase
   end
 
   test "should update stockitem" do
-    patch :update, id: @stockitem, stockitem: { details_hint: @stockitem.details_hint, picture: @stockitem.picture, rate_eur: @stockitem.rate_eur, rate_interval: @stockitem.rate_interval, title: @stockitem.title_de }
+    patch :update, id: @stockitem, stockitem: { details_hint_de: @stockitem.details_hint_de, details_hint_en: @stockitem.details_hint_en, picture: @stockitem.picture, title: @stockitem.title_de }
     assert_redirected_to stockitem_path(assigns(:stockitem))
   end
 

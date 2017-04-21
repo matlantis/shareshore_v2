@@ -2,14 +2,12 @@
 
 one:
   title_de: MyString
-  details_hint: MyText
-  rate_eur: 1
-  rate_interval: MyString
+  details_hint_de: MyText
+  details_hint_en: MyText
   picture: MyString
 
 two:
   title_de: MyString
-  details_hint: MyText
-  rate_eur: 1
-  rate_interval: MyString
+  details_hint_de: MyText
+  details_hint_en: MyText
   picture: MyString

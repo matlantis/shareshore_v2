@@ -1,9 +1,13 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) POSTPONED(p) ONTURN(o) REOPENED(r) | DONE(d) FORWARDED(f) CANCELED(c)
-#+TAGS: bug feature enhancement text layout concept code theme
+#+TAGS: bug feature enhancement text layout concept code theme howto
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO englisch                                                   :feature:
+*** TODO datenbank vom server woanders hinschieben                    :howto:
+    und zurück
+*** TODO englisch [0/2]                                                :text:
+    - [ ] stockitems
+    - [ ] pages
 *** TODO https                                                      :feature:
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
@@ -20,6 +24,7 @@
     listet nur locations, könnte aber auch artikel listen wie search
     und ne map, ausserdem gibts in zukunft nur noch eine location
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
+    - room braucht übersetzung
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
     sprich: abstand nehmen von hochwertigen gegenständen
@@ -33,6 +38,12 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+*** DONE sprache mechanik                                           :feature:
+    CLOSED: [2017-04-21 Fr 14:54]
+    stockitems
+    - title
+    - details hint
+    - room (wird ohnehin überarbeitet)
 *** DONE die fahrzeug zeit einschätzung ist blödsinn im Stadtverkehr    :bug:
     CLOSED: [2017-04-18 Di 13:47]
     
