@@ -35,7 +35,7 @@ class Article < ApplicationRecord
 
   def fill_from_stockitem(stockitem)
     self.to_be_created = false
-    self.title = stockitem.title
+    self.title = stockitem["title_" + I18n.locale.to_s]
     self.details = stockitem.details_hint
     #self.rate = stockitem.rate
     self.rate = ArticlesHelper::RateModel.list_models[0]

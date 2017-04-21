@@ -93,26 +93,6 @@ module ApplicationHelper
     end
   end
 
-  def article_marker_modal(article)
-    article_show_id = "#article_" + article.id.to_s + "_show"
-    capture do
-      unless article
-        content_tag :em, t('common.unknown_article')
-      else
-        content_tag :span, class: "user_marker" do
-          link_to article_show_id, data: { toggle: "modal" } do
-            txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
-            if article.stockitem_id
-              txt1.concat(" ").concat(article.stockitem.title)
-            else
-              txt1.concat(" ").concat(article.title)
-            end
-          end
-        end
-      end
-    end
-  end
-
   def article_marker(article)
     article_show_id = "#article_" + article.id.to_s + "_show"
     capture do
@@ -123,11 +103,12 @@ module ApplicationHelper
           link_to article do
             #txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
             txt1 = ""
-            if article.stockitem_id
-              txt1.concat(" ").concat(article.stockitem.title)
-            else
-              txt1.concat(" ").concat(article.title)
-            end
+            #if article.stockitem_id
+            #  txt1.concat(" ").concat(article.stockitem["title_" + I18n.locale.to_s])
+            #else
+            #  txt1.concat(" ").concat(article.title)
+            #end
+            txt1.concat(" ").concat(article.title)
           end
         end
       end

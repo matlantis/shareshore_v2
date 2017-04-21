@@ -7,7 +7,7 @@
     = link_to t('titles.locations.index'), locations_path
 - else
   
-  = bootstrap_form_for(article, url: url, layout: :horizontal, remote: true) do |f|
+  = bootstrap_form_for(article, url: url, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
     = f.alert_message t('common.message_fix_errors')
     - if article.stockitem_id
       = f.hidden_field :title

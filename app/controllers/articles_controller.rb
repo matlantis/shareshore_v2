@@ -67,17 +67,24 @@ class ArticlesController < ApplicationController
 
   def new_from_stockitems
     @rooms = Stockitem.all.collect {|t| t.room }.uniq.sort
+
+    criterion_hash = {}
+    criterion_hash["title_" + I18n.locale.to_s] = :asc
     @articles = {}
     if params.has_key? 'room'
       @articles[params['room']] = []
-      stockitems = Stockitem.where("room = ?", params['room']).order("title: :asc")
+      stockitems = Stockitem.where("room = ?", params['room'])
+      # oder according to language title
+      stockitems = stockitems.order(criterion_hash)
       stockitems.each do |t|
         @articles[params['room']].push Article.new.fill_from_stockitem t
       end
     else   
       @rooms.each do |room|
         @articles[room] = []
-        stockitems = Stockitem.where("room = ?", room).order(title: :asc)
+        stockitems = Stockitem.where("room = ?", room)
+        # oder according to language title
+        stockitems = stockitems.order(criterion_hash)
         stockitems.each do |t|
           @articles[room].push Article.new.fill_from_stockitem t
         end
