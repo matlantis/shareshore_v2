@@ -22,6 +22,8 @@ module ShareshoreV2
 
     # images in vendor assets images leaflet
     config.assets.paths << Rails.root.join("vendor", "assets", "images", "leaflet")
+
+    config.force_ssl = false
   end
 end
 
