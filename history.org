@@ -6,6 +6,15 @@
 *** TODO devise has a secret key which is stored a vc'ed file           :bug:
     devise.rb: config.secret_key
     drüber nachlesen
+    renew on 22.04.2020, have already put a reminder into calendar
+**** usefull
+     - https://simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
+       rails seite
+     - https://readysteadycode.com/howto-setup-ssl-with-rails-and-heroku
+       heroku seite und general infos
+     - https://www.resumonk.com/blog/setup-ssl-certificate-heroku/
+       csr erstellen
+     
 *** TODO https                                                      :feature:
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
