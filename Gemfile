@@ -17,7 +17,7 @@ gem 'pg' #, '~> 0.15'
 #gem 'puma', '~> 3.0'
 # Use thin as the app server (ssl)
 #group :development do
-gem "thin"
+#gem "thin"
 #end
 
 # Use SCSS for stylesheets

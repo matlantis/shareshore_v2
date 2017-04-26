@@ -1,1 +1,1 @@
-web: bundle exec thin start --ssl -p $PORT
+web: bundle exec rails server
