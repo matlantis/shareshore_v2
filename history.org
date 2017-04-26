@@ -6,7 +6,8 @@
 *** TODO devise has a secret key which is stored a vc'ed file           :bug:
     devise.rb: config.secret_key
     drüber nachlesen
-    renew on 22.04.2020, have already put a reminder into calendar
+*** TODO https                                                      :feature:
+    certificate: renew on 22.04.2020, have already put a reminder into calendar
 **** usefull
      - https://simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
        rails seite
@@ -14,8 +15,12 @@
        heroku seite und general infos
      - https://www.resumonk.com/blog/setup-ssl-certificate-heroku/
        csr erstellen
+**** how i finally did it
+     auf heroku kümmert sich heroku um ssl, mein server sieht sowieso nur http
+     daher muss mein server auch kein https können
+     aber der dns eintrag in campusspeicher musste anders lauten: shareship.herokuapp.com
+     frag nicht, woher ich das genommen hab!
      
-*** TODO https                                                      :feature:
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
@@ -96,6 +101,8 @@
 
       - als gelöst betrachten!
 ***** <2017-04-24 Mo> trat zuletzt bei leon's handy auf
+      <2017-04-26 Mi> und heute bei mir im chrome
+      --> nix geht
 *** DONE sprache mechanik                                           :feature:
     CLOSED: [2017-04-21 Fr 14:54]
     stockitems

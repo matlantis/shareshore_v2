@@ -14,7 +14,7 @@ gem 'pg' #, '~> 0.15'
 #gem 'sqlite3'
 
 # Use Puma as the app server
-#gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.0'
 # Use thin as the app server (ssl)
 #group :development do
 #gem "thin"
