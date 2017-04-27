@@ -11,7 +11,7 @@
       = t(".text_awaiting_confirmation")
       \: #{resource.unconfirmed_email}
       
-  = bootstrap_form_for(resource, url: registration_path(resource_name), as: resource_name, html: { method: :put }, layout: :horizontal) do |f|
+  = bootstrap_form_for(resource, url: registration_path(resource_name), as: resource_name, html: { method: :put }, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
     = devise_error_messages!
     = f.email_field :email, autofocus: true
     = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", label: t('.new_password_label')

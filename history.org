@@ -3,24 +3,22 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO cloudflare weiterleitung
+    zwecks billigerem ssl zertifikat (heroku: 20$)
+    - bei campusspeicher die namesserver geändert unter: https://www.campusspeicher.de/kundencenter/domain-nameserver-einstellungen/9124932/
+      vorher:
+      dns1.mediafam.de
+      dns2.mediafam.de
+      dns3.mediafam.de
+      dns4.mediafam.de
+      nachher:
+      max.ns.cloudflare.com
+      pam.ns.cloudflare.com
+    - next step: ssl aktivieren und unter heroku deaktivieren
+      eventuell das gekaufte zertifikat bei rapidssl stornieren
 *** TODO devise has a secret key which is stored a vc'ed file           :bug:
     devise.rb: config.secret_key
     drüber nachlesen
-*** TODO https                                                      :feature:
-    certificate: renew on 22.04.2020, have already put a reminder into calendar
-**** usefull
-     - https://simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
-       rails seite
-     - https://readysteadycode.com/howto-setup-ssl-with-rails-and-heroku
-       heroku seite und general infos
-     - https://www.resumonk.com/blog/setup-ssl-certificate-heroku/
-       csr erstellen
-**** how i finally did it
-     auf heroku kümmert sich heroku um ssl, mein server sieht sowieso nur http
-     daher muss mein server auch kein https können
-     aber der dns eintrag in campusspeicher musste anders lauten: shareship.herokuapp.com
-     frag nicht, woher ich das genommen hab!
-     
 *** TODO nutzerführung nach anmeldung                                 :theme:
 **** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
@@ -44,6 +42,8 @@
 *** TODO Contributions Seite ist noch etwas mager                      :text:
 *** TODO ich brauch ne remote test seite                            :feature:
     mailgun muss anhand des receivers entscheiden können wo es welche mail hinschickne muss
+    mal nen virtuellen server austesten, der einfachheit halber auf campusspeicher
+    das mit der test seite geht vermutlich auch auf heroku von haus aus (stichwort: deploy)
 *** TODO purify                                                         :bug:
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
@@ -56,7 +56,8 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
-*** TODO dns weiterleitung von shareship.de                             :bug:
+*** DONE dns weiterleitung von shareship.de                             :bug:
+    CLOSED: [2017-04-27 Do 12:55]
 **** Protokoll
 ***** versuch 1
       <2017-04-08 Sa 15:15>
@@ -71,7 +72,7 @@
       - änderung rückgängig gemacht: webmailer scheint wieder zu gehen (ohne verzögerung), jedoch fehlerpopup in webmailer gui (verbindung zum speicherserver fehlgeschlagen) - oder auch nicht (zweiter versuch nach einer minute schlägt fehl) - verhalten inkonsistent, mal gehts mal nicht, immer fehler mit speicherserver, fehlernachricht leicht variierend (schätzte, weil die dns konfiguration noch nicht weit genug propagiert ist, besser noch warten), um <2017-04-08 Sa 16:43> geht's wieder ohne fehler
 ***** versuch 2
       ziel: stelle fest, ob nach der änderung http://shareship.de geht
-      dns config: siehe Projects/shareship/www/2017-04-08_campusspeicher_dns_configuration.png
+      dns config: siehe file:~/Projects/shareshore/www/2017-04-08_campusspeicher_dns_configuration.png
       - vorher [4/5]
         - [X] http://www.shareship.de
         - [ ] http://shareship.de
@@ -103,6 +104,36 @@
 ***** <2017-04-24 Mo> trat zuletzt bei leon's handy auf
       <2017-04-26 Mi> und heute bei mir im chrome
       --> nix geht
+***** versuch 3
+      - vorher: 
+        - dns config: siehe file:~/Projects/shareshore/www/2017-04-26_campusspeicher_dns_configuration.png
+        - ping shareship.de geht nach 91.250.115.183
+      - massnahme:
+        - <2017-04-26 Mi 13:27> lösche den A eintrag auf shareship.de nach 91.250.115.183
+        - <2017-04-26 Mi 13:36> keine verändernug (mail geht, ping wie vorher)
+        - <2017-04-26 Mi 13:36> added shareship.de, 3600, IN, CNAME, shareship.herokuapp.com
+      - änderungen rückgängig gemacht
+***** versuch 4
+      im campusspeicher Control Panel unter shareship.de war eine weiterleitung auf shareship.de.herokudns.com eingetragen. geändert in shareship.herokuapp.com.
+      unter firefox gehts jetzt auch nach löschung aller nutzerdaten
+*** DONE https                                                      :feature:
+    CLOSED: [2017-04-26 Mi 13:18]
+    certificate: renew on 22.04.2020, have already put a reminder into calendar
+**** usefull
+     - https://simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/
+       rails seite
+     - https://readysteadycode.com/howto-setup-ssl-with-rails-and-heroku
+       heroku seite und general infos
+     - https://www.resumonk.com/blog/setup-ssl-certificate-heroku/
+       csr erstellen
+**** how i finally did it
+     auf heroku kümmert sich heroku um ssl, mein server sieht sowieso nur http
+     daher muss mein server auch kein https können
+     aber der dns eintrag in campusspeicher musste anders lauten: shareship.herokuapp.com
+     auf heroku muss man ssl freischalten (endpoint gewählt), und das certificate muss man kaufen und installieren (siehe anleitungen in den links unter [[usefull]])
+     frag nicht, woher ich das genommen hab!
+     in production.rb force_ssl aktiviert
+     --> läuft
 *** DONE sprache mechanik                                           :feature:
     CLOSED: [2017-04-21 Fr 14:54]
     stockitems
