@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy, :new_from_stockitems ]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
+  before_action :redirect_user_without_location, only: [:index, :new_from_stockitems]
 
   def index
     # admins can see articles of other users

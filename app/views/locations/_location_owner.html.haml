@@ -1,7 +1,7 @@
 - item_div_id = "location_" + location.id.to_s + "_div"
 .location{id: item_div_id}
   .location_view
-    = render 'location_view', location: location, edit: true
+    = render 'locations/location_view', location: location, edit: true
   .row.location_edit
     .col-xs-12
-      = render 'form', location: location
+      = render 'locations/form', location: location

@@ -23,6 +23,15 @@ de:
         delete_confirmation_question: "Willst du dein Profil wirklich löschen?"
         new_password_label: "Passwort ändern in"
         new_password_confirmation_label: "nochmals eingeben"
+        basic_info: "Basisinformationen"
+        contact_info: "Kontaktinformationen"
+        how_shall_people_get_in_contact_with_you: "Wie sollen die Leute dich kontaktieren?"
+        per_shareship: "Shareship"
+        per_shareship_help: "Nachrichten werden an deine Email weitergeleitet"
+        per_email: "Email"
+        per_email_help: "Deine Email wird angezeigt"
+        per_phone: "Telefon"
+        per_phone_help: "Deine Telefonnummer wird angezeigt"
         
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."

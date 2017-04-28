@@ -14,19 +14,41 @@
       nachher:
       max.ns.cloudflare.com
       pam.ns.cloudflare.com
+    - added A record form shareship.de to 91.250.115.183 (did also on campusspeicher, like it was before my changes)
     - next step: ssl aktivieren und unter heroku deaktivieren
       eventuell das gekaufte zertifikat bei rapidssl stornieren
-*** TODO devise has a secret key which is stored a vc'ed file           :bug:
-    devise.rb: config.secret_key
-    drüber nachlesen
 *** TODO nutzerführung nach anmeldung                                 :theme:
+**** entwurf 1
+     neuanmeldung: emailadresse angeben -> email erhalten -> bestätigen -> weitere nutzerdaten angeben -> fertig
+     weitere nutzerdaten sind: passwort (vorgenerieren (per js sonst unsicher - weglassen)), nutzername, standort
+     auto login after confirm wird als security risk gewertet
+**** entwurf 2
+     emailadresse, passwort, nickname eingeben -> email bestätigung -> anmelden -> standort und kontakt details eingeben (guidepost) 
+**** TODO nach email bestätigung sofort login
+**** TODO vor und nachname bis auf weiteres deaktivieren
+     alternativ nutzername deaktivieren (wie bei facebook, besser nicht wegen privatsphäre)
 **** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
-**** TODO standort erstellen direkt nach dem login - wegweiser      :concept:
+     standort im profil edit anlegen und bearbeiten
+***** entwurf
+      - [ ] user.locations durch location ersetzen
+      - [ ] contact details in eigenes model schieben
+        erst mal sparen
+      - [ ] formulare:
+        nested, weil das dann durch registrations#update geregelt wird
+        dann noch update_resource überschreiben, um location und contact info ohne password updaten zu können
+        inwieweit geht das auch mit locations statt location? schwierig
+        erst mal die formulare für die contact details machen? allerdings sollen die ja auch ausgelagert werden. das ist auch nur dann nested wenn sie ausgelagert werden. also erstmal ohne auslagern ohne nested realisieren
+**** TODO standort erstellen direkt nach dem login - wegweiser      :concept:     
 **** TODO passwort abfrage bei ändern der nutzendaten nervig    :enhancement:
      nur beim ändern des passwortes oder der email nötig
      dazu separate seiten
      besser die profile seite etwas umbauen, so dass das moderner wirkt
      edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
+**** TODO die contact form felder anders anordnen
+     checkbox - details
+     via Shareshore - ohne details - immer aktiv
+     via email - ohne details
+     via telefon - telefonnr feld
 *** TODO profil text und bild                                       :feature:
     netter text macht profile menschlicher
     bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
@@ -56,6 +78,11 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
+*** DONE devise has a secret key which is stored a vc'ed file           :bug:
+    CLOSED: [2017-04-27 Do 14:13]
+    devise.rb: config.secret_key
+    drüber nachlesen
+    put into .env resp. heroku config
 *** DONE dns weiterleitung von shareship.de                             :bug:
     CLOSED: [2017-04-27 Do 12:55]
 **** Protokoll
@@ -1184,6 +1211,8 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     admin tasks sind üblicherweise Datenbank operationen, die krieg ich alle von der cmdline hin
     braucht man nur für regelmässige tasks
     zB: template erstellen, vllt auch einfach als seed realisieren
+    user sperren oder löschen
+    hochgeladene bilder checken und absegnen
 *** TODO Mehr templates erstellen
 *** TODO Einfache * templates immer als erstes im raum anzeigen
 *** TODO der footer muss gemacht gewerden

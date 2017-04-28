@@ -1,4 +1,4 @@
-= bootstrap_form_for(location, layout: :horizontal, remote: true) do |f|
+= bootstrap_form_for(location, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
   = f.alert_message t('common.message_fix_errors')
   = f.text_field :street
   = f.text_field :number

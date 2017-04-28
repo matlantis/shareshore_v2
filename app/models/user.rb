@@ -44,7 +44,7 @@ class User < ApplicationRecord
   def fullname_or_none
     (fullname.blank?)? I18n.t("common.none_given") : fullname
   end
-
+  
   protected
   def confirmation_required?
     true # to disable confirmation stuff set to false

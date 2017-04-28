@@ -23,10 +23,34 @@ class Users::RegistrationsController < Devise::RegistrationsController
     flash.delete("recaptcha_error")
   end
 
+
+  # By default we want to require a password checks on update.
+  # You can overwrite this method in your own RegistrationsController.
+  def update_resource(resource, params)
+    if params.key?("password") && !params["password"].empty?
+      resource.update_with_password(params)
+    else
+      # delete password and current_password field
+      params.delete("current_password")
+      params.delete("password")
+      params.delete("password_confirmation")
+      resource.update(params)
+    end
+  end
+  
   def guidepost
     @location = Location.new
   end
 
+  def update_contact
+    p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :showname, :phoneno)
+    success = current_user.update(p)
+    # this updates only the contactdetails not the basic informations
+    respond_to do |format|
+      format.html { render :edit }
+    end
+  end
+  
   def update_guidepost
     if params.has_key? :user
       @location = Location.new # create a location for the form (maybe needed)
@@ -80,9 +104,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    # init new location and try to prefill country and city
+    if current_user.locations.count > 0
+      @location = current_user.locations[0]
+    else
+      @location = Location.new
+      if session.has_key?(:address)
+        parts = session[:address].split(',')
+        if parts.length > 0
+          @location.city = parts[0].strip() # guess the first part is the city
+          
+          country_part = parts[-1].strip() # guess the last part is the country part
+          country = ISO3166::Country.find_country_by_name(country_part)
+          if country
+            @location.country = country.alpha2
+          end
+        end
+      end
+    end
+    super
+  end
 
   # PUT /resource
   # def update
@@ -119,11 +161,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-    # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    user_guidepost_path
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
