@@ -1,10 +1,11 @@
 - @title = t('titles.users.registrations.edit')
 
-.col-xs-12.col-sm-3.col-sm-push-9
+-#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
     = render 'edit_help'
     
-.col-xs-12.col-sm-9.col-sm-pull-3
+-#.col-xs-12.col-sm-9.col-sm-pull-3
+.col-xs-12
   %h3= @title
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     .alert.alert-warning
@@ -44,11 +45,50 @@
         %span.help-block
           = t('.per_phone_help')
     = f.text_field :phoneno
+
+    -#= f.fields_for "locations[0]", resource.locations[0] do |location_form|
+      = location_form.text_field :street
+      = location_form.text_field :number
+      = location_form.text_field :postcode
+      = location_form.text_field :city
+      = location_form.form_group do
+        = location_form.country_select :country, { selected: resource.locations[0].country }, { class: 'form-control' }
+      - if is_admin?
+        = location_form.number_field :house_id
+
     = f.form_group do
       = f.submit t("forms.finish")
-      = link_to t(".link_public_profile"), user_path(@user), class: "btn btn-default"
-    
-  = button_to t(".link_cancel_account"), registration_path(resource_name), data: { confirm: t(".delete_confirmation_question") }, method: :delete, class: "btn btn-default"
+
+  -#%div
+    %h4= t(".location_info")
+
+    %div{:class => "empty-list#{" to_hide" unless @locations.empty?}"}
+      = t('.empty_locations_list_message')
+    - @locations.each do |location|
+      = render 'locations/location_owner', location: location
+    .location_placeholder
+    .location
+      .row
+        .col-xs-12.text-right
+          = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", id: "location_new_button", data: {toggle_target: "#location_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
+      #location_new.row
+        .col-xs-12
+          = render 'locations/form', location: @location
+  - if @user.locations.count < 1
+    .alert.alert-notice
+      = t('.create_a')
+      = succeed "," do
+        = link_to Location.model_name.human, locations_path
+      = t('.to_share_things')
+  - if @user.articles.count < 1
+    .alert.alert-notice
+      = t('.use_the')
+      = succeed "," do
+        = link_to Stockitem.model_name.human(count: 2), user_new_article_from_stockitems_path
+      = t('.to_build_up_your_inventory')
+
+  = link_to t(".link_cancel_account"), registration_path(resource_name), data: { confirm: t(".delete_confirmation_question") }, method: :delete, class: "btn btn-default"
+  = link_to t(".link_public_profile"), user_path(@user), class: "btn btn-default"
 
   -#%h4 Location - Where do you live?
   -#= bootstrap_form_for(location, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|

@@ -14,7 +14,7 @@
     .row
       .col-xs-12.text-right
         = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", data: {toggle_target: "#article_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
-    #article_new.row
+    #article_new.row{class: @articles.count > 0 && 'to_hide' }
       .col-xs-12
         = render 'form', article: Article.new, url: create_from_index_articles_path
 

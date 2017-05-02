@@ -14,7 +14,7 @@
     .row
       .col-xs-12.text-right
         = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", id: "location_new_button", data: {toggle_target: "#location_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
-    #location_new.row
+    #location_new.row{class: @locations.count > 0 && 'to_hide' }
       .col-xs-12
         = render 'form', location: @location
 

@@ -1,5 +1,6 @@
 - newtext = escape_javascript(render('location_owner', location: @location))
 
 :plain
-  console.log('update success');
-  onLocationsUpdateSuccess("#{@location_div_id}","#{newtext}")
+  //redirect to show
+  window.location = "#{url_for @location}"
+  //onLocationsUpdateSuccess("#{@location_div_id}","#{newtext}")

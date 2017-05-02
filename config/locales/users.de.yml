@@ -18,13 +18,14 @@ de:
         text_awaiting_confirmation: "Warte auf Bestätigung von"
         help_password_leave_blank: "Freilassen, wenn du es nicht ändern möchtest"
         help_password_needed: "Wir benötigen dein bisheriges Passwort, um deine Änderungen durchzuführen"
-        link_public_profile: "Öffentliches Profile anzeigen"
+        link_public_profile: "Öffentliches Profil anzeigen"
         link_cancel_account: "Mein Profil löschen"
         delete_confirmation_question: "Willst du dein Profil wirklich löschen?"
         new_password_label: "Passwort ändern in"
         new_password_confirmation_label: "nochmals eingeben"
         basic_info: "Basisinformationen"
         contact_info: "Kontaktinformationen"
+        location_info: "Standortinformationen"
         how_shall_people_get_in_contact_with_you: "Wie sollen die Leute dich kontaktieren?"
         per_shareship: "Shareship"
         per_shareship_help: "Nachrichten werden an deine Email weitergeleitet"
@@ -32,7 +33,12 @@ de:
         per_email_help: "Deine Email wird angezeigt"
         per_phone: "Telefon"
         per_phone_help: "Deine Telefonnummer wird angezeigt"
-        
+        empty_locations_list_message: "Du hast keine Standorte. Erstelle einen!"
+        create_a: "Erstelle einen"
+        to_share_things: "um Dinge verleihen zu können."
+        use_the: "Verwende die"
+        to_build_up_your_inventory: "um ohne viel Aufwand Dein Angebot zu erstellen."
+
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."
         

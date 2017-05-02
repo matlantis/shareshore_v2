@@ -17,28 +17,9 @@
     - added A record form shareship.de to 91.250.115.183 (did also on campusspeicher, like it was before my changes)
     - next step: ssl aktivieren und unter heroku deaktivieren
       eventuell das gekaufte zertifikat bei rapidssl stornieren
-*** TODO nutzerführung nach anmeldung                                 :theme:
-**** entwurf 1
-     neuanmeldung: emailadresse angeben -> email erhalten -> bestätigen -> weitere nutzerdaten angeben -> fertig
-     weitere nutzerdaten sind: passwort (vorgenerieren (per js sonst unsicher - weglassen)), nutzername, standort
-     auto login after confirm wird als security risk gewertet
-**** entwurf 2
-     emailadresse, passwort, nickname eingeben -> email bestätigung -> anmelden -> standort und kontakt details eingeben (guidepost) 
-**** TODO nach email bestätigung sofort login
-**** TODO vor und nachname bis auf weiteres deaktivieren
-     alternativ nutzername deaktivieren (wie bei facebook, besser nicht wegen privatsphäre)
-**** TODO nur ein standort und den gleich nach der anmeldung ausfüllen
-     standort im profil edit anlegen und bearbeiten
-***** entwurf
-      - [ ] user.locations durch location ersetzen
-      - [ ] contact details in eigenes model schieben
-        erst mal sparen
-      - [ ] formulare:
-        nested, weil das dann durch registrations#update geregelt wird
-        dann noch update_resource überschreiben, um location und contact info ohne password updaten zu können
-        inwieweit geht das auch mit locations statt location? schwierig
-        erst mal die formulare für die contact details machen? allerdings sollen die ja auch ausgelagert werden. das ist auch nur dann nested wenn sie ausgelagert werden. also erstmal ohne auslagern ohne nested realisieren
-**** TODO standort erstellen direkt nach dem login - wegweiser      :concept:     
+*** TODO das geblinker wenn sachen ausgeblendet werden nervt    :enhancement:
+    am besten den entsprechenden gesamtteil von vorneherein ausblenden
+    display:none geben
 *** TODO profil text und bild                                       :feature:
     netter text macht profile menschlicher
     bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
@@ -68,6 +49,37 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
+*** DONE nutzerführung nach anmeldung                                 :theme:
+    CLOSED: [2017-05-02 Di 17:31]
+**** entwurf 1
+     neuanmeldung: emailadresse angeben -> email erhalten -> bestätigen -> weitere nutzerdaten angeben -> fertig
+     weitere nutzerdaten sind: passwort (vorgenerieren (per js sonst unsicher - weglassen)), nutzername, standort
+     auto login after confirm wird als security risk gewertet
+**** entwurf 2
+     emailadresse, passwort, nickname eingeben -> email bestätigung -> anmelden -> standort und kontakt details eingeben (guidepost) 
+**** CANCELED nach email bestätigung sofort login
+     CLOSED: [2017-05-02 Di 17:31]
+     security rist
+**** DONE vor und nachname bis auf weiteres deaktivieren
+     CLOSED: [2017-05-02 Di 17:30]
+     alternativ nutzername deaktivieren (wie bei facebook, besser nicht wegen privatsphäre)
+**** CANCELED nur ein standort und den gleich nach der anmeldung ausfüllen
+     CLOSED: [2017-05-02 Di 17:03]
+     standort im profil edit anlegen und bearbeiten
+***** entwurf
+      - [ ] user.locations durch location ersetzen
+        erst mal sparen
+      - [ ] contact details in eigenes model schieben
+        erst mal sparen
+      - [ ] formulare:
+        nested, weil das dann durch registrations#update geregelt wird
+        dann noch update_resource überschreiben, um location und contact info ohne password updaten zu können - done
+        inwieweit geht das auch mit locations statt location? schwierig
+        erst mal die formulare für die contact details machen? allerdings sollen die ja auch ausgelagert werden. das ist auch nur dann nested wenn sie ausgelagert werden. also erstmal ohne auslagern ohne nested realisieren
+      - [ ] init the location of new users with country and city
+
+*** DONE hilfe text im profil aktualisieren
+    CLOSED: [2017-05-02 Di 17:29]
 *** CANCELED die contact form felder anders anordnen
     CLOSED: [2017-04-28 Fr 17:52]
     checkbox - details

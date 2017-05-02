@@ -11,19 +11,19 @@ class Location < ApplicationRecord
   validates :latitude, presence: { message: "The address could not be found" }
   validates :longitude, presence: { message: "The address could not be found" }
 
-  validates :street, length: { minimum: 1, maximum: 100 }
-  validates :city, length: { minimum: 1, maximum: 100 }
+  #validates :street, length: { minimum: 1, maximum: 100 }
+  #validates :city, length: { minimum: 1, maximum: 100 }
   validates :country, length: { minimum: 1, maximum: 100 }
-  validates :postcode, length: { minimum: 1, maximum: 10 }
+  #validates :postcode, length: { minimum: 1, maximum: 10 }
   
-  after_validation :joinhouse
+  before_save :joinhouse
   after_save :clean_houses
   after_destroy :clean_houses
 
   after_initialize :init
   
   def init
-    self.country ||= "WS" # make a good guess in the controller
+    self.country ||= "DE" # make a good guess in the controller
   end
 
   def country_name

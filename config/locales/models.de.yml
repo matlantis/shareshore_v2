@@ -23,6 +23,9 @@ de:
       location:
         one: "Standort"
         other: "Standorte"
+      stockitem:
+        one: "Vorlage"
+        other: "Vorlagen"
       house:
         one: "Haus"
         other: "Häuser"

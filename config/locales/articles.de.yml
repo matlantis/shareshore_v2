@@ -1,5 +1,7 @@
 de:
   articles:
+    redirected_to_create_location: "Du musst erst einen Standort erstellen, um Dinge verleihen zu können."
+      
     rate_models:
       smile: "Für ein Lächeln"
       chocolate: "Für eine Kugel Eis oder ca. 1€"

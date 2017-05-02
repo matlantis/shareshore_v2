@@ -6,6 +6,13 @@ class ArticlesController < ApplicationController
   before_action :verify_user_is_owner_of_location, only: [:create, :update]
   before_action :redirect_user_without_location, only: [:index, :new_from_stockitems]
 
+  def redirect_user_without_location
+    if current_user.locations.count < 1
+      flash[:notice] = t('articles.redirected_to_create_location')
+      redirect_to locations_path
+    end
+  end
+
   def index
     # admins can see articles of other users
     user = nil

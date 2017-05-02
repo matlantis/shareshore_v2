@@ -33,6 +33,9 @@ en:
       destroy_success: "Location deleted"
       destroy_error: "Error on deleting location"
 
+    form:
+      the address is unknown: "The address is unknown."
+      
     warning_location_not_geocoded: "The address is unknown"
     warning_not_owner: "This location does not belong to you"
 

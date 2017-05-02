@@ -14,12 +14,6 @@ class ApplicationController < ActionController::Base
   def accept_cookies
     session[:cookies_accepted] = true
   end
-
-  def redirect_user_without_location
-    if current_user.locations.count < 1
-      redirect_to user_guidepost_path
-    end
-  end
   
   def prepare_search_session
     # resolve the origin of the request and store the location for later use

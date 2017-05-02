@@ -23,13 +23,14 @@ de:
       new: "Kontakt"
       
     articles:
-      new_from_stockitems: "Anbieten"
+      new_from_stockitems: "Vorlagen"
       index: "Inventar"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
       
     locations:
       index: "Standorte"
+      new: "Standort erstellen"
 
     users:
       registrations:

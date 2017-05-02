@@ -46,6 +46,18 @@ class LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    if session.has_key?(:address)
+      parts = session[:address].split(',')
+      if parts.length > 0
+        @location.city = parts[0].strip() # guess the first part is the city
+        
+        country_part = parts[-1].strip() # guess the last part is the country part
+        country = ISO3166::Country.find_country_by_name(country_part)
+        if country
+          @location.country = country.alpha2
+        end
+      end
+    end
   end
 
   # GET /locations/1/edit

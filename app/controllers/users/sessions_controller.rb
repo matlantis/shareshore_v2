@@ -51,10 +51,11 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(user)
     # lead to guidepost on first sign up
-    if user.sign_in_count == 0
-      user_guidepost_path
-    else
-      super(user)
-    end
+    # if user.sign_in_count == 0
+    #   user_guidepost_path
+    # else
+    #   super(user)
+    # end
+    edit_user_registration_path
   end
 end
