@@ -39,16 +39,6 @@
         inwieweit geht das auch mit locations statt location? schwierig
         erst mal die formulare für die contact details machen? allerdings sollen die ja auch ausgelagert werden. das ist auch nur dann nested wenn sie ausgelagert werden. also erstmal ohne auslagern ohne nested realisieren
 **** TODO standort erstellen direkt nach dem login - wegweiser      :concept:     
-**** TODO passwort abfrage bei ändern der nutzendaten nervig    :enhancement:
-     nur beim ändern des passwortes oder der email nötig
-     dazu separate seiten
-     besser die profile seite etwas umbauen, so dass das moderner wirkt
-     edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
-**** TODO die contact form felder anders anordnen
-     checkbox - details
-     via Shareshore - ohne details - immer aktiv
-     via email - ohne details
-     via telefon - telefonnr feld
 *** TODO profil text und bild                                       :feature:
     netter text macht profile menschlicher
     bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
@@ -78,6 +68,19 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
+*** CANCELED die contact form felder anders anordnen
+    CLOSED: [2017-04-28 Fr 17:52]
+    checkbox - details
+    via Shareshore - ohne details - immer aktiv
+    via email - ohne details
+    via telefon - telefonnr feld
+*** DONE passwort abfrage bei ändern der nutzendaten nervig     :enhancement:
+    CLOSED: [2017-04-28 Fr 17:51]
+    nur beim ändern des passwortes oder der email nötig
+    dazu separate seiten
+    besser die profile seite etwas umbauen, so dass das moderner wirkt
+    edit button für jedes feld öffnet jeweils eigenes form mit oder ohne passwort feld
+    besser gelöst
 *** DONE devise has a secret key which is stored a vc'ed file           :bug:
     CLOSED: [2017-04-27 Do 14:13]
     devise.rb: config.secret_key

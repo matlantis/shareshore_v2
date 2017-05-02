@@ -16,10 +16,10 @@
     = f.form_group do
       %h4= t(".basic_info")
     = f.email_field :email, autofocus: true
-    = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", label: t('.new_password_label')
+    = f.text_field :nickname
+    = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off"
     = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label')
     = f.password_field :current_password, help: t(".help_password_needed"), autocomplete: "off"
-    = f.text_field :nickname
 
     = f.form_group do
       %h4= t(".contact_info")
