@@ -1,11 +1,4 @@
-$(document).ready(function(){
-  // hide all item edit forms on load
-  $(".article_edit").hide();
-  //$("#article_new").hide();
-
-  // new_from_stockitems hide all article counters where number is 0
-  $(".article_count[data=0]").hide();
-  
+$(document).ready(function(){  
 })
 
 var onArticlesCreateSuccessIndex = function(article_id, newText, formText) {

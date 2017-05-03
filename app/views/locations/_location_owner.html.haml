@@ -2,6 +2,6 @@
 .location{id: item_div_id}
   .location_view
     = render 'locations/location_view', location: location, edit: true
-  .row.location_edit
+  .row.location_edit.to_hide
     .col-xs-12
       = render 'locations/form', location: location

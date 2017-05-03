@@ -13,7 +13,7 @@
           = content_tag :span, "#{narticles}"
           = "#{Article.model_name.human(count: narticles)}!"
 
-    #article_new.row.article_edit
+    #article_new.row.article_edit.to_hide
       .col-xs-12
         = render 'form', article: Article.new, url: create_from_stockitems_articles_path
         
@@ -36,7 +36,7 @@
                   - # wieviele artikel hat der nutzer schon mit diesem stockitem erstellt
                   - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
                   - nstockitems = current_user.articles.where("stockitem_id = ?", article.stockitem_id).count
-                  .article_count{:data => nstockitems}
+                  .article_count{class: nstockitems == 0 && "to_hide"}
                     = t('.text_you_already_have')
                     = content_tag :span, "#{nstockitems}"
                     = t('.text_of_this')
@@ -46,7 +46,7 @@
                       = link_to "", edit_stockitem_path(article.stockitem), class: "glyphicon glyphicon-pencil btn btn-danger btn-xs"
                       = link_to "", article.stockitem, method: :delete, data: {confirm: "delete " + article.stockitem["title_" + I18n.locale.to_s] + "? " + narticles.to_s + " References."} , class: "glyphicon glyphicon-remove btn btn-danger btn-xs"
 
-              .row.article_edit
+              .row.article_edit.to_hide
                 .col-xs-12
                   = render 'form', article: article, url: create_from_stockitems_articles_path
 

@@ -7,6 +7,4 @@ $(document).ready(function() {
     $(target).toggle(200);
   });
 
-  // hide items that have class to_hide
-  $('.to_hide').hide();
 })
