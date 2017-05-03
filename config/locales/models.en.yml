@@ -49,6 +49,7 @@ en:
         current_password: "Current Password"
         locations: "Locations"
         terms: "Terms of Use and Privacy Declaration"
+        aboutme: "About me"
       article:
         title: "Name"
         details: "Remark"

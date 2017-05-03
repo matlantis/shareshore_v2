@@ -26,6 +26,7 @@ de:
         basic_info: "Basisinformationen"
         contact_info: "Kontaktinformationen"
         location_info: "Standortinformationen"
+        about_info: "Über mich"
         how_shall_people_get_in_contact_with_you: "Wie sollen die Leute dich kontaktieren?"
         per_shareship: "Shareship"
         per_shareship_help: "Nachrichten werden an deine Email weitergeleitet"
@@ -38,6 +39,7 @@ de:
         to_share_things: "um Dinge verleihen zu können."
         use_the: "Verwende die"
         to_build_up_your_inventory: "um ohne viel Aufwand Dein Angebot zu erstellen."
+        write_a_few_nice_words: "Schreibe ein paar freundliche Worte, die Dich beschreiben!"
 
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."

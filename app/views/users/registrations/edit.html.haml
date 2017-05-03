@@ -57,6 +57,12 @@
         = location_form.number_field :house_id
 
     = f.form_group do
+      %h4= t(".about_info")
+      = t(".write_a_few_nice_words")
+
+    = f.text_area :aboutme
+
+    = f.form_group do
       = f.submit t("forms.finish")
 
   -#%div

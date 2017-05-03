@@ -4,9 +4,6 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO profil text und bild                                       :feature:
-    netter text macht profile menschlicher
-    bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
 *** TODO profil ansicht                                             :feature:
     listet nur locations, könnte aber auch artikel listen wie search
     und ne map, ausserdem gibts in zukunft nur noch eine location
@@ -33,6 +30,9 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
+*** DONE profil text
+    CLOSED: [2017-05-03 Mi 14:12]
+    netter text macht profile menschlicher
 *** DONE das geblinker wenn sachen ausgeblendet werden nervt    :enhancement:
     CLOSED: [2017-05-03 Mi 13:10]
     am besten den entsprechenden gesamtteil von vorneherein ausblenden
@@ -1397,3 +1397,6 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
       betreff? nöö
 *** TODO omniauth                                                   :feature:
 *** TODO omniauth                                                   :feature:
+*** TODO profil bild                                                :feature:
+    bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
+    per abstimmung entscheiden, ob das eigentlich gewollt ist

@@ -52,6 +52,7 @@ de:
         current_password: "Aktuelles Passwort"
         locations: "Standorte"
         terms: "Allgemeine Geschäftsbedingungen und Datenschutzerklärung"
+        aboutme: "Über mich"
       article:
         title: "Name"
         details: "Bemerkung"

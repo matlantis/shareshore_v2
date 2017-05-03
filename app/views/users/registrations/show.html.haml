@@ -1,13 +1,22 @@
 - @title = @user.nickname
 
 .col-xs-12.col-sm-9
-  %h3= @title
+  %h3.text-center= @title
       
   - if is_admin?
     .row
       .col-xs-12
         = link_to "Articles", articles_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
         = link_to "Locations", locations_path(user_id: @user.id), class: 'btn btn-danger btn-xs'
+  - if @user.aboutme && !@user.aboutme.empty?
+    .row
+      .col-xs-12
+        %p.text-center
+          %cite
+            = succeed '"' do
+              = precede '"' do
+                = @user.aboutme
+             
   .row
     - unless @with_contact
       .shareshore-panel

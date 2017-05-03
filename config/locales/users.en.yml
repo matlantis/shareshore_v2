@@ -26,6 +26,7 @@ en:
         basic_info: "Basic Info"
         contact_info: "Contact Info"
         location_info: "Location Info"
+        about_info: "About me"
         how_shall_people_get_in_contact_with_you: "How shall the people get in contact with you?"
         per_shareship: "Shareship"
         per_shareship_help: "Messages will be send to your email"
@@ -38,7 +39,7 @@ en:
         to_share_things: "to start sharing things."
         use_the: "Use the"
         to_build_up_your_inventory: "to build up your inventory without big effort."
-
+        write_a_few_nice_words: "Write a few friendly words about yourself!"
       guidepost:
         tipp_panel_text: "Guidepost help"
         
