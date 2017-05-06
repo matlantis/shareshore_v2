@@ -25,8 +25,8 @@ en:
     popup:
 
     article_show:
-      heading_request: "Request"
-      placeholder_request_text: "Add a few words and your contact details!"
+      heading_request: "Send %{nickname} a request for this thing!"
+      placeholder_request_text: "Add a few friendly words!"
       button_label_send_request: "Send a request for this thing"
       text_only_signed_up_users: "The owner only allows signed users to contact him/her."
       request_was_send: "Request send!"

@@ -13,6 +13,5 @@ marker_defs = [ <%= create_map_house_markers(articles, @houses, @house_center) %
 
 // add current location marker
 marker_defs_center = [ <%= create_map_current_location_marker(@current_location) %> ];
-
 // draw the map
 drawmap_leaflet("mapid", marker_defs, marker_defs_center, bounds);

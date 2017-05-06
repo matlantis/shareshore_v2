@@ -95,7 +95,7 @@
        console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
      };
   
-     #{render 'articles/map_show.js.erb', house: @location.house, formats: [:js]}
+     #{render 'articles/map_show.js.erb', houses: [@location.house], articles: @location.articles, formats: [:js]}
   
      $("#set_location_controls").hide();
      

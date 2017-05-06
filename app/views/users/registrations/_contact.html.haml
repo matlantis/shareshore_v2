@@ -5,28 +5,20 @@
 - current_user ||= nil
 - showname = false # always
 
-%h4= t('.heading_contact_info')
+%h4= t('.heading_contact_info', nickname: user.nickname)
+  
 - anycontact = false
 .row
   - unless user.fullname.blank? || !(showname || defined?(is_admin?) && is_admin?)
     .col-xs-12
-      %b
-        = succeed ':' do
-          = User.human_attribute_name('name')
       = user.fullname
       - anycontact = true
   - unless user.email.blank? || !(showemail || defined?(is_admin?) && is_admin?)
     .col-xs-12
-      %b
-        = succeed ':' do
-          = User.human_attribute_name('email')
       = mail_to user.email, user.email, subject: mail_subject_article_request(article, current_user)
       - anycontact = true
   - unless user.phoneno.blank? || !(showphone || defined?(is_admin?) && is_admin?)
     .col-xs-12
-      %b
-        = succeed ':' do
-          = User.human_attribute_name('phoneno')
       = user.phoneno
       - anycontact = true
   - unless anycontact

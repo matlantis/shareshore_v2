@@ -4,9 +4,6 @@
 * Shareshore V2 Todos
 ** Primär
 
-*** TODO profil ansicht                                             :feature:
-    listet nur locations, könnte aber auch artikel listen wie search
-    und ne map, ausserdem gibts in zukunft nur noch eine location
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
     - room braucht übersetzung
 *** TODO leitfaden überarbeiten                                        :text:
@@ -30,6 +27,10 @@
     - [ ] stockitems
     - [ ] pages
     - [ ] help texte
+*** DONE profil ansicht                                             :feature:
+    CLOSED: [2017-05-06 Sa 14:34]
+    listet nur locations, könnte aber auch artikel listen wie search
+    und ne map, +ausserdem gibts in zukunft nur noch eine location+
 *** DONE profil text
     CLOSED: [2017-05-03 Mi 14:12]
     netter text macht profile menschlicher
@@ -1400,3 +1401,9 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
 *** TODO profil bild                                                :feature:
     bilder müssen irgendwo gehostet werden, das geht nicht bei heroku
     per abstimmung entscheiden, ob das eigentlich gewollt ist
+*** TODO article show ist etwas mager
+    man könnte mehr infos anzeigen, zB 
+    - weitere artikel an dieser location
+    - weitere artikel mit der selben vorlage in der nähe
+    - +kontakt infos zum user (inkl. formular)+ ist schon drin
+

@@ -4,9 +4,10 @@ marker_defs = [];
 bounds = [];
 
 // add location marker
-marker_defs.push(<%= create_map_house_marker(Article.all, house) %>)
-
-bounds.push(<%= "[ #{house.latitude}, #{house.longitude} ]" %>);
+<% houses.each do |house| %>
+  marker_defs.push(<%= create_map_house_marker(articles, house) %>)
+  bounds.push(<%= "[ #{house.latitude}, #{house.longitude} ]" %>);
+<% end %>
 
 marker_defs_center = []
 <% if @current_location # show if location is known %> 

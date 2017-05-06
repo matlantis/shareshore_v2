@@ -1,3 +1,5 @@
+- context ||= 'search'
+
 .row
   .col-xs-12
     .row
@@ -11,7 +13,10 @@
         %h3
           = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
             = @locations.count
-            = User.model_name.human(count: @locations.count)
+            - if context == 'profile'
+              = Location.model_name.human(count: @locations.count)
+            - else
+              = User.model_name.human(count: @locations.count)
           -#.pull-right
             = link_to "#", class: "toggle-scroll" do
               %span.glyphicon.glyphicon-resize-vertical

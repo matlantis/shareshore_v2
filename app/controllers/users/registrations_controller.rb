@@ -21,6 +21,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @with_contact = user_signed_in? || verify_recaptcha
     # remove the recaptcha error msg
     flash.delete("recaptcha_error")
+
+    # build an location_articles_list
+    @location_articles_list = @user.locations.map { |l|
+      local_articles = @user.articles.where(location_id: l.id)
+      {location: l, articles: local_articles }
+    }
+    @articles = @user.articles
+    @locations = @user.locations
+
+    # provide houses to be drawn by the map
+    @houses = @locations.collect { |l| l.house }.uniq
+
   end
 
 

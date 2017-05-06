@@ -58,8 +58,8 @@ en:
         empty_locations_list_message: "None"
         warning_user_not_existent: "User not existent"
         view_contact_details_button: "View"
-        heading_contact_info: "Contact"
-        heading_message: "Message"
+        heading_contact_info: "How to get in contact %{nickname}:"
+        heading_message: "Send %{nickname} a Message by Shareship!"
         placeholder_message_text: "Your message"
         button_label_send_message: "Send message"
         text_only_signed_up_users: "The User only allows signed people to contact him."
@@ -72,7 +72,7 @@ en:
         warning_location_not_geocoded: "Address is unknown"
 
       contact:
-        heading_contact_info: "Contakt"
+        heading_contact_info: "How to get in contact %{nickname}:"
         no_contact_info: "The User has not published any information." # Nutze das Formular, um ihn zu kontaktieren."
 
     sessions:

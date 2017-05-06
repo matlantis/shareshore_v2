@@ -1,4 +1,5 @@
 - @title = @user.nickname
+- @with_map = true
 
 .col-xs-12.col-sm-9
   %h3.text-center= @title
@@ -20,7 +21,7 @@
   .row
     - unless @with_contact
       .shareshore-panel
-        %h4= t('.heading_contact_info')
+        %h4= t('.heading_contact_info', nickname: @user.nickname)
         = bootstrap_form_tag url: user_path(@user), method: :get do |f|
           = f.form_group do
             = recaptcha_tags
@@ -31,8 +32,9 @@
       .col-xs-12.col-lg-6
         = render 'contact', user: @user, showemail: @user.showemail, showphone: @user.showphone, showname: @user.showname
       .col-xs-12.col-lg-6
-        %h4= t('.heading_message')
-        .message-panel
+        = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
+          %h4= t('.heading_message', nickname: @user.nickname)
+        .message-panel.to_hide
           - if user_signed_in?
             .send-message
               - message = Message.new({receiver: @user, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})
@@ -64,7 +66,7 @@
             .col-xs-6.text-right
               = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
 
-  .row
+  -#.row
     .col-xs-2
       %strong
         = succeed ':' do
@@ -76,7 +78,19 @@
         = location_marker location
         (#{articles_location_count(location)})
         %br/
-        
+
+  = render 'searches/results', context: 'profile'
+  
 .col-xs-12.col-sm-3
   = tipp_panel do
     = render 'show_help'
+
+:javascript
+  onMapClick = function(e) {
+    console.log("You clicked the marker " + e.target.index);
+  };
+  
+  $(document).ready(function() {
+    #{render 'articles/map_show.js.erb', houses: @houses, articles: @articles, formats: [:js]}    
+  });
+

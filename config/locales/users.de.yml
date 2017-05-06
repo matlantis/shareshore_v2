@@ -57,10 +57,11 @@ de:
       show:
         tipp_panel_text: "kleine Hilfe zu show registrations"
         empty_locations_list_message: "Keine"
+        empty_articles_list_message: "Keine"
         warning_user_not_existent: "Nutzer nicht vorhanden"
         view_contact_details_button: "Anzeigen"
-        heading_contact_info: "Kontakt"
-        heading_message: "Nachricht"
+        heading_contact_info: "So kannst Du %{nickname} erreichen:"
+        heading_message: "Schreibe %{nickname} eine Nachricht via Shareship!"
         placeholder_message_text: "Deine Nachricht"
         button_label_send_message: "Nachricht versenden"
         text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
@@ -73,7 +74,7 @@ de:
         warning_location_not_geocoded: "Adresse ist unbekannt"
 
       contact:
-        heading_contact_info: "Kontakt"
+        heading_contact_info: "So kannst Du %{nickname} erreichen:"
         no_contact_info: "Der Nutzer hat keine Informationen veröffentlicht." # Nutze das Formular, um ihn zu kontaktieren."
 
     sessions:
