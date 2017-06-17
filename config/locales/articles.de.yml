@@ -46,6 +46,8 @@ de:
       empty_list_message: "Du hast noch keine Sachen eingestellt. Fang jetzt damit an!"
       user_not_existent: "Nutzer nicht vorhanden"
       tooltip_add_button: "Neue Sache hinzufügen"
+      create_new_article: "Neue Sache hinzufügen"
+      
     index_owner_help:
     
     index_user:

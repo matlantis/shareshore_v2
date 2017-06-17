@@ -1,45 +1,8 @@
-%p#notice= notice
 .col-xs-12
-  = content_tag :h2, "Ohne Vorlage erstellen"
-  - article = Article.new
-  = bootstrap_form_for article, url: articles_path, layout: :inline do |f|
-    = f.text_field :title, hide_label: true, placeholder: "Title"
-    = f.text_field :details, hide_label: true
-    = f.number_field :quality, min: 0, max: 5, hide_label: true
-    = f.text_field :rate, hide_label: true
-    = f.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true
-    = f.submit "Übernehmen"
-.col-xs-2
-  = content_tag :h2, "Rooms"
-  = link_to "Alle", "/stockitems", class: "btn btn-default"
-  %br/
-  - @rooms.each do |room|
-    = link_to room, "/stockitems/rooms/#{room}", class: "btn btn-default"
-    %br/
-.col-xs-10
-  - if params.has_key? 'room'
-    - room = params['room']
-  - else
-    - room = "Alle Vorlagen"
-  = content_tag :h2, room
-  = bootstrap_form_tag url: stockitems_path, layout: :inline do |f|
-    %table.table
-      %thead
-        %tr
-          %th= Article.human_attribute_name("title")
-          %th= Article.human_attribute_name("details")
-          %th= Article.human_attribute_name("quality")
-          %th= Article.human_attribute_name("rate")
-          %th= Article.human_attribute_name("location")
-          %th{:colspan => "1"}
-      %tbody
-        - @stockitems.each do |stockitem|
-          %tr
-            - article = Article.new.fill_from_stockitem(stockitem)
-            = f.fields_for article do |af|
-              %td= af.text_field :title, hide_label: true
-              %td= af.text_field :details, hide_label: true
-              %td= af.number_field :quality, min: 0, max: 5, hide_label: true
-              %td= af.text_field :rate, hide_label: true
-              %td= af.collection_select :location_id, current_user.locations, :id, :shortaddress, hide_label: true
-    = f.submit "Übernehmen"
+  %p
+    = link_to "Create new Stockitem", new_stockitem_path
+  %p
+    - @stockitems.each do |stockitem|
+      .row
+        .col-xs-12
+          = link_to stockitem.title_de, edit_stockitem_path(stockitem)

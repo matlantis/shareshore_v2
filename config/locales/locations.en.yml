@@ -11,6 +11,7 @@ en:
     index:
       empty_list_message: "You do not have a location. Create one!"
       tooltip_add_button: "Create new location"
+      create_new_location: "Create new location"
 
     show:
       empty_list_message: "There are no things at this location"

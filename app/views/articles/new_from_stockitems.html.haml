@@ -11,7 +11,8 @@
           - narticles = current_user.articles.count
           = t('.text_you_already_have')
           = content_tag :span, "#{narticles}"
-          = "#{Article.model_name.human(count: narticles)}!"
+          = link_to articles_path do
+            = "#{Article.model_name.human(count: narticles)}!"
 
     #article_new.row.article_edit.to_hide
       .col-xs-12
@@ -21,8 +22,9 @@
     - @rooms.each do |room|
       %div
         %h4
-          = room
-        %div{:id => "#{underscore(room)}"}
+          = link_to "#", class: "mp-toggle-visibility", data: {toggle_target: "##{underscore(room)}"} do
+            = room
+        %div{id: "#{underscore(room)}", class: room != "" && "to_hide"}
           - @articles[room].each do |article|
             - article_div_id = "article_" + article.stockitem_id.to_s + "_div"
             .article{:id => article_div_id}

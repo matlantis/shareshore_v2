@@ -4,8 +4,51 @@
 * Shareshore V2 Todos
 ** Primär
 
+*** TODO admin artikel ohne vorlage markierung                      :feature:
+    eventuell irgendwie mit raum verknüpfen?
+*** TODO admin notifications                                        :feature:
+    admin braucht email notifications über neue users und neue einträge zum prüfen
+*** TODO seitenpanel mit aktuellen infos                            :feature:
+    zB (neue) user in der Nähe, (neue) Artikel in der Nähe, Requests
+*** TODO request: user soll genauer spezifizieren                   :feature:
+    datum, art der nutzung
+*** TODO request an die nachbarschaft                               :feature:
 *** TODO vorlagen seite übersichtlicher gestalten                    :layout:
     - room braucht übersetzung
+**** ideen:
+     - staffelung:
+       - Man kann mich gerne wegen Alltagsgegenständen (die nicht aufgelistet sind) fragen
+         - entweder als häkchen in profil oder als Artikel, der ganz oben gelistet ist
+       - pakete (hobbies)
+         - optionale details angeben
+         - oder häkchen bei Details auf Nachfrage
+         - bei Suche auch zugehörige Pakete auflisten
+         - vorlagenfreie artikel einem paket zuordnen
+         - eigene Hobbies erstellen
+       - erweiterte Alltagsgegenstände (zT Deckung mit Details aus Paketen)
+         - ist selber ein Paket
+       - vor der realisierung listen erstellen!!
+     - bedenke: bei 3000 Artikeln in der Datenbank und 30 Artikeln pro Nutzer ist das nur 1%
+       - daher durchsuchen der datenbank unbedingt mittels suchfeld
+       - dumme user scrollen wohl eher durch artikellisten
+     - Räume durch Kategorien ersetzen (aussagekräftiger)
+       - als eigenes Model implementieren:
+         - name je nach sprache, 
+         - bessere durchsuchbarkeit auf db ebene
+         - ein artikel kann viele Kategorien haben
+         - eine Kategorie kann Unterkategorien haben (Beispiel: Freizeit->Tauchen)
+           - zur besseren Sortierung
+     - Kategorie häufig verwendet: einfache Werkzeuge (in Alltagsgegenstände enthalten)
+     - kategorien erst mal einklappen
+     - absolute sparvariante:
+       keine artikeldatenbank, sondern im profil ein textfeld "was verleihst du?", das durchsucht wird
+       netter gedanke, aber nicht so hilfreich
+     - Inventar und Vorlagen Seite vereinen zu "Verleihen"
+       - "Du hast schon ? davon" ersetzen durch Standort und Rate
+       - Neben eine Vorlage ein "+" fügt eins hinzu
+       - Häkchenbox ("nur Sachen anzeigen, die ich habe")
+     - Räume haben noch keine Übersetzungen
+
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
     sprich: abstand nehmen von hochwertigen gegenständen
@@ -21,6 +64,7 @@
 *** TODO mehr stockitems                                               :text:
     Ratschenkasten
     Parkplatz
+    Fahrradflickzeug
 *** TODO datenbank vom server woanders hinschieben                    :howto:
     und zurück
 *** TODO englisch [0/2]                                                :text:

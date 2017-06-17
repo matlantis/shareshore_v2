@@ -44,6 +44,8 @@ en:
       empty_list_message: "Nothing placed yet. Let's go start now!"
       user_not_existent: "User not existent"
       tooltip_add_button: "Add new thing"
+      create_new_article: "Add new thing"
+      
     index_owner_help:
     
     index_user:

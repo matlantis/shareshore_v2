@@ -5,18 +5,21 @@
 
 .col-xs-12.col-sm-9
   %h3= @title
-  %div{:class => "empty-list#{" to_hide" unless @articles.empty?}"}
-    = t('.empty_list_message')
-  - @articles.each do |article|
-    = render 'article_owner', article: article
   .article_placeholder
   #article_null_div.article
     .row
-      .col-xs-12.text-right
+      .col-xs-10
+        = link_to(t(".create_new_article"), "", class: "mp-toggle-visibility", data: {toggle_target: "#article_new"} )
+      .col-xs-2.text-right
         = link_to("", "", class: "glyphicon glyphicon-plus mp-toggle-visibility", data: {toggle_target: "#article_new", toggle: "tooltip"}, title: t('.tooltip_add_button') )
     #article_new.row{class: @articles.count > 0 && 'to_hide' }
       .col-xs-12
         = render 'form', article: Article.new, url: create_from_index_articles_path
+
+  %div{:class => "empty-list#{" to_hide" unless @articles.empty?}"}
+    = t('.empty_list_message')
+  - @articles.each do |article|
+    = render 'article_owner', article: article
 
 .col-xs-12.col-sm-3
   = tipp_panel do

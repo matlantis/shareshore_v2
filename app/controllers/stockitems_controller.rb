@@ -5,18 +5,19 @@ class StockitemsController < ApplicationController
   # GET /stockitems
   # GET /stockitems.json
   def index
-    @rooms = Stockitem.all.collect {|t| t.room }.uniq
-    if params.has_key? 'room'
-      @stockitems = Stockitem.where("room = ?", params['room'])
-    else
-      @stockitems = Stockitem.all
-    end
+    # @rooms = Stockitem.all.collect {|t| t.room }.uniq
+    # if params.has_key? 'room'
+    #   @stockitems = Stockitem.where("room = ?", params['room'])
+    # else
+    #   @stockitems = Stockitem.all
+    # end
+    @stockitems = Stockitem.all.order(:title_de)
 
-    @articles = []
-    @stockitems.each do |t|
-      a = Article.new(title: t["title_" + I18n.locale.to_s] , details: t["details_hint_" + I18n.locale.to_s], picture: t.picture, stockitem_id: t.id, quality: 3)
-      @articles.push(a)
-    end
+    # @articles = []
+    # @stockitems.each do |t|
+    #   a = Article.new(title: t["title_" + I18n.locale.to_s] , details: t["details_hint_" + I18n.locale.to_s], picture: t.picture, stockitem_id: t.id, quality: 3)
+    #   @articles.push(a)
+    # end
   end
   # GET /stockitems/1
   # GET /stockitems/1.json
