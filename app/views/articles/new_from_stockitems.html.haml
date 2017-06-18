@@ -19,13 +19,14 @@
         = render 'form', article: Article.new, url: create_from_stockitems_articles_path
         
   %div
-    - @rooms.each do |room|
+    - @categories.each do |category|
       %div
         %h4
-          = link_to "#", class: "mp-toggle-visibility", data: {toggle_target: "##{underscore(room)}"} do
-            = room
-        %div{id: "#{underscore(room)}", class: room != "" && "to_hide"}
-          - @articles[room].each do |article|
+          = link_to "#", class: "mp-toggle-visibility", data: {toggle_target: "##{underscore(category.name_en)}"} do
+            = category["name_" + I18n.locale.to_s]
+        %div{id: "#{underscore(category.name_en)}", class: category.name_en != "" && "to_hide"}
+          - category.stockitems.each do |stockitem|
+            - article = Article.new.fill_from_stockitem stockitem
             - article_div_id = "article_" + article.stockitem_id.to_s + "_div"
             .article{:id => article_div_id}
               .row

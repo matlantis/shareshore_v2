@@ -5,5 +5,5 @@
   = f.text_area :details_hint_de
   = f.text_area :details_hint_en
   = f.text_field :picture
-  = f.text_field :room
+  = f.collection_select :category_id, Category.all, :id, :name_de
   = f.submit

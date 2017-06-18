@@ -1,0 +1,19 @@
+- @title = 'Categories'
+
+%h3= @title
+
+%p
+  = link_to 'New Category', new_category_path
+
+%p
+  - @categories.each do |category|
+    .row
+      .col-xs-4
+        = category.name_de
+      .col-xs-4
+        = category.name_en
+      .col-xs-2
+        = link_to 'edit', edit_category_path(category)
+      .col-xs-2
+        = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+  

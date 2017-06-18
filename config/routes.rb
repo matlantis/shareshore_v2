@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   # # the locale scope
   # scope "(:locale)", locale: /en|de/ do
   #   root to: 'welcome#index'

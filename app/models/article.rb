@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   belongs_to :location
   belongs_to :user
   belongs_to :stockitem, optional: true
-
+  
   has_many :user_article_requests, inverse_of: :article, dependent: :destroy
   # hack see https://github.com/alexreisner/geocoder/issues/26
   reverse_geocoded_by "locations.latitude", "locations.longitude"

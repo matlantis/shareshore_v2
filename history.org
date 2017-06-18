@@ -39,7 +39,7 @@
          - eine Kategorie kann Unterkategorien haben (Beispiel: Freizeit->Tauchen)
            - zur besseren Sortierung
      - Kategorie häufig verwendet: einfache Werkzeuge (in Alltagsgegenstände enthalten)
-     - kategorien erst mal einklappen
+     - DONE kategorien erst mal einklappen
      - absolute sparvariante:
        keine artikeldatenbank, sondern im profil ein textfeld "was verleihst du?", das durchsucht wird
        netter gedanke, aber nicht so hilfreich
