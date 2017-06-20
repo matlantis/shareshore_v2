@@ -9,37 +9,66 @@
 -# home ||= false
 - modal ||= false
 - edit ||= false
+- home ||= false
 
 - article_show_id = "article_" + article.id.to_s + "_show"
-- if edit
-  .row
-    .col-xs-3
-      = article_marker article
-    .col-xs-4
-      = rate_marker(article)
-    .col-xs-5
-      = location_marker article.location
-      .pull-right
-        = edit_icons(article)
-  .row
-    .col-xs-3
-    .col-xs-9
-      .article-description
-        = truncate(article.details, length: 100)
 
-- else
-  .row
-    .col-xs-6
-      = article_marker article
-    .col-xs-6
-      = rate_marker(article)
-    -#.col-sm-4.col-lg-1
-    -#- if article.picture.present?
-      .col-sm-3
-        %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
-          = image_tag(article.picture_url(:thumb))
-        
-  .row
-    .col-xs-12
-      .article-description
-        = truncate(article.details, length: 100)
+- item_div_id = "article_" + article.id.to_s + "_div"
+%div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => item_div_id}
+  .article_view
+    - if user_signed_in? && is_admin?
+      .row
+        .col-xs-3
+          = article_marker article
+        .col-xs-4
+          = rate_marker(article)
+        .col-xs-5
+          = location_marker article.location
+          .pull-right
+            = edit_icons(article)
+      .row
+        .col-xs-3
+          - if not article.stockitem
+            = render "articles/stockitem_form", stockitem: Stockitem.new.fill_from_article(article), hidden_fields: true
+        .col-xs-9
+          .article-description
+            = truncate(article.details, length: 100)
+
+    - elsif edit
+      .row
+        .col-xs-3
+          = article_marker article
+        .col-xs-4
+          = rate_marker(article)
+        .col-xs-5
+          = location_marker article.location
+          .pull-right
+            = edit_icons(article)
+      .row
+        .col-xs-3
+        .col-xs-9
+          .article-description
+            = truncate(article.details, length: 100)
+
+
+    - else
+      .row
+        .col-xs-6
+          = article_marker article
+        .col-xs-6
+          = rate_marker(article)
+        -#.col-sm-4.col-lg-1
+        -#- if article.picture.present?
+          .col-sm-3
+            %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
+              = image_tag(article.picture_url(:thumb))
+
+      .row
+        .col-xs-12
+          .article-description
+            = truncate(article.details, length: 100)
+
+  - if user_signed_in? && (current_user.id == article.user.id || is_admin? )
+    .row.article_edit.to_hide
+      .col-xs-12
+        = render 'articles/form', article: article

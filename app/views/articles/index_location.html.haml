@@ -16,8 +16,5 @@
     .empty-list
       = t('.empty_list_message')
   - @articles.each do |article|
-    - article_div_id = "article_" + article.id.to_s + "_div"
-    .article{:id => article_div_id}
-      .article_view
-        = render 'article_view', article: article, edit: false, home: false
+    = render 'article_view', article: article, edit: false, home: false
   - will_paginate @articles, renderer: BootstrapPagination::Rails

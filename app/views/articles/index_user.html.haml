@@ -3,10 +3,7 @@
 .col-xs-12.col-sm-9
   = content_tag :h2, @title
   - @articles.each do |article|
-    - article_div_id = "article_" + article.id.to_s + "_div"
-    .article{:id => article_div_id}
-      .article_view
-        = render 'article_view', article: article
+    = render 'article_view', article: article
   - will_paginate @articles, renderer: BootstrapPagination::Rails
 
 .col-xs-12.col-sm-3

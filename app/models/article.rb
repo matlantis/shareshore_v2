@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   belongs_to :location
-  belongs_to :user
+  #belongs_to :user
   belongs_to :stockitem, optional: true
   
   has_many :user_article_requests, inverse_of: :article, dependent: :destroy
@@ -14,8 +14,7 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 1, maximum: 50 }
   #validates :location, presence: true # auto in rails 5
   #validates :user, presence: true # auto in rails 5
-  validates :rate, inclusion: ArticlesHelper::RateModel.list_models
-  
+  validates :rate, inclusion: ArticlesHelper::RateModel.list_models  
   #validates :quality, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
   after_initialize :init
@@ -43,4 +42,7 @@ class Article < ApplicationRecord
     self
   end
 
+  def user
+    location.user
+  end
 end

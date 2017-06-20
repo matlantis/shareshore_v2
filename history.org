@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** DONE Räume durch Kategorien ersetzen (aussagekräftiger)
+    als eigenes Model implementieren:
+    name je nach sprache, 
+    bessere durchsuchbarkeit auf db ebene
 *** TODO admin artikel ohne vorlage markierung                      :feature:
     eventuell irgendwie mit raum verknüpfen?
 *** TODO admin notifications                                        :feature:
@@ -12,41 +16,6 @@
 *** TODO request: user soll genauer spezifizieren                   :feature:
     datum, art der nutzung
 *** TODO request an die nachbarschaft                               :feature:
-*** TODO vorlagen seite übersichtlicher gestalten                    :layout:
-    - room braucht übersetzung
-**** ideen:
-     - staffelung:
-       - Man kann mich gerne wegen Alltagsgegenständen (die nicht aufgelistet sind) fragen
-         - entweder als häkchen in profil oder als Artikel, der ganz oben gelistet ist
-       - pakete (hobbies)
-         - optionale details angeben
-         - oder häkchen bei Details auf Nachfrage
-         - bei Suche auch zugehörige Pakete auflisten
-         - vorlagenfreie artikel einem paket zuordnen
-         - eigene Hobbies erstellen
-       - erweiterte Alltagsgegenstände (zT Deckung mit Details aus Paketen)
-         - ist selber ein Paket
-       - vor der realisierung listen erstellen!!
-     - bedenke: bei 3000 Artikeln in der Datenbank und 30 Artikeln pro Nutzer ist das nur 1%
-       - daher durchsuchen der datenbank unbedingt mittels suchfeld
-       - dumme user scrollen wohl eher durch artikellisten
-     - Räume durch Kategorien ersetzen (aussagekräftiger)
-       - als eigenes Model implementieren:
-         - name je nach sprache, 
-         - bessere durchsuchbarkeit auf db ebene
-         - ein artikel kann viele Kategorien haben
-         - eine Kategorie kann Unterkategorien haben (Beispiel: Freizeit->Tauchen)
-           - zur besseren Sortierung
-     - Kategorie häufig verwendet: einfache Werkzeuge (in Alltagsgegenstände enthalten)
-     - DONE kategorien erst mal einklappen
-     - absolute sparvariante:
-       keine artikeldatenbank, sondern im profil ein textfeld "was verleihst du?", das durchsucht wird
-       netter gedanke, aber nicht so hilfreich
-     - Inventar und Vorlagen Seite vereinen zu "Verleihen"
-       - "Du hast schon ? davon" ersetzen durch Standort und Rate
-       - Neben eine Vorlage ein "+" fügt eins hinzu
-       - Häkchenbox ("nur Sachen anzeigen, die ich habe")
-     - Räume haben noch keine Übersetzungen
 
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
@@ -61,15 +30,35 @@
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO mehr stockitems                                               :text:
-    Ratschenkasten
-    Parkplatz
-    Fahrradflickzeug
 *** TODO datenbank vom server woanders hinschieben                    :howto:
     und zurück
 *** TODO englisch [0/2]                                                :text:
     - [ ] stockitems
+      christoph fragen
     - [ ] pages
+      oisin fragen
     - [ ] help texte
+      oisin fragen
+*** DONE vorlagen seite übersichtlicher gestalten                    :layout:
+    CLOSED: [2017-06-20 Di 14:02]
+    - DONE room braucht übersetzung
+**** ideen:
+     - CANCELED staffelung:
+       - Man kann mich gerne wegen Alltagsgegenständen (die nicht aufgelistet sind) fragen
+         - entweder als häkchen in profil oder als Artikel, der ganz oben gelistet ist
+       - pakete (hobbies)
+         - optionale details angeben
+         - oder häkchen bei Details auf Nachfrage
+         - bei Suche auch zugehörige Pakete auflisten
+         - vorlagenfreie artikel einem paket zuordnen
+         - eigene Hobbies erstellen
+       - erweiterte Alltagsgegenstände (zT Deckung mit Details aus Paketen)
+         - ist selber ein Paket
+       - vor der realisierung listen erstellen!!
+     - bedenke: bei 3000 Artikeln in der Datenbank und 30 Artikeln pro Nutzer ist das nur 1%
+       - daher durchsuchen der datenbank unbedingt mittels suchfeld
+       - dumme user scrollen wohl eher durch artikellisten
+     - CANCELED Kategorie häufig verwendet: einfache Werkzeuge (in Alltagsgegenstände enthalten)
 *** DONE profil ansicht                                             :feature:
     CLOSED: [2017-05-06 Sa 14:34]
     listet nur locations, könnte aber auch artikel listen wie search
@@ -1450,3 +1439,11 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     - weitere artikel mit der selben vorlage in der nähe
     - +kontakt infos zum user (inkl. formular)+ ist schon drin
 
+*** TODO Inventar und Vorlagen Seite vereinen zu "Verleihen"
+    - "Du hast schon ? davon" ersetzen durch Standort und Rate
+    - Neben eine Vorlage ein "+" fügt eins hinzu
+    - Häkchenbox ("nur Sachen anzeigen, die ich habe")
+*** TODO eine Kategorie kann Unterkategorien haben                  :feature:
+    (Beispiel: Freizeit->Tauchen)
+    zur besseren Sortierung
+*** TODO ein artikel kann viele Kategorien haben                    :feature:

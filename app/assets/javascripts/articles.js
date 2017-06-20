@@ -98,7 +98,7 @@ var onArticlesUpdateError = function(formtext, article_div_id) {
 }
 
 var onArticlesUpdateSuccess = function(newtext, article_div_id) {
-  $('#' + article_div_id).replaceWith(newtext);
-
   $('#' + article_div_id + ' .article_edit').hide(200)
+  console.log("martin")
+  $('#' + article_div_id).replaceWith(newtext);
 }

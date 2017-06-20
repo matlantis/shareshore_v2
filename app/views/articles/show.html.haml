@@ -19,6 +19,6 @@
   };
   
   $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.user.articles, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.location.articles, formats: [:js]}
     
   });

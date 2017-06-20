@@ -1,7 +1,0 @@
-- item_div_id = "article_" + article.id.to_s + "_div"
-.article{id: item_div_id}
-  .article_view
-    = render 'article_view', article: article, edit: true, home: false
-  .row.article_edit.to_hide
-    .col-xs-12
-      = render 'form', article: article

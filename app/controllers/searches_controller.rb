@@ -64,9 +64,10 @@ class SearchesController < ApplicationController
     # disable to draw results via js after page load (no articles need in this step)
     if true 
       @articles = Article.all
+
       # remove own articles
       if current_user
-        @articles = @articles.where.not(user: current_user)
+        @articles = @articles.includes(:location).where.not(locations: {user: current_user})
       end
 
       # apply location criteria
@@ -132,7 +133,7 @@ class SearchesController < ApplicationController
     @articles = Article.all
     # remove own articles
     if current_user
-      @articles = @articles.where.not(user: current_user)
+      @articles = @articles.includes(:location).where.not(locations: {user: current_user})
     end
 
     # apply location criteria

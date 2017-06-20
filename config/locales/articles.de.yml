@@ -13,9 +13,6 @@ de:
       label_distance: "Entfernung"
       tooltip_home: "Bei Dir im Haus"
   
-    article_owner:
-
-      
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
       tooltip_edit_button: "Sache bearbeiten"

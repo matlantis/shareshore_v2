@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617130151) do
+ActiveRecord::Schema.define(version: 20170620153207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170617130151) do
     t.string   "title"
     t.text     "details"
     t.integer  "location_id"
-    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "picture"
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170617130151) do
     t.integer  "stockitem_id"
     t.index ["location_id"], name: "index_articles_on_location_id", using: :btree
     t.index ["stockitem_id"], name: "index_articles_on_stockitem_id", using: :btree
-    t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -176,7 +174,6 @@ ActiveRecord::Schema.define(version: 20170617130151) do
 
   add_foreign_key "articles", "locations"
   add_foreign_key "articles", "stockitems"
-  add_foreign_key "articles", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "searches", "locations"
   add_foreign_key "stockitems", "categories"

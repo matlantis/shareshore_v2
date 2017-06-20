@@ -72,10 +72,7 @@
       .empty-list
         = t('.empty_list_message')
     - @articles.each do |article|
-      - article_div_id = "article_" + article.id.to_s + "_div"
-      .article{:id => article_div_id}
-        .article_view
-          = render 'articles/article_view', article: article, edit: false, home: false
+      = render 'articles/article_view', article: article, edit: false, home: false
 
 :javascript
   $(document).ready(function() {

@@ -7,7 +7,7 @@
 
 - formText = escape_javascript(render 'form', article: new_article, url: create_from_index_articles_path)
 
-- newText = escape_javascript(render 'article_owner', article: @article)
+- newText = escape_javascript(render 'article_view', article: @article, edit: true)
 
 //console.log("call onArticlesCreateSuccess")
 :plain

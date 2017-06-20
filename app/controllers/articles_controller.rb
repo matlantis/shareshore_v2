@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy, :new_from_stockitems ]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
-  before_action :verify_user_is_owner_of_location, only: [:create, :update]
   before_action :redirect_user_without_location, only: [:index, :new_from_stockitems]
 
   def redirect_user_without_location
@@ -178,18 +177,6 @@ class ArticlesController < ApplicationController
           flash[:danger] = t('articles.warning_not_owner')
           format.html { redirect_to articles_url }
         end
-      end
-    end
-
-    def verify_user_is_owner_of_location
-      user = current_user
-    
-      # check if location belongs to the user
-      unless is_admin? || user.locations.exists?(article_params[:location_id])
-        respond_to do |format|
-          format.html { redirect_to articles_url, alert: t('articles.warning_location_not_user')}
-        end
-        return
       end
     end
 end

@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :locations, inverse_of: :user, dependent: :destroy
-  has_many :articles, inverse_of: :user, dependent: :destroy
+  #has_many :articles, inverse_of: :user, dependent: :destroy
   has_many :user_article_requests, inverse_of: :user, dependent: :destroy
 
-  accepts_nested_attributes_for :articles
+  #accepts_nested_attributes_for :articles
   accepts_nested_attributes_for :locations, reject_if: :all_blank
   
   after_initialize :init
@@ -43,6 +43,10 @@ class User < ApplicationRecord
 
   def fullname_or_none
     (fullname.blank?)? I18n.t("common.none_given") : fullname
+  end
+
+  def articles
+    Article.includes(:location).where(locations: {user_id: self.id})
   end
   
   protected

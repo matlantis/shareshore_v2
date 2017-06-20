@@ -47,14 +47,11 @@
               .location_view
                 = render 'locations/location_view', location: location, home: home
             - articles.each do |article|
-              - article_div_id = "article_" + article.id.to_s + "_div"
               .article-pane{article_title: "#{article.title}"}
                 .row
                   .col-xs-1
                   .col-xs-10
-                    %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => article_div_id}
-                      .article_view
-                        = render 'articles/article_view', article: article, edit: false, home: home
+                    = render 'articles/article_view', article: article, edit: false, home: home
                   .col-xs-1
 
       #tab-locations.tab-pane.fade

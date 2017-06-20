@@ -19,7 +19,7 @@
   %div{:class => "empty-list#{" to_hide" unless @articles.empty?}"}
     = t('.empty_list_message')
   - @articles.each do |article|
-    = render 'article_owner', article: article
+    = render 'article_view', article: article, edit: true
 
 .col-xs-12.col-sm-3
   = tipp_panel do

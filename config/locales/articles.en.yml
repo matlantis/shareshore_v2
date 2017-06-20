@@ -11,9 +11,6 @@ en:
       label_distance: "Distance"
       tooltip_home: "In your house"
   
-    article_owner:
-
-      
     article_view:
       delete_confirmation_question: "Do you really want to delete this thing?"
       tooltip_edit_button: "edit thing"
