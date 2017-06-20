@@ -5,7 +5,6 @@
 
 .col-xs-12.col-sm-9
   %h3= @title
-  .article_placeholder
   #article_null_div.article
     .row
       .col-xs-10
@@ -15,6 +14,7 @@
     #article_new.row{class: @articles.count > 0 && 'to_hide' }
       .col-xs-12
         = render 'form', article: Article.new, url: create_from_index_articles_path
+  .article_placeholder
 
   %div{:class => "empty-list#{" to_hide" unless @articles.empty?}"}
     = t('.empty_list_message')

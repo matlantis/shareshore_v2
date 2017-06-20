@@ -3,7 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-
 *** TODO admin artikel ohne vorlage markierung                      :feature:
     eventuell irgendwie mit raum verknüpfen?
 *** TODO admin notifications                                        :feature:

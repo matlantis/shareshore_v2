@@ -7,6 +7,9 @@ en:
       heading_error: Error
       text_unexpected_error_occured: An Error has occured. Please reload the page!
 
+    navigation:
+      menu_share: "Share"
+      
     application:
       title_shareship: "Shareship"
       heading_help: "Help"

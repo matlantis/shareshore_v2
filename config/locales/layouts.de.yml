@@ -7,6 +7,9 @@ de:
       heading_error: Fehler
       text_unexpected_error_occured: Ein Fehler ist aufgetreten. Laden Sie die Seite neu!
 
+    navigation:
+      menu_share: "Verleihen"
+        
     application:
       title_shareship: "Shareship"
       heading_help: "Hilfe"

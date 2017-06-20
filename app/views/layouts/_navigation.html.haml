@@ -19,10 +19,15 @@
               = t("titles.searches.new")
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li= link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'navbar-link'
-          %li= link_to t("titles.articles.index"), articles_path, class: 'navbar-link'
-          %li= link_to t("titles.locations.index"), locations_path, class: 'navbar-link'
-          %li= link_to t("titles.users.registrations.edit"), edit_user_registration_path, class: 'navbar-link'
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %strong= t('.menu_share')
+              %b.caret
+            %ul.dropdown-menu{role: "menu"}
+              %li= link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'navbar-link'
+              %li= link_to t("titles.articles.index"), articles_path, class: 'navbar-link'
+              %li.divider
+              %li= link_to t("titles.locations.index"), locations_path, class: 'navbar-link'
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %span.glyphicon.glyphicon-user
@@ -32,6 +37,7 @@
               -#%li= link_to t("titles.users.registrations.guidepost"), user_guidepost_path, class: 'navbar-link'
               -#%li.divider
               %li= link_to t("titles.users.sessions.destroy"), destroy_user_session_path, method: :delete, class: 'navbar-link'
+              %li= link_to t("titles.users.registrations.edit"), edit_user_registration_path, class: 'navbar-link'
         - else
           %li
             = link_to t("titles.users.registrations.new"), new_user_registration_path, class: 'navbar-link'
