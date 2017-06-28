@@ -17,6 +17,8 @@ en:
     unknown_article: "Unknown thing"
     unknown_location: "Unknown location"
     none_given: "not given"
+    action_show: "Show"
+    action_edit: "Edit"
     
   titles:
     contacts:
@@ -27,7 +29,8 @@ en:
       index: "Inventory"
       index_location: "Things of %{user}"
       index_user: "Things of %{user}"
-      
+      edit: "Edit Thing"
+
     locations:
       index: "Locations"
 

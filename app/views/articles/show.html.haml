@@ -4,6 +4,9 @@
 -#.col-xs-12
 .col-xs-12.col-sm-9
   %h3= @title
+  - if is_admin?
+    = link_to t('common.action_edit'), edit_article_path(@article), class: "btn btn-danger"
+    
   = render 'article_show', article: @article
   -#.row
     .col-xs-12

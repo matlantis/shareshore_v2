@@ -263,3 +263,11 @@ module ApplicationHelper
      " color: 'blue' }").html_safe
   end
 end
+
+def determine_owner(article)
+  if article.new_record?
+    owner = current_user
+  else
+    owner = article.location.user
+  end
+end

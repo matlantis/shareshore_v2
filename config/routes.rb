@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   
   root "pages#index"
 
-  resources :articles, except: [ :edit, :create ]
+  resources :articles, except: [ :create ]
   resources :locations, except: [ :new]
 
   resources :articles do

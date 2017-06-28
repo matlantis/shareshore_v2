@@ -3,12 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** DONE Räume durch Kategorien ersetzen (aussagekräftiger)
-    als eigenes Model implementieren:
-    name je nach sprache, 
-    bessere durchsuchbarkeit auf db ebene
-*** TODO admin artikel ohne vorlage markierung                      :feature:
-    eventuell irgendwie mit raum verknüpfen?
+*** TODO admin muss profile editieren und löschen können            :feature:
+    der link auf profile/show nach edit funktioniert nicht
+    infos:
+    - https://stackoverflow.com/questions/5578182/devise-allow-admins-to-edit-other-users-rails
 *** TODO admin notifications                                        :feature:
     admin braucht email notifications über neue users und neue einträge zum prüfen
 *** TODO seitenpanel mit aktuellen infos                            :feature:
@@ -39,6 +37,13 @@
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE admin artikel ohne vorlage markierung                      :feature:
+    CLOSED: [2017-06-28 Mi 15:00]
+    eventuell irgendwie mit raum verknüpfen?
+*** DONE Räume durch Kategorien ersetzen (aussagekräftiger)
+    als eigenes Model implementieren:
+    name je nach sprache, 
+    bessere durchsuchbarkeit auf db ebene
 *** DONE vorlagen seite übersichtlicher gestalten                    :layout:
     CLOSED: [2017-06-20 Di 14:02]
     - DONE room braucht übersetzung

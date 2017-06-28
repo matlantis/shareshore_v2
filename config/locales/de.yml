@@ -17,6 +17,8 @@ de:
     unknown_article: "Unbekannte Sache"
     unknown_location: "Unbekannter Standort"
     none_given: "Nicht angegeben"
+    action_show: "Anzeigen"
+    action_edit: "Bearbeiten"
     
   titles:
     contacts:
@@ -27,6 +29,7 @@ de:
       index: "Inventar"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
+      edit: "Sache bearbeiten"
       
     locations:
       index: "Standorte"
