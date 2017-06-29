@@ -33,6 +33,8 @@ en:
 
     locations:
       index: "Locations"
+      new: "Create Location"  
+      edit: "Edit Location"
 
     users:
       registrations:

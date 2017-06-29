@@ -46,8 +46,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params.delete("current_password")
       params.delete("password")
       params.delete("password_confirmation")
-      resource.update(params)
+      # check if review is needed
+      aboutme_need_review = params.key?(:aboutme) && (not params[:aboutme].empty?) && (params[:aboutme] != resource.aboutme)
+      
+      res = resource.update(params)
+      if res
+        # send admin review notification
+        if aboutme_need_review
+          content = "Aboutme: " + resource.aboutme
+          UserMailer.admin_content_review_notification_mail(content, edit_registration_url(resource)).deliver_now
+        end
+      end
+      res
     end
+      
   end
   
   def guidepost

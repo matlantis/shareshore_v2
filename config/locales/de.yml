@@ -34,7 +34,8 @@ de:
     locations:
       index: "Standorte"
       new: "Standort erstellen"
-
+      edit: "Standort bearbeiten"
+      
     users:
       registrations:
         edit: "Profil"

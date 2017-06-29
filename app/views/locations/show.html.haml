@@ -53,8 +53,10 @@
             %span.glyphicon.glyphicon-home
             = House.model_name.human
             
-- if current_user == @location.user
+- if current_user == @location.user || is_admin? 
   .col-xs-12.col-sm-6.text-center.shareshore-panel
+    - if is_admin?
+      = link_to t("common.action_edit"), edit_location_path(@location), class: "btn btn-danger"
     #set_location_remark
       %p
         = t('.text_location_incorrect')

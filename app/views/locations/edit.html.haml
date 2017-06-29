@@ -1,0 +1,8 @@
+- @title = t('titles.locations.edit')
+
+%h1= @title
+= render 'form', location: @location
+= link_to t('common.action_show'), @location, class: "btn btn-default"
+
+- if is_admin?
+  = link_to 'User', @location.user, class: "btn btn-danger"

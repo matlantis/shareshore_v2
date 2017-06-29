@@ -24,6 +24,12 @@ class UserMailer < ApplicationMailer
     mail(to: to_address, subject: subject, from: from, reply_to: reply_to)
   end
 
+  def admin_content_review_notification_mail(content, link_to_edit)
+    @content = content
+    @link_to_edit = link_to_edit
+    mail(to: 'mail@shareship.de', subject: t('.subject'), from: 'mail@shareship.de')
+  end
+  
   def receive(email)
     puts "received an email: " + email
   end

@@ -111,6 +111,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
+        content = "Title: " + @article.title
+        content += "\nDetails: " + @article.details
+        UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+
         format.html { redirect_to articles_path, notice: t('.create_success') }
         format.js { render 'create_success_index'}
           
@@ -125,6 +129,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save        
+        content = "Title: " + @article.title
+        content += "\nDetails: " + @article.details
+        UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+
         format.html { redirect_to user_new_article_from_stockitems_path, notice: t('.create_success') }
         format.js { render 'create_success_stockitems'}
           
@@ -139,9 +147,29 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     @article_div_id = "article_" + @article.id.to_s + "_div" # for js
-    success = @article.update(article_params)
+    params = article_params
+
+    title_need_review = params.key?(:title) && (not params[:title].empty?) && (params[:title] != @article.title)
+    if title_need_review
+      content = "Title: " + params[:title]
+    end
+
+    details_need_review = params.key?(:details) && (not params[:details].empty?) && (params[:details] != @article.details)
+    if details_need_review
+      unless content
+        content = ""
+      else
+        content += "\n"
+      end
+      content += "Details: " + params[:details]
+    end
+    
+    success = @article.update(params)
     respond_to do |format|
       if success
+        if title_need_review || details_need_review
+          UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+        end
         format.html { redirect_to articles_path, notice: t('.update_success') }
         format.js { render 'update_success' }
       else

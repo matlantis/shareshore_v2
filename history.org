@@ -3,12 +3,6 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO admin muss profile editieren und löschen können            :feature:
-    der link auf profile/show nach edit funktioniert nicht
-    infos:
-    - https://stackoverflow.com/questions/5578182/devise-allow-admins-to-edit-other-users-rails
-*** TODO admin notifications                                        :feature:
-    admin braucht email notifications über neue users und neue einträge zum prüfen
 *** TODO seitenpanel mit aktuellen infos                            :feature:
     zB (neue) user in der Nähe, (neue) Artikel in der Nähe, Requests
 *** TODO request: user soll genauer spezifizieren                   :feature:
@@ -37,6 +31,23 @@
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE admin notifications                                        :feature:
+    CLOSED: [2017-06-29 Do 18:22]
+    admin braucht email notifications über neue users und neue einträge zum prüfen
+    wann? - freitext einträge werden verändert, welche gibt es? jedoch nur solche die auf der website abrufbar sind
+    - article: details, title bei vorlagenfreien artikeln
+    - profil: username, details
+    - location: komplette adresse - ohoh
+    ohje, das sind viele sachen, vorläufig nur bei
+    - profil: username, details
+    - article: details, title
+    welche infos sind notwendig?
+    - neuen content
+    - link to edit
+*** DONE admin muss locations editieren und löschen können          :feature:
+    CLOSED: [2017-06-29 Do 14:44]
+    beachte das manuell setzen der location
+    button für automatisches setzen (reset) - nicht so wichtig
 *** DONE admin artikel ohne vorlage markierung                      :feature:
     CLOSED: [2017-06-28 Mi 15:00]
     eventuell irgendwie mit raum verknüpfen?
@@ -1452,3 +1463,8 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     (Beispiel: Freizeit->Tauchen)
     zur besseren Sortierung
 *** TODO ein artikel kann viele Kategorien haben                    :feature:
+*** TODO admin muss profile editieren und löschen können            :feature:
+    der link auf profile/show nach edit funktioniert nicht
+    infos:
+    - https://stackoverflow.com/questions/5578182/devise-allow-admins-to-edit-other-users-rails
+    das geht auch vorläufig auf der console

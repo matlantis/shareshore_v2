@@ -7,3 +7,7 @@ en:
     user_message_mail:
       sender: "%{sender} via Shareship <mail@shareship.de>"
       subject: "Shareship: User message"
+
+    admin_content_review_notification_mail:
+      subject: "Content Review Request"
+      
