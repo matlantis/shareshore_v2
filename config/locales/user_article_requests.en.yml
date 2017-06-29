@@ -1,6 +1,6 @@
 en:
   user_article_requests:
-    no_contact_method: "Not enough contakt information"
+    no_contact_method: "Not enough contact information"
     
     create:
       request_send: "Request send!"

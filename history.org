@@ -5,8 +5,6 @@
 ** Primär
 *** TODO seitenpanel mit aktuellen infos                            :feature:
     zB (neue) user in der Nähe, (neue) Artikel in der Nähe, Requests
-*** TODO request: user soll genauer spezifizieren                   :feature:
-    datum, art der nutzung
 *** TODO request an die nachbarschaft                               :feature:
 
 *** TODO leitfaden überarbeiten                                        :text:
@@ -31,6 +29,12 @@
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE layout article ansicht mit bemerkungen                 :enhancement:
+    CLOSED: [2017-06-29 Do 20:12]
+    sieht irgendwie doof aus mit den bemerkungen unter den infos, so dass man sie gern übersieht
+*** DONE request: user soll genauer spezifizieren                   :feature:
+    CLOSED: [2017-06-29 Do 19:59]
+    datum, art der nutzung
 *** DONE admin notifications                                        :feature:
     CLOSED: [2017-06-29 Do 18:22]
     admin braucht email notifications über neue users und neue einträge zum prüfen
