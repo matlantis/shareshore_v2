@@ -3,10 +3,36 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO dashboard nach login                                       :feature:
+    neuigkeiten (so ähnlich wie seitenpanel)
+    fette links zu den verschiedenen bereichen (wie wegweiser)
+*** TODO standort an profil knüpfen                                 :feature:
+*** TODO request an die nachbarschaft                               :feature:
+**** wie soll denn das so aussehen?
+     request schreiben - irgendwie mit suche verbinden?
+     requests lesen - übersichtsseite mit requests in der Nähe, sortiert nach Entfernung
+     spam vorbeugen, indem requests nicht zu notorisch sind (von wegen gelesen - nicht gelesen)
+     eher so wie anzeigen einblenden (mind the mobile layout)
+     vllt ein status icon, das anzeigt, dass requests vorhanden sind (+in zu Fuß entfernung+)
+     ein request hat eine reichweite, denn nur der ausleiher weiß, wie weit er bereit ist zu fahren
+**** Name: Anfrage, Gesuche?
+**** entwurf model request
+     reichweite
+     ablaufdatum, bzw laufzeit in Tagen, oder radio (tag, woche, monat, quartal)
+     invalidieren (löschen)
+     titel
+     beschreibung
+     ref auf vorlage für internationalen titel (kann man auch lassen), stattdessen entwurf aus vorlage bauen
+**** pages
+     liste eigener requests
+     formular zum erstellen (in liste wie bei artikeln, vorlagen via dropdown und check box
+     liste von requests in reichweite
+**** ui elemente
+     menu: ausleihen -> Suche, Deine Gesuche
+     menu: verleihen -> Gesuche in der Nähe (inaktiv, wenn es keine gibt, sonst fett)
 *** TODO seitenpanel mit aktuellen infos                            :feature:
     zB (neue) user in der Nähe, (neue) Artikel in der Nähe, Requests
-*** TODO request an die nachbarschaft                               :feature:
-
+    für mobile version ist das nicht von nutzen
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
     sprich: abstand nehmen von hochwertigen gegenständen
