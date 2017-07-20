@@ -8,6 +8,7 @@ class HousesController < ApplicationController
   end
   
   def show
+    @articles = Article.includes(:location).where({locations: {house_id: @house.id}})
   end
 
   def edit

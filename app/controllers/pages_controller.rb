@@ -14,10 +14,10 @@ class PagesController < ApplicationController
     else
       @search = Search.new
 
-      @search.use_location ||= !current_user.nil? && current_user.locations.count > 0
+      @search.use_location ||= !current_user.nil? && current_user.location
       # set the location
-      if !current_user.nil? && current_user.locations.count > 0
-        @search.location ||= current_user.locations.first
+      if !current_user.nil? && current_user.location
+        @search.location ||= current_user.location
       end
 
       # try to get address from session

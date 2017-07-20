@@ -3,10 +3,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO standort an profil knüpfen                                 :feature:
+    location als eigenes model lassen
+    user has one location, not many
+**** location/show ist quasi überflüssig als owner wie als user
 *** TODO dashboard nach login                                       :feature:
     neuigkeiten (so ähnlich wie seitenpanel)
     fette links zu den verschiedenen bereichen (wie wegweiser)
-*** TODO standort an profil knüpfen                                 :feature:
 *** TODO request an die nachbarschaft                               :feature:
 **** wie soll denn das so aussehen?
      request schreiben - irgendwie mit suche verbinden?
@@ -46,6 +49,8 @@
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
      ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO mehr stockitems                                               :text:
+    kühlbox
+    ventilator
 *** TODO datenbank vom server woanders hinschieben                    :howto:
     und zurück
 *** TODO englisch [0/2]                                                :text:
@@ -1498,3 +1503,4 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     infos:
     - https://stackoverflow.com/questions/5578182/devise-allow-admins-to-edit-other-users-rails
     das geht auch vorläufig auf der console
+*** TODO verlinkung artikel auf amazon                              :feature:

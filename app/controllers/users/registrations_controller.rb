@@ -23,16 +23,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     flash.delete("recaptcha_error")
 
     # build an location_articles_list
-    @location_articles_list = @user.locations.map { |l|
-      local_articles = @user.articles.where(location_id: l.id)
-      {location: l, articles: local_articles }
-    }
+    #@location_articles_list = @user.locations.map { |l|
+    #  local_articles = @user.articles.where(location_id: l.id)
+    #  {location: l, articles: local_articles }
+    #}
+
+    @location_articles_list = [{location: @user.location, articles: @user.location.articles }]
     @articles = @user.articles
-    @locations = @user.locations
+    @locations = [@user.location]
 
     # provide houses to be drawn by the map
-    @houses = @locations.collect { |l| l.house }.uniq
-
+    @houses = [@user.location.house]
   end
 
 
@@ -74,38 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       format.html { render :edit }
     end
   end
-  
-  def update_guidepost
-    if params.has_key? :user
-      @location = Location.new # create a location for the form (maybe needed)
-      
-      p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :showname, :phoneno)
-      success = current_user.update(p)
-      # this updates only the locations not the basic informations
-      respond_to do |format|
-        if success
-          flash[:success] = t('.update_contact_info_success')
-        end
-        format.html { render :guidepost }
-        #format.html { redirect_to edit_user_locations_path }
-      end
-    elsif params.has_key? :location            
-      p = params.require(:location).permit(:street, :number, :postcode, :city, :country)
-      @location = current_user.locations.create(p)
-      respond_to do |format|
-        if @location.save
-          flash[:success] = t('.create_location_success')
-        else
-          if @location.errors[:latitude] or @location.errors[:longitude] # could not be geocoded
-            @location.errors.clear
-            @location.errors.add(:base, t('.warning_location_not_geocoded'))
-          end
-        end
-        format.html { render :guidepost }
-      end
-    end
-    
-  end
 
   # GET /resource/sign_up
   # def new
@@ -129,7 +98,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    @locations = @user.locations.order(created_at: :asc)
+    #@locations = @user.locations.order(created_at: :asc)
 
     # init new location and try to prefill country and city
     @location = Location.new

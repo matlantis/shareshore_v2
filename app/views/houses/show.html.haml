@@ -51,5 +51,5 @@
       console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
     };
 
-    #{render 'articles/map_show.js.erb', house: @house, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [@house], articles: @articles, formats: [:js]}
   })

@@ -18,7 +18,18 @@
             = succeed '"' do
               = precede '"' do
                 = @user.aboutme
-             
+  - if @user.location
+    .house
+      .row
+        .col-xs-12.col-sm-6
+          = location_marker(@user.location)
+        .col-xs-12.col-sm-6
+          - if @user.location.house.locations.count > 1
+            = t('.text_there_are_x_users_in_this', count: @user.location.house.locations.count-1)
+            = link_to @user.location.house do
+              %span.glyphicon.glyphicon-home
+              = House.model_name.human
+
   .row
     - unless @with_contact
       .shareshore-panel
@@ -80,8 +91,23 @@
         (#{articles_location_count(location)})
         %br/
 
-  = render 'searches/results', context: 'profile'
-  
+  .row
+    .col-xs-12.text-center.shareshore-panel
+      %h3
+        %span.articles_count= @articles.count
+        = Article.model_name.human(count: @articles.count)
+
+    -#= render 'searches/results_articles'
+  - home = current_user && @user.location.house == current_user.location.house
+  - @articles.each do |article|
+    .article-pane{article_title: "#{article.title}"}
+      .row
+        .col-xs-1
+        .col-xs-10
+          = render 'articles/article_view', article: article, edit: false, home: home
+        .col-xs-1
+
+
 .col-xs-12.col-sm-3
   = tipp_panel do
     = render 'show_help'

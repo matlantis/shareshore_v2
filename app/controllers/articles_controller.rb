@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
   before_action :redirect_user_without_location, only: [:index, :new_from_stockitems]
 
   def redirect_user_without_location
-    if current_user.locations.count < 1
+    if not current_user.location
       flash[:notice] = t('articles.redirected_to_create_location')
-      redirect_to locations_path
+      redirect_to edit_registrations_path
     end
   end
 
@@ -108,7 +108,7 @@ class ArticlesController < ApplicationController
   end
 
   def create_from_index
-    @article = current_user.articles.new(article_params)
+    @article = current_user.location.articles.new(article_params)
     respond_to do |format|
       if @article.save
         content = "Title: " + @article.title

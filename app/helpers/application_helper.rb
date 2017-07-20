@@ -30,11 +30,11 @@ module ApplicationHelper
         content_tag :em, t('common.unknown_location')
       else
         content_tag :span, class: "location_marker" do
-          link_to location do
-            txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
-            txt2 = content_tag :strong, text
-            txt1.concat(txt2)
-          end
+          #link_to location do
+          txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
+          txt2 = text
+          txt1.concat(txt2)
+          #end
         end
       end
     end

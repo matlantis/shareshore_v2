@@ -3,35 +3,35 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
-  def index
-    # admins can see articles of other users
-    user = nil
-    if params.key?(:user_id) && is_admin?
-      user = User.find_by(id: params[:user_id].to_i)
-    end
-    if user
-      @user = user
-    else
-      @user = current_user
-    end
+  # def index
+  #   # admins can see articles of other users
+  #   user = nil
+  #   if params.key?(:user_id) && is_admin?
+  #     user = User.find_by(id: params[:user_id].to_i)
+  #   end
+  #   if user
+  #     @user = user
+  #   else
+  #     @user = current_user
+  #   end
 
-    @locations = @user.locations.order(created_at: :asc)
+  #   @locations = @user.locations.order(created_at: :asc)
 
-    # init new location and try to prefill country and city
-    @location = Location.new
-    if session.has_key?(:address)
-      parts = session[:address].split(',')
-      if parts.length > 0
-        @location.city = parts[0].strip() # guess the first part is the city
+  #   # init new location and try to prefill country and city
+  #   @location = Location.new
+  #   if session.has_key?(:address)
+  #     parts = session[:address].split(',')
+  #     if parts.length > 0
+  #       @location.city = parts[0].strip() # guess the first part is the city
         
-        country_part = parts[-1].strip() # guess the last part is the country part
-        country = ISO3166::Country.find_country_by_name(country_part)
-        if country
-          @location.country = country.alpha2
-        end
-      end
-    end
-  end
+  #       country_part = parts[-1].strip() # guess the last part is the country part
+  #       country = ISO3166::Country.find_country_by_name(country_part)
+  #       if country
+  #         @location.country = country.alpha2
+  #       end
+  #     end
+  #   end
+  # end
   
   # GET /locations/1
   # GET /locations/1.json
@@ -64,57 +64,58 @@ class LocationsController < ApplicationController
   def edit
   end
 
-  # POST /locations
-  # POST /locations.json
-  def create
-    @location = current_user.locations.create(location_params)
-    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+  # # POST /locations
+  # # POST /locations.json
+  # def create
+  #   @location = Location.create(location_params)
+  #   current_user.location = @location
+  #   @location_div_id = "location_" + @location.id.to_s + "_div" # for js
 
-    respond_to do |format|
-      if @location.save
-        format.html { redirect_to locations_path, notice: t('.create_success') }
+  #   respond_to do |format|
+  #     if @location.save
+  #       format.html { redirect_to locations_path, notice: t('.create_success') }
 
-        format.js { render 'create_success' }
-      else
-        handle_geocoding_error(@location)
-        format.html { redirect_to locations_path, alert: t('.create_error') }
+  #       format.js { render 'create_success' }
+  #     else
+  #       handle_geocoding_error(@location)
+  #       format.html { redirect_to locations_path, alert: t('.create_error') }
 
-        format.js { render 'create_error' }
-      end
-    end
-  end
+  #       format.js { render 'create_error' }
+  #     end
+  #   end
+  # end
 
-  # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
-  def update
-    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to locations_path, notice: t('.update_success') }
-        format.json { render :show, status: :ok, location: @location }
-        format.js { render 'update_success' }
-      else
-        handle_geocoding_error(@location)
-        format.html { redirect_to locations_path, alert: t('.update_error') }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-        format.js { render 'update_error' }
-      end
-    end
-  end
+  # # PATCH/PUT /locations/1
+  # # PATCH/PUT /locations/1.json
+  # def update
+  #   @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+  #   respond_to do |format|
+  #     if @location.update(location_params)
+  #       format.html { redirect_to locations_path, notice: t('.update_success') }
+  #       format.json { render :show, status: :ok, location: @location }
+  #       format.js { render 'update_success' }
+  #     else
+  #       handle_geocoding_error(@location)
+  #       format.html { redirect_to locations_path, alert: t('.update_error') }
+  #       format.json { render json: @location.errors, status: :unprocessable_entity }
+  #       format.js { render 'update_error' }
+  #     end
+  #   end
+  # end
 
-  # DELETE /locations/1
-  # DELETE /locations/1.json
-  def destroy
-    user = @location.user
-    @location.destroy
-    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
-    @list_is_empty = user.locations.empty?
-    respond_to do |format|
-      format.html { redirect_to locations_path, notice: t('.destroy_success') }
-      format.js {}
+  # # DELETE /locations/1
+  # # DELETE /locations/1.json
+  # def destroy
+  #   user = @location.user
+  #   @location.destroy
+  #   @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+  #   @list_is_empty = user.locations.empty?
+  #   respond_to do |format|
+  #     format.html { redirect_to locations_path, notice: t('.destroy_success') }
+  #     format.js {}
 
-    end
-  end
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

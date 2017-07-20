@@ -40,7 +40,8 @@ de:
         use_the: "Verwende die"
         to_build_up_your_inventory: "um ohne viel Aufwand Dein Angebot zu erstellen."
         write_a_few_nice_words: "Schreibe ein paar freundliche Worte, die Dich beschreiben, um Leute zu ermutigen, dich zu kontaktieren!"
-
+        where_are_your_things: "Wo wohnst du? Deine Adresse ist für andere sichtbar, damit sie wissen, wo sie deine Sachen ausleihen können."
+        
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."
         
@@ -67,6 +68,7 @@ de:
         text_only_signed_up_users: "Der Besitzer erlaubt nur angemeldeten Leuten, ihn zu kontaktieren."
         message_was_send: "Nachricht versendet!"
         waiting: "Nachricht wird gesendet ..."
+        text_there_are_x_users_in_this: Es gibt noch %{count} Nutzer in diesem
 
       update_guidepost:
         update_contact_info_success: "Kontaktinformationen aktualisiert"

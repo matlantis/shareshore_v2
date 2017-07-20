@@ -1,6 +1,6 @@
 - url ||= (article)? article_path(article) : create_from_index_articles_path
 
-- if current_user.locations.count == 0 && article.id == nil # creation
+- if (not current_user.location) && article.id == nil # creation
   .text-center
     = succeed ":" do
       = t('.create_location_at_first')
@@ -24,7 +24,7 @@
     = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
     -#%div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
       = f.text_field :rate, size: 15
-    = f.collection_select :location_id, determine_owner(article).locations, :id, :shortaddress, label: Article.human_attribute_name('location')
+    -#= f.collection_select :location_id, determine_owner(article).locations, :id, :shortaddress, label: Article.human_attribute_name('location')
     = f.text_area :details, placeholder: Article.human_attribute_name("details")
     = f.hidden_field :stockitem_id
     = f.form_group do

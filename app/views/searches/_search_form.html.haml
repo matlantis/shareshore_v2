@@ -15,7 +15,7 @@
           = transport_icon(model) + " "
           = t('activerecord.attributes.search.transport_' + model)
 
-  - if current_user && current_user.locations.count > 0
+  - if current_user && current_user.location
     .form-group
       .col-xs-2
         = f.label :address, class: "control-label"
@@ -25,14 +25,14 @@
           = Search.human_attribute_name("use_location")
   - else
     = f.hidden_field :use_location, value: false
-  .form-group
+  -#.form-group
     .col-xs-2
     .col-xs-10
       = f.select :location_id, options_from_collection_for_select(current_user.locations, :id, :shortaddress), { }, class: "form-control"
 
   .form-group{class: [@search.errors[:address].length != 0 && "has-error"]}
     .col-xs-2
-      - unless current_user && current_user.locations.count > 0
+      - unless current_user && current_user.location
         = f.label :address, class: "control-label"
     .col-xs-10
       = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), class: "form-control"

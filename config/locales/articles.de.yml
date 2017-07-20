@@ -23,7 +23,7 @@ de:
 
     popup:
 
-    article_show:
+    show:
       heading_request: "Sende %{nickname} eine Anfrage für diese Sache!"
       placeholder_request_text: "Schreibe wann, wie lange und wofür du die Sache ausleihen willst und füge ein paar freundliche Worte hinzu!"
       button_label_send_request: "Anfrage für diese Sache versenden"
@@ -56,8 +56,6 @@ de:
       text_you_already_have: Du hast schon
       text_of_this: davon!
 
-    show:
-    
     create_from_index:
       create_success: "Sache erstellt"
       create_error: "Fehler beim Erstellen der Sache"

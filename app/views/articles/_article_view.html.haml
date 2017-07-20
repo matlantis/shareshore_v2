@@ -18,12 +18,10 @@
   .article_view
     - if user_signed_in? && is_admin?
       .row
-        .col-xs-3
+        .col-xs-6
           = article_marker article
-        .col-xs-4
+        .col-xs-6
           = rate_marker(article)
-        .col-xs-5
-          = location_marker article.location
           .pull-right
             = edit_icons(article)
       .row
@@ -36,12 +34,10 @@
 
     - elsif edit
       .row
-        .col-xs-3
+        .col-xs-6
           = article_marker article
-        .col-xs-4
+        .col-xs-6
           = rate_marker(article)
-        .col-xs-5
-          = location_marker article.location
           .pull-right
             = edit_icons(article)
       .row

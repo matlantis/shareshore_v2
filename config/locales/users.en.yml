@@ -40,7 +40,9 @@ en:
         use_the: "Use the"
         to_build_up_your_inventory: "to build up your inventory without big effort."
         write_a_few_nice_words: "Write a few friendly words about yourself to encourage people to contact you!"
-      guidepost:
+        where_are_your_things: "Where are you living? Your address is visible for others, so they know where they can lend your things."
+
+        guidepost:
         tipp_panel_text: "Guidepost help"
         
       new:
@@ -65,6 +67,7 @@ en:
         text_only_signed_up_users: "The User only allows signed people to contact him."
         message_was_send: "Message send!"
         waiting: "Sending message ..."
+        text_there_are_x_users_in_this: There are %{count} other users in this
 
       update_guidepost:
         update_contact_info_success: "Updated contakt informationen"
