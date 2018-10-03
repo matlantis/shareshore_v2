@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-  skip_before_filter :verify_authenticity_token, only: [:userreply]
-  
+  skip_before_action :verify_authenticity_token, only: [:userreply]
+
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   before_action :authenticate_admin!, only: [:index]
@@ -33,10 +33,10 @@ class MessagesController < ApplicationController
       logger.info "bad TO address"
       return
     end
-      
+
     receiver_public_uuid = uuid_match[1]
     sender_private_uuid = uuid_match[2]
-    
+
     receiver = User.find_by(public_uuid: receiver_public_uuid)
     sender = User.find_by(private_uuid: sender_private_uuid)
 
@@ -53,7 +53,7 @@ class MessagesController < ApplicationController
       logger.info "receiver not accepted"
       return
     end
-    
+
     # create a message object and store it
     @message = Message.new({text: params['body-plain'], html: params['body-html'], receiver_id: receiver.id, sender_id: sender.id, with_name: false, with_phoneno: false, with_email: false, subject: params['subject']})
 
@@ -65,9 +65,9 @@ class MessagesController < ApplicationController
     else
       head :not_acceptable
     end
-      
+
   end
-  
+
   # POST /messages
   # POST /messages.json
   def create
@@ -76,7 +76,7 @@ class MessagesController < ApplicationController
 
     # for testing add a html part
     #@message.html = "<h1>Mal gucken</h1>"
-    
+
     respond_to do |format|
       if @message.save
         UserMailer.user_message_mail(@message).deliver_now
