@@ -92,6 +92,8 @@ ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE upgrade heroku stack
+https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack
 *** DONE layout article ansicht mit bemerkungen                 :enhancement:
     CLOSED: [2017-06-29 Do 20:12]
     sieht irgendwie doof aus mit den bemerkungen unter den infos, so dass man sie gern übersieht
