@@ -1,12 +1,12 @@
 = simple_form_for search, url: search_path, method: :get, html: {class: "form-horizontal"} do |f|
   .form-group
-    .col-xs-2
+    .col-xs-2.text-right
       = f.label :pattern, class: "control-label"
     .col-xs-10
       = f.text_field :pattern, placeholder: t(".pattern_placeholder"), label: t(".pattern_label"), autofocus: true, class: "form-control filter_pattern"
 
   .form-group
-    .col-xs-2
+    .col-xs-2.text-right
       = f.label :transport, class: "control-label"
     .col-xs-10
       - SearchesHelper::TransportModel.list_transport_models.each do |model|
@@ -17,7 +17,7 @@
 
   - if current_user && current_user.location
     .form-group
-      .col-xs-2
+      .col-xs-2.text-right
         = f.label :address, class: "control-label"
       .col-xs-10
         = f.label :use_location, class: "checkbox-inline", data_toggle: "tooltip", title: t('.use_location_tooltip') do
@@ -31,7 +31,7 @@
       = f.select :location_id, options_from_collection_for_select(current_user.locations, :id, :shortaddress), { }, class: "form-control"
 
   .form-group{class: [@search.errors[:address].length != 0 && "has-error"]}
-    .col-xs-2
+    .col-xs-2.text-right
       - unless current_user && current_user.location
         = f.label :address, class: "control-label"
     .col-xs-10
