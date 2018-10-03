@@ -1,4 +1,4 @@
-class RenameTemplateToStockitem < ActiveRecord::Migration
+class RenameTemplateToStockitem < ActiveRecord::Migration[4.2]
   def change
     rename_table :templates, :stockitems
     remove_reference :articles, :template

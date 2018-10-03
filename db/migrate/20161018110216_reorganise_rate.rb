@@ -1,4 +1,4 @@
-class ReorganiseRate < ActiveRecord::Migration
+class ReorganiseRate < ActiveRecord::Migration[4.2]
   def change
     remove_column :templates, :rate_eur, :integer
     remove_column :templates, :rate_interval, :string

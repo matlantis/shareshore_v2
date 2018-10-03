@@ -1,4 +1,4 @@
-class SplitStreetAndNumber < ActiveRecord::Migration
+class SplitStreetAndNumber < ActiveRecord::Migration[4.2]
   def up
     rename_column :locations, :street_and_no, :street
     add_column :locations, :number, :string

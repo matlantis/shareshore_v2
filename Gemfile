@@ -5,10 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.3'
+ruby '2.5.1'
+# ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'rails', '4.2.6'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.2.0'
+# gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg' #, '~> 0.15'
 #gem 'sqlite3'

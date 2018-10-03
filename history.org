@@ -3,6 +3,38 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO replace sass-rails with sassc
+Got warning while running bundle update
+Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
+
+- If you use Sass as a command-line tool, we recommend using Dart Sass, the new
+  primary implementation: https://sass-lang.com/install
+
+- If you use Sass as a plug-in for a Ruby web framework, we recommend using the
+  sassc gem: https://github.com/sass/sassc-ruby#readme
+
+- For more details, please refer to the Sass blog:
+  http://sass.logdown.com/posts/7081811
+*** TODO make it run on 18.04
+**** Versions on 16.04
+~/Documents/shareshore/www/shareshore_v2(master*) » nodejs -v                    martin@Simyala
+v10.11.0
+------------------------------------------------------------
+~/Documents/shareshore/www/shareshore_v2(master*) » rails --version              martin@Simyala
+Rails 5.0.7
+------------------------------------------------------------
+~/Documents/shareshore/www/shareshore_v2(master*) » ruby --version               martin@Simyala
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+*** TODO geocoding                                                  :feature:
+    - eigene geocode methode auf grundlage von Geocoder::search schreiben
+    - felder (street, number ... ) aktualisieren bzw ausfüllen
+    - flag setzen, ob geocoding manuell erfolgt oder nicht, dh wenn geocoding nicht erfolgreich war, location auf manuell setzen (aber nicht invalid), nutzer auffordern zu überprüfen
+    - karte in profil einblenden, um die location zu überprüfen und manuell zu setzen
+    - wenn der nutzer die adresse verändert, das manuell flag verwerfen
+    - jetzt mal überlegen, inwieweit man das manuell flag braucht, oder ob das nicht automatisch durch die long und lat gegeben ist, wenn das blank ist (ja es ist überflüssig)
+    - in zukunft locations ohne longlat angaben verarbeiten (karte, entfernungen (ohoh, am besten vorher rausfiltern)), warnung im profil
+
+    
 *** TODO standort an profil knüpfen                                 :feature:
     location als eigenes model lassen
     user has one location, not many

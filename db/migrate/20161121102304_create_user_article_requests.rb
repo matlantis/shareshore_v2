@@ -1,4 +1,4 @@
-class CreateUserArticleRequests < ActiveRecord::Migration
+class CreateUserArticleRequests < ActiveRecord::Migration[4.2]
   def change
     create_table :user_article_requests do |t|
       t.string :text

@@ -1,4 +1,4 @@
-class CreateStockitemSelections < ActiveRecord::Migration
+class CreateStockitemSelections < ActiveRecord::Migration[4.2]
   def change
     create_table :stockitem_selections do |t|
     end
