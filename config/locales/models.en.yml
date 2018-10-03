@@ -47,7 +47,7 @@ en:
         password: "password"
         password_confirmation: "Password confirmatino"
         current_password: "Current Password"
-        locations: "Locations"
+        location: "Address"
         terms: "Terms of Use and Privacy Declaration"
         aboutme: "About me"
       article:

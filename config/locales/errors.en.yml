@@ -12,6 +12,8 @@ en:
       models:
         user:
           attributes:
+            location:
+              not_geocoded: "not found"
             nickname:
               invalid: "allows only numbers, letters, as well as '.' and '-'"
             phoneno:

@@ -50,7 +50,7 @@ de:
         password: "Passwort"
         password_confirmation: "Passwort bestätigen"
         current_password: "Aktuelles Passwort"
-        locations: "Standorte"
+        location: "Adresse"
         terms: "Allgemeine Geschäftsbedingungen und Datenschutzerklärung"
         aboutme: "Über mich"
       article:

@@ -12,69 +12,123 @@
       = t(".text_awaiting_confirmation")
       \: #{resource.unconfirmed_email}
 
-  = bootstrap_nested_form_for(resource, url: registration_path(resource_name), as: resource_name, html: { method: :put }, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
+  = simple_form_for(resource, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal"}) do |f|
     = devise_error_messages!
-    = f.form_group do
-      %h4= t(".basic_info")
-    = f.email_field :email, autofocus: true
-    = f.text_field :nickname
-    = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off"
-    = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label')
-    = f.password_field :current_password, help: t(".help_password_needed"), autocomplete: "off"
+    .form-group
+      .col-xs-3
+      .col-xs-9
+        %h4= t(".basic_info")
+    .form-group
+      .col-xs-3.text-right
+        = f.label :email, class: "control-label"
+      .col-xs-9
+        = f.email_field :email, autofocus: true, class: "form-control"
+    .form-group
+      .col-xs-3.text-right
+        = f.label :nickname, class: "control-label"
+      .col-xs-9
+        = f.text_field :nickname, class: "form-control"
+    .form-group
+      .col-xs-3.text-right
+        = f.label :password, class: "control-label"
+      .col-xs-9
+        = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", class: "form-control"
+    .form-group
+      .col-xs-3.text-right
+        = f.label :password_confirmation, class: "control-label"
+      .col-xs-9
+        = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label'), class: "form-control"
+    .form-group
+      .col-xs-3.text-right
+        = f.label :current_password, class: "control-label"
+      .col-xs-9
+        = f.password_field :current_password, help: t(".help_password_needed"), autocomplete: "off", class: "form-control"
 
-    = f.form_group do
-      %h4= t(".location_info")
-      = t(".where_are_your_things")
-
+    .form-group
+      .col-xs-3
+      .col-xs-9
+        %h4= t(".location_info")
+        = t(".where_are_your_things")
     = f.fields_for :location do |loc_f|
-      = loc_f.text_field :street
-      = loc_f.text_field :number
-      = loc_f.text_field :city
-      = loc_f.text_field :postcode
-      = loc_f.country_select :country, { selected: resource.location.country }, { class: 'form-control' }
-      
-    = f.form_group do
-      %h4= t(".contact_info")
-      = t(".how_shall_people_get_in_contact_with_you")
-    -#= f.text_field :firstname
-    -#= f.text_field :lastname
-    = f.form_group do
-      .checkbox
-        %label
-          = check_box_tag :pershareship, 'yes', true, disabled: true
-          = t(".per_shareship")
-          .help-block
-            = t(".per_shareship_help")
-      -#= f.check_box :showname
-      = f.check_box :showemail do
-        = t('.per_email')
-        .help-block
-          = t('.per_email_help')
-      -#= f.check_box :showname
-      = f.check_box :showphone do
-        = t('.per_phone')
-        %span.help-block
-          = t('.per_phone_help')
-    = f.text_field :phoneno
-
-    -#= f.fields_for "locations[0]", resource.locations[0] do |location_form|
-      = location_form.text_field :street
-      = location_form.text_field :number
-      = location_form.text_field :postcode
-      = location_form.text_field :city
-      = location_form.form_group do
-        = location_form.country_select :country, { selected: resource.locations[0].country }, { class: 'form-control' }
+      .form-group
+        .col-xs-3.text-right
+          = loc_f.label :street, class: "control-label"
+        .col-xs-5
+          = loc_f.text_field :street, class: "form-control"
+        .col-xs-2.text-right
+          = loc_f.label :number, class: "control-label"
+        .col-xs-2
+          = loc_f.text_field :number, class: "form-control"
+      .form-group
+        .col-xs-3.text-right
+          = loc_f.label :city, class: "control-label"
+        .col-xs-5
+          = loc_f.text_field :city, class: "form-control"
+        .col-xs-2.text-right
+          = loc_f.label :postcode, class: "control-label"
+        .col-xs-2
+          = loc_f.text_field :postcode, class: "form-control"
+      .form-group
+        .col-xs-3.text-right
+          = loc_f.label :country, class: "control-label"
+        .col-xs-9
+          = loc_f.country_select :country, { selected: resource.location.country }, { class: 'form-control' }
       - if is_admin?
-        = location_form.number_field :house_id
+        .form-group
+          .col-xs-3.text-right
+            = loc_f.label :house_id, class: "control-label"
+          .col-xs-9
+            = loc_f.number_field :house_id
+      
+    .form-group
+      .col-xs-3
+      .col-xs-9
+        %h4= t(".contact_info")
+        = t(".how_shall_people_get_in_contact_with_you")
 
-    = f.form_group do
-      %h4= t(".about_info")
-      = t(".write_a_few_nice_words")
+    .form-group
+      .col-xs-3.text-right
+      .col-xs-9
+        .checkbox
+          %label
+            = check_box_tag :pershareship, 'yes', true, disabled: true
+            = t(".per_shareship")
+            .help-block
+              = t(".per_shareship_help")
+        -#= f.input :showemail
+        .checkbox
+          %label
+            = f.check_box :showemail
+            = t('.per_email')
+            .help-block
+              = t('.per_email_help')
+        .checkbox
+          %label
+            = f.check_box :showphone
+            = t('.per_phone')
+            .help-block
+              = t('.per_phone_help')
+    .form-group
+      .col-xs-3.text-right
+        = f.label :phoneno, class: "control-label"
+      .col-xs-9
+        = f.text_field :phoneno, class: 'form-control'
 
-    = f.text_area :aboutme
+    .form-group
+      .col-xs-3
+      .col-xs-9
+        %h4= t(".about_info")
+        = t(".write_a_few_nice_words")
 
-    = f.form_group do
-      = f.submit t("forms.finish")
+    .form-group
+      .col-xs-3.text-right
+      .col-xs-9
+        = f.text_area :aboutme, class: 'form-control'
+        
+    .form-group
+      .col-xs-3.text-right
+      .col-xs-9
+        = f.submit t("forms.finish"), class: "btn btn-default"
 
   - if @user.articles.count < 1
     .alert.alert-notice

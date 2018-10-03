@@ -2,15 +2,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   prepend_before_action :authenticate_scope!, only: [ :guidepost, :update_guidepost, :edit, :update, :destroy]
 
   def index
     authenticate_admin!
     @users = User.all.order(nickname: :asc)
-    @users = @users.paginate(page: params[:page], per_page: 100)    
+    @users = @users.paginate(page: params[:page], per_page: 100)
   end
-  
+
   def show
     @user = User.find_by(id: params[:id])
     unless @user
@@ -40,29 +40,39 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # By default we want to require a password checks on update.
   # You can overwrite this method in your own RegistrationsController.
   def update_resource(resource, params)
+    aboutme_need_review = params.key?(:aboutme) && (not params[:aboutme].empty?) && (params[:aboutme] != resource.aboutme)
+
     if params.key?("password") && !params["password"].empty?
-      resource.update_with_password(params)
+      res = resource.update_with_password(params)
     else
       # delete password and current_password field
       params.delete("current_password")
       params.delete("password")
       params.delete("password_confirmation")
       # check if review is needed
-      aboutme_need_review = params.key?(:aboutme) && (not params[:aboutme].empty?) && (params[:aboutme] != resource.aboutme)
-      
+
       res = resource.update(params)
-      if res
-        # send admin review notification
-        if aboutme_need_review
-          content = "Aboutme: " + resource.aboutme
-          UserMailer.admin_content_review_notification_mail(content, edit_registration_url(resource)).deliver_now
-        end
+    end
+
+    # handle geocoding error
+    if resource.errors.has_key?(:"location.latitude") or resource.errors.has_key?(:"location.longitude") # could not be geocoded
+      resource.errors.delete(:"location.latitude")
+      resource.errors.delete(:"location.longitude")
+      #resource.errors.add(:location, :invalid, message: t("locations.warning_location_not_geocoded"))
+      resource.errors.add(:location, :not_geocoded)
+    end
+
+    if res
+      # send admin review notification
+      if aboutme_need_review
+        content = "Aboutme: " + resource.aboutme
+        UserMailer.admin_content_review_notification_mail(content, edit_registration_url(resource)).deliver_now
       end
       res
     end
-      
+
   end
-  
+
   def guidepost
     @location = Location.new
   end
@@ -106,7 +116,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       parts = session[:address].split(',')
       if parts.length > 0
         @location.city = parts[0].strip() # guess the first part is the city
-        
+
         country_part = parts[-1].strip() # guess the last part is the country part
         country = ISO3166::Country.find_country_by_name(country_part)
         if country
@@ -161,7 +171,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :street, :number, :city, :postcode, :country ]) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite
@@ -180,7 +190,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       respond_with_navigational(resource) { render :new }
       #self.resource = resource_class.new sign_up_params
       #respond_with_navigational(resource) { render :new }
-    end 
+    end
   end
 
 end
