@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :stockitems
   post 'stockitems/new', to: "stockitems#new"
-  
+
   get '/search', to: 'searches#new', as: 'search'
   #resources :searches, only: [:new, :create]
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
 
   post '/userreply', to: 'messages#userreply'
-  
+
   # use own devise controllers
   devise_for :users, controllers: {
                confirmations: "users/confirmations",
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                unlocks: "users/unlocks"
              }
-  
+
   root "pages#index"
 
   resources :articles, except: [ :create ]
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       post 'create_from_stockitems'
     end
   end
-  
+
   get '/users/:user_id/articles', action: :index_user, controller: 'articles', as: 'articles_user'
   #get '/locations/:location_id/articles', action: :index_location, controller: 'articles', as: 'articles_location'
   get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   get "/pages/admin", to: "pages#admin"
   get "/pages/:page", to: "pages#show"
   get "/pages/guideline", as: "guideline"
-  
+
   get "accept_beta", to: "application#accept_beta"
   get "accept_cookies", to: "application#accept_cookies"
 end
