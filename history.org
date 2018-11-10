@@ -3,6 +3,10 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO bugs in production version
+profil zeigt keine location felder (nicht editierbar, dadurch können keine Dinge angelegt werden
+*** TODO SSL Zertifikat austauschen
+siehe email vom 19.10.2018 von SSLmarket.de
 *** TODO replace sass-rails with sassc
 Got warning while running bundle update
 Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
