@@ -3,7 +3,7 @@
 
 .col-xs-12.col-sm-9
   %h3.text-center= @title
-      
+
   - if is_admin?
     .row
       .col-xs-12
@@ -54,7 +54,7 @@
                 = f.alert_message t('common.message_fix_errors')
                 = f.text_area :text, placeholder: t('.placeholder_message_text'), hide_label: true
                 = f.hidden_field :receiver_id
-                = f.form_group do
+                -# = f.form_group do
                   -# unless current_user.fullname.blank?
                     = f.check_box :with_name, label: "#{Message.human_attribute_name(:with_name)} (#{current_user.fullname})"
                   -# unless current_user.phoneno.blank?
@@ -116,8 +116,7 @@
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);
   };
-  
-  $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', houses: @houses, articles: @articles, formats: [:js]}    
-  });
 
+  $(document).ready(function() {
+    #{render 'articles/map_show.js.erb', houses: @houses, articles: @articles, formats: [:js]}
+  });

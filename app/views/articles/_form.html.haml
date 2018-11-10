@@ -6,7 +6,7 @@
       = t('.create_location_at_first')
     = link_to t('titles.locations.index'), locations_path
 - else
-  
+
   = bootstrap_form_for(article, url: url, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
     = f.alert_message t('common.message_fix_errors')
     - if article.stockitem_id
@@ -14,13 +14,13 @@
     - else
       = f.text_field :title
     - # f.number_field :quality, min: 0, max: 5, size: 8
-    = f.form_group do
-      - if article.id == nil && article.stockitem_id
-        - the_id = article.stockitem_id
-      - else
-        - the_id = article.id
+    -# = f.form_group do
+    -#   - if article.id == nil && article.stockitem_id
+    -#     - the_id = article.stockitem_id
+    -#   - else
+    -#     - the_id = article.id
+    -#   = f.check_box :gratis, data: { article_id: the_id }, class: "article_gratis_cb", inline: true
 
-      -#= f.check_box :gratis, data: { article_id: the_id }, class: "article_gratis_cb", inline: true
     = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
     -#%div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
       = f.text_field :rate, size: 15
