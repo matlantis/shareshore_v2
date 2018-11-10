@@ -4,9 +4,15 @@
 
 - @users.each do |user|
   .row
-    .col-xs-6
+    .col-xs-4
       = user_marker(user)
-    .col-xs-6
+    .col-xs-4
+      = user.location.shortaddress
+    -# .col-xs-2
+      -# not working, deletes the admin account!!!
+      -# = link_to("delete", admin_destroy_user_path(user), method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: 'btn btn-danger btn-xs', remote: true)
+
+    .col-xs-2
       = articles_count(user.articles)
 
 = will_paginate @users, renderer: BootstrapPagination::Rails

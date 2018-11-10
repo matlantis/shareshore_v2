@@ -6,7 +6,7 @@ module ApplicationHelper
   def tipp_panel(title: t("common.title_tip_panel"), &block)
     capture do
       content_tag :div, class: ["tip-panel", "panel","panel-default"] do
-        
+
         txt1 = content_tag :div, class: "panel-heading" do
           content_tag(:h4, title)
         end
@@ -15,7 +15,7 @@ module ApplicationHelper
         end
 
         txt1.concat(txt2)
-      end          
+      end
     end
   end
 
@@ -114,7 +114,7 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def articles_count(articles)
     articles.count.to_s + " " + I18n.t('activerecord.models.article', count: articles.count)
   end
@@ -128,7 +128,7 @@ module ApplicationHelper
       articles_location_count(location)
     end
   end
-  
+
   def locations_count(locations)
     locations.count.to_s + " " + I18n.t('activerecord.models.location', count: locations.count)
   end
@@ -144,7 +144,7 @@ module ApplicationHelper
       if user
         subject = t("mail.subject_message_username", user: user.nickname)
       else
-        subject = t("mail.subject_message_anonymous")    
+        subject = t("mail.subject_message_anonymous")
       end
     end
   end
@@ -170,11 +170,11 @@ module ApplicationHelper
     #content_tag :span, "", class: "transport-model-" + transport_model, data_toggle: "tooltip", title: t("searches.transport_models." + transport_model)
     content_tag :span, "", class: "transport-model-" + transport_model
   end
-  
+
   def rate_icon(rate_model)
     content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
   end
-  
+
   def distance_label_time(home, loc1, loc2)
     if home
       content_tag :strong, t('articles.common.tooltip_home')
@@ -231,7 +231,7 @@ module ApplicationHelper
   def search_transport_radius(transport)
     t("searches.transport_models." + transport) + ": " + I18n.t('searches.transport_radius_explanation', radius: "%.0f" % SearchesHelper::TransportModel.radius(transport))
   end
-  
+
   def create_map_house_marker(articles, house, house_center = nil)
     local_articles = articles.joins(:location).where("locations.house_id = ?", house.id)
     html_text = escape_javascript(render 'articles/popup', house: house, articles: local_articles )
@@ -245,7 +245,7 @@ module ApplicationHelper
        " color: 'red' }").html_safe
     end
   end
-  
+
   def create_map_house_markers(articles, houses, house_center)
     txt = houses.map { |house|
       create_map_house_marker(articles, house, house_center)
@@ -257,7 +257,7 @@ module ApplicationHelper
     home_html = "#{@current_location.shortaddress}"
     home_id = -1
 
-    ("{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], " + 
+    ("{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], " +
      " html: '<strong>#{t('articles.map.marker_your_location')}</strong><br>#{home_html}', " +
      " id: #{home_id}, " +
      " color: 'blue' }").html_safe
