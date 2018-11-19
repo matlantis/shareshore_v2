@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :prepare_search_session
   before_action :set_locale
-  
+
   def accept_beta
     session[:beta_accepted] = true
   end
@@ -14,20 +14,20 @@ class ApplicationController < ActionController::Base
   def accept_cookies
     session[:cookies_accepted] = true
   end
-  
+
   def prepare_search_session
     # resolve the origin of the request and store the location for later use
-    unless session.has_key?(:address)
+    if !session.has_key?(:address) || session[:address].empty?
       addr = Geocoder.address(request.remote_ip)
-      if addr == "Reserved" # got that for remote_ip localhost
+      if addr.empty? || addr == "Reserved" # got that for remote_ip localhost
         addr = "Dresden, Germany"
         addr = "Berlin, BE 13357, Germany"
       end
       if addr
         session[:address] = addr
-      end      
+      end
     end
-    
+
     # unless session.key? :search # seems to be a new user
       #addr = Geocoder.address(request.remote_ip)
       #if addr == "Reserved" # got that for remote_ip localhost
@@ -39,13 +39,13 @@ class ApplicationController < ActionController::Base
       #   search.radius = 1.5
       #   session[:search] = search
       # end
-    # end    
+    # end
   end
 
   def default_url_options
     { locale: I18n.locale }
   end
-  
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
     if current_user.role != 'admin'
       redirect_to("/", warning: 'forbidden', status: :forbidden)
     end
-  end    
+  end
 
   def is_admin?
     user_signed_in? && current_user.role == "admin"

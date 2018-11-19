@@ -3,6 +3,15 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO code clean up                                                 :code:
+there is a bunch of old code in the code
+*** TODO warning appeared when pushing to heroku                       :code:
+WARN -- : WARNING on line 19 of /tmp/build_c64ca906cc08b5a457bdda26ee4700b9/app/assets/stylesheets/articles.css.sass:
+This selector doesn't have any properties and will not be rendered.
+*** TODO heroku staging system
+following this article
+https://devcenter.heroku.com/articles/multiple-environments
+abgebrochen
 *** TODO Cookie Hinweis aktualisieren                           :enhancement:
 *** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
 *** TODO Eigenen Standort manuell setzen, wie früher                :feature:
