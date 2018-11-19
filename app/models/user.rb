@@ -32,6 +32,10 @@ class User < ApplicationRecord
     self.location ||= Location.new
   end
 
+  def set_location_from_session_address(address)
+    self.location.fill_from_session_address(address)
+  end
+
   def fullname
     [firstname, lastname].reject {|e| e.blank?}.join(" ")
   end

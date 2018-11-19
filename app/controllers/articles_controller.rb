@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   def edit
     @owner = @article.location.user
   end
-  
+
   def index
     # admins can see articles of other users
     user = nil
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     else
       @user = current_user
     end
-    
+
     @articles = @user.articles.order(location_id: :asc, title: :asc)
   end
 
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
     @articles = @articles.order(title: :asc)
 
     # paginate
-    @articles = @articles.paginate(page: params[:page], per_page: 100)    
+    @articles = @articles.paginate(page: params[:page], per_page: 100)
   end
 
   def index_user # unused
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
 
     # paginate
     @articles = @articles.paginate(page: params[:page], per_page: 100)
-    
+
   end
 
   # GET /articles/1
@@ -92,7 +92,7 @@ class ArticlesController < ApplicationController
     #   stockitems.each do |t|
     #     @articles[params['room']].push Article.new.fill_from_stockitem t
     #   end
-    # else   
+    # else
     #   @rooms.each do |room|
     #     @articles[room] = []
     #     stockitems = Stockitem.where("room = ?", room)
@@ -117,7 +117,7 @@ class ArticlesController < ApplicationController
 
         format.html { redirect_to articles_path, notice: t('.create_success') }
         format.js { render 'create_success_index'}
-          
+
       else
         format.html { redirect_to articles_path, alert: t('.create_error') }
         format.js { render 'create_error_index'}
@@ -128,21 +128,21 @@ class ArticlesController < ApplicationController
   def create_from_stockitems
     @article = current_user.articles.new(article_params)
     respond_to do |format|
-      if @article.save        
+      if @article.save
         content = "Title: " + @article.title
         content += "\nDetails: " + @article.details
         UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
 
         format.html { redirect_to user_new_article_from_stockitems_path, notice: t('.create_success') }
         format.js { render 'create_success_stockitems'}
-          
+
       else
         format.html { redirect_to user_new_article_from_stockitems_path, alert: t('.create_error') }
         format.js { render 'create_error_stockitems'}
       end
     end
   end
-  
+
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
@@ -163,7 +163,7 @@ class ArticlesController < ApplicationController
       end
       content += "Details: " + params[:details]
     end
-    
+
     success = @article.update(params)
     respond_to do |format|
       if success

@@ -103,6 +103,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       flash.delete :recaptcha_error
       super
+      resource.set_location_from_session_address(session[:address])
+      resource.save
     end
   end
 
@@ -180,6 +182,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
+  # nowhere used?
   def check_captcha
     unless verify_recaptcha
       flash.delete :recaptcha_error
