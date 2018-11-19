@@ -8,8 +8,6 @@
 *** TODO Eigenen Standort manuell setzen, wie früher                :feature:
 *** TODO Artikelsuche ohne Login                                    :feature:
 zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich
-*** TODO bugs in production version                                     :bug:
-profil zeigt keine location felder (nicht editierbar, dadurch können keine Dinge angelegt werden
 *** TODO soft delete user
 https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
 *** TODO SSL Zertifikat austauschen                                     :bug:
@@ -93,6 +91,9 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE bugs in production version                                     :bug:
+    CLOSED: [2018-11-19 Mo 21:17]
+profil zeigt keine location felder (nicht editierbar, dadurch können keine Dinge angelegt werden
 *** DONE make it run on 18.04
     CLOSED: [2018-11-19 Mo 19:22]
 **** Versions on 16.04

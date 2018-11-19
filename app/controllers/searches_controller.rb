@@ -1,7 +1,7 @@
 # coding: utf-8
 class SearchesController < ApplicationController
   before_action :authenticate_user! # für beta phase
-                       
+
   def new
     # if there are search parameters continue with create
     if params.key? :search
@@ -12,7 +12,7 @@ class SearchesController < ApplicationController
     #   update
     #   return
     end
-    
+
     last_search = nil
     if session.key? :search_id
       last_search = Search.find_by(id: session[:search_id])
@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
       @search = last_search.dup
     else
       @search = Search.new
-      
+
       @search.use_location ||= !current_user.nil? && current_user.location
       # set the location
       if !current_user.nil? && current_user.location
@@ -65,7 +65,7 @@ class SearchesController < ApplicationController
                 Geocoder::Calculations.endpoint(@current_location, 270, bound_distance) ]
 
     # disable to draw results via js after page load (no articles need in this step)
-    if true 
+    if true
       @articles = Article.all
 
       # remove own articles
@@ -94,17 +94,17 @@ class SearchesController < ApplicationController
       # limit articles and locations
       @articles = @articles.limit(Search.articles_per_page).page(1)
       @locations = @locations.limit(Search.locations_per_page).page(1)
-      
+
       # build an location_articles_list
       @location_articles_list = @locations.map { |l|
         local_articles = @articles.where(location_id: l.id)
         {location: l, articles: local_articles }
       }
-      
+
       # provide houses to be drawn by the map
       @houses = @locations.collect { |l| l.house }.uniq
     end
-    
+
     # determine if there is a house at given location
     houses_center = House.near(@current_location, 0.01)
     if houses_center.length > 0
@@ -115,10 +115,10 @@ class SearchesController < ApplicationController
       format.html { render 'show' }
     end
   end
-  
+
   # not used
   # draw results via js after page load or on map change
-  def update 
+  def update
     # find last search
     @search = Search.find_by(id: session[:search_id])
     unless @search
@@ -130,7 +130,7 @@ class SearchesController < ApplicationController
     else
       @current_location = Location.new({latitude: @search.latitude, longitude: @search.longitude})
     end
-    
+
     bbox = [ params[:se_lat], params[:nw_lng], params[:nw_lat], params[:se_lng] ]
 
     @articles = Article.all
@@ -160,16 +160,16 @@ class SearchesController < ApplicationController
     # limit articles and locations
     @articles = @articles.limit(Search.articles_per_page).page(1)
     @locations = @locations.limit(Search.locations_per_page).page(1)
-    
+
     # build an location_articles_list
     @location_articles_list = @locations.map { |l|
       local_articles = @articles.where(location_id: l.id)
       {location: l, articles: local_articles }
     }
-    
+
     # provide houses to be drawn by the map
     @houses = @locations.collect { |l| l.house }.uniq
-    
+
     # determine if there is a house at given location
     houses_center = House.near(@current_location, 0.01)
     if houses_center.length > 0

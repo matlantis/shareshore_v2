@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   belongs_to :user
   belongs_to :house, optional: true
   has_many :searches, dependent: :nullify
-  
+
   geocoded_by :fulladdress   # can also be an IP address
   before_validation :re_geocode, :if => :should_re_geocode?  # auto-fetch coordinates
 
@@ -15,15 +15,28 @@ class Location < ApplicationRecord
   #validates :city, length: { minimum: 1, maximum: 100 }
   validates :country, length: { minimum: 1, maximum: 100 }
   #validates :postcode, length: { minimum: 1, maximum: 10 }
-  
+
   before_save :joinhouse
   after_save :clean_houses
   after_destroy :clean_houses
 
   after_initialize :init
-  
+
   def init
     self.country ||= "DE" # make a good guess in the controller
+  end
+
+  def fill_from_session_address(address)
+    parts = address.split(',')
+    if parts.length > 0
+      self.city = parts[0].strip() # guess the first part is the city
+
+      country_part = parts[-1].strip() # guess the last part is the country part
+      country = ISO3166::Country.find_country_by_name(country_part)
+      if country
+        self.country = country.alpha2
+      end
+    end
   end
 
   def country_name
@@ -34,7 +47,7 @@ class Location < ApplicationRecord
       self.country
     end
   end
-  
+
   def street_and_no
     [street, number].reject{|e| e.blank?}.join(" ")
   end

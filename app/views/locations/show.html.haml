@@ -52,8 +52,8 @@
           = link_to @location.house do
             %span.glyphicon.glyphicon-home
             = House.model_name.human
-            
-- if current_user == @location.user || is_admin? 
+
+- if current_user == @location.user || is_admin?
   .col-xs-12.col-sm-6.text-center.shareshore-panel
     - if is_admin?
       = link_to t("common.action_edit"), edit_location_path(@location), class: "btn btn-danger"
@@ -78,49 +78,49 @@
 
 :javascript
   $(document).ready(function() {
-     
+
      var stopLocationSet = function(e) {
        // disable dragging
-       markers[0].dragging.disable(); 
-       
+       markers[0].dragging.disable();
+
        // reset controls
        $("#set_location_remark").show();
        $("#set_location_controls").hide();
-  
+
        console.log("dragging disabled");
      }
-  
+
      var onMapClick = function(e) {
        console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
      };
-  
+
      #{render 'articles/map_show.js.erb', houses: [@location.house], articles: @location.articles, formats: [:js]}
-  
+
      $("#set_location_controls").hide();
-     
+
      $("#set_location_link").on('click', function(e) {
        e.preventDefault();
        console.log("dragging enabled");
-  
+
        // show location controls
        $("#set_location_remark").hide();
        $("#set_location_controls").show();
-  
+
        // enable dragging
        markers[0].dragging.enable();
      });
-  
+
      $("#cancel_set_location_link").on('click', function(e) {
        e.preventDefault();
        // reset the marker to its initial position
        markers[0].setLatLng(#{"[#{@location.latitude}, #{@location.longitude} ]"});
        stopLocationSet();
      });
-  
+
      $("#finish_set_location_link").on('click', function(e) {
        e.preventDefault();
        console.log("Set location at " + markers[0].getLatLng().lat + ", " + markers[0].getLatLng().lng);
-       
+
        // inform the server
        $.ajax({
          url: "#{escape_javascript(location_path(@location))}",
@@ -143,7 +143,7 @@
        });
        // recenter map
        map.setView(markers[0].getLatLng(), defaultZoom);
-       
+
        stopLocationSet();
      });
   });

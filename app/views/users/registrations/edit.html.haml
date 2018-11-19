@@ -1,4 +1,5 @@
 - @title = t('titles.users.registrations.edit')
+- @with_map = true
 
 -#.col-xs-12.col-sm-3.col-sm-push-9
   = tipp_panel do
@@ -155,3 +156,12 @@
     = f.form_group do
       = f.submit t('forms.finish')
       = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"
+
+:javascript
+  onMapClick = function(e) {
+    console.log("You clicked the marker " + e.target.index);
+  };
+
+  $(document).ready(function() {
+    #{render 'articles/map_show.js.erb', houses: [resource.location.house], articles: resource.articles, formats: [:js]}
+  });
