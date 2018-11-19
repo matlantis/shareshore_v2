@@ -3,11 +3,18 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO bugs in production version
+*** TODO Cookie Hinweis aktualisieren                           :enhancement:
+*** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
+*** TODO Eigenen Standort manuell setzen, wie früher                :feature:
+*** TODO Artikelsuche ohne Login                                    :feature:
+zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich
+*** TODO bugs in production version                                     :bug:
 profil zeigt keine location felder (nicht editierbar, dadurch können keine Dinge angelegt werden
-*** TODO SSL Zertifikat austauschen
+*** TODO soft delete user
+https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
+*** TODO SSL Zertifikat austauschen                                     :bug:
 siehe email vom 19.10.2018 von SSLmarket.de
-*** TODO replace sass-rails with sassc
+*** TODO replace sass-rails with sassc                                  :bug:
 Got warning while running bundle update
 Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
 
@@ -19,16 +26,6 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
 
 - For more details, please refer to the Sass blog:
   http://sass.logdown.com/posts/7081811
-*** TODO make it run on 18.04
-**** Versions on 16.04
-~/Documents/shareshore/www/shareshore_v2(master*) » nodejs -v                    martin@Simyala
-v10.11.0
-------------------------------------------------------------
-~/Documents/shareshore/www/shareshore_v2(master*) » rails --version              martin@Simyala
-Rails 5.0.7
-------------------------------------------------------------
-~/Documents/shareshore/www/shareshore_v2(master*) » ruby --version               martin@Simyala
-ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
 *** TODO geocoding                                                  :feature:
     - eigene geocode methode auf grundlage von Geocoder::search schreiben
     - felder (street, number ... ) aktualisieren bzw ausfüllen
@@ -96,6 +93,17 @@ ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE make it run on 18.04
+    CLOSED: [2018-11-19 Mo 19:22]
+**** Versions on 16.04
+~/Documents/shareshore/www/shareshore_v2(master*) » nodejs -v                    martin@Simyala
+v10.11.0
+------------------------------------------------------------
+~/Documents/shareshore/www/shareshore_v2(master*) » rails --version              martin@Simyala
+Rails 5.0.7
+------------------------------------------------------------
+~/Documents/shareshore/www/shareshore_v2(master*) » ruby --version               martin@Simyala
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
 *** DONE upgrade heroku stack
 https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack
 *** DONE layout article ansicht mit bemerkungen                 :enhancement:
