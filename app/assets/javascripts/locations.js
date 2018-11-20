@@ -24,11 +24,13 @@ var onLocationsCreateSuccess = function(newtext, formtext, location_div_id) {
 
 }
 
-var onLocationsUpdateSuccess = function(location_div_id, newtext) {
-  console.log('update success');
-  $('#' + location_div_id).replaceWith(newtext);
+var onLocationsUpdateSuccess = function(location_div_id, newtext, lat, lng) {
+    console.log('update success');
+    $('#' + location_div_id).replaceWith(newtext);
 
-  $('#' + location_div_id + ' .location_edit').hide(200)
+    $('#' + location_div_id + ' .location_edit').hide(200);
+
+    markers[0].setLatLng({lat: lat, lng: lng});
 }
 
 var onLocationsUpdateError = function(location_div_id, formtext) {

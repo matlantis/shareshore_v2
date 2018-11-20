@@ -3,6 +3,8 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO map in profile page mobile covers lowest content               :bug:
+*** TODO rework mobile design                                           :bug:
 *** TODO content review email braucht reject link                   :feature:
 *** TODO location als einfaches textfeld                            :feature:
 zusätzliches länderfeld
@@ -15,7 +17,7 @@ there is a bunch of old code in the code
 *** TODO warning appeared when pushing to heroku                       :code:
 WARN -- : WARNING on line 19 of /tmp/build_c64ca906cc08b5a457bdda26ee4700b9/app/assets/stylesheets/articles.css.sass:
 This selector doesn't have any properties and will not be rendered.
-*** TODO heroku staging system
+*** TODO heroku staging system                                         :code:
 following this article
 https://devcenter.heroku.com/articles/multiple-environments
 abgebrochen

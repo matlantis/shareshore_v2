@@ -16,16 +16,27 @@ de:
       edit:
         tipp_panel_text: "kleine Hilfe zu edit registrations"
         text_awaiting_confirmation: "Warte auf Bestätigung von"
-        help_password_leave_blank: "Freilassen, wenn du es nicht ändern möchtest"
-        help_password_needed: "Wir benötigen dein bisheriges Passwort, um deine Änderungen durchzuführen"
+        empty_locations_list_message: "Du hast keine Standorte. Erstelle einen!"
+        create_a: "Erstelle einen"
+        to_share_things: "um Dinge verleihen zu können."
+        use_the: "Verwende die"
+        to_build_up_your_inventory: "um ohne viel Aufwand Dein Angebot zu erstellen."
         link_public_profile: "Öffentliches Profil anzeigen"
         link_cancel_account: "Mein Profil löschen"
+        
+      edit_form:
+        text_location_incorrect: "Der Standort auf der Karte ist nicht richtig?"
+        link_set_manually: "Manuell festlegen"
+        text_drag_marker_to_location: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"
+        help_password_leave_blank: "Freilassen, wenn du es nicht ändern möchtest"
+        help_password_needed: "Wir benötigen dein bisheriges Passwort, um deine Änderungen durchzuführen"
         delete_confirmation_question: "Willst du dein Profil wirklich löschen?"
         new_password_label: "Passwort ändern in"
         new_password_confirmation_label: "nochmals eingeben"
         basic_info: "Basisinformationen"
         contact_info: "Kontaktinformationen"
         location_info: "Standortinformationen"
+        where_are_your_things: "Wo wohnst du? Deine Adresse ist für andere sichtbar, damit sie wissen, wo sie deine Sachen ausleihen können."
         about_info: "Über mich"
         how_shall_people_get_in_contact_with_you: "Wie sollen die Leute dich kontaktieren?"
         per_shareship: "Shareship"
@@ -34,14 +45,8 @@ de:
         per_email_help: "Deine Email wird angezeigt"
         per_phone: "Telefon"
         per_phone_help: "Deine Telefonnummer wird angezeigt"
-        empty_locations_list_message: "Du hast keine Standorte. Erstelle einen!"
-        create_a: "Erstelle einen"
-        to_share_things: "um Dinge verleihen zu können."
-        use_the: "Verwende die"
-        to_build_up_your_inventory: "um ohne viel Aufwand Dein Angebot zu erstellen."
         write_a_few_nice_words: "Schreibe ein paar freundliche Worte, die Dich beschreiben, um Leute zu ermutigen, dich zu kontaktieren!"
-        where_are_your_things: "Wo wohnst du? Deine Adresse ist für andere sichtbar, damit sie wissen, wo sie deine Sachen ausleihen können."
-        
+
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."
         

@@ -4,7 +4,7 @@ $(document).ready(function() {
     e.preventDefault();
     target = $(this).attr("data-toggle-target");
     console.log("target: " + target)
-    $(target).toggle(200);
+    $(target).toggle(000);
   });
 
 })

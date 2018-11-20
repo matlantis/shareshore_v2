@@ -17,7 +17,7 @@
     #article_new.row.article_edit.to_hide
       .col-xs-12
         = render 'form', article: Article.new, url: create_from_stockitems_articles_path
-        
+
   %div
     - @categories.each do |category|
       %div
@@ -34,7 +34,7 @@
                   -#%a.item_edit_button{"data-item-id" => "#{article.stockitem_id.to_s}", :href => "#"}
                   %a.mp-toggle-visibility{"data-toggle-target" => "#article_#{article.stockitem_id.to_s}_div .article_edit", :href => "#"}
                     = article.title
-                        
+
                 .col-xs-6.text-right
                   - # wieviele artikel hat der nutzer schon mit diesem stockitem erstellt
                   - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
@@ -56,7 +56,7 @@
 .col-xs-12.col-sm-3
   = tipp_panel do
     = render 'new_from_stockitems_help'
-                  
+
 :javascript
   $(document).ready(function(){
   });

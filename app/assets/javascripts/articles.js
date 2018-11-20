@@ -1,4 +1,4 @@
-$(document).ready(function(){  
+$(document).ready(function(){
 })
 
 var onArticlesCreateSuccessIndex = function(article_id, newText, formText) {
@@ -31,15 +31,15 @@ var onArticlesCreateSuccessStockitems = function(stockitem_id, formText, nstocki
   var edit_div_id = "#article_" + stockitem_id + "_div .article_edit"
   $(edit_div_id).hide(200);
 
-  // reset the form 
+  // reset the form
   if ( stockitem_id == "null" ) {
     $("#article_new div form").trigger("reset");
-    
+
     // unhide the rate field of the new form (just in case)
     var thedivid = "#article_null_div .article_rate";
     console.log(thedivid);
     $(thedivid).show(200);
-    
+
     // replace the form content (so no need to reset the form, right?)
     $("#article_null_div" + "#new_article").replaceWith(formText)
 
@@ -52,13 +52,13 @@ var onArticlesCreateSuccessStockitems = function(stockitem_id, formText, nstocki
     // show the counter
     var count_div_id = "#article_" + stockitem_id + "_div .article_count";
     $(count_div_id).show(200);
-    
+
     // edit counter value
     var count_span_id = count_div_id + " span"
     console.log(count_span_id)
     $(count_span_id).text(nstockitems);
   }
-  
+
   // edit all article counter value
   $('#all_article_count span').text(narticles);
 };
@@ -68,7 +68,7 @@ var onArticlesCreateErrorIndex = function(formText){
 
     // replace the form content (so no need to reset the form, right?)
     $("#new_article").replaceWith(formText)
-    
+
   };
 
 var onArticlesCreateErrorStockitems = function(stockitem_id, formText){
@@ -80,7 +80,7 @@ var onArticlesCreateErrorStockitems = function(stockitem_id, formText){
   } else {
     $("#article_" + stockitem_id + "_div #new_article").replaceWith(formText)
   }
-  
+
 };
 
 var onArticlesDestroy = function(article_div_id, list_is_empty) {

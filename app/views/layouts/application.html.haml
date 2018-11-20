@@ -7,12 +7,14 @@
     - if @title
       - the_title += " - " + @title.to_s
     %title= the_title
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
     - #stylesheet_link_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"
     = stylesheet_link_tag "leaflet.css"
     - #javascript_include_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"
     = javascript_include_tag "leaflet.js"
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    -# = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application'
     = csrf_meta_tags
     = render 'application/favicon'
   %body

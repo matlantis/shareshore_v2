@@ -13,123 +13,7 @@
       = t(".text_awaiting_confirmation")
       \: #{resource.unconfirmed_email}
 
-  = simple_form_for(resource, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal"}) do |f|
-    = devise_error_messages!
-    .form-group
-      .col-xs-3
-      .col-xs-9
-        %h4= t(".basic_info")
-    .form-group
-      .col-xs-3.text-right
-        = f.label :email, class: "control-label"
-      .col-xs-9
-        = f.email_field :email, autofocus: true, class: "form-control"
-    .form-group
-      .col-xs-3.text-right
-        = f.label :nickname, class: "control-label"
-      .col-xs-9
-        = f.text_field :nickname, class: "form-control"
-    .form-group
-      .col-xs-3.text-right
-        = f.label :password, class: "control-label"
-      .col-xs-9
-        = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", class: "form-control"
-    .form-group
-      .col-xs-3.text-right
-        = f.label :password_confirmation, class: "control-label"
-      .col-xs-9
-        = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label'), class: "form-control"
-    .form-group
-      .col-xs-3.text-right
-        = f.label :current_password, class: "control-label"
-      .col-xs-9
-        = f.password_field :current_password, help: t(".help_password_needed"), autocomplete: "off", class: "form-control"
-
-    .form-group
-      .col-xs-3
-      .col-xs-9
-        %h4= t(".location_info")
-        = t(".where_are_your_things")
-    = f.fields_for :location do |loc_f|
-      .form-group
-        .col-xs-3.text-right
-          = loc_f.label :street, class: "control-label"
-        .col-xs-5
-          = loc_f.text_field :street, class: "form-control"
-        .col-xs-2.text-right
-          = loc_f.label :number, class: "control-label"
-        .col-xs-2
-          = loc_f.text_field :number, class: "form-control"
-      .form-group
-        .col-xs-3.text-right
-          = loc_f.label :city, class: "control-label"
-        .col-xs-5
-          = loc_f.text_field :city, class: "form-control"
-        .col-xs-2.text-right
-          = loc_f.label :postcode, class: "control-label"
-        .col-xs-2
-          = loc_f.text_field :postcode, class: "form-control"
-      .form-group
-        .col-xs-3.text-right
-          = loc_f.label :country, class: "control-label"
-        .col-xs-9
-          = loc_f.country_select :country, { selected: resource.location.country }, { class: 'form-control' }
-      - if is_admin?
-        .form-group
-          .col-xs-3.text-right
-            = loc_f.label :house_id, class: "control-label"
-          .col-xs-9
-            = loc_f.number_field :house_id
-
-    .form-group
-      .col-xs-3
-      .col-xs-9
-        %h4= t(".contact_info")
-        = t(".how_shall_people_get_in_contact_with_you")
-
-    .form-group
-      .col-xs-3.text-right
-      .col-xs-9
-        .checkbox
-          %label
-            = check_box_tag :pershareship, 'yes', true, disabled: true
-            = t(".per_shareship")
-            .help-block
-              = t(".per_shareship_help")
-        -#= f.input :showemail
-        .checkbox
-          %label
-            = f.check_box :showemail
-            = t('.per_email')
-            .help-block
-              = t('.per_email_help')
-        .checkbox
-          %label
-            = f.check_box :showphone
-            = t('.per_phone')
-            .help-block
-              = t('.per_phone_help')
-    .form-group
-      .col-xs-3.text-right
-        = f.label :phoneno, class: "control-label"
-      .col-xs-9
-        = f.text_field :phoneno, class: 'form-control'
-
-    .form-group
-      .col-xs-3
-      .col-xs-9
-        %h4= t(".about_info")
-        = t(".write_a_few_nice_words")
-
-    .form-group
-      .col-xs-3.text-right
-      .col-xs-9
-        = f.text_area :aboutme, class: 'form-control'
-
-    .form-group
-      .col-xs-3.text-right
-      .col-xs-9
-        = f.submit t("forms.finish"), class: "btn btn-default"
+  = render "edit_form", resource: resource
 
   - if @user.articles.count < 1
     .alert.alert-notice
@@ -141,27 +25,72 @@
   = link_to t(".link_cancel_account"), registration_path(resource_name), data: { confirm: t(".delete_confirmation_question") }, method: :delete, class: "btn btn-default"
   = link_to t(".link_public_profile"), user_path(@user), class: "btn btn-default"
 
-  -#%h4 Location - Where do you live?
-  -#= bootstrap_form_for(location, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
-    = f.alert_message t('common.message_fix_errors')
-    = f.text_field :street
-    = f.text_field :number
-    = f.text_field :postcode
-    = f.text_field :city
-    -#= f.text_field :country
-    = f.form_group do
-      = f.country_select :country, { selected: location.country }, { class: 'form-control' }
-    - if is_admin?
-      = f.number_field :house_id
-    = f.form_group do
-      = f.submit t('forms.finish')
-      = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"
-
 :javascript
-  onMapClick = function(e) {
-    console.log("You clicked the marker " + e.target.index);
+  var onMapClick = function(e) {
+    console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
   };
 
   $(document).ready(function() {
     #{render 'articles/map_show.js.erb', houses: [resource.location.house], articles: resource.articles, formats: [:js]}
+
+     var stopLocationSet = function(e) {
+       // disable dragging
+       markers[0].dragging.disable();
+
+       // reset controls
+       $("#set_location_remark").show();
+       $("#set_location_controls").hide();
+
+       console.log("dragging disabled");
+     }
+
+     $("#set_location_controls").hide();
+
+     $("#set_location_link").on('click', function(e) {
+       e.preventDefault();
+       console.log("dragging enabled");
+
+       // show location controls
+       $("#set_location_remark").hide();
+       $("#set_location_controls").show();
+
+       // enable dragging
+       markers[0].dragging.enable();
+     });
+
+     $("#cancel_set_location_link").on('click', function(e) {
+       e.preventDefault();
+       // reset the marker to its initial position
+       markers[0].setLatLng(#{"[#{resource.location.latitude}, #{resource.location.longitude} ]"});
+       stopLocationSet();
+     });
+
+     $("#finish_set_location_link").on('click', function(e) {
+       e.preventDefault();
+       console.log("Set location at " + markers[0].getLatLng().lat + ", " + markers[0].getLatLng().lng);
+
+       // inform the server
+       $.ajax({
+         url: "#{escape_javascript(location_path(resource.location))}",
+         data: {
+           location: {
+             latitude: markers[0].getLatLng().lat,
+             longitude: markers[0].getLatLng().lng
+           }
+         },
+         dataType: 'json',
+         type: 'PUT',
+         error: function(data, status) {
+           console.log("Error");
+           $("#modal-error").modal("show");
+         },
+         success: function(data, status) {
+           console.log("Success");
+         }
+       });
+       // recenter map
+       map.setView(markers[0].getLatLng(), defaultZoom);
+
+       stopLocationSet();
+     });
   });

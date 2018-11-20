@@ -262,6 +262,12 @@ module ApplicationHelper
      " id: #{home_id}, " +
      " color: 'blue' }").html_safe
   end
+
+  def submit_icon
+    content_tag :button, type: "submit", class: "submit-with-icon" do
+      content_tag :div, "", class: "glyphicon glyphicon-ok"
+    end
+  end
 end
 
 def determine_owner(article)
