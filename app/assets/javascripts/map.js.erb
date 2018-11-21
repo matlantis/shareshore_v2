@@ -4,7 +4,7 @@ $(document).ready(function() {
     // search the marker with the correct house id
     for (i = 0; i< window.markers.length; i++) {
       var house_id = $(this).parentsUntil("[data-house-id]").parent().attr("data-house-id")
-      if ( window.markers[i].house_id == house_id ) {       
+      if ( window.markers[i].house_id == house_id ) {
         window.markers[i].openPopup();
         break;
       }
@@ -68,7 +68,7 @@ drawmap_leaflet = function(mapid, marker_defs, marker_defs_center, bounds, onMap
 
   window.map = L.map(mapid);
   var map = window.map;
-  
+
   if ( bounds.length == 1 )
     map.setView(bounds[0], zoom);
   else
@@ -87,12 +87,11 @@ drawmap_leaflet = function(mapid, marker_defs, marker_defs_center, bounds, onMap
   center_marker_layer = new L.FeatureGroup();
   map.addLayer(center_marker_layer)
   add_markers_to_map(marker_defs_center, map, center_marker_layer)
-  
+
   // markers (but not center)
   window.markers_layer = new L.FeatureGroup();
   map.addLayer(markers_layer)
   add_markers_to_map(marker_defs, map, window.markers_layer)
-  
+
   return map;
 }
-

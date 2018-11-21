@@ -37,10 +37,10 @@
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);
   };
-  
+
   $(document).ready(function() {
     #{render 'articles/map_index.js.erb', articles: @articles, formats: [:js]}
-    
+
     var reloadSearch = function() {
       // create request
       console.log("redirect")
@@ -60,20 +60,19 @@
             //"search%5Buse_location%5D=0" + "&" +
             //"search%5Bpattern%5D=" + "#{@search.pattern}" + "&" +
             //"commit=Map";
-            
+
       // window.location.search = url
       $.getScript(url)
       //$.getScript(url, function(resonse, status) {
       // console.log("got an answer")
       //})
     }
-    
+
     // uncomment to draw results via js after page load
     // if ( typeof window.map !== 'undefined' ) {
     //   window.map.on('zoomend', reloadSearch)
     //   window.map.on('moveend', reloadSearch)
     // }
     // reloadSearch();
-    
-  });
 
+  });

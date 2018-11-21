@@ -33,7 +33,7 @@
         \:
     .col-xs-9
       = @house.country
-      
+
   %h4= User.model_name.human(count: 2)
   - @house.locations.each do |location|
     - location_div_id = "location_" + location.id.to_s + "_div"

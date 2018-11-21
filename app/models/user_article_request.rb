@@ -11,7 +11,7 @@ class UserArticleRequest < ApplicationRecord
   belongs_to :article
 
   #validates_with ContactMethodValidator
-  
+
   after_initialize :init
 
   def init

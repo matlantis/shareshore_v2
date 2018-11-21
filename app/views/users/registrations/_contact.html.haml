@@ -6,7 +6,7 @@
 - showname = false # always
 
 %h4= t('.heading_contact_info', nickname: user.nickname)
-  
+
 - anycontact = false
 .row
   - unless user.fullname.blank? || !(showname || defined?(is_admin?) && is_admin?)

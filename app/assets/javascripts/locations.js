@@ -21,7 +21,7 @@ var onLocationsCreateSuccess = function(newtext, formtext, location_div_id) {
 
   // hide the generated edit div
   $("#" + location_div_id + " .location_edit").hide(200);
-  
+
 }
 
 var onLocationsUpdateSuccess = function(location_div_id, newtext) {

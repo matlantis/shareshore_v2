@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @title = t("titles.pages.#{params[:page]}")
     render template: "pages/#{params[:page]}"
   end
-  
+
   def index
     last_search = nil
     if session.key? :search_id

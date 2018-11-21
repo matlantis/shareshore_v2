@@ -1,7 +1,7 @@
 module SearchesHelper
   class TransportModel
     attr_accessor :transport
-    
+
     def initialize(transport)
       self.transport = transport
     end
@@ -9,7 +9,7 @@ module SearchesHelper
     def self.list_transport_models
       ["foot", "bike", "car", "rocket"]
     end
-    
+
     def self.list
       transport_models = list_transport_models
       transport_models.map do |m|
@@ -24,7 +24,7 @@ module SearchesHelper
     def self.text(transport)
       I18n.t("searches.transport_models." + transport)
     end
-    
+
     def text
       TransportModel.text(self.transport)
     end

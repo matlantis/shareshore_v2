@@ -23,7 +23,7 @@ class Search < ApplicationRecord
   def self.default_radius
     1.0
   end
-  
+
   def self.articles_per_page
     100
   end

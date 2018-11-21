@@ -8,7 +8,7 @@ class House < ApplicationRecord
   def street_and_no
     [street, number].reject{|e| e.blank?}.join(" ")
   end
-  
+
   def shortaddress
     [street_and_no, city].reject {|e| e.blank?}.join(", ")
   end

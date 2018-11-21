@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   add_template_helper(ApplicationHelper)
   add_template_helper(DeviseHelper)
-  
+
   def article_request_mail(request)
     @request = request
     to_address = request.article.user.email
@@ -29,7 +29,7 @@ class UserMailer < ApplicationMailer
     @link_to_edit = link_to_edit
     mail(to: 'mail@shareship.de', subject: t('.subject'), from: 'mail@shareship.de')
   end
-  
+
   def receive(email)
     puts "received an email: " + email
   end

@@ -1,6 +1,6 @@
 - @title = @article.title
 - @with_map = true
-    
+
 -#.col-xs-12
 .col-xs-12.col-sm-9
   %h3= @title
@@ -15,7 +15,7 @@
             = succeed '"' do
               = precede '"' do
                 = @article.details
-    
+
   .row
     .col-xs-12
       .row
@@ -101,8 +101,8 @@
   onMapClick = function(e) {
     console.log("You clicked the marker " + e.target.index);
   };
-  
+
   $(document).ready(function() {
     #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.location.articles, formats: [:js]}
-    
+
   });

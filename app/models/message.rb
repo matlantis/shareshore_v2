@@ -5,8 +5,8 @@ class Message < ApplicationRecord
   after_initialize :init
 
   def init
-    self.with_email ||= false 
-    self.with_phoneno ||= false 
-    self.with_name ||= false 
+    self.with_email ||= false
+    self.with_phoneno ||= false
+    self.with_name ||= false
   end
 end

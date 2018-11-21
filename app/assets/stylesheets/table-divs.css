@@ -1,11 +1,11 @@
-div.table { 
-    display: table; 
-    border-collapse:collapse; 
+div.table {
+    display: table;
+    border-collapse:collapse;
 }
-div.tr { 
-    display:table-row; 
+div.tr {
+    display:table-row;
 }
-div.td { 
-    display:table-cell; 
-    padding:5px; 
+div.td {
+    display:table-cell;
+    padding:5px;
 }
