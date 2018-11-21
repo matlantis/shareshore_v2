@@ -3,6 +3,13 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO content review email braucht reject link                   :feature:
+*** TODO location als einfaches textfeld                            :feature:
+zusätzliches länderfeld
+*** TODO kontaktinformationen frei gestalten                        :feature:
+damit die leute zb nen facebook namen oder ähnliches angeben können
+dafür das telefon feld streichen
+*** TODO Profilpage edit Buttons                                :enhancement:
 *** TODO code clean up                                                 :code:
 there is a bunch of old code in the code
 *** TODO warning appeared when pushing to heroku                       :code:

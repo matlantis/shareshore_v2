@@ -126,7 +126,7 @@ class ArticlesController < ApplicationController
   end
 
   def create_from_stockitems
-    @article = current_user.articles.new(article_params)
+    @article = current_user.location.articles.new(article_params)
     respond_to do |format|
       if @article.save
         content = "Title: " + @article.title
