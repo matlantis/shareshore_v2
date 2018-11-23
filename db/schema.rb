@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_06_30_102947) do
+ActiveRecord::Schema.define(version: 2018_11_23_193542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,29 +36,23 @@ ActiveRecord::Schema.define(version: 2017_06_30_102947) do
   end
 
   create_table "houses", id: :serial, force: :cascade do |t|
-    t.string "street"
-    t.string "city"
-    t.string "postcode"
     t.string "country"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "number"
+    t.string "address"
   end
 
   create_table "locations", id: :serial, force: :cascade do |t|
-    t.string "street"
-    t.string "postcode"
-    t.string "city"
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
     t.integer "house_id"
-    t.string "number"
     t.integer "user_id"
+    t.string "address"
     t.index ["house_id"], name: "index_locations_on_house_id"
     t.index ["user_id"], name: "index_locations_on_user_id", unique: true
   end

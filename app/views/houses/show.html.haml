@@ -7,32 +7,10 @@
   .row
     .col-xs-3.text-right
       %strong
-        = House.human_attribute_name("street")
+        = House.human_attribute_name("address")
         \:
     .col-xs-9
-      = @house.street
-      = @house.number
-  .row
-    .col-xs-3.text-right
-      %strong
-        = House.human_attribute_name("postcode")
-        \:
-    .col-xs-9
-      = @house.postcode
-  .row
-    .col-xs-3.text-right
-      %strong
-        = House.human_attribute_name("city")
-        \:
-    .col-xs-9
-      = @house.city
-  .row
-    .col-xs-3.text-right
-      %strong
-        = House.human_attribute_name("country")
-        \:
-    .col-xs-9
-      = @house.country
+      = @house.address
 
   %h4= User.model_name.human(count: 2)
   - @house.locations.each do |location|

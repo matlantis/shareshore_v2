@@ -36,7 +36,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    #location = Location.new(street_and_no: session[:address])
+    #location = Location.new(address: session[:address])
     #if location.geocode
     #  @current_location = location
     #end
@@ -116,7 +116,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      permitted = [ :street, :number, :postcode, :city, :country, :latitude, :longitude ]
+      permitted = [ :address, :longitude, :latitude ]
       if is_admin?
         permitted.push :house_id
       end

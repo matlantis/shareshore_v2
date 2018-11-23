@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  street_and_no: MyString
-  city: MyString
-  postcode: MyString
-  country: MyString
+  address: MyString
 
 two:
-  street_and_no: MyString
-  city: MyString
-  postcode: MyString
-  country: MyString
+  address: MyString

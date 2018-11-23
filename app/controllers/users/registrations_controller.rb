@@ -116,16 +116,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # init new location and try to prefill country and city
     @location = Location.new
     if session.has_key?(:address)
-      parts = session[:address].split(',')
-      if parts.length > 0
-        @location.city = parts[0].strip() # guess the first part is the city
-
-        country_part = parts[-1].strip() # guess the last part is the country part
-        country = ISO3166::Country.find_country_by_name(country_part)
-        if country
-          @location.country = country.alpha2
-        end
-      end
+      @location.fill_from_session_address(session[:address])
     end
     super
   end
@@ -174,7 +165,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :street, :number, :city, :postcode, :country ]) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :address ]) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite

@@ -22,7 +22,7 @@ module ApplicationHelper
   def location_marker(location, text: nil)
     zoom = 18
     if not text
-      text = location.shortaddress
+      text = location.address
     end
     if !user_signed_in?
       text = t('common.log_in_to_see')
@@ -45,7 +45,7 @@ module ApplicationHelper
   def house_marker(house, text: nil)
     zoom = 18
     if not text
-      text = house.shortaddress
+      text = house.address
     end
     if !user_signed_in?
       text = t('common.log_in_to_see')
@@ -239,7 +239,7 @@ module ApplicationHelper
 
   def create_map_current_location_marker(current_location)
     # save text for home marker
-    home_html = "#{@current_location.shortaddress}"
+    home_html = "#{@current_location.address}"
     home_id = -1
 
     ("{ coords: [#{@current_location.latitude}, #{@current_location.longitude} ], " +

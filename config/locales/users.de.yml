@@ -25,6 +25,7 @@ de:
         link_cancel_account: "Mein Profil löschen"
         
       edit_form:
+        hidden_password: " - verborgen - "
         text_location_incorrect: "Der Standort auf der Karte ist nicht richtig?"
         link_set_manually: "Manuell festlegen"
         text_drag_marker_to_location: "Ziehe den Marker an den richtigen Standort und klicke auf 'Fertig'!"

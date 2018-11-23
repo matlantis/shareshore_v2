@@ -25,10 +25,6 @@
           = Search.human_attribute_name("use_location")
   - else
     = f.hidden_field :use_location, value: false
-  -#.form-group
-    .col-xs-2
-    .col-xs-10
-      = f.select :location_id, options_from_collection_for_select(current_user.locations, :id, :shortaddress), { }, class: "form-control"
 
   .form-group{class: [@search.errors[:address].length != 0 && "has-error"]}
     .col-xs-2.text-right

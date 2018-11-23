@@ -147,9 +147,9 @@ if ENV['RAILS_ENV'].to_s == 'development' || ENV['RAILS_ENV'].to_s == ''
 
   # users need locations
   Location.destroy_all
-  location_1 = user_martin.locations.create({street: "Hanauer Str.", number: "47", postcode: "", city: "Alzenau", country: ""})
-  location_2 = user_martin.locations.create({street: "Goethestr.", number: "20", postcode: "", city: "Alzenau", country: ""})
-  location_3 = user_peter.locations.create({street: "Haagweg", number: "12", postcode: "", city: "Wasserlos", country: ""})
+  location_1 = user_martin.locations.create({address: "Hanauer Str. 47, Alzenau"})
+  location_2 = user_martin.locations.create({address: "Goethestr. 20, Alzenau"})
+  location_3 = user_peter.locations.create({address: "Haagweg 12, Wasserlos"})
 
   # a few articles
   Article.destroy_all

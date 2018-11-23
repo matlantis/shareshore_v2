@@ -13,18 +13,8 @@
       = f.hidden_field :title
     - else
       = f.text_field :title
-    - # f.number_field :quality, min: 0, max: 5, size: 8
-    -# = f.form_group do
-    -#   - if article.id == nil && article.stockitem_id
-    -#     - the_id = article.stockitem_id
-    -#   - else
-    -#     - the_id = article.id
-    -#   = f.check_box :gratis, data: { article_id: the_id }, class: "article_gratis_cb", inline: true
 
     = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
-    -#%div{:class => "article_rate#{" article_rate_gratis" if article.gratis}"}
-      = f.text_field :rate, size: 15
-    -#= f.collection_select :location_id, determine_owner(article).locations, :id, :shortaddress, label: Article.human_attribute_name('location')
     = f.text_area :details, placeholder: Article.human_attribute_name("details")
     = f.hidden_field :stockitem_id
     = f.form_group do

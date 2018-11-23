@@ -7,7 +7,7 @@
     .col-xs-4
       = user_marker(user)
     .col-xs-4
-      = user.location.shortaddress
+      = user.location.address
     -# .col-xs-2
       -# not working, deletes the admin account!!!
       -# = link_to("delete", admin_destroy_user_path(user), method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: 'btn btn-danger btn-xs', remote: true)

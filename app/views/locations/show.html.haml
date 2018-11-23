@@ -1,4 +1,4 @@
-- @title = @location.shortaddress
+- @title = @location.address
 - @with_map = true
 
 -#.col-xs-12.col-sm-3.col-sm-push-9
@@ -16,34 +16,10 @@
   .row
     .col-xs-6.text-right
       %strong
-        = Location.human_attribute_name("street").concat(":")
+        = Location.human_attribute_name("address").concat(":")
     .col-xs-6
-      = @location.street
-      = @location.number
-  .row
-    .col-xs-6.text-right
-      %strong
-        = Location.human_attribute_name("postcode").concat(":")
-    .col-xs-6
-      = @location.postcode
-  .row
-    .col-xs-6.text-right
-      %strong
-        = Location.human_attribute_name("city").concat(":")
-    .col-xs-6
-      = @location.city
-  .row
-    .col-xs-6.text-right
-      %strong
-        = Location.human_attribute_name("country").concat(":")
-    .col-xs-6
-      = @location.country_name
-  -#.row
-    .col-xs-3.text-right
-      %strong
-        = articles_location_count_link(@location).concat(":")
-    .col-xs-9
-      = @location.articles.map {|article| article_marker article }.join(", ").html_safe
+      = @location.address
+
   - if @location.house.locations.count > 1
     .row
       .col-xs-12
@@ -95,8 +71,6 @@
      };
 
      #{render 'articles/map_show.js.erb', houses: [@location.house], articles: @location.articles, formats: [:js]}
-
-     $("#set_location_controls").hide();
 
      $("#set_location_link").on('click', function(e) {
        e.preventDefault();

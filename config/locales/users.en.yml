@@ -28,6 +28,7 @@ en:
         tipp_panel_text: "Guidepost help"
 
       edit_form:
+        hidden_password: " - hidden - "
         text_location_incorrect: "The location on the map is not correct?"
         link_set_manually: "Fix it manually"
         text_drag_marker_to_location: "Draw the marker to the correct location and click on 'Done'!"

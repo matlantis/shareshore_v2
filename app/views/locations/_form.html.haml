@@ -1,45 +1,13 @@
--#= bootstrap_form_for(location, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
-  = f.alert_message t('common.message_fix_errors')
-  = f.text_field :street
-  = f.text_field :number
-  = f.text_field :postcode
-  = f.text_field :city
-  = f.form_group do
-    = f.country_select :country, { selected: location.country }, { class: 'form-control' }
-  - if is_admin?
-    = f.number_field :house_id
-  = f.form_group do
-    = f.submit t('forms.finish')
-    = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"
-
 = simple_form_for location, remote: true, html: {class: "form-horizontal"} do |f|
   - if location.errors[:base].length != 0
     .alert.alert-danger
       .p
         = t('.the address is unknown')
   .form-group
-    .col-xs-2.text-right
-      = f.label :street, class: "control-label"
-    .col-xs-6
-      = f.text_field :street, class: "form-control"
-    .col-xs-2
-      = f.label :number, class: "control-label"
-    .col-xs-2
-      = f.text_field :number, class: "form-control"
-  .form-group
-    .col-xs-2
-      = f.label :city, class: "control-label"
-    .col-xs-6
-      = f.text_field :city, class: "form-control"
-    .col-xs-2
-      = f.label :postcode, class: "control-label"
-    .col-xs-2
-      = f.text_field :postcode, class: "form-control"
-  .form-group
-    .col-xs-2
-      = f.label :country, class: "control-label"
-    .col-xs-10
-      = f.country_select :country, { selected: location.country }, { class: 'form-control' }
+    .col-xs-3.text-right
+      = f.label :address, class: "control-label"
+    .col-xs-9
+      = f.text_field :address, class: "form-control"
   .form-group
     .col-xs-2
     .col-xs-10

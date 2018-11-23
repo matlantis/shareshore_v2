@@ -23,7 +23,7 @@ class ReplaceRoomWithCategoryInStockitems < ActiveRecord::Migration[5.0]
       a.room = a.category.name_de
       a.save
     end
-    
+
     remove_reference :stockitems, :category, index: true, foreign_key: true
   end
 end

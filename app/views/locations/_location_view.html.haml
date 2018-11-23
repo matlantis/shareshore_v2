@@ -16,16 +16,9 @@
           = home_icon
         = distance_label home, @current_location, location
   - else
-    .col-xs-6
-      = location.street
-      = location.number
-      %br/
-      = location.postcode
-      %br/
-      = location.city
-      %br/
-      = location.country_name
-    .col-xs-6
+    .col-xs-12
+      = location.address
+    .col-xs-12
       .pull-right
         = edit_icons(location)
       = location_marker location

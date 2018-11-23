@@ -8,8 +8,6 @@
 *** TODO SMS Benachrichtigung                                       :feature:
 *** TODO rework mobile design                                         :minor:
 *** TODO content review email braucht reject link                   :feature:
-*** TODO location als einfaches textfeld                            :feature:
-zusätzliches länderfeld
 *** TODO kontaktinformationen frei gestalten                        :feature:
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
@@ -70,6 +68,11 @@ https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-use
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE location als einfaches textfeld                            :feature:
+    CLOSED: [2018-11-24 Sa 20:27]
+zusätzliches länderfeld
+*** DONE autologin nach account aktivierung                         :feature:
+    CLOSED: [2018-11-23 Fr 19:48]
 *** DONE Artikelsuche ohne Login                                    :feature:
     CLOSED: [2018-11-23 Fr 17:13]
 zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich

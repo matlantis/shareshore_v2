@@ -7,7 +7,7 @@
         ID:
         = house.id
       .col-xs-6
-        = house.fulladdress
+        = house.address
       .col-xs-3.text-right
         = link_to "", edit_house_path(house), class: "glyphicon glyphicon-pencil"
     - house.locations.each do |location|
@@ -16,6 +16,6 @@
           = user_marker(location.user)
         .col-xs-9
           = link_to "", location, class: "glyphicon glyphicon-map-marker"
-          = location.fulladdress
+          = location.address
 
 = will_paginate @houses, renderer: BootstrapPagination::Rails
