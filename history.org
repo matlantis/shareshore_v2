@@ -3,6 +3,7 @@
 
 * Shareshore V2 Todos
 ** Primär
+*** TODO admin und developer howtos anlegen                            :code:
 *** TODO App zur benachrichtigung auf dem smartphone                :feature:
 *** TODO SMS Benachrichtigung                                       :feature:
 *** TODO rework mobile design                                         :minor:
@@ -19,29 +20,12 @@ there is a bunch of old code in the code
 following this article
 https://devcenter.heroku.com/articles/multiple-environments
 abgebrochen
-*** TODO Cookie Hinweis aktualisieren                           :enhancement:
 *** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
-*** TODO Eigenen Standort manuell setzen, wie früher                :feature:
 *** TODO Artikelsuche ohne Login                                    :feature:
 zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich
-*** TODO soft delete user
+*** TODO soft delete user                                           :feature:
 https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
-*** TODO SSL Zertifikat austauschen                                     :bug:
-siehe email vom 19.10.2018 von SSLmarket.de
-*** TODO geocoding                                                  :feature:
-    - eigene geocode methode auf grundlage von Geocoder::search schreiben
-    - felder (street, number ... ) aktualisieren bzw ausfüllen
-    - flag setzen, ob geocoding manuell erfolgt oder nicht, dh wenn geocoding nicht erfolgreich war, location auf manuell setzen (aber nicht invalid), nutzer auffordern zu überprüfen
-    - karte in profil einblenden, um die location zu überprüfen und manuell zu setzen
-    - wenn der nutzer die adresse verändert, das manuell flag verwerfen
-    - jetzt mal überlegen, inwieweit man das manuell flag braucht, oder ob das nicht automatisch durch die long und lat gegeben ist, wenn das blank ist (ja es ist überflüssig)
-    - in zukunft locations ohne longlat angaben verarbeiten (karte, entfernungen (ohoh, am besten vorher rausfiltern)), warnung im profil
 
-    
-*** TODO standort an profil knüpfen                                 :feature:
-    location als eigenes model lassen
-    user has one location, not many
-**** location/show ist quasi überflüssig als owner wie als user
 *** TODO dashboard nach login                                       :feature:
     neuigkeiten (so ähnlich wie seitenpanel)
     fette links zu den verschiedenen bereichen (wie wegweiser)
@@ -76,10 +60,6 @@ siehe email vom 19.10.2018 von SSLmarket.de
     sprich: abstand nehmen von hochwertigen gegenständen
     checkliste statt leitfaden                                
 *** TODO Contributions Seite ist noch etwas mager                      :text:
-*** TODO ich brauch ne remote test seite                            :feature:
-    mailgun muss anhand des receivers entscheiden können wo es welche mail hinschickne muss
-    mal nen virtuellen server austesten, der einfachheit halber auf campusspeicher
-    das mit der test seite geht vermutlich auch auf heroku von haus aus (stichwort: deploy)
 *** TODO mehr stockitems                                               :text:
     kühlbox
     ventilator
@@ -92,6 +72,21 @@ siehe email vom 19.10.2018 von SSLmarket.de
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE Cookie Hinweis aktualisieren                           :enhancement:
+    CLOSED: [2018-11-23 Fr 15:59]
+*** CANCELED SSL Zertifikat austauschen                                 :bug:
+    CLOSED: [2018-11-23 Fr 15:40]
+siehe email vom 19.10.2018 von SSLmarket.de
+
+mein ssl zertifikat stammt scheinbar von cloudflare und nicht von sslmarket
+    
+*** DONE standort an profil knüpfen                                 :feature:
+    CLOSED: [2018-11-23 Fr 14:38]
+    location als eigenes model lassen
+    user has one location, not many
+**** location/show ist quasi überflüssig als owner wie als user
+*** DONE Eigenen Standort manuell setzen, wie früher                :feature:
+    CLOSED: [2018-11-23 Fr 14:37]
 *** CANCELED purify                                                     :bug:
     CLOSED: [2018-11-23 Fr 14:31]
      Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
@@ -1352,6 +1347,11 @@ Dabei habe ich erst 3. Werden hier die Artikel aller Nutzer gezählt?
     set up a new mailbox on campusspeicher
     to configure it on another system, edit Procfile.template and .env.template and remove .template ending
 ** Sekundär
+*** TODO geocoding                                                  :feature:
+    - eigene geocode methode auf grundlage von Geocoder::search schreiben
+    - felder (street, number ... ) aktualisieren bzw ausfüllen
+    - DONE karte in profil einblenden, um die location zu überprüfen und manuell zu setzen
+    - in zukunft locations ohne longlat angaben verarbeiten (karte, entfernungen (ohoh, am besten vorher rausfiltern)), warnung im profil
 *** TODO Räumen eine Farbe zuordnen
 *** TODO new_articles: text decoration and color for headings
 *** TODO strg f sucht keinen text der display:none hat
