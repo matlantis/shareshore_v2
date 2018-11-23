@@ -15,9 +15,6 @@ dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
 *** TODO code clean up                                                 :code:
 there is a bunch of old code in the code
-*** TODO warning appeared when pushing to heroku                       :code:
-WARN -- : WARNING on line 19 of /tmp/build_c64ca906cc08b5a457bdda26ee4700b9/app/assets/stylesheets/articles.css.sass:
-This selector doesn't have any properties and will not be rendered.
 *** TODO heroku staging system                                         :code:
 following this article
 https://devcenter.heroku.com/articles/multiple-environments
@@ -31,18 +28,6 @@ zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein logi
 https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
 *** TODO SSL Zertifikat austauschen                                     :bug:
 siehe email vom 19.10.2018 von SSLmarket.de
-*** TODO replace sass-rails with sassc                                  :bug:
-Got warning while running bundle update
-Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
-
-- If you use Sass as a command-line tool, we recommend using Dart Sass, the new
-  primary implementation: https://sass-lang.com/install
-
-- If you use Sass as a plug-in for a Ruby web framework, we recommend using the
-  sassc gem: https://github.com/sass/sassc-ruby#readme
-
-- For more details, please refer to the Sass blog:
-  http://sass.logdown.com/posts/7081811
 *** TODO geocoding                                                  :feature:
     - eigene geocode methode auf grundlage von Geocoder::search schreiben
     - felder (street, number ... ) aktualisieren bzw ausfüllen
@@ -95,9 +80,6 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
     mailgun muss anhand des receivers entscheiden können wo es welche mail hinschickne muss
     mal nen virtuellen server austesten, der einfachheit halber auf campusspeicher
     das mit der test seite geht vermutlich auch auf heroku von haus aus (stichwort: deploy)
-*** TODO purify                                                         :bug:
-     Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
-     ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
 *** TODO mehr stockitems                                               :text:
     kühlbox
     ventilator
@@ -110,6 +92,29 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** CANCELED purify                                                     :bug:
+    CLOSED: [2018-11-23 Fr 14:31]
+     Started GET "/dist/purify.min.js.map" for 127.0.0.1 at 2017-01-17 14:18:21 +0100
+     ActionController::RoutingError (No route matches [GET] "/dist/purify.min.js.map"):
+     
+     disappeared, canceled this ticket
+*** DONE replace sass-rails with sassc                                  :bug:
+    CLOSED: [2018-11-23 Fr 14:31]
+Got warning while running bundle update
+Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
+
+- If you use Sass as a command-line tool, we recommend using Dart Sass, the new
+  primary implementation: https://sass-lang.com/install
+
+- If you use Sass as a plug-in for a Ruby web framework, we recommend using the
+  sassc gem: https://github.com/sass/sassc-ruby#readme
+
+- For more details, please refer to the Sass blog:
+  http://sass.logdown.com/posts/7081811
+*** DONE warning appeared when pushing to heroku                       :code:
+    CLOSED: [2018-11-23 Fr 14:20]
+WARN -- : WARNING on line 19 of /tmp/build_c64ca906cc08b5a457bdda26ee4700b9/app/assets/stylesheets/articles.css.sass:
+This selector doesn't have any properties and will not be rendered.
 *** DONE Profilpage edit Buttons                                :enhancement:
     CLOSED: [2018-11-23 Fr 14:14]
 *** DONE map in profile page mobile covers lowest content               :bug:
