@@ -15,8 +15,6 @@ de:
   
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
-      tooltip_edit_button: "Sache bearbeiten"
-      tooltip_remove_button: "Sache löschen"
 
     map:
       marker_your_location: "Dein Standort"

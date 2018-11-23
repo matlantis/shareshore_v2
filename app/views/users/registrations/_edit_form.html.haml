@@ -18,10 +18,10 @@
       .col-xs-7.email_field
         = resource.email
       .col-xs-2.email_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.email_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('button.cancel'))
 
   = simple_form_for(resource, remote: true, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal", id: :nickname_form}) do |f|
     .form-group
@@ -32,10 +32,10 @@
       .col-xs-7.nickname_field
         = resource.nickname
       .col-xs-2.nickname_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.nickname_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('button.cancel'))
 
   = simple_form_for(resource, remote: true, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal", id: :password_form}) do |f|
     .form-group
@@ -46,10 +46,10 @@
       .col-xs-7.password_field.to_hide
         = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", class: "form-control"
       .col-xs-2.password_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.password_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('button.cancel'))
 
     .form-group.password_field.to_hide
       .col-xs-3
@@ -70,10 +70,10 @@
       .col-xs-10
         = t(".where_are_your_things")
       .col-xs-2.location_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.location_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('button.cancel'))
       .col-xs-12.location_field
         .radio
           = resource.location.fulladdress
@@ -107,18 +107,24 @@
           .col-xs-9
             = loc_f.number_field :house_id
 
-  .form-group.location_field.to_hide
-    #set_location_remark
-      .col-xs-6
-        = t('.text_location_incorrect')
-      .col-xs-6
-        = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
-    #set_location_controls
-      .col-xs-6
-        = t('.text_drag_marker_to_location')
-      .col-xs-6
-      = link_to t("forms.cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default"
-      = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
+    .form-group.location_field.to_hide
+      #set_location_remark
+        .col-xs-6
+          = t('.text_location_incorrect')
+        .col-xs-6
+          = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
+      #set_location_controls
+        .col-xs-6
+          = t('.text_drag_marker_to_location')
+        .col-xs-6
+        = link_to t("forms.cancel"), "#", id: "cancel_set_location_link", class: "btn btn-default"
+        = link_to t("forms.finish"), "#", id: "finish_set_location_link", class: "btn btn-default"
+
+    .form-group
+      .text-right
+        = link_to "Click: " + t("layouts.application.toggle_map_tooltip"), class: 'mp-toggle-visibility', data: { toggle_target: "#mapid", toggle: "tooltip" }, title: t('layouts.application.toggle_map_tooltip') do
+          %span.glyphicon.glyphicon-eye-open
+      #mapid.global{style: "width: 100%; height: 40vh;"}
 
   = simple_form_for(resource, remote: true, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal", id: :contact_form}) do |f|
     .form-group
@@ -127,10 +133,10 @@
       .col-xs-10
         = t(".how_shall_people_get_in_contact_with_you")
       .col-xs-2.contact_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.contact_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('button.cancel'))
 
     .form-group
       .col-xs-12
@@ -178,10 +184,10 @@
       .col-xs-10
         = t(".write_a_few_nice_words")
       .col-xs-2.aboutme_field.text-right
-        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('.tooltip_edit_button'))
+        = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('button.edit'))
       .col-xs-2.aboutme_field.to_hide.text-right
         = submit_icon
-        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('.tooltip_remove_button'))
+        = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('button.cancel'))
 
     .form-group
       .col-xs-12.aboutme_field

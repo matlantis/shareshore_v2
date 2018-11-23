@@ -5,8 +5,6 @@ en:
 
     location_view:
       delete_confirmation_question: "Do you really want to delete this location?"
-      tooltip_edit_button: "Edit location"
-      tooltip_remove_button: "Delete location"
   
     index:
       empty_list_message: "You do not have a location. Create one!"

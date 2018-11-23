@@ -20,6 +20,12 @@ en:
     action_show: "Show"
     action_edit: "Edit"
     
+  button:
+    edit: "Edit"
+    remove: "Remove"
+    save: "Save"
+    cancel: "Cancel"
+
   titles:
     contacts:
       new: "Contact"

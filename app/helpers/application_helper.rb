@@ -152,8 +152,8 @@ module ApplicationHelper
   def edit_icons(item)
     if user_signed_in? && (current_user.id == item.user.id || is_admin? )
       item_class = item.class.to_s.downcase
-      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "##{item_class}_#{item.id}_div .#{item_class}_edit", toggle: "tooltip"} , title: t('.tooltip_edit_button') )
-      txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('.tooltip_remove_button'), remote: true)
+      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "##{item_class}_#{item.id}_div .#{item_class}_edit", toggle: "tooltip"} , title: t('button.edit') )
+      txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('button.remove'), remote: true)
       txt1.concat(txt2)
     end
   end
@@ -265,7 +265,7 @@ module ApplicationHelper
 
   def submit_icon
     content_tag :button, type: "submit", class: "submit-with-icon" do
-      content_tag :div, "", class: "glyphicon glyphicon-ok"
+      content_tag :div, "", class: "glyphicon glyphicon-ok", data_toggle: "tooltip", title: t('button.save')
     end
   end
 end

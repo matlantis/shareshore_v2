@@ -13,8 +13,6 @@ en:
   
     article_view:
       delete_confirmation_question: "Do you really want to delete this thing?"
-      tooltip_edit_button: "edit thing"
-      tooltip_remove_button: "delete thing"
 
     map:
       marker_your_location: "your location"

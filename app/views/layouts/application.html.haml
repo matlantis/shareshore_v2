@@ -19,8 +19,8 @@
     = render 'application/favicon'
   %body
     = render 'layouts/navigation'
-    .all_but_map{class: @with_map && 'map_visible' }
-      .container.main-content{class: @with_map && 'map_visible' }
+    .all_but_map{class: @with_map && 'global_map_visible' }
+      .container.main-content
         %noscript
           .row
             .col-xs-12
@@ -70,45 +70,44 @@
             .pull-right
               = link_to t(".accept_cookies_button"), "/accept_cookies", class: "mp-toggle-visibility", data: {"toggle-target": "#cookie-warning"}, remote: true
 
-    %footer.footer
-      .container
-        .col-sm-4.col-xs-12
-          %div
-            - if user_signed_in? && current_user.role == "admin"
-              %li
-                = link_to "Admin", '/pages/admin'
-            - else
-              %li Martin Puttke 2016
+      %footer.footer
+        .container
+          .col-sm-4.col-xs-12
+            %div
+              - if user_signed_in? && current_user.role == "admin"
+                %li
+                  = link_to "Admin", '/pages/admin'
+              - else
+                %li Martin Puttke 2016
 
-          %p
+            %p
+              %ul.list-unstyled
+                %li
+                  -# byebug
+                  = link_to "DE", request.parameters.update({locale: "de"})
+                %li
+                  = link_to "EN", request.parameters.update({locale: "en"})
+          .col-sm-4.col-xs-12
+            %h3= t('.heading_help')
             %ul.list-unstyled
-              %li
-                -# byebug
-                = link_to "DE", request.parameters.update({locale: "de"})
-              %li
-                = link_to "EN", request.parameters.update({locale: "en"})
-        .col-sm-4.col-xs-12
-          %h3= t('.heading_help')
-          %ul.list-unstyled
-            %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'
-            %li= link_to t('titles.pages.guideline'), '/pages/guideline'
-            %li= link_to t('titles.pages.faq'), '/pages/faq'
-            %li= link_to t('titles.contacts.new'), contacts_path
-            %li= link_to t('titles.pages.who_is_it'), '/pages/who_is_it'
-            %li= link_to t('.bug_found'), contacts_path(subject: t('.subject_bug_found'), message: t('.text_describe_bug') + "\r\r" + "Url: " + request.url)
-        .col-sm-4.col-xs-12
-          %h3= t('.heading_law')
-          %ul.list-unstyled
-            %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
-            %li= link_to t('titles.pages.privacy'), '/pages/privacy'
-            %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
-            %li= link_to t('titles.pages.about'), '/pages/about'
-            %li= link_to t('titles.pages.contrib'), '/pages/contrib'
+              %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'
+              %li= link_to t('titles.pages.guideline'), '/pages/guideline'
+              %li= link_to t('titles.pages.faq'), '/pages/faq'
+              %li= link_to t('titles.contacts.new'), contacts_path
+              %li= link_to t('titles.pages.who_is_it'), '/pages/who_is_it'
+              %li= link_to t('.bug_found'), contacts_path(subject: t('.subject_bug_found'), message: t('.text_describe_bug') + "\r\r" + "Url: " + request.url)
+          .col-sm-4.col-xs-12
+            %h3= t('.heading_law')
+            %ul.list-unstyled
+              %li= link_to t('titles.pages.terms_of_use'), '/pages/terms-of-use'
+              %li= link_to t('titles.pages.privacy'), '/pages/privacy'
+              %li= link_to t('titles.pages.disclaimer'), '/pages/disclaimer'
+              %li= link_to t('titles.pages.about'), '/pages/about'
+              %li= link_to t('titles.pages.contrib'), '/pages/contrib'
 
   - if defined? @with_map
-    .container-fluid
-      .global-map-container
-        .text-right
-          = link_to "Click: " + t(".toggle_map_tooltip"), class: 'mp-toggle-visibility toggle-map', data: { toggle_target: "#mapid", toggle: "tooltip" }, title: t('.toggle_map_tooltip') do
-            %span.glyphicon.glyphicon-eye-open
-        #mapid.global{style: "width: 100vw; height: 40vh;"}
+    .global-map-container
+      .text-right
+        = link_to "Click: " + t(".toggle_map_tooltip"), class: 'mp-toggle-visibility toggle-map', data: { toggle_target: "#mapid", toggle: "tooltip" }, title: t('.toggle_map_tooltip') do
+          %span.glyphicon.glyphicon-eye-open
+      #mapid.global{style: "width: 100vw; height: 40vh;"}

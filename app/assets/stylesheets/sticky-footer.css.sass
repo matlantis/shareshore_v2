@@ -2,10 +2,6 @@ html
   position: relative
   min-height: 100%
 
-body
-  // Margin bottom by footer height
-  //margin-bottom: 60px;
-
 .footer
   position: absolute
   bottom: 0
@@ -15,17 +11,14 @@ body
   // height is cut at the bottom, so must be big enough (background color)
   height: 220
 
-.all_but_map.map_visible
-  margin-bottom: 40vh
+// move footer upwards if map is visible
+.global_map_visible .footer
+  bottom: 40vh
 
 @media (max-width: 767px)
   .main-content
     padding-bottom: 400px
-  .main-content.map_visible
-    padding-bottom: 0
 
 @media (min-width: 768px)
   .main-content
     padding-bottom: 200px
-  .main-content.map_visible
-    padding-bottom: 0

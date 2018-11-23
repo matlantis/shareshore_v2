@@ -19,20 +19,23 @@
 
 $(document).ready(function() {
     $(".toggle-map").on('click', function(e) {
-        $('.main-content').toggleClass('map_visible');
-        $('.all_but_map').toggleClass('map_visible');
+        $('.all_but_map').toggleClass('global_map_visible');
 
-        // don't scroll when at top or at bottom
-        if (((window.innerHeight + window.pageYOffset) < document.body.offsetHeight) && window.pageYOffset != 0 ) {
-            // scroll the view by half of map height when map is opening or closing
-            if ( $('.all_but_map').hasClass('map_visible') )
-                $('html, body').animate({
-                    scrollTop: '+=' + $(window).height() * 0.2
-                }, 200);
-            else
-                $('html, body').animate({
-                    scrollTop: '-=' + $(window).height() * 0.2
-                }, 200);
+        // for the global map
+        if ( $(".global-map-container").get(0).contains(e.target) )
+        {
+            // don't scroll when at top or at bottom
+            if (((window.innerHeight + window.pageYOffset) < document.body.offsetHeight) && window.pageYOffset != 0 ) {
+                // scroll the view by half of map height when map is opening or closing
+                if ( $('.all_but_map').hasClass('global_map_visible') )
+                    $('html, body').animate({
+                        scrollTop: '+=' + $(window).height() * 0.2
+                    }, 200);
+                else
+                    $('html, body').animate({
+                        scrollTop: '-=' + $(window).height() * 0.2
+                    }, 200);
+            }
         }
     });
 });

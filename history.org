@@ -3,15 +3,16 @@
 
 * Shareshore V2 Todos
 ** Primär
-*** TODO map in profile page mobile covers lowest content               :bug:
-*** TODO rework mobile design                                           :bug:
+*** TODO App zur benachrichtigung auf dem smartphone                :feature:
+*** TODO SMS Benachrichtigung                                       :feature:
+*** TODO rework mobile design                                         :minor:
 *** TODO content review email braucht reject link                   :feature:
 *** TODO location als einfaches textfeld                            :feature:
 zusätzliches länderfeld
 *** TODO kontaktinformationen frei gestalten                        :feature:
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
-*** TODO Profilpage edit Buttons                                :enhancement:
+- telefon feld drin lassen (für sms benachrichtigung)
 *** TODO code clean up                                                 :code:
 there is a bunch of old code in the code
 *** TODO warning appeared when pushing to heroku                       :code:
@@ -109,6 +110,10 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE Profilpage edit Buttons                                :enhancement:
+    CLOSED: [2018-11-23 Fr 14:14]
+*** DONE map in profile page mobile covers lowest content               :bug:
+    CLOSED: [2018-11-23 Fr 14:05]
 *** DONE bugs in production version                                     :bug:
     CLOSED: [2018-11-19 Mo 21:17]
 profil zeigt keine location felder (nicht editierbar, dadurch können keine Dinge angelegt werden

@@ -19,7 +19,13 @@ de:
     none_given: "Nicht angegeben"
     action_show: "Anzeigen"
     action_edit: "Bearbeiten"
-    
+
+  button:
+    edit: "Bearbeiten"
+    remove: "Löschen"
+    save: "Speichern"
+    cancel: "Abbrechen"
+
   titles:
     contacts:
       new: "Kontakt"
