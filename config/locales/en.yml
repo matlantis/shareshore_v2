@@ -11,6 +11,7 @@ en:
     reset: "Reset"
     
   common:
+    log_in_to_see: " - hidden - "
     message_fix_errors: "Please fix the following errors"
     title_tip_panel: "tip"
     unknown_user: "Unknown user"

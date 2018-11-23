@@ -11,6 +11,7 @@ de:
     reset: "Zurücksetzen"
     
   common:
+    log_in_to_see: " - verborgen - "
     message_fix_errors: "Bitte korrigiere die folgenden Fehler"
     title_tip_panel: "Tipps"
     unknown_user: "Unbekannter Benutzer"

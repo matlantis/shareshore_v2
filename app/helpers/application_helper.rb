@@ -21,9 +21,11 @@ module ApplicationHelper
 
   def location_marker(location, text: nil)
     zoom = 18
-    #link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
     if not text
       text = location.shortaddress
+    end
+    if !user_signed_in?
+      text = t('common.log_in_to_see')
     end
     capture do
       unless location
@@ -42,9 +44,11 @@ module ApplicationHelper
 
   def house_marker(house, text: nil)
     zoom = 18
-    #link_ref = "http://www.openstreetmap.org/?mlat=#{location.latitude}&mlon=#{location.longitude}#map=#{zoom}/#{location.latitude}/#{location.longitude}"
     if not text
       text = house.shortaddress
+    end
+    if !user_signed_in?
+      text = t('common.log_in_to_see')
     end
     capture do
       content_tag :span, class: "house_marker" do
@@ -63,20 +67,6 @@ module ApplicationHelper
       " " +
       content_tag(:sup ,("(" + link_to("?", "/pages/rate") + ")").html_safe)
   end
-
-  # def rate_marker(article)
-  #   capture do
-  #     content_tag :span, class: "rate_marker" do
-  #       txt1 = content_tag :span, "", class: "glyphicon glyphicon-refresh", data_toggle: "tooltip", title: Article.human_attribute_name('rate')
-  #       if article.gratis
-  #         txt2 = content_tag :strong, Article.human_attribute_name('gratis')
-  #       else
-  #         txt2 = article.rate
-  #       end
-  #       txt1.concat(" ").concat(txt2)
-  #     end
-  #   end
-  # end
 
   def user_marker(user)
     capture do
@@ -101,13 +91,7 @@ module ApplicationHelper
       else
         content_tag :span, class: "user_marker" do
           link_to article do
-            #txt1 = content_tag :span, "", class: "glyphicon glyphicon-star"
             txt1 = ""
-            #if article.stockitem_id
-            #  txt1.concat(" ").concat(article.stockitem["title_" + I18n.locale.to_s])
-            #else
-            #  txt1.concat(" ").concat(article.title)
-            #end
             txt1.concat(" ").concat(article.title)
           end
         end
@@ -167,7 +151,6 @@ module ApplicationHelper
   end
 
   def transport_icon(transport_model)
-    #content_tag :span, "", class: "transport-model-" + transport_model, data_toggle: "tooltip", title: t("searches.transport_models." + transport_model)
     content_tag :span, "", class: "transport-model-" + transport_model
   end
 
@@ -247,9 +230,11 @@ module ApplicationHelper
   end
 
   def create_map_house_markers(articles, houses, house_center)
-    txt = houses.map { |house|
-      create_map_house_marker(articles, house, house_center)
-    }.join(",").html_safe
+    if user_signed_in?
+      txt = houses.map { |house|
+        create_map_house_marker(articles, house, house_center)
+      }.join(",").html_safe
+    end
   end
 
   def create_map_current_location_marker(current_location)

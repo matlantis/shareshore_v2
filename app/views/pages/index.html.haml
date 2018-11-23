@@ -5,23 +5,22 @@
     .col-xs-12.text-center.logo_index
       = image_tag 'logo.png', class: "img-responsive", alt: "Shareship beta"
 
-  - if user_signed_in?
-    .shareshore-panel{:align => "center"}
-      %h3= t(".heading_borrow_something")
-      = bootstrap_form_for @search, url: search_path, method: :get do |f|
-        - if current_user && current_user.location
-          = f.form_group do
-            = f.check_box :use_location, label: t('.user_location_cb_label')
-          -#= f.collection_select :location_id, current_user.locations, :id, :shortaddress, label: t('.address_label')
-        - else
-          = f.hidden_field :use_location, value: false
-        = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
-        -#= f.hidden_field :radius
-        = f.hidden_field :transport
-        = f.hidden_field :pattern, value: ""
+  .shareshore-panel{:align => "center"}
+    %h3= t(".heading_borrow_something")
+    = bootstrap_form_for @search, url: search_path, method: :get do |f|
+      - if current_user && current_user.location
         = f.form_group do
-          = submit_tag t(".search_button_label"), class: "btn btn-default"
+          = f.check_box :use_location, label: t('.user_location_cb_label')
+      - else
+        = f.hidden_field :use_location, value: false
+      = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
+      -#= f.hidden_field :radius
+      = f.hidden_field :transport
+      = f.hidden_field :pattern, value: ""
+      = f.form_group do
+        = submit_tag t(".search_button_label"), class: "btn btn-default"
 
+  - if user_signed_in?
     .shareshore-panel{:align => "center"}
       %h3= t(".heading_lend_something")
       %p= t(".text_earn_yourself_some_coins")
@@ -34,7 +33,7 @@
   - else
     .text-center
       %p
-        = t('.text_beta_unknown_user_warning')
+        = t('.encourage_to_log_in')
       %p
         = link_to t("titles.users.registrations.new"), new_user_registration_path, class: "btn btn-default"
         oder

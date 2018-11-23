@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, only: [:index, :edit, :update]
+  before_action :authenticate_admin!, only: [:index, :edit, :update, :show]
 
   def index
     @houses = House.all

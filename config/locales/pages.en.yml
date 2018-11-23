@@ -11,7 +11,7 @@ en:
       heading_first_time_here: First time here?
       tooltip_address_field: Enter your address or just your city of residence!
       user_location_cb_label: "At my House"
-      text_beta_unknown_user_warning: "In the Beta Version the Search function is only available to signed users!"
+      encourage_to_log_in: "Sign up now to join the community!"
 
     contrib:
       this_project_was_made_with_the_help_of: "This Project was made with the help of:"

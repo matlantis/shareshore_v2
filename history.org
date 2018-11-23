@@ -21,8 +21,6 @@ following this article
 https://devcenter.heroku.com/articles/multiple-environments
 abgebrochen
 *** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
-*** TODO Artikelsuche ohne Login                                    :feature:
-zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich
 *** TODO soft delete user                                           :feature:
 https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
 
@@ -72,6 +70,9 @@ https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-use
       oisin fragen
     - [ ] help texte
       oisin fragen
+*** DONE Artikelsuche ohne Login                                    :feature:
+    CLOSED: [2018-11-23 Fr 17:13]
+zu Demo zwecken, erst wenn details der nutzer gezeigt werden sollen ist ein login erforderlich
 *** DONE Cookie Hinweis aktualisieren                           :enhancement:
     CLOSED: [2018-11-23 Fr 15:59]
 *** CANCELED SSL Zertifikat austauschen                                 :bug:

@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
   respond_to :html, :js
 
-  prepend_before_action :authenticate_scope!, only: [:index, :guidepost, :update_guidepost, :edit, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:index, :guidepost, :update_guidepost, :edit, :update, :destroy, :show]
 
   def index
     authenticate_admin!
