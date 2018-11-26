@@ -2,23 +2,40 @@
 #+TAGS: bug feature enhancement text layout concept code theme howto
 
 * Shareshore V2 Todos
+** Milestone: Frist Release
+*** TODO Design [1/2]                                               :feature:
+    - [X] Farbgestaltung/Logo/Graphiken
+    - [ ] Layout Mobile/Desktop
+*** Gebrauchsanweisung
+**** Tipp Panel (mobile design)
+**** Leitfaden
+*** Admin
+**** staging system
+falls Änderungen nötig sind
+**** User Editieren/Löschen
+**** Artikel editieren/löschen
+**** Content review übersicht
 ** Primär
-*** TODO admin und developer howtos anlegen                            :code:
-*** TODO App zur benachrichtigung auf dem smartphone                :feature:
-*** TODO SMS Benachrichtigung                                       :feature:
-*** TODO rework mobile design                                         :minor:
-*** TODO content review email braucht reject link                   :feature:
 *** TODO kontaktinformationen frei gestalten                        :feature:
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO leitfaden überarbeiten                                        :text:
+    leitfaden reduzieren auf einfache anwendung
+    sprich: abstand nehmen von hochwertigen gegenständen
+    checkliste statt leitfaden                                
+*** TODO content review email braucht reject link                   :feature:
+*** TODO admin und developer howtos anlegen                            :code:
+*** TODO rework mobile design                                         :minor:
 *** TODO code clean up                                                 :code:
 there is a bunch of old code in the code
+*** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
+*** TODO App zur benachrichtigung auf dem smartphone                :feature:
+*** TODO SMS Benachrichtigung                                       :feature:
 *** TODO heroku staging system                                         :code:
 following this article
 https://devcenter.heroku.com/articles/multiple-environments
 abgebrochen
-*** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
 *** TODO soft delete user                                           :feature:
 https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
 
@@ -51,10 +68,6 @@ https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-use
 *** TODO seitenpanel mit aktuellen infos                            :feature:
     zB (neue) user in der Nähe, (neue) Artikel in der Nähe, Requests
     für mobile version ist das nicht von nutzen
-*** TODO leitfaden überarbeiten                                        :text:
-    leitfaden reduzieren auf einfache anwendung
-    sprich: abstand nehmen von hochwertigen gegenständen
-    checkliste statt leitfaden                                
 *** TODO Contributions Seite ist noch etwas mager                      :text:
 *** TODO mehr stockitems                                               :text:
     kühlbox
