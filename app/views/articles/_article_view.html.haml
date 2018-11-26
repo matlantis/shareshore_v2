@@ -16,33 +16,16 @@
 - item_div_id = "article_" + article.id.to_s + "_div"
 %div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => item_div_id}
   .article_view
-    - if user_signed_in? && is_admin?
+    - if edit
       .row
-        .col-xs-6
-          = article_marker article
-        .col-xs-6
-          = rate_marker(article)
+        .col-xs-12
+          = article.title
           .pull-right
             = edit_icons(article)
-      .row
-        .col-xs-3
-          - if not article.stockitem
-            = render "articles/stockitem_form", stockitem: Stockitem.new.fill_from_article(article), hidden_fields: true
-        .col-xs-9
-          .article-description
-            = truncate(article.details, length: 100)
-
-    - elsif edit
-      .row
-        .col-xs-6
-          = article_marker article
-        .col-xs-6
+        .col-xs-12
           = rate_marker(article)
-          .pull-right
-            = edit_icons(article)
       .row
-        .col-xs-3
-        .col-xs-9
+        .col-xs-12
           .article-description
             = truncate(article.details, length: 100)
 

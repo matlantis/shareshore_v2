@@ -4,9 +4,9 @@
   %h3= @title
   #article_null_div.article
     .row
-      .col-xs-8
+      .col-xs-6
         = link_to t(".link_create_without_template"), "#", class: "mp-toggle-visibility", data: {toggle_target: "#article_new"}
-      .col-xs-4.text-right
+      .col-xs-6.text-right
         #all_article_count
           - narticles = current_user.articles.count
           = t('.text_you_already_have')

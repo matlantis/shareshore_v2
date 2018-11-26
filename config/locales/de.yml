@@ -33,7 +33,7 @@ de:
       
     articles:
       new_from_stockitems: "Vorlagen"
-      index: "Inventar"
+      index: "Dein Inventar"
       index_location: "Sachen von %{user}"
       index_user: "Sachen von %{user}"
       edit: "Sache bearbeiten"
@@ -45,7 +45,7 @@ de:
       
     users:
       registrations:
-        edit: "Profil"
+        edit: "Dein Profil"
         guidepost: "Was jetzt?"
         new: "Profil anlegen"
         show: "Nutzer"

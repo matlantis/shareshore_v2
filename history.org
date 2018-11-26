@@ -10,6 +10,7 @@
 **** Tipp Panel (mobile design)
 **** Leitfaden
 *** Admin
+**** create new template
 **** staging system
 falls Änderungen nötig sind
 **** User Editieren/Löschen
