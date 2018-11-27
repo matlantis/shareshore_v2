@@ -21,6 +21,7 @@ falls Änderungen nötig sind
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO article request replys testen                                 :test:
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
     sprich: abstand nehmen von hochwertigen gegenständen
