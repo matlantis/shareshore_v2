@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # end
 
   resources :messages
-  resources :user_article_requests
+  resources :user_article_requests, only: [:create]
   resources :houses, only: [:show, :index, :edit, :update]
 
   resources :stockitems

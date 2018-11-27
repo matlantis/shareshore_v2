@@ -1,0 +1,351 @@
+.
+├── app
+│   ├── assets
+│   │   ├── javascripts
+│   │   │   ├── ajax.js
+│   │   │   ├── application.js
+│   │   │   ├── articles.js
+│   │   │   ├── categories.coffee
+│   │   │   ├── houses.coffee
+│   │   │   ├── locations.js
+│   │   │   ├── map.js.erb
+│   │   │   ├── messages.js
+│   │   │   ├── mp-snippets.js
+│   │   │   ├── registrations.js
+│   │   │   ├── searches.js
+│   │   │   └── stockitems.coffee
+│   │   └── stylesheets
+│   │       ├── application.sass
+│   │       ├── articles.css.sass
+│   │       ├── carets.css
+│   │       ├── categories.scss
+│   │       ├── edit-remove.css
+│   │       ├── houses.css.sass
+│   │       ├── locations.css.sass
+│   │       ├── map.sass
+│   │       ├── messages.scss
+│   │       ├── rate-models.scss
+│   │       ├── registrations.css.sass
+│   │       ├── scaffolds.scss
+│   │       ├── searches.css.sass
+│   │       ├── sticky-footer.css.sass
+│   │       ├── stockitems.scss
+│   │       ├── table-divs.css
+│   │       ├── transport-models.scss
+│   │       └── user_article_requests.scss
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   ├── articles_controller.rb
+│   │   ├── categories_controller.rb
+│   │   ├── concerns
+│   │   ├── contacts_controller.rb
+│   │   ├── houses_controller.rb
+│   │   ├── locations_controller.rb
+│   │   ├── messages_controller.rb
+│   │   ├── pages_controller.rb
+│   │   ├── searches_controller.rb
+│   │   ├── stockitems_controller.rb
+│   │   ├── user_article_requests_controller.rb
+│   │   └── users
+│   │       ├── confirmations_controller.rb
+│   │       ├── omniauth_callbacks_controller.rb
+│   │       ├── passwords_controller.rb
+│   │       ├── registrations_controller.rb
+│   │       ├── sessions_controller.rb
+│   │       └── unlocks_controller.rb
+│   ├── helpers
+│   │   ├── application_helper.rb
+│   │   ├── articles_helper.rb
+│   │   ├── categories_helper.rb
+│   │   ├── devise_helper.rb
+│   │   ├── houses_helper.rb
+│   │   ├── locations_helper.rb
+│   │   ├── messages_helper.rb
+│   │   ├── pages_helper.rb
+│   │   ├── searches_helper.rb
+│   │   ├── stockitems_helper.rb
+│   │   └── user_article_requests_helper.rb
+│   ├── jobs
+│   │   └── application_jobs.rb
+│   ├── mailers
+│   │   ├── application_mailer.rb
+│   │   └── user_mailer.rb
+│   ├── models
+│   │   ├── application_record.rb
+│   │   ├── article.rb
+│   │   ├── category.rb
+│   │   ├── concerns
+│   │   ├── contact.rb
+│   │   ├── house.rb
+│   │   ├── location.rb
+│   │   ├── message.rb
+│   │   ├── search.rb
+│   │   ├── stockitem.rb
+│   │   ├── user_article_request.rb
+│   │   └── user.rb
+│   ├── uploaders
+│   │   └── picture_uploader.rb
+│   └── views
+│       ├── application
+│       │   └── _favicon.html.erb r:application
+│       ├── articles
+│       │   ├── _article_view.html.haml r:manies
+│       │   ├── create_error_index.js.haml r:index
+│       │   ├── create_error_stockitems.js.haml r:stockitems
+│       │   ├── create_success_index.js.haml r:index
+│       │   ├── create_success_stockitems.js.haml r:stockitems
+│       │   ├── destroy.js.haml r:index
+│       │   ├── edit.html.haml d
+│       │   ├── _form.html.haml r:index
+│       │   ├── _index_help.de.html.haml r:index
+│       │   ├── _index_help.en.html.haml r:index
+│       │   ├── index.html.haml t
+│       │   ├── index.json.jbuilder d
+│       │   ├── index_location.html.haml d
+│       │   ├── index_user.html.haml d
+│       │   ├── _map_index.js.erb r:manies
+│       │   ├── _map_show.js.erb r:manies
+│       │   ├── _new_from_stockitems_help.de.html.haml r:...
+│       │   ├── _new_from_stockitems_help.en.html.haml r:...
+│       │   ├── new_from_stockitems.html.haml t
+│       │   ├── _popup.html.haml t
+│       │   ├── _show_help.de.html.haml r:show
+│       │   ├── _show_help.en.html.haml r:show
+│       │   ├── show.html.haml t
+│       │   ├── show.json.jbuilder d
+│       │   ├── _stockitem_form.html.haml admin
+│       │   ├── update_error.js.haml r:index
+│       │   └── update_success.js.haml r:index
+│       ├── categories admin
+│       │   ├── _category.json.jbuilder
+│       │   ├── edit.html.haml
+│       │   ├── _form.html.haml
+│       │   ├── index.html.haml
+│       │   ├── index.json.jbuilder
+│       │   ├── new.html.haml
+│       │   ├── show.html.haml
+│       │   └── show.json.jbuilder
+│       ├── contacts t
+│       │   └── new.html.haml
+│       ├── houses
+│       │   ├── edit.html.haml admin
+│       │   ├── _show_help.de.html.haml r:show
+│       │   ├── _show_help.en.html.haml r:show
+│       │   ├── index.html.haml admin
+│       │   └── show.html.haml t
+│       ├── layouts
+│       │   ├── application.html.haml t
+│       │   ├── mailer.html.erb
+│       │   ├── mailer.text.erb
+│       │   ├── _messages.html.haml t
+│       │   ├── _modal_error.html.haml t
+│       │   └── _navigation.html.haml t
+│       ├── locations d
+│       │   ├── create_error.js.haml
+│       │   ├── create_success.js.haml
+│       │   ├── destroy.js.haml
+│       │   ├── edit.html.haml
+│       │   ├── _form.html.haml
+│       │   ├── _index_help.de.html.haml
+│       │   ├── _index_help.en.html.haml
+│       │   ├── index.html.haml
+│       │   ├── index.json.jbuilder
+│       │   ├── _location_owner.html.haml
+│       │   ├── _location_view.html.haml
+│       │   ├── _new_help.de.html.haml
+│       │   ├── _new_help.en.html.haml
+│       │   ├── new.html.haml
+│       │   ├── show.html.haml
+│       │   ├── show.json.jbuilder
+│       │   ├── update_error.js.haml
+│       │   └── update_success.js.haml
+│       ├── messages admin
+│       │   ├── edit.html.erb
+│       │   ├── _form.html.erb
+│       │   ├── index.html.erb
+│       │   ├── index.json.jbuilder unused
+│       │   ├── _message.json.jbuilder unused
+│       │   ├── new.html.erb
+│       │   ├── show.html.erb
+│       │   └── show.json.jbuilder unused
+│       ├── pages t
+│       │   ├── about.de.html.haml
+│       │   ├── about.en.html.haml
+│       │   ├── admin.html.haml # admin
+│       │   ├── contact.de.html.haml
+│       │   ├── contact.en.html.haml
+│       │   ├── contrib.html.haml
+│       │   ├── disclaimer.de.html.haml
+│       │   ├── disclaimer.en.html.haml
+│       │   ├── faq.de.html.haml
+│       │   ├── faq.en.html.haml
+│       │   ├── guideline.de.html.haml
+│       │   ├── guideline.en.html.haml
+│       │   ├── _index_help.de.html.haml
+│       │   ├── _index_help.en.html.haml
+│       │   ├── index.html.haml
+│       │   ├── privacy.de.html.haml -> privacy_schwenke.de.html.haml
+│       │   ├── privacy.en.html.haml
+│       │   ├── privacy_eRecht24.de.html.haml
+│       │   ├── privacy_schwenke.de.html.haml
+│       │   ├── rate.de.html.haml
+│       │   ├── rate.en.html.haml
+│       │   ├── terms-of-use.de.html.haml
+│       │   ├── terms-of-use.en.html.haml
+│       │   ├── tutorial.de.html.haml
+│       │   ├── tutorial.en.html.haml
+│       │   ├── who_is_it.de.html.haml
+│       │   └── who_is_it.en.html.haml
+│       ├── searches t
+│       │   ├── new.html.haml
+│       │   ├── _results.html.haml r:show.html r:show.js
+│       │   ├── _search_form.html.haml r:new r:show
+│       │   ├── show.html.haml
+│       │   └── show.js.haml
+│       ├── stockitems
+│       │   ├── edit.html.haml admin
+│       │   ├── _form.html.haml admin
+│       │   ├── index.html.haml admin
+│       │   ├── index.json.jbuilder unused
+│       │   ├── new.html.haml admin
+│       │   ├── show.html.haml unused
+│       │   └── show.json.jbuilder unused
+│       ├── user_article_requests
+│       │   ├── edit.html.haml e
+│       │   ├── _form.html.haml e
+│       │   ├── index.html.haml e
+│       │   ├── index.json.jbuilder e
+│       │   ├── new.html.haml e
+│       │   ├── show.html.haml e
+│       │   ├── show.json.jbuilder e
+│       │   └── _user_article_request.json.jbuilder e
+│       ├── user_mailer t
+│       │   ├── admin_content_review_notification_mail.text.haml
+│       │   ├── article_request_mail.de.html.haml
+│       │   ├── article_request_mail.de.text.haml
+│       │   ├── article_request_mail.en.html.haml
+│       │   ├── article_request_mail.en.text.haml
+│       │   ├── _signature.de.html.haml
+│       │   ├── _signature.de.text.haml
+│       │   ├── _signature.en.html.haml
+│       │   ├── _signature.en.text.haml
+│       │   ├── user_message_mail.de.html.haml
+│       │   ├── user_message_mail.de.text.haml
+│       │   ├── user_message_mail.en.html.haml
+│       │   └── user_message_mail.en.text.haml
+│       └── users t
+│           ├── confirmations
+│           │   └── new.html.haml t
+│           ├── mailer t
+│           │   ├── confirmation_instructions.de.html.haml
+│           │   ├── confirmation_instructions.de.text.haml
+│           │   ├── confirmation_instructions.en.html.haml
+│           │   ├── confirmation_instructions.en.text.haml
+│           │   ├── password_change.de.html.haml
+│           │   ├── password_change.de.text.haml
+│           │   ├── password_change.en.html.haml
+│           │   ├── password_change.en.text.haml
+│           │   ├── reset_password_instructions.de.html.haml
+│           │   ├── reset_password_instructions.de.text.haml
+│           │   ├── reset_password_instructions.en.html.haml
+│           │   ├── reset_password_instructions.en.text.haml
+│           │   ├── unlock_instructions.de.html.haml
+│           │   ├── unlock_instructions.de.text.haml
+│           │   ├── unlock_instructions.en.html.haml
+│           │   └── unlock_instructions.en.text.haml
+│           ├── passwords
+│           │   ├── edit.html.haml t
+│           │   └── new.html.haml t
+│           ├── registrations
+│           │   ├── _contact.html.haml r:show
+│           │   ├── _edit_form.html.haml r:edit
+│           │   ├── _edit_help.de.html.haml r:edit
+│           │   ├── _edit_help.en.html.haml r:edit
+│           │   ├── edit.html.haml t
+│           │   ├── index.html.haml # admin
+│           │   ├── new.html.haml t
+│           │   ├── _show_help.de.html.haml r:show
+│           │   ├── _show_help.en.html.haml r:show
+│           │   ├── show.html.haml t
+│           │   └── update.js.haml t
+│           ├── sessions
+│           │   └── new.html.haml t
+│           ├── shared
+│           │   └── _links.html.haml r:users/...
+│           └── unlocks
+│               └── new.html.haml t
+├── code_cleanup
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── database.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── favicon.json
+│   ├── initializers
+│   │   ├── application_controller_renderer.rb
+│   │   ├── assets.rb
+│   │   ├── backtrace_silencers.rb
+│   │   ├── cookies_serializer.rb
+│   │   ├── devise.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   ├── geocoder.rb
+│   │   ├── inflections.rb
+│   │   ├── mime_types.rb
+│   │   ├── new_framework_defaults.rb
+│   │   ├── session_store.rb
+│   │   ├── simple_form_bootstrap.rb
+│   │   ├── simple_form.rb
+│   │   └── wrap_parameters.rb
+│   ├── locales
+│   │   ├── articles.de.yml
+│   │   ├── articles.en.yml
+│   │   ├── contacts.de.yml
+│   │   ├── contacts.en.yml
+│   │   ├── devise.de.yml
+│   │   ├── devise.en.yml
+│   │   ├── de.yml
+│   │   ├── en.yml
+│   │   ├── errors.de.yml
+│   │   ├── errors.en.yml
+│   │   ├── helpers.de.yml
+│   │   ├── helpers.en.yml
+│   │   ├── houses.de.yml
+│   │   ├── houses.en.yml
+│   │   ├── layouts.de.yml
+│   │   ├── layouts.en.yml
+│   │   ├── locations.de.yml
+│   │   ├── locations.en.yml
+│   │   ├── mailer.de.yml
+│   │   ├── mailer.en.yml
+│   │   ├── messages.de.yml
+│   │   ├── messages.en.yml
+│   │   ├── models.de.yml
+│   │   ├── models.en.yml
+│   │   ├── pages.de.yml
+│   │   ├── pages.en.yml
+│   │   ├── recaptcha.de.yml
+│   │   ├── recaptcha.en.yml
+│   │   ├── searches.de.yml
+│   │   ├── searches.en.yml
+│   │   ├── simple_form.en.yml
+│   │   ├── user_article_requests.de.yml
+│   │   ├── user_article_requests.en.yml
+│   │   ├── users.de.yml
+│   │   └── users.en.yml
+│   ├── puma.rb
+│   ├── routes.rb
+│   ├── secrets.yml
+│   └── spring.rb
+├── db
+│   └── seeds.rb
+├── doc
+│   ├── link_chart.dia
+│   └── site_map.dia
+├── Gemfile
+
+1663 directories, 2434 files
