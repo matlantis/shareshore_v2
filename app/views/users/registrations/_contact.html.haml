@@ -3,21 +3,16 @@
 - showemail ||= false
 - showphone ||= false
 - current_user ||= nil
-- showname = false # always
 
 %h4= t('.heading_contact_info', nickname: user.nickname)
 
 - anycontact = false
 .row
-  - unless user.fullname.blank? || !(showname || defined?(is_admin?) && is_admin?)
-    .col-xs-12
-      = user.fullname
-      - anycontact = true
-  - unless user.email.blank? || !(showemail || defined?(is_admin?) && is_admin?)
+  - unless user.email.blank? || !(showemail)
     .col-xs-12
       = mail_to user.email, user.email, subject: mail_subject_article_request(article, current_user)
       - anycontact = true
-  - unless user.phoneno.blank? || !(showphone || defined?(is_admin?) && is_admin?)
+  - unless user.phoneno.blank? || !(showphone)
     .col-xs-12
       = user.phoneno
       - anycontact = true

@@ -28,16 +28,11 @@ class User < ApplicationRecord
     self.public_uuid ||= SecureRandom.uuid
     self.showemail ||= false
     self.showphone ||= false
-    self.showname ||= false
     self.location ||= Location.new
   end
 
   def set_location_from_session_address(address)
     self.location.fill_from_session_address(address)
-  end
-
-  def fullname
-    [firstname, lastname].reject {|e| e.blank?}.join(" ")
   end
 
   def phoneno_or_none
@@ -46,10 +41,6 @@ class User < ApplicationRecord
 
   def email_or_none
     (email.blank?)? I18n.t("common.none_given") : email
-  end
-
-  def fullname_or_none
-    (fullname.blank?)? I18n.t("common.none_given") : fullname
   end
 
   def articles
