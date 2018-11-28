@@ -21,6 +21,9 @@ falls Änderungen nötig sind
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO hausübersicht schnell verfúgbar                        :enhancement:
+zB von der Suche aus
+nur eigene Hausübersicht anzeigen, dh den link im Profil von anderen rausschmeißen
 *** TODO article request replys testen                                 :test:
 *** TODO leitfaden überarbeiten                                        :text:
     leitfaden reduzieren auf einfache anwendung
