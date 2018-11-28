@@ -18,5 +18,5 @@
   };
 
   $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', location: @house.locations.first, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [@house], articles: Article.all, formats: [:js]}
   });
