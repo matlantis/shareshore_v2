@@ -14,7 +14,7 @@
             - has_a_location_here = true
           - else
             = user_marker(location.user)
-            (#{link_to articles_count(location.articles), location_path(location)})
+            (#{articles_count(location.articles)})
         - if has_a_location_here
           - if @house_center.locations.count > 1
             = t('.and_you')

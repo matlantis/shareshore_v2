@@ -1,9 +1,0 @@
-= bootstrap_form_for @stockitem do |f|
-  = f.alert_message 'fix errors'
-  = f.text_field :title_de
-  = f.text_field :title_en
-  = f.text_area :details_hint_de
-  = f.text_area :details_hint_en
-  = f.text_field :picture
-  = f.collection_select :category_id, Category.all, :id, :name_de
-  = f.submit

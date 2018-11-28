@@ -1,6 +1,0 @@
-// replace the form content (so no need to reset the form, right?)
-- formtext = escape_javascript(render 'form', location: @location)
-
-:plain
-  console.log('update error')
-  onLocationsUpdateError("#{@location_div_id}", "#{formtext}")

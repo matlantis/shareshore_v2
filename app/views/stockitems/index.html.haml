@@ -1,8 +1,0 @@
-.col-xs-12
-  %p
-    = link_to "Create new Stockitem", new_stockitem_path
-  %p
-    - @stockitems.each do |stockitem|
-      .row
-        .col-xs-12
-          = link_to stockitem.title_de, edit_stockitem_path(stockitem)

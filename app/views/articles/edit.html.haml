@@ -1,8 +1,0 @@
-- @title = t('titles.articles.edit')
-
-%h1= @title
-= render 'form', article: @article
-= link_to t('common.action_show'), @article, class: "btn btn-default"
-
-- if is_admin?
-  = link_to 'User', @article.user, class: "btn btn-danger"
