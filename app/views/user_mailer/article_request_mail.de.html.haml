@@ -8,7 +8,7 @@
   %pre= @request.text
 
 %p
-  Antworte auf diese Nachricht, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
+  Antworte #{@request.user.nickname}, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
 
 %p Eins noch: Bevor Du etwas verleihst, solltest du unseren #{link_to t('titles.pages.guideline'), guideline_url} lesen!
 

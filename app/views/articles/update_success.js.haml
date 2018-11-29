@@ -1,5 +1,4 @@
 - newtext = escape_javascript(render('article_view', article: @article, edit: true))
 
 :plain
-  console.log('update success');
   onArticlesUpdateSuccess("#{newtext}", "#{@article_div_id}")

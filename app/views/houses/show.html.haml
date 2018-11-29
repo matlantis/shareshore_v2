@@ -1,7 +1,10 @@
 - @title = House.model_name.human
 - @with_map = true
 
--#.col-xs-12
+.col-xs-12.col-sm-3
+  = tipp_panel do
+    = render 'show_help'
+
 .col-xs-12.col-sm-9
   %h3= @title
   .row
@@ -19,15 +22,11 @@
       .location_view
         = render 'locations/location_view', location: location
 
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'show_help'
-
 :javascript
   $(document).ready(function() {
     var onMapClick = function(e) {
       console.log("You clicked the map at " + e.latlng.lat + ", " + e.latlng.lng);
     };
 
-    #{render 'articles/map_show.js.erb', houses: [@house], articles: @articles, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [@house], articles: @articles}
   })

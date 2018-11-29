@@ -117,7 +117,7 @@ module ApplicationHelper
     locations.count.to_s + " " + I18n.t('activerecord.models.location', count: locations.count)
   end
 
-  def mail_subject_article_request(article, user)
+  def mail_subject_user_message(article, user)
     if article
       if user
         subject = t("mail.subject_article_request_username", user: user.nickname, article: article.title)

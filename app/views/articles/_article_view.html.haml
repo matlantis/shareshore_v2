@@ -6,15 +6,12 @@
 -# edit (own articles): article_marker, rate_marker, details, location_marker, edit_icons
 
 -# locals
--# home ||= false
-- modal ||= false
 - edit ||= false
-- home ||= false
 
 - article_show_id = "article_" + article.id.to_s + "_show"
 
 - item_div_id = "article_" + article.id.to_s + "_div"
-%div{:class => "article#{" article_house" if home}", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => item_div_id}
+%div{:class => "article", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => item_div_id}
   .article_view
     - if edit
       .row
@@ -29,18 +26,12 @@
           .article-description
             = truncate(article.details, length: 100)
 
-
     - else
       .row
         .col-xs-6
           = article_marker article
         .col-xs-6
           = rate_marker(article)
-        -#.col-sm-4.col-lg-1
-        -#- if article.picture.present?
-          .col-sm-3
-            %a{"data-toggle" => "modal", :href => "##{article_show_id}"}
-              = image_tag(article.picture_url(:thumb))
 
       .row
         .col-xs-12

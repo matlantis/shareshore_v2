@@ -7,13 +7,9 @@
     - if @title
       - the_title += " - " + @title.to_s
     %title= the_title
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'application', media: 'all'
-    - #stylesheet_link_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"
     = stylesheet_link_tag "leaflet.css"
-    - #javascript_include_tag "https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"
     = javascript_include_tag "leaflet.js"
-    -# = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'application'
     = csrf_meta_tags
     = render 'application/favicon'
@@ -28,15 +24,6 @@
                 %p
                   = t('.warning_no_script')
 
-        -#.row
-          .col-xs-12
-            -#= render 'layouts/messages'
-            - flash.each do |key, value|
-              %div{:class => "alert alert-#{key}"}
-                %a.close{"data-dismiss" => "alert", :href => "#"} ×
-                %ul
-                  %li
-                    = value
         .row
           .col-xs-12
             = yield
@@ -45,7 +32,6 @@
 
       .top-notifications
         - flash.each_with_index do |item, index|
-          -#%div{:class => "alert alert-#{item[0]}", id: "flash-message-" + index.to_s}
           .notification.clearfix{id: "flash-message-" + index.to_s}
             = item[1]
             .pull-right
@@ -83,7 +69,6 @@
             %p
               %ul.list-unstyled
                 %li
-                  -# byebug
                   = link_to "DE", request.parameters.update({locale: "de"})
                 %li
                   = link_to "EN", request.parameters.update({locale: "en"})

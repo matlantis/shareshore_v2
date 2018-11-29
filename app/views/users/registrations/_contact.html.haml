@@ -1,18 +1,16 @@
 -# locales
 - article ||= nil
-- showemail ||= false
-- showphone ||= false
 - current_user ||= nil
 
 %h4= t('.heading_contact_info', nickname: user.nickname)
 
 - anycontact = false
 .row
-  - unless user.email.blank? || !(showemail)
+  - unless user.email.blank? || !(user.showemail)
     .col-xs-12
-      = mail_to user.email, user.email, subject: mail_subject_article_request(article, current_user)
+      = mail_to user.email, user.email, subject: mail_subject_user_message(article, current_user)
       - anycontact = true
-  - unless user.phoneno.blank? || !(showphone)
+  - unless user.phoneno.blank? || !(user.showphone)
     .col-xs-12
       = user.phoneno
       - anycontact = true

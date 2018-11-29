@@ -8,7 +8,7 @@
   %pre= @request.text
 
 %p
-  Reply to this message by using the reply function of your email software!
+  Reply to #{@request.user.nickname} by using the reply function of your email software!
 
 %p Just one thing: Before lending something consider reading our #{link_to t('titles.pages.guideline'), guideline_url} to prevent yourself from taking unneccessary risks!
 

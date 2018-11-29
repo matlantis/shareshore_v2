@@ -3,7 +3,7 @@
 
   #{@message.text}
 
-  Antworte auf diese Nachricht, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
+  Antworte #{@message.sender.nickname}, indem du die Antwort-Funktion deines Emailprogrammes benutzt!
 
   Erfahre mehr über #{@message.sender.nickname} unter
   #{user_url(@message.sender)}

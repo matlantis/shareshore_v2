@@ -21,6 +21,7 @@ falls Änderungen nötig sind
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO houses#show überarbeiten
 *** TODO hausübersicht schnell verfúgbar                        :enhancement:
 zB von der Suche aus
 nur eigene Hausübersicht anzeigen, dh den link im Profil von anderen rausschmeißen
@@ -29,7 +30,9 @@ nur eigene Hausübersicht anzeigen, dh den link im Profil von anderen rausschmei
     leitfaden reduzieren auf einfache anwendung
     sprich: abstand nehmen von hochwertigen gegenständen
     checkliste statt leitfaden                                
-*** TODO content review email braucht reject link                   :feature:
+*** TODO content review überarbeiten                                :feature:
+edit link geht nicht mehr
+eventuell ganz weglassen
 *** TODO admin und developer howtos anlegen                            :code:
 *** TODO rework mobile design                                         :minor:
 *** TODO code clean up                                                 :code:

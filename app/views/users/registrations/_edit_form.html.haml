@@ -191,7 +191,7 @@
   };
 
   $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', houses: [resource.location.house], articles: resource.articles, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [resource.location.house], articles: resource.articles}
 
      var stopLocationSet = function(e) {
        // disable dragging

@@ -31,7 +31,6 @@
             .article{:id => article_div_id}
               .row
                 .col-xs-6
-                  -#%a.item_edit_button{"data-item-id" => "#{article.stockitem_id.to_s}", :href => "#"}
                   %a.mp-toggle-visibility{"data-toggle-target" => "#article_#{article.stockitem_id.to_s}_div .article_edit", :href => "#"}
                     = article.title
 
@@ -43,11 +42,6 @@
                     = t('.text_you_already_have')
                     = content_tag :span, "#{nstockitems}"
                     = t('.text_of_this')
-                  - if current_user.role == "admin"
-                    - narticles = Article.where("stockitem_id = ?", article.stockitem_id).count
-                    .admin-buttons
-                      = link_to "", edit_stockitem_path(article.stockitem), class: "glyphicon glyphicon-pencil btn btn-danger btn-xs"
-                      = link_to "", article.stockitem, method: :delete, data: {confirm: "delete " + article.stockitem["title_" + I18n.locale.to_s] + "? " + narticles.to_s + " References."} , class: "glyphicon glyphicon-remove btn btn-danger btn-xs"
 
               .row.article_edit.to_hide
                 .col-xs-12

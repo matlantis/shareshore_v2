@@ -2,9 +2,7 @@
   .container
     .navbar-header
       %a.navbar-brand{:href => "/"}
-        -#= t('.brand_shareship')
-        -#%sub beta
-        = image_tag 'logo_menu.png', class: "img-responsive", alt: "Shareship beta", size: '120x40'
+        = image_tag 'logo_menu.png', class: "img-responsive", alt: "Shareship", size: '120x40'
       %button.navbar-toggle{"data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
@@ -26,16 +24,12 @@
             %ul.dropdown-menu{role: "menu"}
               %li= link_to t("titles.articles.new_from_stockitems"), user_new_article_from_stockitems_path, class: 'navbar-link'
               %li= link_to t("titles.articles.index"), articles_path, class: 'navbar-link'
-              -#%li.divider
-              -#%li= link_to t("titles.locations.index"), locations_path, class: 'navbar-link'
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %span.glyphicon.glyphicon-user
               %strong= current_user.nickname
               %b.caret
             %ul.dropdown-menu{:role => "menu"}
-              -#%li= link_to t("titles.users.registrations.guidepost"), user_guidepost_path, class: 'navbar-link'
-              -#%li.divider
               %li= link_to t("titles.users.sessions.destroy"), destroy_user_session_path, method: :delete, class: 'navbar-link'
               %li= link_to t("titles.users.registrations.edit"), edit_user_registration_path, class: 'navbar-link'
         - else

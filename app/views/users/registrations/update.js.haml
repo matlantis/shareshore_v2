@@ -1,5 +1,4 @@
 - newtext = escape_javascript(render('edit_form', resource: resource))
 
 :plain
-  console.log('update success');
   onUserUpdateSuccess("#{newtext}", #{resource.location.latitude}, #{resource.location.longitude})

@@ -9,7 +9,6 @@ bounds = <%= "#{@bounds.to_s} "%>
 // add house markers
 // toggle marker_defs to draw results via js after page load
 marker_defs = [ <%= create_map_house_markers(articles, @houses, @house_center) %>];
-//marker_defs = [ ];
 
 // add current location marker
 marker_defs_center = [ <%= create_map_current_location_marker(@current_location) %> ];

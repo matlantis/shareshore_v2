@@ -1,22 +1,15 @@
 - url ||= (article)? article_path(article) : create_from_index_articles_path
 
-- if (not current_user.location) && article.id == nil # creation
-  .text-center
-    = succeed ":" do
-      = t('.create_location_at_first')
-    = link_to t('titles.locations.index'), locations_path
-- else
+= bootstrap_form_for(article, url: url, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
+  = f.alert_message t('common.message_fix_errors')
+  - if article.stockitem_id
+    = f.hidden_field :title
+  - else
+    = f.text_field :title
 
-  = bootstrap_form_for(article, url: url, layout: :horizontal, remote: true, label_col: "col-sm-3", control_col: "col-sm-9") do |f|
-    = f.alert_message t('common.message_fix_errors')
-    - if article.stockitem_id
-      = f.hidden_field :title
-    - else
-      = f.text_field :title
-
-    = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
-    = f.text_area :details, placeholder: Article.human_attribute_name("details")
-    = f.hidden_field :stockitem_id
-    = f.form_group do
-      = f.submit t('forms.finish')
-      = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"
+  = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
+  = f.text_area :details, placeholder: Article.human_attribute_name("details")
+  = f.hidden_field :stockitem_id
+  = f.form_group do
+    = f.submit t('forms.finish')
+    = f.submit t('forms.reset'), type: "reset", class: "btn btn-default"

@@ -33,8 +33,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @articles = @user.articles
     @locations = [@user.location]
 
-    # provide houses to be drawn by the map
-    @houses = [@user.location.house]
   end
 
 

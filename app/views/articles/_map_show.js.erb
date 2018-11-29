@@ -1,3 +1,6 @@
+<% articles ||= [] %>
+<% houses ||= [] %>
+
 // prepare the marker data
 marker_defs = [];
 bounds = [];
@@ -10,13 +13,10 @@ bounds = [];
 
 marker_defs_center = []
 <% if @current_location # show if location is known %>
-  <% #unless current_user && current_user.id == location.user.id # but not for own locations%>
-
   // add current location marker
   marker_def_center = <%= create_map_current_location_marker(@current_location) %>
 
   bounds.push(<%= "[ #{@current_location.latitude}, #{@current_location.longitude} ]" %>);
-  <% #end %>
 <% end %>
 
 // draw the map

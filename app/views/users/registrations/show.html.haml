@@ -1,6 +1,10 @@
 - @title = @user.nickname
 - @with_map = true
 
+.col-xs-12.col-sm-3
+  = tipp_panel do
+    = render 'show_help'
+
 .col-xs-12.col-sm-9
   %h3.text-center= @title
 
@@ -36,10 +40,11 @@
 
     - else
       .col-xs-12.col-lg-6
-        = render 'contact', user: @user, showemail: @user.showemail, showphone: @user.showphone
+        = render 'contact', user: @user
       .col-xs-12.col-lg-6
-        = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
-          %h4= t('.heading_message', nickname: @user.nickname)
+        %h4
+          = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
+            = t('.heading_message', nickname: @user.nickname)
         .message-panel.to_hide
           - if user_signed_in?
             .send-message
@@ -67,25 +72,15 @@
         %span.articles_count= @articles.count
         = Article.model_name.human(count: @articles.count)
 
-  - home = current_user && @user.location.house == current_user.location.house
   - @articles.each do |article|
     .article-pane{article_title: "#{article.title}"}
       .row
         .col-xs-1
         .col-xs-10
-          = render 'articles/article_view', article: article, edit: false, home: home
+          = render 'articles/article_view', article: article, edit: false
         .col-xs-1
 
-
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'show_help'
-
 :javascript
-  onMapClick = function(e) {
-    console.log("You clicked the marker " + e.target.index);
-  };
-
   $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', houses: @houses, articles: @articles, formats: [:js]}
+    #{render 'articles/map_show.js.erb', houses: [@user.location.house], articles: @articles}
   });

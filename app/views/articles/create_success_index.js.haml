@@ -9,6 +9,5 @@
 
 - newText = escape_javascript(render 'article_view', article: @article, edit: true)
 
-//console.log("call onArticlesCreateSuccess")
 :plain
   onArticlesCreateSuccessIndex("#{ article_id }", "#{ newText }", "#{ formText }")
