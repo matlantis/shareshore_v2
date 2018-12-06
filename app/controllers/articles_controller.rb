@@ -2,7 +2,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy, :new_from_stockitems, :show ]
-  before_action :authenticate_admin!, only: [:edit]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
   before_action :redirect_user_without_location, only: [:index, :new_from_stockitems]
 
@@ -13,21 +12,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit
-    @owner = @article.location.user
-  end
-
   def index
     # admins can see articles of other users
-    user = nil
-    if params.key?(:user_id) && is_admin?
-      user = User.find_by(id: params[:user_id].to_i)
-    end
-    if user
-      @user = user
-    else
-      @user = current_user
-    end
+    @user = current_user
 
     @articles = @user.articles.order(location_id: :asc, title: :asc)
   end
@@ -205,7 +192,7 @@ class ArticlesController < ApplicationController
     # use to verify the article really belongs to the current user
     # not sure if this works, depends devise ensures that current_user is really the user that logged in
     def verify_user_is_owner
-      unless is_admin? || current_user.id == @article.user.id
+      unless current_user.id == @article.user.id
         respond_to do |format|
           flash[:danger] = t('articles.warning_not_owner')
           format.html { redirect_to articles_url }

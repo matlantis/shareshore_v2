@@ -1,20 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :categories
-  # # the locale scope
-  # scope "(:locale)", locale: /en|de/ do
-  #   root to: 'welcome#index'
-  # end
+  root "pages#index"
 
-  resources :messages
+  resources :messages, only: [:create]
   resources :user_article_requests, only: [:create]
-  resources :houses, only: [:show, :index, :edit, :update]
-
-  resources :stockitems
-  post 'stockitems/new', to: "stockitems#new"
+  resources :houses, only: [:show]
 
   get '/search', to: 'searches#new', as: 'search'
-  #resources :searches, only: [:new, :create]
 
   get '/contacts', to: 'contacts#new'
   resources :contacts, only: [:new, :create]
@@ -31,11 +23,7 @@ Rails.application.routes.draw do
                unlocks: "users/unlocks"
              }
 
-  root "pages#index"
-
-  resources :articles, except: [ :create ]
-  resources :locations, except: [ :new]
-
+  resources :articles, only: [ :show, :index]
   resources :articles do
     collection do
       post 'create_from_index'
@@ -43,26 +31,14 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/users/:user_id/articles', action: :index_user, controller: 'articles', as: 'articles_user'
-  #get '/locations/:location_id/articles', action: :index_location, controller: 'articles', as: 'articles_location'
-  get '/users/:user_id/locations', action: :index_user, controller: 'locations', as: 'locations_user'
-
   get '/user/new_article_from_stockitems', action: :new_from_stockitems, controller: 'articles', as: 'user_new_article_from_stockitems'
 
   devise_scope :user do
-    get "users/guidepost", action: :guidepost, controller: 'users/registrations', as: 'user_guidepost'
-    put "users/guidepost", action: :update_guidepost, controller: 'users/registrations'
-    post "users/guidepost", action: :update_guidepost, controller: 'users/registrations'
-
-    get "users/show/:id", action: :show, controller: 'users/registrations', as: 'user'
-    get "users", to: 'users/registrations#index', as: 'users'
+    get "users/:id", action: :show, controller: 'users/registrations', as: 'user'
   end
 
   get "/pages/index", to: "pages#index"
-  get "/pages/admin", to: "pages#admin"
   get "/pages/:page", to: "pages#show"
-  get "/pages/guideline", as: "guideline"
 
-  get "accept_beta", to: "application#accept_beta"
   get "accept_cookies", to: "application#accept_cookies"
 end

@@ -1,25 +1,5 @@
 .
 ├── app
-│   ├── assets
-│   │   └── stylesheets
-│   │       ├── application.sass
-│   │       ├── articles.css.sass
-│   │       ├── carets.css
-│   │       ├── categories.scss
-│   │       ├── edit-remove.css
-│   │       ├── houses.css.sass
-│   │       ├── locations.css.sass
-│   │       ├── map.sass
-│   │       ├── messages.scss
-│   │       ├── rate-models.scss
-│   │       ├── registrations.css.sass
-│   │       ├── scaffolds.scss
-│   │       ├── searches.css.sass
-│   │       ├── sticky-footer.css.sass
-│   │       ├── stockitems.scss
-│   │       ├── table-divs.css
-│   │       ├── transport-models.scss
-│   │       └── user_article_requests.scss
 │   ├── controllers
 │   │   ├── application_controller.rb
 │   │   ├── articles_controller.rb

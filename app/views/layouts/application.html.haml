@@ -38,15 +38,6 @@
               = link_to t(".flash_close_button"), "#", class: "mp-toggle-visibility", data: {"toggle-target": "#flash-message-" + index.to_s}
 
       .bottom-notifications
-        - if !session[:beta_accepted] and not current_user
-          #beta-warning.notification.clearfix
-            %strong
-              = succeed ':' do
-                = t('.attention')
-            = t('.text_beta_warning')
-            .pull-right
-              = link_to t(".accept_beta_button"), "/accept_beta", class: "mp-toggle-visibility", data: {"toggle-target": "#beta-warning"}, remote: true
-
         - if !session[:cookies_accepted] and not current_user
           #cookie-warning.notification.clearfix
             %strong
@@ -60,10 +51,7 @@
         .container
           .col-sm-4.col-xs-12
             %div
-              - if user_signed_in? && current_user.role == "admin"
-                %li
-                  = link_to "Admin", '/pages/admin'
-              - else
+              %ul.list-unstyled
                 %li Martin Puttke 2016
 
             %p

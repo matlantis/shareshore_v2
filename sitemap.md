@@ -12,7 +12,7 @@ Sharing
 
 * Inventar -> articles#index
 
-* Templates -> articles#new_article_from_stockitems
+* Templates -> articles#create_article_from_stockitems
 
 Account Management
 ------

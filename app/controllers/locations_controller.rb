@@ -3,35 +3,6 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy, :show]
   before_action :verify_user_is_owner, only: [:edit, :update, :destroy]
 
-  # def index
-  #   # admins can see articles of other users
-  #   user = nil
-  #   if params.key?(:user_id) && is_admin?
-  #     user = User.find_by(id: params[:user_id].to_i)
-  #   end
-  #   if user
-  #     @user = user
-  #   else
-  #     @user = current_user
-  #   end
-
-  #   @locations = @user.locations.order(created_at: :asc)
-
-  #   # init new location and try to prefill country and city
-  #   @location = Location.new
-  #   if session.has_key?(:address)
-  #     parts = session[:address].split(',')
-  #     if parts.length > 0
-  #       @location.city = parts[0].strip() # guess the first part is the city
-
-  #       country_part = parts[-1].strip() # guess the last part is the country part
-  #       country = ISO3166::Country.find_country_by_name(country_part)
-  #       if country
-  #         @location.country = country.alpha2
-  #       end
-  #     end
-  #   end
-  # end
 
   # GET /locations/1
   # GET /locations/1.json
@@ -117,9 +88,6 @@ class LocationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
       permitted = [ :address, :longitude, :latitude ]
-      if is_admin?
-        permitted.push :house_id
-      end
       params.require(:location).permit(permitted)
     end
 
@@ -127,7 +95,7 @@ class LocationsController < ApplicationController
     # not sure if this works, depends devise ensures that current_user is really the user that logged in
     def verify_user_is_owner
       # admin is already authenticated
-      unless is_admin? || current_user.id == @location.user.id
+      unless current_user.id == @location.user.id
         respond_to do |format|
           format.html { redirect_to edit_user_registration_path, danger: t('locations.warning_not_owner') }
 

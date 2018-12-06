@@ -18,8 +18,6 @@ en:
       flash_close_button: "Close"
       accept_cookies_button: "Accept"
       text_cookie_warning: "Cookies are used on this web page only to ensure functionality. By using this web page you aggree to this."
-      accept_beta_button: "Accept"
-      text_beta_warning: "Shareship is still under development! This is a test version. Errors may lead to data loss or privacy threats. Shareship can not take responsibility for such incidents. Continue only, if you are ready to take the risk or better leave this side."
       warning_no_script: "Javascript is deactivated. Please enable it."
       bug_found: "Found a bug?"
       write_us: "Write us!"

@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   after_initialize :init
 
-  #validates :role, inclusion: { in: %w(admin user) }
   validates :nickname, uniqueness: true, length: { minimum: 1, maximum: 50 }
   validates :location, presence: true
             # format: { with: /\A[a-zA-Z0-9\.\-_]+\z/ }

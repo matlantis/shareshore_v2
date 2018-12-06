@@ -6,12 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   prepend_before_action :authenticate_scope!, only: [:index, :guidepost, :update_guidepost, :edit, :update, :destroy, :show]
 
-  def index
-    authenticate_admin!
-    @users = User.all.order(nickname: :asc)
-    @users = @users.paginate(page: params[:page], per_page: 100)
-  end
-
   def show
     @user = User.find_by(id: params[:id])
     unless @user

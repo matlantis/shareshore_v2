@@ -26,8 +26,4 @@ class PagesController < ApplicationController
       end
     end
   end
-
-  def admin
-    authenticate_admin!
-  end
 end
