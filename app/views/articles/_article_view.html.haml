@@ -1,16 +1,9 @@
--# 3 Layouts: with edit icons, with current_location, without any if this
--#
--# Items to show
--# without (view s.o.'s location): article_marker, rate_marker, details
--# current_location (search results): article_marker, rate_marker, details
--# edit (own articles): article_marker, rate_marker, details, location_marker, edit_icons
-
 -# locals
 - edit ||= false
 
-- article_show_id = "article_" + article.id.to_s + "_show"
+- article_show_id = "article-" + article.id.to_s + "-show"
 
-- item_div_id = "article_" + article.id.to_s + "_div"
+- item_div_id = "article-" + article.id.to_s + "-div"
 %div{:class => "article", "data-article-id" => "#{article.id.to_s}", "data-house-id" => "#{article.location.house_id}", :id => item_div_id}
   .article_view
     - if edit
@@ -38,7 +31,7 @@
           .article-description
             = truncate(article.details, length: 100)
 
-  - if user_signed_in? && (current_user.id == article.user.id || is_admin? )
-    .row.article_edit.to_hide
+  - if user_signed_in? && (current_user.id == article.user.id )
+    .row.article-edit.to-hide
       .col-xs-12
         = render 'articles/form', article: article

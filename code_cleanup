@@ -1,19 +1,6 @@
 .
 ├── app
 │   ├── assets
-│   │   ├── javascripts
-│   │   │   ├── ajax.js
-│   │   │   ├── application.js
-│   │   │   ├── articles.js
-│   │   │   ├── categories.coffee
-│   │   │   ├── houses.coffee
-│   │   │   ├── locations.js
-│   │   │   ├── map.js.erb
-│   │   │   ├── messages.js
-│   │   │   ├── mp-snippets.js
-│   │   │   ├── registrations.js
-│   │   │   ├── searches.js
-│   │   │   └── stockitems.coffee
 │   │   └── stylesheets
 │   │       ├── application.sass
 │   │       ├── articles.css.sass
@@ -83,8 +70,6 @@
 │   │   ├── stockitem.rb
 │   │   ├── user_article_request.rb
 │   │   └── user.rb
-│   ├── uploaders
-│   │   └── picture_uploader.rb
 ├── code_cleanup
 ├── config
 │   ├── application.rb

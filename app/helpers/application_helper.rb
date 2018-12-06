@@ -84,7 +84,7 @@ module ApplicationHelper
   end
 
   def article_marker(article)
-    article_show_id = "#article_" + article.id.to_s + "_show"
+    article_show_id = "#article-" + article.id.to_s + "-show"
     capture do
       unless article
         content_tag :em, t('common.unknown_article')
@@ -135,8 +135,7 @@ module ApplicationHelper
 
   def edit_icons(item)
     if user_signed_in? && (current_user.id == item.user.id || is_admin? )
-      item_class = item.class.to_s.downcase
-      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "##{item_class}_#{item.id}_div .#{item_class}_edit", toggle: "tooltip"} , title: t('button.edit') )
+      txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "#article-#{item.id}-div .article-edit", toggle: "tooltip"} , title: t('button.edit') )
       txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('button.remove'), remote: true)
       txt1.concat(txt2)
     end

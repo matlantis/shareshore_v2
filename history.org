@@ -21,6 +21,7 @@ falls Änderungen nötig sind
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO link hover in map popup looks terrifying
 *** TODO houses#show überarbeiten
 *** TODO hausübersicht schnell verfúgbar                        :enhancement:
 zB von der Suche aus

@@ -1,7 +1,5 @@
 $(document).ready(function() {
     $('body').on('input', '.filter_pattern',function(e) {
-        console.log("got input");
-
         var pattern = new RegExp(e.target.value, "i");
         var articles_count = 0;
         // hide/show all locations without visible articles
@@ -17,14 +15,7 @@ $(document).ready(function() {
             $(this).toggle(loc_visible);
         });
         // update the articles counter
-        $(".articles_count").text(articles_count);
-    });
-
-    $(".toggle-scroll").on('click', function(e) {
-        e.preventDefault();
-        console.log("toggle-scroll");
-        $('#tab-articles').toggleClass('scrollable-results');
-        $('#tab-locations').toggleClass('scrollable-results');
+        $(".articles-count").text(articles_count);
     });
 
     $('#search_use_location').on('click', function(e) {

@@ -13,14 +13,14 @@
     .form-group
       .col-xs-3
         = f.label :email, class: "control-label"
-      .col-xs-7.email_field.to_hide
+      .col-xs-7.email_field.to-hide
         = f.email_field :email, autofocus: true, class: "form-control"
       .col-xs-7.email_field
         .radio
           = resource.email
       .col-xs-2.email_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.email_field.to_hide.text-right
+      .col-xs-2.email_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".email_field", toggle: "tooltip"}, title: t('button.cancel'))
 
@@ -28,14 +28,14 @@
     .form-group
       .col-xs-3
         = f.label :nickname, class: "control-label"
-      .col-xs-7.nickname_field.to_hide
+      .col-xs-7.nickname_field.to-hide
         = f.text_field :nickname, class: "form-control"
       .col-xs-7.nickname_field
         .radio
           = resource.nickname
       .col-xs-2.nickname_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.nickname_field.to_hide.text-right
+      .col-xs-2.nickname_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".nickname_field", toggle: "tooltip"}, title: t('button.cancel'))
 
@@ -46,21 +46,21 @@
       .col-xs-7.password_field
         .radio
           = t('.hidden_password')
-      .col-xs-7.password_field.to_hide
+      .col-xs-7.password_field.to-hide
         = f.password_field :password, help: t(".help_password_leave_blank"), autocomplete: "off", class: "form-control"
       .col-xs-2.password_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.password_field.to_hide.text-right
+      .col-xs-2.password_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".password_field", toggle: "tooltip"}, title: t('button.cancel'))
 
-    .form-group.password_field.to_hide
+    .form-group.password_field.to-hide
       .col-xs-3
         = f.label :password_confirmation, class: "control-label"
       .col-xs-7
         = f.password_field :password_confirmation, autocomplete: "off", label: t('.new_password_confirmation_label'), class: "form-control"
 
-    .form-group.password_field.to_hide
+    .form-group.password_field.to-hide
       .col-xs-3
         = f.label :current_password, class: "control-label"
       .col-xs-7
@@ -74,7 +74,7 @@
         = t(".where_are_your_things")
       .col-xs-2.location_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.location_field.to_hide.text-right
+      .col-xs-2.location_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".location_field", toggle: "tooltip"}, title: t('button.cancel'))
 
@@ -82,25 +82,19 @@
       .form-group
         .col-xs-3
           = loc_f.label :address, class: "control-label"
-        .col-xs-9.location_field.to_hide
+        .col-xs-9.location_field.to-hide
           = loc_f.text_field :address, class: "form-control"
         .col-xs-9.location_field
           .radio
             = resource.location.address
-      - if is_admin?
-        .form-group
-          .col-xs-3
-            = loc_f.label :house_id, class: "control-label"
-          .col-xs-9.location_field.to_hide
-            = loc_f.number_field :house_id
 
-    .form-group.location_field.to_hide
+    .form-group.location_field.to-hide
       #set_location_remark
         .col-xs-6
           = t('.text_location_incorrect')
         .col-xs-6
           = link_to t(".link_set_manually"), "#", id: "set_location_link", class: "btn btn-default"
-      #set_location_controls.to_hide
+      #set_location_controls.to-hide
         .col-xs-6
           = t('.text_drag_marker_to_location')
         .col-xs-6
@@ -122,7 +116,7 @@
         = t(".how_shall_people_get_in_contact_with_you")
       .col-xs-2.contact_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.contact_field.to_hide.text-right
+      .col-xs-2.contact_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".contact_field", toggle: "tooltip"}, title: t('button.cancel'))
 
@@ -131,7 +125,7 @@
         .checkbox
           %label
             .glyphicon.glyphicon-ok.contact_field.checkbox-icon
-            = check_box_tag :pershareship, 'yes', true, disabled: true, class: ["contact_field", "to_hide"]
+            = check_box_tag :pershareship, 'yes', true, disabled: true, class: ["contact_field", "to-hide"]
             = t(".per_shareship")
             .help-block
               = t(".per_shareship_help")
@@ -142,7 +136,7 @@
               .glyphicon.glyphicon-ok.contact_field.checkbox-icon
             - else
               .glyphicon.glyphicon-remove.contact_field.checkbox-icon
-            = f.check_box :showemail, class: ["contact_field", "to_hide"]
+            = f.check_box :showemail, class: ["contact_field", "to-hide"]
             = t('.per_email')
             .help-block
               = t('.per_email_help')
@@ -152,7 +146,7 @@
               .glyphicon.glyphicon-ok.contact_field.checkbox-icon
             - else
               .glyphicon.glyphicon-remove.contact_field.checkbox-icon
-            = f.check_box :showphone, class: ["contact_field", "to_hide"]
+            = f.check_box :showphone, class: ["contact_field", "to-hide"]
             = t('.per_phone')
             .help-block
               = t('.per_phone_help')
@@ -162,7 +156,7 @@
       .col-xs-9.contact_field
         .radio
           = resource.phoneno
-      .col-xs-9.contact_field.to_hide
+      .col-xs-9.contact_field.to-hide
         = f.text_field :phoneno, class: 'form-control'
 
 
@@ -174,7 +168,7 @@
         = t(".write_a_few_nice_words")
       .col-xs-2.aboutme_field.text-right
         = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('button.edit'))
-      .col-xs-2.aboutme_field.to_hide.text-right
+      .col-xs-2.aboutme_field.to-hide.text-right
         = submit_icon
         = link_to("", "", class: "glyphicon glyphicon-remove edit-remove mp-toggle-visibility", data: { toggle_target: ".aboutme_field", toggle: "tooltip"}, title: t('button.cancel'))
 
@@ -182,7 +176,7 @@
       .col-xs-12.aboutme_field
         %cite
           = resource.aboutme
-      .col-xs-12.aboutme_field.to_hide
+      .col-xs-12.aboutme_field.to-hide
         = f.text_area :aboutme, class: 'form-control'
 
 :javascript

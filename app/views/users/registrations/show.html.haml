@@ -45,7 +45,7 @@
         %h4
           = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
             = t('.heading_message', nickname: @user.nickname)
-        .message-panel.to_hide
+        .message-panel.to-hide
           - if user_signed_in?
             .send-message
               - message = Message.new({receiver: @user, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})

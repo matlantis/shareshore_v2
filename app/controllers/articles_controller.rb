@@ -146,7 +146,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
+    @article_div_id = "article-" + @article.id.to_s + "-div" # for js
     params = article_params
 
     title_need_review = params.key?(:title) && (not params[:title].empty?) && (params[:title] != @article.title)
@@ -183,7 +183,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    @article_div_id = "article_" + @article.id.to_s + "_div" # for js
+    @article_div_id = "article-" + @article.id.to_s + "-div" # for js
     @list_is_empty = current_user.articles.empty?
     respond_to do |format|
       format.html { redirect_to articles_path, notice: t('.destroy_success') }

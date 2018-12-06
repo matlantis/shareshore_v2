@@ -16,26 +16,3 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
-
-$(document).ready(function() {
-    $(".toggle-map").on('click', function(e) {
-        $('.all_but_map').toggleClass('global_map_visible');
-
-        // for the global map
-        if ( $(".global-map-container").get(0).contains(e.target) )
-        {
-            // don't scroll when at top or at bottom
-            if (((window.innerHeight + window.pageYOffset) < document.body.offsetHeight) && window.pageYOffset != 0 ) {
-                // scroll the view by half of map height when map is opening or closing
-                if ( $('.all_but_map').hasClass('global_map_visible') )
-                    $('html, body').animate({
-                        scrollTop: '+=' + $(window).height() * 0.2
-                    }, 200);
-                else
-                    $('html, body').animate({
-                        scrollTop: '-=' + $(window).height() * 0.2
-                    }, 200);
-            }
-        }
-    });
-});

@@ -1,4 +1,4 @@
 - newtext = escape_javascript(render('edit_form', resource: resource))
 
 :plain
-  onUserUpdateSuccess("#{newtext}", #{resource.location.latitude}, #{resource.location.longitude})
+  onUserUpdate("#{newtext}", #{resource.location.latitude}, #{resource.location.longitude})

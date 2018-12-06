@@ -9,7 +9,7 @@
 
       .col-xs-6.text-center.shareshore-panel
         %h3
-          = link_to("#tab-locations", data: {toggle: "tab"}, class: "tab") do
+          = link_to("#tab-users", data: {toggle: "tab"}, class: "tab") do
             = @locations.count
             = User.model_name.human(count: @locations.count)
     .tab-content
@@ -38,7 +38,7 @@
                     = render 'articles/article_view', article: article, edit: false
                   .col-xs-1
 
-      #tab-locations.tab-pane.fade
+      #tab-users.tab-pane.fade
         - if Search.locations_per_page < @locations.count
           .shareshore-panel
             - if Search.locations_per_page < @locations.count

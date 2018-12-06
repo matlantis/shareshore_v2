@@ -10,23 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require rails_bootstrap_forms
- *= require_tree .
- *= require_self
  */
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "*"
 
 cite
   font-style: italic
 
-.to_hide
+.to-hide
   display: none
 
 .shareshore-panel
   margin-bottom: 1rem
   margin-top: 1rem
-  //border: 1px dotted #ddd
+  /* border: 1px dotted #ddd
   padding: 0.6rem
 
 .alert-notice
@@ -54,9 +52,6 @@ cite
 .tip-panel a, a:visited
   text-decoration: underline
 
-.admin-control
-  color: #d9534f
-
 .footer h3
   margin-top: 0
   font-size: 1em
@@ -76,7 +71,7 @@ h4
 h4:first-child
   margin-top: 10px
 
-.logo_index
+.logo-index
   margin-top: 40px
   margin-bottom: 40px
 
@@ -95,16 +90,9 @@ h4:first-child
   z-index: 10000
 
 .notification
-  color: white
-  //font-weight: bold
-  background-color: rgba(0,0,0,0.8)
   margin-top: 10px
   padding: 8px 21px
   border-radius: 5px
-
-  a, a:visited
-    color: white
-    text-decoration: underline
 
 .submit-with-icon
   background: transparent
@@ -112,62 +100,3 @@ h4:first-child
   padding: 0
   outline: 0
 
-/* color theme
-.navbar
-  border: 0
-  background-color: #367937
-  border-radius: 0
-
-.navbar-default
-  .navbar-toggle .icon-bar
-    background-color: #e5efe7
-
-  .navbar-nav
-    li
-      a
-        color: #e5efe7
-
-      a:hover, a:focus
-        color: #ffffff
-
-    li.dropdown
-      a.navbar-link
-        color: #e5efe7
-
-      a.navbar-link:hover, a.navbar-link:focus
-        color: #367937
-        background-color: #e5efe7
-
-    .open
-      a.dropdown-toggle , .dropdown-toggle a:hover, .dropdown-toggle a:focus
-        color: #367937
-        background-color: #e5efe7
-
-  .dropdown-menu
-    background-color: #367937
-    border: 0
-
-.panel
-  border: 0
-
-.panel-default
-  .panel-heading
-    color: #e5efe7
-    background-color: #367937
-
-  .panel-body
-    background-color: #e5efe7
-
-.footer
-  background-color: #e5efe7
-
-a
-  color: #367937
-
-a:hover, a:focus
-  color: #e5efe7
-  background-color: #367937
-
-.form-control:focus
-  border-color: #63cc65
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(123, 222, 104, 0.6)
