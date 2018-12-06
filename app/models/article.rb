@@ -1,7 +1,6 @@
 # coding: utf-8
 class Article < ApplicationRecord
   attr_accessor :to_be_created
-  mount_uploader :picture, PictureUploader
 
   belongs_to :location
   #belongs_to :user
@@ -35,10 +34,7 @@ class Article < ApplicationRecord
     self.title = stockitem["title_" + I18n.locale.to_s]
     self.details = stockitem["details_hint_" + I18n.locale.to_s]
     self.rate = ArticlesHelper::RateModel.list_models[0]
-    self.picture = stockitem.picture
     self.stockitem_id = stockitem.id
-    #self.quality = 3
-    #self.gratis = false
     self
   end
 

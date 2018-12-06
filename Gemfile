@@ -70,8 +70,6 @@ gem 'devise'
 
 gem 'geocoder'
 
-gem 'carrierwave' # for picture upload
-
 gem 'mini_magick', '3.8.0' # for creating thumbs
 
 gem 'bootstrap-sass', '~> 3.2.0'

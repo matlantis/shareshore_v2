@@ -59,7 +59,6 @@ en:
         gratis: "For a smile"
         user: "Owner"
         location: "Location"
-        picture: "Picture"
       location:
         address: "Address"
         latitude: "Latitude"
