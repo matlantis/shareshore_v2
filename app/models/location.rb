@@ -20,19 +20,6 @@ class Location < ApplicationRecord
     # self.country ||= "DE" # make a good guess in the controller
   end
 
-  def fill_from_session_address(address)
-    parts = address.split(',')
-    if parts.length > 0
-      self.address = parts[0].strip() # guess the first part is the city
-
-      country_part = parts[-1].strip() # guess the last part is the country part
-      country = ISO3166::Country.find_country_by_name(country_part)
-      if country
-        self.address += country.alpha2
-      end
-    end
-  end
-
   def should_re_geocode?
     attrs = %w(address)
     attrs.any?{|a| send "#{a}_changed?"}

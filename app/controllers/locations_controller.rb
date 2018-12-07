@@ -14,13 +14,13 @@ class LocationsController < ApplicationController
     @articles = @location.articles.order(title: :asc)
   end
 
-  # GET /locations/new
-  def new
-    @location = Location.new
-    if session.has_key?(:address)
-      @location.fill_from_session_address(session[:address])
-    end
-  end
+  # # GET /locations/new
+  # def new
+  #   @location = Location.new
+  #   if session.has_key?(:address)
+  #     @location.fill_from_session_address(session[:address])
+  #   end
+  # end
 
   # GET /locations/1/edit
   def edit

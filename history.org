@@ -21,6 +21,7 @@ falls Änderungen nötig sind
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
 - telefon feld drin lassen (für sms benachrichtigung)
+*** TODO change users email address missing confirmation notification
 *** TODO view messages and combine with article requests
 *** TODO get rid of Personen tab in search
 *** TODO link hover in map popup looks terrifying

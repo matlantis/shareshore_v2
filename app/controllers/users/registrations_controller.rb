@@ -96,8 +96,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       flash.delete :recaptcha_error
       super
-      resource.set_location_from_session_address(session[:address])
-      resource.save
     end
   end
 
@@ -106,10 +104,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #@locations = @user.locations.order(created_at: :asc)
 
     # init new location and try to prefill country and city
-    @location = Location.new
-    if session.has_key?(:address)
-      @location.fill_from_session_address(session[:address])
-    end
+    # @location = Location.new
+    # if session.has_key?(:address)
+    #   @location.address = session[:address]
+    # end
     super
   end
 
@@ -134,16 +132,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # protected
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
@@ -157,7 +145,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :address ]) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :address ]) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite

@@ -28,10 +28,7 @@ class User < ApplicationRecord
     self.showemail ||= false
     self.showphone ||= false
     self.location ||= Location.new
-  end
-
-  def set_location_from_session_address(address)
-    self.location.fill_from_session_address(address)
+    self.location.address = "Dresden, Deutschland"
   end
 
   def phoneno_or_none
