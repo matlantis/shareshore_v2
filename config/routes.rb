@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   get "/pages/index", to: "pages#index"
   get "/pages/:page", to: "pages#show"
+  get "/pages/guideline", as: "guideline" # needed for link to guidelines in email
 
   get "accept_cookies", to: "application#accept_cookies"
 end
