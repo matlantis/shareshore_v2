@@ -5,7 +5,7 @@ Sharing
 ---------------
 
 * Search -> searches#new
-  * Übersicht Haus houses#show
+  * Übersicht Haus -> houses#show
   * Results -> searches#show
     * Other Users Profile -> registration#show
       * Send Message -> messages#create
@@ -14,8 +14,10 @@ Sharing
       * Send Article request -> user_article_request#create
 
 * Inventar -> articles#index
+  * create article -> articles#create_from_index
 
-* Templates -> articles#create_article_from_stockitems
+* Templates -> articles#new_from_stockitems
+  * create article -> articles#create_from_stockitems
 
 Account Management
 ------
@@ -58,6 +60,7 @@ Legal
 * Home
 * Who is it
 * Contact -> contacts#new
+  * contacts#create
 * Term
 * Privacy
 * Disclaimer

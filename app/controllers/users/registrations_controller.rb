@@ -95,7 +95,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       respond_with_navigational(resource) { render :new }
     else
       flash.delete :recaptcha_error
-      params["user"]["location_attributes"] = { address: session[:address] }
+      params["user"]["location_attributes"] = { address: "San Sebastian de la Gomera" }
       super
     end
   end

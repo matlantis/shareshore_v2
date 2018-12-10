@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#new', as: 'search'
 
-  get '/contacts', to: 'contacts#new'
+  get '/contact', to: 'contacts#new', as: "contact"
   resources :contacts, only: [:new, :create]
 
   post '/userreply', to: 'messages#userreply'

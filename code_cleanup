@@ -114,7 +114,6 @@
 │   │   ├── users.de.yml
 │   │   └── users.en.yml
 │   ├── puma.rb
-│   ├── routes.rb
 │   ├── secrets.yml
 │   └── spring.rb
 ├── db
