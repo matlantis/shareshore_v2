@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  resources :messages, only: [:create]
   resources :user_article_requests, only: [:create]
   resources :houses, only: [:show]
 
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new', as: "contact"
   resources :contacts, only: [:new, :create]
 
+  resources :messages, only: [:create]
   post '/userreply', to: 'messages#userreply'
 
   # use own devise controllers

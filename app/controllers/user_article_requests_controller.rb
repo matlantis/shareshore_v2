@@ -10,12 +10,9 @@ class UserArticleRequestsController < ApplicationController
     respond_to do |format|
       if @request.save
         UserMailer.article_request_mail(@request).deliver_now
-        format.html { redirect_to article_path(@request.article), notice: t(".request_send") }
         format.js { head :ok }
 
       else
-        format.html { redirect_to article_path(@request.article), alert: t(".request_error") }
-
         format.js { head :unprocessible_entity }
       end
     end

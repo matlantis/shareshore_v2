@@ -1,14 +1,5 @@
 .
 ├── app
-│   ├── controllers
-│   │   ├── contacts_controller.rb
-│   │   ├── houses_controller.rb
-│   │   ├── locations_controller.rb
-│   │   ├── messages_controller.rb
-│   │   ├── pages_controller.rb
-│   │   ├── searches_controller.rb
-│   │   ├── stockitems_controller.rb
-│   │   ├── user_article_requests_controller.rb
 │   ├── helpers
 │   │   ├── application_helper.rb
 │   │   ├── articles_helper.rb
