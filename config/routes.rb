@@ -23,8 +23,7 @@ Rails.application.routes.draw do
                unlocks: "users/unlocks"
              }
 
-  resources :articles, only: [ :show, :index]
-  resources :articles do
+  resources :articles, only: [ :show, :index, :update] do
     collection do
       post 'create_from_index'
       post 'create_from_stockitems'

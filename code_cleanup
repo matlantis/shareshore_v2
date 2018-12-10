@@ -1,10 +1,6 @@
 .
 ├── app
 │   ├── controllers
-│   │   ├── application_controller.rb
-│   │   ├── articles_controller.rb
-│   │   ├── categories_controller.rb
-│   │   ├── concerns
 │   │   ├── contacts_controller.rb
 │   │   ├── houses_controller.rb
 │   │   ├── locations_controller.rb

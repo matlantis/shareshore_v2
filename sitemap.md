@@ -15,9 +15,11 @@ Sharing
 
 * Inventar -> articles#index
   * create article -> articles#create_from_index
+  * update article -> articles#update
 
 * Templates -> articles#new_from_stockitems
   * create article -> articles#create_from_stockitems
+  * update article -> articles#update
 
 Account Management
 ------

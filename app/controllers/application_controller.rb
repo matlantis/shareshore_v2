@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
     if !session.has_key?(:address) || session[:address].empty?
       addr = Geocoder.address(request.remote_ip)
       if addr.empty? || addr == "Reserved" # got that for remote_ip localhost
-        addr = "Dresden, Germany"
-        addr = "Berlin, BE 13357, Germany"
+        addr = "Alzenau"
       end
       if addr
         session[:address] = addr
