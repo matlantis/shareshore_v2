@@ -2,7 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  respond_to :html, :js
+  respond_to :html, :js, :json
 
   prepend_before_action :authenticate_scope!, only: [:index, :guidepost, :update_guidepost, :edit, :update, :destroy, :show]
 
@@ -95,6 +95,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       respond_with_navigational(resource) { render :new }
     else
       flash.delete :recaptcha_error
+      params["user"]["location_attributes"] = { address: session[:address] }
       super
     end
   end
@@ -112,9 +113,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -144,8 +145,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :address ]) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms, location_attributes: [ :address],) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :address, :latitude, :longitude ]) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite

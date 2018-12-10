@@ -28,7 +28,6 @@ class User < ApplicationRecord
     self.showemail ||= false
     self.showphone ||= false
     self.location ||= Location.new
-    self.location.address = "Dresden, Deutschland"
   end
 
   def phoneno_or_none

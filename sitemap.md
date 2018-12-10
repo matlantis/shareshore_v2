@@ -5,10 +5,13 @@ Sharing
 ---------------
 
 * Search -> searches#new
+  * Übersicht Haus houses#show
   * Results -> searches#show
     * Other Users Profile -> registration#show
+      * Send Message -> messages#create
       * Haus Übersicht -> houses#show
     * Article Pages as Visitor articles#show
+      * Send Article request -> user_article_request#create
 
 * Inventar -> articles#index
 

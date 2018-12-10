@@ -222,21 +222,22 @@
 
        // inform the server
        $.ajax({
-         url: "#{escape_javascript(location_path(resource.location))}",
+         url: "#{escape_javascript(user_registration_path)}",
          data: {
-           location: {
-             latitude: markers[0].getLatLng().lat,
-             longitude: markers[0].getLatLng().lng
+           user: {
+              location_attributes: {
+                latitude: markers[0].getLatLng().lat,
+                longitude: markers[0].getLatLng().lng,
+                id: "#{resource.location.id}"
+              }
            }
          },
          dataType: 'json',
          type: 'PUT',
          error: function(data, status) {
-           console.log("Error");
            $("#modal-error").modal("show");
          },
          success: function(data, status) {
-           console.log("Success");
          }
        });
        // recenter map

@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :user_article_requests, only: [:create]
   resources :houses, only: [:show]
 
-  resources :locations, only: [:update]
-
   get '/search', to: 'searches#new', as: 'search'
 
   get '/contacts', to: 'contacts#new'

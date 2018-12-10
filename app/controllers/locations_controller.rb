@@ -47,23 +47,23 @@ class LocationsController < ApplicationController
   #   end
   # end
 
-  # # PATCH/PUT /locations/1
-  # # PATCH/PUT /locations/1.json
-  def update
-    @location_div_id = "location_" + @location.id.to_s + "_div" # for js
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to locations_path, notice: t('.update_success') }
-        format.json { render :show, status: :ok, location: @location }
-        format.js { render 'update_success' }
-      else
-        handle_geocoding_error(@location)
-        format.html { redirect_to locations_path, alert: t('.update_error') }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-        format.js { render 'update_error' }
-      end
-    end
-  end
+  # # # PATCH/PUT /locations/1
+  # # # PATCH/PUT /locations/1.json
+  # def update
+  #   @location_div_id = "location_" + @location.id.to_s + "_div" # for js
+  #   respond_to do |format|
+  #     if @location.update(location_params)
+  #       format.html { redirect_to locations_path, notice: t('.update_success') }
+  #       format.json { render :show, status: :ok, location: @location }
+  #       format.js { render 'update_success' }
+  #     else
+  #       handle_geocoding_error(@location)
+  #       format.html { redirect_to locations_path, alert: t('.update_error') }
+  #       format.json { render json: @location.errors, status: :unprocessable_entity }
+  #       format.js { render 'update_error' }
+  #     end
+  #   end
+  # end
 
   # # DELETE /locations/1
   # # DELETE /locations/1.json
