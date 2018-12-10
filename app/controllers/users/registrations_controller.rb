@@ -1,10 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_action :configure_sign_up_params, only: [:create]
-# before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, if: :devise_controller?
   respond_to :html, :js, :json
 
-  prepend_before_action :authenticate_scope!, only: [:index, :guidepost, :update_guidepost, :edit, :update, :destroy, :show]
+  prepend_before_action :authenticate_scope!, only: [:index, :edit, :update, :destroy, :show]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -16,12 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @with_contact = user_signed_in? || verify_recaptcha
     # remove the recaptcha error msg
     flash.delete("recaptcha_error")
-
-    # build an location_articles_list
-    #@location_articles_list = @user.locations.map { |l|
-    #  local_articles = @user.articles.where(location_id: l.id)
-    #  {location: l, articles: local_articles }
-    #}
 
     @location_articles_list = [{location: @user.location, articles: @user.location.articles }]
     @articles = @user.articles
@@ -66,19 +58,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   end
 
-  def guidepost
-    @location = Location.new
-  end
-
-  def update_contact
-    p = params.require(:user).permit(:firstname, :lastname, :showphone, :showemail, :showname, :phoneno)
-    success = current_user.update(p)
-    # this updates only the contactdetails not the basic informations
-    respond_to do |format|
-      format.html { render :edit }
-    end
-  end
-
   # GET /resource/sign_up
   # def new
   #   super
@@ -101,21 +80,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  def edit
-    #@locations = @user.locations.order(created_at: :asc)
-
-    # init new location and try to prefill country and city
-    # @location = Location.new
-    # if session.has_key?(:address)
-    #   @location.address = session[:address]
-    # end
-    super
-  end
+  # def edit
+  #   super
+  # end
 
   # PUT /resource
-  def update
-    super
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
   # def destroy
@@ -164,8 +136,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.errors.add(:base, "There was an error with the recaptcha code below. Please re-enter the code.")
       clean_up_passwords(resource)
       respond_with_navigational(resource) { render :new }
-      #self.resource = resource_class.new sign_up_params
-      #respond_with_navigational(resource) { render :new }
     end
   end
 
