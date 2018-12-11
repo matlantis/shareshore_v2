@@ -1,7 +1,5 @@
 de:
   articles:
-    redirected_to_create_location: "Du musst erst einen Standort erstellen, um Dinge verleihen zu können."
-      
     rate_models:
       smile: "Für ein Lächeln"
       chocolate: "Für eine Kugel Eis oder ca. 1€"
@@ -32,11 +30,6 @@ de:
       view_contact_details_button: "Anzeigen"
       heading_contact_info: "Kontakt"
 
-    index_location:
-      tip_panel_text: "kleine Hilfe zu index_location"
-      empty_list_message: "Keine Sachen an diesem Standort"
-      location_not_existent: "Standort nicht vorhanden"
-
     index:
       empty_list_message: "Du hast noch keine Sachen eingestellt. Fang jetzt damit an!"
       user_not_existent: "Nutzer nicht vorhanden"
@@ -45,9 +38,6 @@ de:
       
     index_owner_help:
     
-    index_user:
-      tip_panel_text: "kleine Hilfe zu index_user"
-
     new_from_stockitems:
       tip_panel_text: "kleine Hilfe zu new_from_stockitems"
       link_create_without_template: "Ohne Vorlage erstellen"
@@ -70,8 +60,4 @@ de:
       destroy_success: "Sache gelöscht"
       destroy_error: "Fehler beim Löschen der Sache"
 
-    form:
-      create_location_at_first: "Du musst zuerst einen Standort erstellen"
-
     warning_not_owner: "Diese Sache gehört nicht Dir"
-    warning_location_not_owner: "Standort gehört nicht zum Nutzer"

@@ -1,26 +1,7 @@
 .
 ├── code_cleanup
 ├── config
-│   ├── initializers
-│   │   ├── application_controller_renderer.rb
-│   │   ├── assets.rb
-│   │   ├── backtrace_silencers.rb
-│   │   ├── cookies_serializer.rb
-│   │   ├── devise.rb
-│   │   ├── filter_parameter_logging.rb
-│   │   ├── geocoder.rb
-│   │   ├── inflections.rb
-│   │   ├── mime_types.rb
-│   │   ├── new_framework_defaults.rb
-│   │   ├── session_store.rb
-│   │   ├── simple_form_bootstrap.rb
-│   │   ├── simple_form.rb
-│   │   └── wrap_parameters.rb
 │   ├── locales
-│   │   ├── articles.de.yml
-│   │   ├── articles.en.yml
-│   │   ├── contacts.de.yml
-│   │   ├── contacts.en.yml
 │   │   ├── devise.de.yml
 │   │   ├── devise.en.yml
 │   │   ├── de.yml

@@ -30,11 +30,6 @@ en:
       view_contact_details_button: "View"
       heading_contact_info: "Contact"
 
-    index_location:
-      tip_panel_text: "little help to index_location"
-      empty_list_message: "No things at this location"
-      location_not_existent: "Location not existent"
-
     index:
       empty_list_message: "Nothing placed yet. Let's go start now!"
       user_not_existent: "User not existent"
@@ -43,9 +38,6 @@ en:
       
     index_owner_help:
     
-    index_user:
-      tip_panel_text: "little help to index_user"
-
     new_from_stockitems:
       tip_panel_text: "little help to new_from_stockitems"
       link_create_without_template: "Create without template"
@@ -70,8 +62,4 @@ en:
       destroy_success: "Thing deleted"
       destroy_error: "Error on deleting thing"
 
-    form:
-      create_location_at_first: "Create a location first"
-
     warning_not_owner: "This thing does not belong to you"
-    warning_location_not_owner: "Location does not belong to user"
