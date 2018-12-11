@@ -14,8 +14,6 @@ de:
       use_location_tooltip: "Verwende eigenen Standort oder gib eine Adresse ein"
       pattern_placeholder: "Suchbegriff (leer lassen für Alles!)"
       pattern_label: "Was?"
-      radius_placeholder: "Suchradius"
-      radius_label: "innerhalb von"
       address_placeholder: "Adresse"
       address_label: "Wo?"
       transport_label: "Wie?"

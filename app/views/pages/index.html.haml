@@ -14,7 +14,6 @@
       - else
         = f.hidden_field :use_location, value: false
       = f.text_field :address, placeholder: t(".address_placeholder"), label: t(".address_label"), autofocus: true, data_toggle: "tooltip", title: t(".tooltip_address_field")
-      -#= f.hidden_field :radius
       = f.hidden_field :transport
       = f.hidden_field :pattern, value: ""
       = f.form_group do

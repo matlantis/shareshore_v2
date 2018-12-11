@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_120028) do
+ActiveRecord::Schema.define(version: 2018_12_11_121348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2018_12_11_120028) do
   create_table "searches", id: :serial, force: :cascade do |t|
     t.string "pattern"
     t.string "address"
-    t.float "radius"
     t.boolean "use_location"
     t.integer "location_id"
     t.float "latitude"
