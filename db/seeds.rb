@@ -115,7 +115,6 @@ Stockitem.create({title_de: "Winkelschleifer", details_hint_de: "", c})
 dremel = Stockitem.create({title_de: "Dremel", details_hint_de: "", c})
 Stockitem.create({title_de: "Standbohrmaschine", details_hint_de: "", c})
 #Stockitem.create({title_de: "", details_hint_de: "", c})
-#Stockitem.create({title_de: "", details_hint_de: "", c})
 
 if ENV['RAILS_ENV'].to_s == 'development' || ENV['RAILS_ENV'].to_s == ''
   # two users
@@ -126,34 +125,30 @@ if ENV['RAILS_ENV'].to_s == 'development' || ENV['RAILS_ENV'].to_s == ''
   user_martin.password = 'martin'
   user_martin.password_confirmation = 'martin'
   user_martin.nickname = "martin"
-  user_martin.firstname = ""
-  user_martin.lastname = ""
   user_martin.phoneno = ""
   user_martin.showemail = true
   user_martin.showphone = false
   user_martin.save!
 
-  user_peter = User.new
-  user_peter.email = 'peter@example.com'
-  user_peter.password = 'peterp'
-  user_peter.password_confirmation = 'peterp'
-  user_peter.nickname = "peter"
-  user_peter.firstname = ""
-  user_peter.lastname = ""
-  user_peter.phoneno = ""
-  user_peter.showemail = true
-  user_peter.showphone = false
-  user_peter.save!
+  user_robert = User.new
+  user_robert.email = 'robert@example.com'
+  user_robert.password = 'robert'
+  user_robert.password_confirmation = 'robert'
+  user_robert.nickname = "robert"
+  user_robert.phoneno = ""
+  user_robert.showemail = true
+  user_robert.showphone = false
+  user_robert.save!
 
   # users need locations
   Location.destroy_all
   location_1 = user_martin.locations.create({address: "Hanauer Str. 47, Alzenau"})
   location_2 = user_martin.locations.create({address: "Goethestr. 20, Alzenau"})
-  location_3 = user_peter.locations.create({address: "Haagweg 12, Wasserlos"})
+  location_3 = user_robert.locations.create({address: "Haagweg 12, Wasserlos"})
 
   # a few articles
   Article.destroy_all
   user_martin.articles.create({title: "Dremel", details: "high tech", location_id: location_1.id, rate: "chocolate", stockitem_id: dremel.id})
   user_martin.articles.create({title: "Frack", details: "Größe XL", location_id: location_2.id, rate: "smile", stockitem_id: frack.id})
-  user_peter.articles.create({title: "Milchkuh", details: "gescheckt", location_id: location_3.id, rate: "smile", stockitem_id: nil})
+  user_robert.articles.create({title: "Milchkuh", details: "gescheckt", location_id: location_3.id, rate: "smile", stockitem_id: nil})
 end

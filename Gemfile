@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test] # loads the .env file
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -83,17 +83,8 @@ gem 'bootstrap_form'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
 
-
-# foreman for environment and procfile stuff
-group :development, :test do
-  gem 'foreman'
-end
-
-gem 'cocoon'
-
-gem 'mail_form'
+gem 'mail_form' # used for contacts
 gem 'simple_form'
-gem 'country_select'
 
 gem 'haml'
 

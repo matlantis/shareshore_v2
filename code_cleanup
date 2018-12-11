@@ -1,16 +1,6 @@
 .
 ├── code_cleanup
 ├── config
-│   ├── application.rb
-│   ├── boot.rb
-│   ├── cable.yml
-│   ├── database.yml
-│   ├── environment.rb
-│   ├── environments
-│   │   ├── development.rb
-│   │   ├── production.rb
-│   │   └── test.rb
-│   ├── favicon.json
 │   ├── initializers
 │   │   ├── application_controller_renderer.rb
 │   │   ├── assets.rb
@@ -62,14 +52,5 @@
 │   │   ├── user_article_requests.en.yml
 │   │   ├── users.de.yml
 │   │   └── users.en.yml
-│   ├── puma.rb
-│   ├── secrets.yml
-│   └── spring.rb
-├── db
-│   └── seeds.rb
-├── doc
-│   ├── link_chart.dia
-│   └── site_map.dia
-├── Gemfile
 
 1663 directories, 2434 files
