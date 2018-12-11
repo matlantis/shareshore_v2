@@ -1,17 +1,5 @@
 .
 ├── app
-│   ├── helpers
-│   │   ├── application_helper.rb
-│   │   ├── articles_helper.rb
-│   │   ├── categories_helper.rb
-│   │   ├── devise_helper.rb
-│   │   ├── houses_helper.rb
-│   │   ├── locations_helper.rb
-│   │   ├── messages_helper.rb
-│   │   ├── pages_helper.rb
-│   │   ├── searches_helper.rb
-│   │   ├── stockitems_helper.rb
-│   │   └── user_article_requests_helper.rb
 │   ├── jobs
 │   │   └── application_jobs.rb
 │   ├── mailers

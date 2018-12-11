@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # transform category names into div classes
   def underscore(txt)
     txt.squish.downcase.tr(" ","_")
   end
@@ -32,11 +33,9 @@ module ApplicationHelper
         content_tag :em, t('common.unknown_location')
       else
         content_tag :span, class: "location_marker" do
-          #link_to location do
           txt1 = content_tag :span, "", class: "glyphicon glyphicon-map-marker"
           txt2 = text
           txt1.concat(txt2)
-          #end
         end
       end
     end
@@ -107,32 +106,6 @@ module ApplicationHelper
     location.articles.count.to_s + " " + I18n.t('activerecord.models.article', count: location.articles.count)
   end
 
-  def articles_location_count_link(location)
-    link_to articles_location_path(location) do
-      articles_location_count(location)
-    end
-  end
-
-  def locations_count(locations)
-    locations.count.to_s + " " + I18n.t('activerecord.models.location', count: locations.count)
-  end
-
-  def mail_subject_user_message(article, user)
-    if article
-      if user
-        subject = t("mail.subject_article_request_username", user: user.nickname, article: article.title)
-      else
-        subject = t("mail.subject_article_request_anonymous", article: article.title)
-      end
-    else
-      if user
-        subject = t("mail.subject_message_username", user: user.nickname)
-      else
-        subject = t("mail.subject_message_anonymous")
-      end
-    end
-  end
-
   def edit_icons(item)
     if user_signed_in? && (current_user.id == item.user.id)
       txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "#article-#{item.id}-div .article-edit", toggle: "tooltip"} , title: t('button.edit') )
@@ -145,44 +118,8 @@ module ApplicationHelper
     content_tag :span, "", class: "glyphicon glyphicon-home", data_toggle: "tooltip", title: t('articles.common.tooltip_home')
   end
 
-  def gratis_icon
-    content_tag :span, "", class: "glyphicon glyphicon-heart", data_toggle: "tooltip", title: Article.human_attribute_name('gratis')
-  end
-
   def transport_icon(transport_model)
     content_tag :span, "", class: "transport-model-" + transport_model
-  end
-
-  def rate_icon(rate_model)
-    content_tag :span, "", class: "rate-model-" + rate_model, data_toggle: "tooltip", title: t("articles.rate_models." + rate_model)
-  end
-
-  def distance_label_time(home, loc1, loc2)
-    if home
-      content_tag :strong, t('articles.common.tooltip_home')
-    else
-      distance = loc2.distance_from( loc1 )
-      if distance < SearchesHelper::TransportModel.radius("foot")
-        time = (distance / 3 * 60).round
-        txt = " ~ " + time.to_s + " min"
-        model = "foot"
-      elsif distance < SearchesHelper::TransportModel.radius("bike")
-        time = (distance / 15 * 60).round
-        txt = " ~ " + time.to_s + " min"
-        model = "bike"
-      elsif distance < SearchesHelper::TransportModel.radius("car")
-        time = (distance / 75 * 60).round
-        txt = " ~ " + time.to_s + " min"
-        model = "car"
-      else
-        txt = t('locations.common.label_distance') + ": %.1f km" % distance
-        model = "rocket"
-      end
-      tooltip = "%.1f km (%s)" % [distance, I18n.t('searches.transport_models.' + model)]
-      content_tag :span,  data_toggle: "tooltip", title: tooltip do
-        transport_icon(model) + txt
-      end
-    end
   end
 
   def distance_label(home, loc1, loc2)
@@ -251,13 +188,5 @@ module ApplicationHelper
     content_tag :button, type: "submit", class: "submit-with-icon" do
       content_tag :div, "", class: "glyphicon glyphicon-ok", data_toggle: "tooltip", title: t('button.save')
     end
-  end
-end
-
-def determine_owner(article)
-  if article.new_record?
-    owner = current_user
-  else
-    owner = article.location.user
   end
 end
