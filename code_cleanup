@@ -1,23 +1,4 @@
 .
-├── app
-│   ├── jobs
-│   │   └── application_jobs.rb
-│   ├── mailers
-│   │   ├── application_mailer.rb
-│   │   └── user_mailer.rb
-│   ├── models
-│   │   ├── application_record.rb
-│   │   ├── article.rb
-│   │   ├── category.rb
-│   │   ├── concerns
-│   │   ├── contact.rb
-│   │   ├── house.rb
-│   │   ├── location.rb
-│   │   ├── message.rb
-│   │   ├── search.rb
-│   │   ├── stockitem.rb
-│   │   ├── user_article_request.rb
-│   │   └── user.rb
 ├── code_cleanup
 ├── config
 │   ├── application.rb

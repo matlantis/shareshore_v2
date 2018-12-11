@@ -14,12 +14,6 @@ class Location < ApplicationRecord
   after_save :clean_houses
   after_destroy :clean_houses
 
-  after_initialize :init
-
-  def init
-    # self.country ||= "DE" # make a good guess in the controller
-  end
-
   def should_re_geocode?
     attrs = %w(address)
     attrs.any?{|a| send "#{a}_changed?"}
@@ -33,10 +27,10 @@ class Location < ApplicationRecord
 
   protected
   def joinhouse
-    houses = House.near(self, 0.005) # should mean 10 meters
+    houses = House.near(self, 0.005) # should mean 5 meters
     if ( houses.length > 0)
       self.house = houses.first
-    else # or create a new house with a normalized address
+    else # or create a new house
       house = House.create({address: address, longitude: longitude, latitude: latitude})
       self.house = house
     end
@@ -44,7 +38,6 @@ class Location < ApplicationRecord
 
   protected
   def clean_houses
-    print "clean houses"
     House.all.each do |h|
       h.destroy if h.locations.count == 0
     end
