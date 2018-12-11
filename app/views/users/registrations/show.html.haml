@@ -48,7 +48,7 @@
         .message-panel.to-hide
           - if user_signed_in?
             .send-message
-              - message = Message.new({receiver: @user, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})
+              - message = Message.new({receiver: @user})
               = bootstrap_form_for message, remote: true, html: {class: "message_form"} do |f|
                 = f.alert_message t('common.message_fix_errors')
                 = f.text_area :text, placeholder: t('.placeholder_message_text'), hide_label: true

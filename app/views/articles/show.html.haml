@@ -54,7 +54,7 @@
                 %h4= t('.heading_request', nickname: @article.user.nickname)
               .clearfix.message-panel.to-hide
                 .send-message
-                  - request = UserArticleRequest.new({article: @article, with_phoneno: !current_user.phoneno.blank?, with_email: !current_user.email.blank?})
+                  - request = UserArticleRequest.new({article: @article})
                   = bootstrap_form_for request, remote: true, html: {class: "message_form"} do |f|
                     = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
                     = f.hidden_field :article_id

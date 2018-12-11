@@ -27,14 +27,6 @@ en:
         one: "House"
         other: "Houses"
     attributes:
-      user_article_request:
-        with_phoneno: "Add phone number"
-        with_email: "Add email address"
-        with_name: "Add name"
-      message:
-        with_phoneno: "Add phone number"
-        with_email: "Add email address"
-        with_name: "Add name"
       user:
         remember_me: "Remember me"
         firstname: "First name"

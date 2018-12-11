@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
     end
 
     # create a message object and store it
-    @message = Message.new({text: params['body-plain'], html: params['body-html'], receiver_id: receiver.id, sender_id: sender.id, with_name: false, with_phoneno: false, with_email: false, subject: params['subject']})
+    @message = Message.new({text: params['body-plain'], html: params['body-html'], receiver_id: receiver.id, sender_id: sender.id, subject: params['subject']})
 
     if @message.save
       UserMailer.user_message_mail(@message).deliver_now
