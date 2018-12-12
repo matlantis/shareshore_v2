@@ -17,6 +17,7 @@ falls Änderungen nötig sind
 **** Artikel editieren/löschen
 **** Content review übersicht
 ** Primär
+*** TODO new users lead to signup not login
 *** TODO kontaktinformationen frei gestalten                        :feature:
 damit die leute zb nen facebook namen oder ähnliches angeben können
 dafür das telefon feld streichen
