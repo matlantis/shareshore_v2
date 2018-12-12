@@ -66,9 +66,9 @@
               %li= link_to t('titles.pages.tutorial'), '/pages/tutorial'
               %li= link_to t('titles.pages.guideline'), '/pages/guideline'
               %li= link_to t('titles.pages.faq'), '/pages/faq'
-              %li= link_to t('titles.contacts.new'), contact_path
+              %li= link_to t('titles.contacts.new'), new_contact_path
               %li= link_to t('titles.pages.who_is_it'), '/pages/who_is_it'
-              %li= link_to t('.bug_found'), contacts_path(subject: t('.subject_bug_found'), message: t('.text_describe_bug') + "\r\r" + "Url: " + request.url)
+              %li= link_to t('.bug_found'), new_contact_path(subject: t('.subject_bug_found'), message: t('.text_describe_bug') + "\r\r" + "Url: " + request.url)
           .col-sm-4.col-xs-12
             %h3= t('.heading_law')
             %ul.list-unstyled
