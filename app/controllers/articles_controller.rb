@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
       if @article.save
         content = "Title: " + @article.title
         content += "\nDetails: " + @article.details
-        UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+        UserMailer.admin_content_review_notification_mail(content, article_url(@article)).deliver_now
         format.js { render 'create_success_index'}
 
       else
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
       if @article.save
         content = "Title: " + @article.title
         content += "\nDetails: " + @article.details
-        UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+        UserMailer.admin_content_review_notification_mail(content, article_url(@article)).deliver_now
         format.js { render 'create_success_stockitems'}
       else
         format.js { render 'create_error_stockitems'}
@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if success
         if title_need_review || details_need_review
-          UserMailer.admin_content_review_notification_mail(content, edit_article_url(@article)).deliver_now
+          UserMailer.admin_content_review_notification_mail(content, article_url(@article)).deliver_now
         end
         format.js { render 'update_success' }
       else
