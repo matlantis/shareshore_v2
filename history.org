@@ -25,6 +25,7 @@ dafür das telefon feld streichen
 *** TODO change users email address missing confirmation notification
 *** TODO view messages and combine with article requests
 *** TODO get rid of Personen tab in search
+and think of showing people without articles
 *** TODO link hover in map popup looks terrifying
 *** TODO houses#show überarbeiten
 *** TODO hausübersicht schnell verfúgbar                        :enhancement:
