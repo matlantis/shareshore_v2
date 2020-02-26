@@ -93,3 +93,5 @@ gem "recaptcha", require: "recaptcha/rails"
 group :development do
   gem 'rails_real_favicon'
 end
+
+gem 'sprockets', '~>3.0'

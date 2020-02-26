@@ -15,18 +15,6 @@ ActiveRecord::Schema.define(version: 2018_12_11_121348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-  end
-
   create_table "articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "details"
@@ -55,12 +43,12 @@ ActiveRecord::Schema.define(version: 2018_12_11_121348) do
 
   create_table "locations", id: :serial, force: :cascade do |t|
     t.string "country"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
     t.integer "house_id"
-    t.integer "user_id"
     t.string "address"
     t.index ["house_id"], name: "index_locations_on_house_id"
     t.index ["user_id"], name: "index_locations_on_user_id", unique: true
@@ -109,18 +97,6 @@ ActiveRecord::Schema.define(version: 2018_12_11_121348) do
     t.string "details_hint_en"
     t.integer "category_id"
     t.index ["category_id"], name: "index_stockitems_on_category_id"
-  end
-
-  create_table "template_selections", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "template_selections_templates", id: false, force: :cascade do |t|
-    t.integer "template_selection_id"
-    t.integer "template_id"
-    t.index ["template_id"], name: "index_template_selections_templates_on_template_id"
-    t.index ["template_selection_id"], name: "index_template_selections_templates_on_template_selection_id"
   end
 
   create_table "user_article_requests", id: :serial, force: :cascade do |t|
