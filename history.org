@@ -3,6 +3,17 @@
 
 * Shareshore V2 Todos
 ** Milestone: Frist Release
+*** TODO sending mail not working
+eg create user and send confirmation mail
+*** TODO sign up twice before confirming
+leads to error that user already exists, which is true. but what should the user do, if he just deleted his mail?
+*** TODO gdpr compliance                                                :bug:
+see email 
+Subject: Compliance test result for www.shareship.de
+*** TODO fix translation missing                                        :bug:
+    translation missing:
+ de.user_mailer.admin_content_review_notification_mail.subject_
+
 *** TODO Design [1/2]                                               :feature:
     - [X] Farbgestaltung/Logo/Graphiken
     - [ ] Layout Mobile/Desktop
