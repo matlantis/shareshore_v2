@@ -55,8 +55,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: "mail.campusspeicher.de",
-    port: 587,
+    address: "server245.campusspeicher.de",
+    port: 465,
+    ssl: true,
     domain: ENV["CAMPUS_EMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
