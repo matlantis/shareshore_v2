@@ -58,7 +58,7 @@ Rails.application.configure do
     address: "server245.campusspeicher.de",
     port: 465,
     ssl: true,
-    domain: ENV["CAMPUS_EMAIL_DOMAIN"],
+    domain: "shareship.de",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["CAMPUS_EMAIL_USERNAME"],
