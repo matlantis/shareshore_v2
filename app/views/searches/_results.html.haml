@@ -1,24 +1,27 @@
+- articles_count = @articles.count(:all)
+- locations_count = @locations.count(:all)
+
 .row
   .col-xs-12
     .row
       .col-xs-6.text-center.shareshore-panel
         = link_to("#tab-articles", data: {toggle: "tab"}, class: "tab") do
           %h3
-            %span.articles_count= @articles.count
-            = Article.model_name.human(count: @articles.count)
+            %span.articles_count= articles_count
+            = Article.model_name.human(count: articles_count)
 
       .col-xs-6.text-center.shareshore-panel
         %h3
           = link_to("#tab-users", data: {toggle: "tab"}, class: "tab") do
-            = @locations.count
-            = User.model_name.human(count: @locations.count)
+            = locations_count
+            = User.model_name.human(count: locations_count)
     .tab-content
       #tab-articles.tab-pane.fade.in.active
 
-        - if Search.articles_per_page < @articles.count
+        - if Search.articles_per_page < articles_count
           .shareshore-panel
-            - if Search.articles_per_page < @articles.count
-              = t('.text_x_of_y', x: [Search.articles_per_page, @articles.count].min, y: @articles.count)
+            - if Search.articles_per_page < articles_count(:all)
+              = t('.text_x_of_y', x: [Search.articles_per_page, articles_count].min, y: articles_count)
         - if @articles.empty?
           .empty-list
             = t('.empty_articles_list_message')
@@ -39,10 +42,10 @@
                   .col-xs-1
 
       #tab-users.tab-pane.fade
-        - if Search.locations_per_page < @locations.count
+        - if Search.locations_per_page < locations_count
           .shareshore-panel
-            - if Search.locations_per_page < @locations.count
-              = t('.text_x_of_y', x: [Search.locations_per_page, @locations.count].min, y: @locations.count)
+            - if Search.locations_per_page < locations_count
+              = t('.text_x_of_y', x: [Search.locations_per_page, locations_count].min, y: locations_count)
         - if @locations.empty?
           .empty-list
             = t('.empty_locations_list_message')
