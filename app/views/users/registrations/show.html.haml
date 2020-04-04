@@ -1,84 +1,85 @@
 - @title = @user.nickname
 - @with_map = true
 
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'show_help'
+.row
+  .col-xs-12.col-sm-3
+    = tipp_panel do
+      = render 'show_help'
 
-.col-xs-12.col-sm-9
-  %h3.text-center= @title
+  .col-xs-12.col-sm-9
+    %h3.text-center= @title
 
-  - if @user.aboutme && !@user.aboutme.empty?
+    - if @user.aboutme && !@user.aboutme.empty?
+      .row
+        .col-xs-12
+          %p.text-center
+            %cite
+              = succeed '"' do
+                = precede '"' do
+                  = @user.aboutme
+    - if @user.location
+      .house
+        .row
+          .col-xs-12.col-sm-6
+            = location_marker(@user.location)
+          .col-xs-12.col-sm-6
+            - if @user.location.house.locations.count > 1
+              = t('.text_there_are_x_users_in_this', count: @user.location.house.locations.count-1)
+              = link_to @user.location.house do
+                %span.glyphicon.glyphicon-home
+                = House.model_name.human
+
     .row
-      .col-xs-12
-        %p.text-center
-          %cite
-            = succeed '"' do
-              = precede '"' do
-                = @user.aboutme
-  - if @user.location
-    .house
-      .row
-        .col-xs-12.col-sm-6
-          = location_marker(@user.location)
-        .col-xs-12.col-sm-6
-          - if @user.location.house.locations.count > 1
-            = t('.text_there_are_x_users_in_this', count: @user.location.house.locations.count-1)
-            = link_to @user.location.house do
-              %span.glyphicon.glyphicon-home
-              = House.model_name.human
+      - unless @with_contact
+        .shareshore-panel
+          %h4= t('.heading_contact_info', nickname: @user.nickname)
+          = bootstrap_form_tag url: user_path(@user), method: :get do |f|
+            = f.form_group do
+              = recaptcha_tags
+            = f.form_group do
+              = f.submit t('.view_contact_details_button'), class: "btn btn-default"
 
-  .row
-    - unless @with_contact
-      .shareshore-panel
-        %h4= t('.heading_contact_info', nickname: @user.nickname)
-        = bootstrap_form_tag url: user_path(@user), method: :get do |f|
-          = f.form_group do
-            = recaptcha_tags
-          = f.form_group do
-            = f.submit t('.view_contact_details_button'), class: "btn btn-default"
+      - else
+        .col-xs-12.col-lg-6
+          = render 'contact', user: @user
+        .col-xs-12.col-lg-6
+          %h4
+            = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
+              = t('.heading_message', nickname: @user.nickname)
+          .message-panel.to-hide
+            - if user_signed_in?
+              .send-message
+                - message = Message.new({receiver: @user})
+                = bootstrap_form_for message, remote: true, html: {class: "message_form"} do |f|
+                  = f.alert_message t('common.message_fix_errors')
+                  = f.text_area :text, placeholder: t('.placeholder_message_text'), hide_label: true
+                  = f.hidden_field :receiver_id
+                  = f.form_group do
+                    = f.submit t('.button_label_send_message')
+              .message-was-send{style: "display: none"}
+                = t('.message_was_send')
+              .waiting{style: "display: none"}
+                = t('.waiting')
+              .error-msg{style: "display: none"}
+            - else
+              .col-xs-6
+                = t('.text_only_signed_up_users')
+              .col-xs-6.text-right
+                = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
 
-    - else
-      .col-xs-12.col-lg-6
-        = render 'contact', user: @user
-      .col-xs-12.col-lg-6
-        %h4
-          = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
-            = t('.heading_message', nickname: @user.nickname)
-        .message-panel.to-hide
-          - if user_signed_in?
-            .send-message
-              - message = Message.new({receiver: @user})
-              = bootstrap_form_for message, remote: true, html: {class: "message_form"} do |f|
-                = f.alert_message t('common.message_fix_errors')
-                = f.text_area :text, placeholder: t('.placeholder_message_text'), hide_label: true
-                = f.hidden_field :receiver_id
-                = f.form_group do
-                  = f.submit t('.button_label_send_message')
-            .message-was-send{style: "display: none"}
-              = t('.message_was_send')
-            .waiting{style: "display: none"}
-              = t('.waiting')
-            .error-msg{style: "display: none"}
-          - else
-            .col-xs-6
-              = t('.text_only_signed_up_users')
-            .col-xs-6.text-right
-              = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
+    .row
+      .col-xs-12.text-center.shareshore-panel
+        %h3
+          %span.articles_count= @articles.count
+          = Article.model_name.human(count: @articles.count)
 
-  .row
-    .col-xs-12.text-center.shareshore-panel
-      %h3
-        %span.articles_count= @articles.count
-        = Article.model_name.human(count: @articles.count)
-
-  - @articles.each do |article|
-    .article-pane{article_title: "#{article.title}"}
-      .row
-        .col-xs-1
-        .col-xs-10
-          = render 'articles/article_view', article: article, edit: false
-        .col-xs-1
+    - @articles.each do |article|
+      .article-pane{article_title: "#{article.title}"}
+        .row
+          .col-xs-1
+          .col-xs-10
+            = render 'articles/article_view', article: article, edit: false
+          .col-xs-1
 
 :javascript
   $(document).ready(function() {

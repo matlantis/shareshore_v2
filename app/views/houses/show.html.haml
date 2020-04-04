@@ -1,26 +1,27 @@
 - @title = House.model_name.human
 - @with_map = true
 
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'show_help'
+.row
+  .col-xs-12.col-sm-3
+    = tipp_panel do
+      = render 'show_help'
 
-.col-xs-12.col-sm-9
-  %h3= @title
-  .row
-    .col-xs-3.text-right
-      %strong
-        = House.human_attribute_name("address")
-        \:
-    .col-xs-9
-      = @house.address
+  .col-xs-12.col-sm-9
+    %h3= @title
+    .row
+      .col-xs-3.text-right
+        %strong
+          = House.human_attribute_name("address")
+          \:
+      .col-xs-9
+        = @house.address
 
-  %h4= User.model_name.human(count: 2)
-  - @house.locations.each do |location|
-    - location_div_id = "location_" + location.id.to_s + "_div"
-    .location{"data-location-id" => "#{location.id}", :id => location_div_id}
-      .location_view
-        = render 'locations/location_view', location: location
+    %h4= User.model_name.human(count: 2)
+    - @house.locations.each do |location|
+      - location_div_id = "location_" + location.id.to_s + "_div"
+      .location{"data-location-id" => "#{location.id}", :id => location_div_id}
+        .location_view
+          = render 'locations/location_view', location: location
 
 :javascript
   $(document).ready(function() {

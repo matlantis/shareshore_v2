@@ -1,55 +1,56 @@
 - @title = t('titles.articles.new_from_stockitems')
 
-.col-xs-12.col-sm-9
-  %h3= @title
-  #article_null_div.article
-    .row
-      .col-xs-6
-        = link_to t(".link_create_without_template"), "#", class: "mp-toggle-visibility", data: {toggle_target: "#article-new"}
-      .col-xs-6.text-right
-        #all-article-count
-          - narticles = current_user.articles.count
-          = t('.text_you_already_have')
-          = content_tag :span, "#{narticles}"
-          = link_to articles_path do
-            = "#{Article.model_name.human(count: narticles)}!"
+.row
+  .col-xs-12.col-sm-3
+    = tipp_panel do
+      = render 'new_from_stockitems_help'
 
-    #article-new.row.article-edit.to-hide
-      .col-xs-12
-        = render 'form', article: Article.new, url: create_from_stockitems_articles_path
+  .col-xs-12.col-sm-9
+    %h3= @title
+    #article_null_div.article
+      .row
+        .col-xs-6
+          = link_to t(".link_create_without_template"), "#", class: "mp-toggle-visibility", data: {toggle_target: "#article-new"}
+        .col-xs-6.text-right
+          #all-article-count
+            - narticles = current_user.articles.count
+            = t('.text_you_already_have')
+            = content_tag :span, "#{narticles}"
+            = link_to articles_path do
+              = "#{Article.model_name.human(count: narticles)}!"
 
-  %div
-    - @categories.each do |category|
-      %div
-        %h4
-          = link_to "#", class: "mp-toggle-visibility", data: {toggle_target: "##{underscore(category.name_en)}"} do
-            = category["name_" + I18n.locale.to_s]
-        %div{id: "#{underscore(category.name_en)}", class: category.name_en != "" && "to-hide"}
-          - category.stockitems.each do |stockitem|
-            - article = Article.new.fill_from_stockitem stockitem
-            - article_div_id = "article-" + article.stockitem_id.to_s + "-div"
-            .article{:id => article_div_id}
-              .row
-                .col-xs-6
-                  %a.mp-toggle-visibility{"data-toggle-target" => "#article-#{article.stockitem_id.to_s}-div .article-edit", :href => "#"}
-                    = article.title
+      #article-new.row.article-edit.to-hide
+        .col-xs-12
+          = render 'form', article: Article.new, url: create_from_stockitems_articles_path
 
-                .col-xs-6.text-right
-                  - # wieviele artikel hat der nutzer schon mit diesem stockitem erstellt
-                  - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
-                  - nstockitems = current_user.articles.where("stockitem_id = ?", article.stockitem_id).count
-                  .article-count{class: nstockitems == 0 && "to-hide"}
-                    = t('.text_you_already_have')
-                    = content_tag :span, "#{nstockitems}"
-                    = t('.text_of_this')
+    %div
+      - @categories.each do |category|
+        %div
+          %h4
+            = link_to "#", class: "mp-toggle-visibility", data: {toggle_target: "##{underscore(category.name_en)}"} do
+              = category["name_" + I18n.locale.to_s]
+          %div{id: "#{underscore(category.name_en)}", class: category.name_en != "" && "to-hide"}
+            - category.stockitems.each do |stockitem|
+              - article = Article.new.fill_from_stockitem stockitem
+              - article_div_id = "article-" + article.stockitem_id.to_s + "-div"
+              .article{:id => article_div_id}
+                .row
+                  .col-xs-6
+                    %a.mp-toggle-visibility{"data-toggle-target" => "#article-#{article.stockitem_id.to_s}-div .article-edit", :href => "#"}
+                      = article.title
 
-              .row.article-edit.to-hide
-                .col-xs-12
-                  = render 'form', article: article, url: create_from_stockitems_articles_path
+                  .col-xs-6.text-right
+                    - # wieviele artikel hat der nutzer schon mit diesem stockitem erstellt
+                    - # anders gefragt: wieviele artikel des nutzers gibt es, deren stockitem die gleiche idee hat, wie die id dieses stockitems
+                    - nstockitems = current_user.articles.where("stockitem_id = ?", article.stockitem_id).count
+                    .article-count{class: nstockitems == 0 && "to-hide"}
+                      = t('.text_you_already_have')
+                      = content_tag :span, "#{nstockitems}"
+                      = t('.text_of_this')
 
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'new_from_stockitems_help'
+                .row.article-edit.to-hide
+                  .col-xs-12
+                    = render 'form', article: article, url: create_from_stockitems_articles_path
 
 :javascript
   $(document).ready(function(){

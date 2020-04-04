@@ -1,77 +1,78 @@
 - @title = @article.title
 - @with_map = true
 
-.col-xs-12.col-sm-3
-  = tipp_panel do
-    = render 'show_help'
+.row
+  .col-xs-12.col-sm-3
+    = tipp_panel do
+      = render 'show_help'
 
-.col-xs-12.col-sm-9
-  %h3= @title
-  - unless @article.details == ""
-    .row.shareshore-panel
+  .col-xs-12.col-sm-9
+    %h3= @title
+    - unless @article.details == ""
+      .row.shareshore-panel
+        .col-xs-12
+          .p
+            %cite
+              = succeed '"' do
+                = precede '"' do
+                  = @article.details
+
+    .row
       .col-xs-12
-        .p
-          %cite
-            = succeed '"' do
-              = precede '"' do
-                = @article.details
-
-  .row
-    .col-xs-12
-      .row
-        .col-xs-9
-          = rate_marker(@article)
-          %br/
-          = location_marker @article.location
-          - if @current_location
-            %br/
-            %b
-              = t('articles.common.label_distance')
-              \:
-            = "%.1f km" % @article.location.distance_from( @current_location )
-          %br/
-          = user_marker(@article.user)
-
-      - unless ( current_user && current_user.id == @article.user.id ) # if not current user is owner
         .row
-          - unless @with_contact
-            -# show captcha
-            .col-xs-12
-              .shareshore-panel
-                %h4= t('.heading_contact_info')
-                = bootstrap_form_tag url: article_path(@article), method: :get do |f|
-                  = f.form_group do
-                    = recaptcha_tags
-                  = f.form_group do
-                    = f.submit t('.view_contact_details_button'), class: "btn btn-default"
-          - else
-            -# show contact form
-            .col-xs-12.col-lg-6
-              = render 'users/registrations/contact', user: @article.user, article: @article
+          .col-xs-9
+            = rate_marker(@article)
+            %br/
+            = location_marker @article.location
+            - if @current_location
+              %br/
+              %b
+                = t('articles.common.label_distance')
+                \:
+              = "%.1f km" % @article.location.distance_from( @current_location )
+            %br/
+            = user_marker(@article.user)
 
-            .col-xs-12.col-lg-6
-              = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
-                %h4= t('.heading_request', nickname: @article.user.nickname)
-              .clearfix.message-panel.to-hide
-                .send-message
-                  - request = UserArticleRequest.new({article: @article})
-                  = bootstrap_form_for request, remote: true, html: {class: "message_form"} do |f|
-                    = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
-                    = f.hidden_field :article_id
+        - unless ( current_user && current_user.id == @article.user.id ) # if not current user is owner
+          .row
+            - unless @with_contact
+              -# show captcha
+              .col-xs-12
+                .shareshore-panel
+                  %h4= t('.heading_contact_info')
+                  = bootstrap_form_tag url: article_path(@article), method: :get do |f|
                     = f.form_group do
-                      = f.submit t('.button_label_send_request')
-                .message-was-send{style: "display: none"}
-                  = t('.request_was_send')
-                  %div
-                    %strong
-                      = t('.text_read_the_guideline')
-                      #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
-                .waiting{style: "display: none"}
-                  = t('.waiting')
-                .error-msg{style: "display: none"}
+                      = recaptcha_tags
+                    = f.form_group do
+                      = f.submit t('.view_contact_details_button'), class: "btn btn-default"
+            - else
+              -# show contact form
+              .col-xs-12.col-lg-6
+                = render 'users/registrations/contact', user: @article.user, article: @article
 
-:javascript
-  $(document).ready(function() {
-    #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.location.articles}
+              .col-xs-12.col-lg-6
+                = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
+                  %h4= t('.heading_request', nickname: @article.user.nickname)
+                .clearfix.message-panel.to-hide
+                  .send-message
+                    - request = UserArticleRequest.new({article: @article})
+                    = bootstrap_form_for request, remote: true, html: {class: "message_form"} do |f|
+                      = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
+                      = f.hidden_field :article_id
+                      = f.form_group do
+                        = f.submit t('.button_label_send_request')
+                  .message-was-send{style: "display: none"}
+                    = t('.request_was_send')
+                    %div
+                      %strong
+                        = t('.text_read_the_guideline')
+                        #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
+                  .waiting{style: "display: none"}
+                    = t('.waiting')
+                  .error-msg{style: "display: none"}
 
-  });
+  :javascript
+    $(document).ready(function() {
+      #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.location.articles}
+
+    });
