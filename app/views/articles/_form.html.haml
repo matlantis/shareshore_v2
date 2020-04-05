@@ -9,6 +9,7 @@
 
   = f.collection_select(:rate, ArticlesHelper::RateModel.list, :model, :text, label: (Article.human_attribute_name('rate') + "(" + link_to("?", 'pages/rate') + ")").html_safe)
   = f.text_area :details, placeholder: Article.human_attribute_name("details")
+  = f.text_field :lent_description, placeholder: t('.lent_description_placeholder')
   = f.hidden_field :stockitem_id
   = f.form_group do
     = f.submit t('forms.finish')

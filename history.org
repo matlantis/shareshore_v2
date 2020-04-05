@@ -3,10 +3,21 @@
 
 * Shareshore V2 Todos
 ** Milestone: Frist Release
+*** TODO increase distance between edit icons for touch
+*** TODO verliehen feld einfuegen                                   :feature:
+*** TODO kontaktinformationen frei gestalten                        :feature:
+damit die leute zb nen facebook namen oder ähnliches angeben können
+dafür das telefon feld streichen
+- telefon feld drin lassen (für sms benachrichtigung)
+*** TODO get rid of Personen tab in search                          :feature:
+who needs it
+and think of showing people without articles
+*** TODO change users email address missing confirmation notification   :bug:
+*** TODO user disabled feld einfuegen                           :enhancement:
 *** TODO gdpr compliance                                                :bug:
 see email 
 Subject: Compliance test result for www.shareship.de
-*** TODO create Admin guide
+*** TODO create Admin guide                                            :code:
 **** create new template
 **** staging system
 falls Änderungen nötig sind
@@ -14,21 +25,12 @@ falls Änderungen nötig sind
 **** Artikel editieren/löschen
 **** Content review übersicht
 ** Primär
-*** TODO update rails
+*** TODO update rails                                                  :code:
 current is 5.1.?
 cant update because this breaks the search due to geocoder issue
 https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html
-*** TODO new users lead to signup not login
-*** TODO kontaktinformationen frei gestalten                        :feature:
-damit die leute zb nen facebook namen oder ähnliches angeben können
-dafür das telefon feld streichen
-- telefon feld drin lassen (für sms benachrichtigung)
-*** TODO change users email address missing confirmation notification
-*** TODO view messages and combine with article requests
-*** TODO get rid of Personen tab in search
-and think of showing people without articles
-*** TODO link hover in map popup looks terrifying
-*** TODO houses#show überarbeiten
+*** TODO new users lead to signup not login                             :bug:
+*** TODO view messages and combine with article requests            :feature:
 *** TODO hausübersicht schnell verfúgbar                        :enhancement:
 zB von der Suche aus
 nur eigene Hausübersicht anzeigen, dh den link im Profil von anderen rausschmeißen
@@ -42,8 +44,6 @@ edit link geht nicht mehr
 eventuell ganz weglassen
 *** TODO admin und developer howtos anlegen                            :code:
 *** TODO rework mobile design                                         :minor:
-*** TODO code clean up                                                 :code:
-there is a bunch of old code in the code
 *** TODO Anleitung was nach dem ersten Login zu tun ist             :feature:
 *** TODO App zur benachrichtigung auf dem smartphone                :feature:
 *** TODO SMS Benachrichtigung                                       :feature:

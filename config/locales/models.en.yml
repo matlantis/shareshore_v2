@@ -51,6 +51,7 @@ en:
         gratis: "For a smile"
         user: "Owner"
         location: "Location"
+        lent_description: "Lent"
       location:
         address: "Address"
         latitude: "Latitude"

@@ -54,6 +54,7 @@ de:
         gratis: "Für ein Lächeln"
         user: "Besitzer"
         location: "Standort"
+        lent_description: "Verliehen"
       location:
         address: "Adresse"
         latitude: "Breitengrad"

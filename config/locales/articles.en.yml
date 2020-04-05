@@ -14,6 +14,9 @@ en:
     article_view:
       delete_confirmation_question: "Do you really want to delete this thing?"
 
+    form:
+      lent_description_placeholder: "When and whom (only visible for you)"
+
     map:
       marker_your_location: "your location"
 

@@ -17,6 +17,7 @@ class Article < ApplicationRecord
   def init
     self.to_be_created = true
     self.rate ||= ArticlesHelper::RateModel.list_models[0]
+    self.lent_description ||= ""
   end
 
   def fill_from_stockitem(stockitem)

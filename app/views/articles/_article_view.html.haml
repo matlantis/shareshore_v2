@@ -14,6 +14,12 @@
             = edit_icons(article)
         .col-xs-12
           = rate_marker(article)
+      - if user_signed_in? && (current_user.id == article.user.id )
+        - if not article.lent_description.empty?
+          .row
+            .col-xs-12
+              .article-lent
+                = Article.human_attribute_name('lent_description') + ": " + article.lent_description
       .row
         .col-xs-12
           .article-description

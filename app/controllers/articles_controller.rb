@@ -59,18 +59,26 @@ class ArticlesController < ApplicationController
 
     details_need_review = params.key?(:details) && (not params[:details].empty?) && (params[:details] != @article.details)
     if details_need_review
-      unless content
-        content = ""
+      if content
+        content += "Details: " + params[:details]
       else
-        content += "\n"
+        content = "Details: " + params[:details]
       end
-      content += "Details: " + params[:details]
+    end
+
+    lent_description_need_review = params.key?(:lent_description) && (not params[:lent_description].empty?) && (params[:lent_description] != @article.lent_description)
+    if lent_description_need_review
+      if content
+        content += "Lent Description: " + params[:lent_description]
+      else
+        content = "Lent Description: " + params[:lent_description]
+      end
     end
 
     success = @article.update(params)
     respond_to do |format|
       if success
-        if title_need_review || details_need_review
+        if title_need_review || details_need_review || lent_description_need_review
           UserMailer.admin_content_review_notification_mail(content, article_url(@article)).deliver_now
         end
         format.js { render 'update_success' }
@@ -97,7 +105,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :details, :rate, :location_id, :stockitem_id)
+      params.require(:article).permit(:title, :details, :rate, :location_id, :stockitem_id, :lent_description)
     end
 
     # use to verify the article really belongs to the current user

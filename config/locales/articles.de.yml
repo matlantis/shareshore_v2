@@ -14,6 +14,9 @@ de:
     article_view:
       delete_confirmation_question: "Willst du diese Sache wirklich löschen?"
 
+    form:
+      lent_description_placeholder: "Wann und an wen (wird nur Dir angezeigt)"
+
     map:
       marker_your_location: "Dein Standort"
 
