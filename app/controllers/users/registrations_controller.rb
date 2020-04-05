@@ -118,7 +118,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :terms, location_attributes: [ :address],) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :firstname, :lastname, :phoneno, :email, :password, :password_confirmation, :current_password, :showemail, :showphone, :showname, :aboutme, location_attributes: [ :id, :address, :latitude, :longitude ]) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :email, :password, :password_confirmation, :current_password, :showemail, :aboutme, :contact, location_attributes: [ :id, :address, :latitude, :longitude ]) }
   end
 
   # The default url to be used after updating a resource. You need to overwrite

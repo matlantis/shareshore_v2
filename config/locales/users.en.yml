@@ -41,15 +41,15 @@ en:
         contact_info: "Contact Info"
         location_info: "Location Info"
         where_are_your_things: "Where are you living? Your address is visible for others, so they know where they can lend your things."
-        about_info: "About me"
         how_shall_people_get_in_contact_with_you: "How shall the people get in contact with you?"
         per_shareship: "Shareship"
         per_shareship_help: "Messages will be send to your email"
         per_email: "Email"
         per_email_help: "Your Email is shown"
-        per_phone: "Phone"
-        per_phone_help: "Your phone number is shown"
         write_a_few_nice_words: "Write a few friendly words about yourself to encourage people to contact you!"
+        how_to_reach_me: "Tell the people, how they can get in contact with you easily and quickly anyhow!"
+        contact_placeholder: "Your phone number, instant messenger, or what's written on your door bell ..."
+        no_contact_given: "You have not provided any further contact information"
 
       new:
         help_password_minimum_length: "at least %{length} letters"

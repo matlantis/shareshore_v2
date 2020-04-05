@@ -5,10 +5,6 @@
 ** Milestone: Frist Release
 *** TODO formular bedienung inkonsistent
 im profil sind die save buttons durch ein h'kchen ersetzt, ausserdem wird simple form verwendet.
-*** TODO kontaktinformationen frei gestalten                        :feature:
-damit die leute zb nen facebook namen oder ähnliches angeben können
-dafür das telefon feld streichen
-- telefon feld drin lassen (für sms benachrichtigung)
 *** TODO change users email address missing confirmation notification   :bug:
 *** TODO user disabled feld einfuegen                           :enhancement:
 *** TODO gdpr compliance                                                :bug:
@@ -21,6 +17,11 @@ falls Änderungen nötig sind
 **** User Editieren/Löschen
 **** Artikel editieren/löschen
 **** Content review übersicht
+*** DONE kontaktinformationen frei gestalten                        :feature:
+    CLOSED: [2020-04-05 So 17:26]
+damit die leute zb nen facebook namen oder ähnliches angeben können
+dafür das telefon feld streichen
+- telefon feld drin lassen (für sms benachrichtigung)
 *** DONE get rid of Personen tab in search                          :feature:
     CLOSED: [2020-04-05 So 15:54]
 who needs it

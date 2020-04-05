@@ -35,9 +35,7 @@ de:
         firstname: "Vorname"
         lastname: "Nachname"
         name: "Name"
-        phoneno: "Telefonnummer"
         showemail: "Email öffentlich anzeigen"
-        showphone: "Telefon öffentlich anzeigen"
         showname: "Name öffentlich anzeigen"
         password: "Passwort"
         password_confirmation: "Passwort bestätigen"
@@ -45,6 +43,7 @@ de:
         location: "Adresse"
         terms: "Allgemeine Geschäftsbedingungen und Datenschutzerklärung"
         aboutme: "Über mich"
+        contact: "Wie Du mich erreichst"
       article:
         title: "Name"
         details: "Bemerkung"

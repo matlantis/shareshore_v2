@@ -126,9 +126,8 @@ if false
     user_martin.password = 'martin'
     user_martin.password_confirmation = 'martin'
     user_martin.nickname = "martin"
-    user_martin.phoneno = ""
     user_martin.showemail = true
-    user_martin.showphone = false
+    user_martin.contact = "Hier meine Tel"
     user_martin.save!
 
     user_robert = User.new
@@ -136,9 +135,8 @@ if false
     user_robert.password = 'robert'
     user_robert.password_confirmation = 'robert'
     user_robert.nickname = "robert"
-    user_robert.phoneno = ""
     user_robert.showemail = true
-    user_robert.showphone = false
+    user_robert.contact = "einfach klingeln"
     user_robert.save!
 
     # users need locations

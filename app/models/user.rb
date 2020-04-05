@@ -13,7 +13,6 @@ class User < ApplicationRecord
 
   validates :nickname, uniqueness: true, length: { minimum: 1, maximum: 50 }
   validates :location, presence: true
-  validates :phoneno, format: { with: /\A[a-zA-Z0-9\- ]*\z/ }
   validates :private_uuid, uniqueness: true, format: { with: /[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/ }
   validates :public_uuid, uniqueness: true, format: { with: /[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}/ }
   validates :terms, acceptance: true
@@ -22,8 +21,8 @@ class User < ApplicationRecord
     self.private_uuid ||= SecureRandom.uuid
     self.public_uuid ||= SecureRandom.uuid
     self.showemail ||= false
-    self.showphone ||= false
     self.location ||= Location.new
+    self.contact ||= ""
   end
 
   def articles

@@ -16,8 +16,6 @@ en:
               not_geocoded: "not found"
             nickname:
               invalid: "allows only numbers, letters, as well as '.' and '-'"
-            phoneno:
-              invalid: "allows only numbers, as well as '-' and ' '"
             current_password:
               blank: "is needed"
               invalid: "does not match"

@@ -10,9 +10,9 @@
     .col-xs-12
       = mail_to user.email, user.email, subject: mail_subject_user_message(article, current_user)
       - anycontact = true
-  - unless user.phoneno.blank? || !(user.showphone)
+  - unless user.contact.blank?
     .col-xs-12
-      = user.phoneno
+      = user.contact
       - anycontact = true
   - unless anycontact
     .col-xs-12

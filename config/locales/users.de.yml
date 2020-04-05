@@ -38,15 +38,15 @@ de:
         contact_info: "Kontaktinformationen"
         location_info: "Standortinformationen"
         where_are_your_things: "Wo wohnst du? Deine Adresse ist für andere sichtbar, damit sie wissen, wo sie deine Sachen ausleihen können."
-        about_info: "Über mich"
         how_shall_people_get_in_contact_with_you: "Wie sollen die Leute dich kontaktieren?"
         per_shareship: "Shareship"
         per_shareship_help: "Nachrichten werden an deine Email weitergeleitet"
         per_email: "Email"
         per_email_help: "Deine Email wird angezeigt"
-        per_phone: "Telefon"
-        per_phone_help: "Deine Telefonnummer wird angezeigt"
         write_a_few_nice_words: "Schreibe ein paar freundliche Worte, die Dich beschreiben, um Leute zu ermutigen, dich zu kontaktieren!"
+        how_to_reach_me: "Beschreibe den Leuten, wie sie dich außerdem schnell und einfach erreichen können!"
+        contact_placeholder: "Deine Telefonnummer, Dein Instant Messenger, oder was auf deiner Klingel steht ..."
+        no_contact_given: "Du hast keine weiteren Kontaktinformationen angegeben"
 
       guidepost:
         tipp_panel_text: "Hier erfährst du nach der Anmeldung, was du als nächstes tun solltest."

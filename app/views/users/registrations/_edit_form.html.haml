@@ -139,30 +139,25 @@
             = t('.per_email')
             .help-block
               = t('.per_email_help')
-        .checkbox
-          %label
-            - if resource.showphone
-              .glyphicon.glyphicon-ok.contact_field.checkbox-icon
-            - else
-              .glyphicon.glyphicon-remove.contact_field.checkbox-icon
-            = f.check_box :showphone, class: ["contact_field", "to-hide"]
-            = t('.per_phone')
-            .help-block
-              = t('.per_phone_help')
-    .form-group
-      .col-xs-3
-        = f.label :phoneno, class: "control-label"
-      .col-xs-9.contact_field
-        .radio
-          = resource.phoneno
-      .col-xs-9.contact_field.to-hide
-        = f.text_field :phoneno, class: 'form-control'
 
+    .form-group
+      .col-xs-12
+        = t(".how_to_reach_me")
+
+    .form-group
+      .col-xs-12.contact_field
+        %cite
+          - if resource.contact.blank?
+            = t(".no_contact_given")
+          - else
+            = resource.contact
+      .col-xs-12.contact_field.to-hide
+        = f.text_area :contact, placeholder: t(".contact_placeholder"), class: 'form-control'
 
   = simple_form_for(resource, remote: true, url: registration_path(resource_name), as: resource_name, html: { method: :put, class: "form-horizontal", id: :aboutme_form}) do |f|
     .form-group
       .col-xs-12
-        %h4= t(".about_info")
+        %h4= User.human_attribute_name("aboutme")
       .col-xs-10
         = t(".write_a_few_nice_words")
       .col-xs-2.aboutme_field.text-right

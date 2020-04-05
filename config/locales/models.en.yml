@@ -32,9 +32,7 @@ en:
         firstname: "First name"
         lastname: "Last name"
         name: "Name"
-        phoneno: "Phone number"
         showemail: "Show email publicly"
-        showphone: "Show phone publicly"
         showname: "Show name publicly"
         password: "password"
         password_confirmation: "Password confirmatino"
@@ -42,6 +40,7 @@ en:
         location: "Address"
         terms: "Terms of Use and Privacy Declaration"
         aboutme: "About me"
+        contact: "How to reach me"
       article:
         title: "Name"
         details: "Remark"
