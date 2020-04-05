@@ -110,6 +110,7 @@ module ApplicationHelper
     if user_signed_in? && (current_user.id == item.user.id)
       txt1 = link_to("", "", class: "glyphicon glyphicon-pencil edit-remove mp-toggle-visibility", data: { toggle_target: "#article-#{item.id}-div .article-edit", toggle: "tooltip"} , title: t('button.edit') )
       txt2 = link_to("", item, method: :delete, data: { confirm: t(".delete_confirmation_question") }, class: "glyphicon glyphicon-remove edit-remove", data_toggle: "tooltip", title: t('button.remove'), remote: true)
+      txt1.concat(" ")
       txt1.concat(txt2)
     end
   end
