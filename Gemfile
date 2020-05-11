@@ -74,7 +74,7 @@ gem 'devise'
 
 gem 'geocoder'
 
-gem 'mini_magick', '3.8.0' # for creating thumbs
+gem 'mini_magick', '4.9.4' # for creating thumbs
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'autoprefixer-rails'
