@@ -3,6 +3,8 @@
 
 * Shareshore V2 Todos
 ** Milestone: Frist Release
+*** TODO ich glaub die userreply messages gehen nicht mehr
+weil mailgun sein setup vergessen hat
 *** TODO formular bedienung inkonsistent
 im profil sind die save buttons durch ein h'kchen ersetzt, ausserdem wird simple form verwendet.
 *** TODO change users email address missing confirmation notification   :bug:
