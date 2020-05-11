@@ -42,30 +42,6 @@
       - else
         .col-xs-12.col-lg-6
           = render 'contact', user: @user
-        .col-xs-12.col-lg-6
-          %h4
-            = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
-              = t('.heading_message', nickname: @user.nickname)
-          .message-panel.to-hide
-            - if user_signed_in?
-              .send-message
-                - message = Message.new({receiver: @user})
-                = bootstrap_form_for message, remote: true, html: {class: "message_form"} do |f|
-                  = f.alert_message t('common.message_fix_errors')
-                  = f.text_area :text, placeholder: t('.placeholder_message_text'), hide_label: true
-                  = f.hidden_field :receiver_id
-                  = f.form_group do
-                    = f.submit t('.button_label_send_message')
-              .message-was-send{style: "display: none"}
-                = t('.message_was_send')
-              .waiting{style: "display: none"}
-                = t('.waiting')
-              .error-msg{style: "display: none"}
-            - else
-              .col-xs-6
-                = t('.text_only_signed_up_users')
-              .col-xs-6.text-right
-                = link_to t('titles.users.sessions.new'), new_user_session_path, class: "btn btn-default"
 
     .row
       .col-xs-12.text-center.shareshore-panel

@@ -50,27 +50,6 @@
               .col-xs-12.col-lg-6
                 = render 'users/registrations/contact', user: @article.user, article: @article
 
-              .col-xs-12.col-lg-6
-                = link_to '#', class: 'mp-toggle-visibility', data: { toggle_target: '.message-panel' } do
-                  %h4= t('.heading_request', nickname: @article.user.nickname)
-                .clearfix.message-panel.to-hide
-                  .send-message
-                    - request = UserArticleRequest.new({article: @article})
-                    = bootstrap_form_for request, remote: true, html: {class: "message_form"} do |f|
-                      = f.text_area :text, placeholder: t('.placeholder_request_text'), hide_label: true
-                      = f.hidden_field :article_id
-                      = f.form_group do
-                        = f.submit t('.button_label_send_request')
-                  .message-was-send{style: "display: none"}
-                    = t('.request_was_send')
-                    %div
-                      %strong
-                        = t('.text_read_the_guideline')
-                        #{link_to t('titles.pages.guideline'), '/pages/guideline'}.
-                  .waiting{style: "display: none"}
-                    = t('.waiting')
-                  .error-msg{style: "display: none"}
-
   :javascript
     $(document).ready(function() {
       #{render 'articles/map_show.js.erb', houses: [@article.location.house], articles: @article.location.articles}

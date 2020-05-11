@@ -124,13 +124,6 @@
       .col-xs-12
         .checkbox
           %label
-            .glyphicon.glyphicon-ok.contact_field.checkbox-icon
-            = check_box_tag :pershareship, 'yes', true, disabled: true, class: ["contact_field", "to-hide"]
-            = t(".per_shareship")
-            .help-block
-              = t(".per_shareship_help")
-        .checkbox
-          %label
             - if resource.showemail
               .glyphicon.glyphicon-ok.contact_field.checkbox-icon
             - else
