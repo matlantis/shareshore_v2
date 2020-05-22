@@ -1,0 +1,9 @@
+%h3 Bilde Dein Netzwerk
+
+%p
+  Du bist in deiner Nachbarschaft der erste auf Shareship? Dann wird es Zeit ein bisschen die Werbetrommel zu schlagen. Lade dir unseren Flyer runter, drucke ihn aus und wirf ihn in die Briefkästen deiner Nachbarn.
+
+= link_to image_url('flyer_printsheet.pdf') do
+  -# = image_tag 'flyer.jpg', class: "img-responsive", alt: "download flyer", border: '1px', style: 'border: 1px;'
+  -# = image_tag 'flyer.jpg', class: "img-responsive", alt: "download flyer", border: '1px'
+  = image_tag 'flyer.jpg', class: "img-responsive", alt: "download flyer", style: 'border: 1px solid;'

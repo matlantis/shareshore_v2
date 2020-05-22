@@ -16,6 +16,12 @@
               %span{class: "glyphicon glyphicon-search"}
               = t("titles.searches.new")
       %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %strong= t('.menu_support')
+            %b.caret
+          %ul.dropdown-menu{role: "menu"}
+            %li= link_to t('titles.pages.flyer'), '/pages/flyer'
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
